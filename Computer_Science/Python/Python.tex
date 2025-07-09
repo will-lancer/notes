@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{william}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03} % give a little extra room
+\setlength{\parindent}{0.2in} % reduce paragraph indent a bit
+\setcounter{secnumdepth}{2} % no numbered subsubsections
+\setcounter{tocdepth}{2} % no subsubsections in ToC
+
+\begin{document}
+
+% make title page
+\thispagestyle{empty}
+\bigskip \
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{22}{22} \selectfont Lecture Notes on}
+\vskip 16pt
+{\fontsize{36}{36} \selectfont \bf \sffamily Python}
+\vskip 24pt
+{\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
+\vskip 6pt
+{\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com} 
+\vskip 24pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Notes on Python
+
+% make table of contents
+\newpage
+\microtoc
+\newpage
+
+% main content
+\section{NumPy}
+
+\begin{itemize}
+    \item \verb|numpy| is a library used to deal with matrices.
+    \item There are two broad distinctions here: creating arrays
+    and manipulating arrays.
+    \item The two most common applications of creating arrays is range-based
+    filling and random-based filling. You execute these respectively
+    by \verb|np.arange(start, stop + 1)| and \verb|np.random.(...)|.
+    \item Next is manipulating arrays. Numpy is built to make this intuitive,
+    so your intuition should be enough to manipulate arrays just fine.
+\end{itemize}
+
+\section{Pandas}
+
+\begin{itemize}
+    \item Pandas is a library that gives us useful data structures to work
+    with. The most useful of these is the \vocab{DataFrame}.
+    \item DataFrames feel similar to Trees in ROOT. They are grids
+    of data, with named columns and numbered rows. A DataFrame takes in an
+    array and a list of column names to be created, so
+    \begin{verbatim}
+        df = pd.DataFrame(data=myData, columns=myColumns)
+    \end{verbatim}
+    \item You can access specific rows and columns of your DataFrame like
+    so. You can also access slices of the DataFrame if you'd like.
+    \begin{verbatim}
+        # Row
+        df.iloc[[rowNum]]
+        # Column
+        df['column name']
+        # Slice
+        df[start:stop]
+    \end{verbatim}
+    \item You may also copy DataFrames, either by reference or by copying.
+    Reference is what you think it is (will change both), and copying is just a
+    copy. You do them like so.
+    \begin{verbatim}
+        # By reference
+        referenceDf = df
+        # By copying
+        copyDf = df.copy()
+    \end{verbatim}
+\end{itemize}
+
+\end{document}

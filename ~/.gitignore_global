@@ -1,0 +1,51 @@
+# LaTeX files to ignore
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.xdv
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.xdv
+
+# LaTeX build directories
+_latexmk/
+*.auxlock
+
+# Keep PDFs (they will be tracked)
+# *.pdf is NOT included in this list
+
+# Common LaTeX editor files
+*.tex.bak
+*.tex~
+*.tex.swp
+*.tex.swo
+
+# BibTeX files (optional - uncomment if you want to ignore them)
+# *.bib
+
+# LaTeX packages and styles (optional - uncomment if you want to ignore them)
+# *.sty
+# *.cls 
