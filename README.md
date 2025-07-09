@@ -1,2 +1,2 @@
 # notes
-Notes that I've taken
+Notes that I've taken.
