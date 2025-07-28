@@ -1,2 +1,9 @@
 \babel@toc {american}{}\relax 
-\contentsline {section}{\numberline {1}NumPy}{3}{section.1}%
+\contentsline {section}{\numberline {1}SALT tutorial}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Fork, clone, and install Salt}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Install logger}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Train a subject-based tagger (finally!)}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Track-based taggers}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Tinkering with stuff}{6}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Evaluation}{6}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Making plots}{6}{subsection.1.7}%
