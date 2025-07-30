@@ -29,6 +29,7 @@
 *.vrb
 *.dvi
 *.xdv
+*.sty
 
 # LaTeX build directories
 _latexmk/
