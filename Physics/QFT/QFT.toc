@@ -1,0 +1,17 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Overview}{3}{section.1}%
+\contentsline {section}{\numberline {2}Relativistic Quantum Mechanics}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Symmetries}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Poincaré symmetry and the little group}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Lagrangian QM}{5}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Classical Field Theory}{5}{section.3}%
+\contentsline {section}{\numberline {4}Spin-0 QFTs}{5}{section.4}%
+\contentsline {section}{\numberline {5}Scattering}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The basics}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Symmetries of the $S$-matrix}{5}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The LSZ reduction}{5}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Analyticity properties of the $S$-matrix}{7}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Spin-$1/2$ QFTs}{7}{section.6}%
+\contentsline {section}{\numberline {7}Spin-$1$ QFTs}{7}{section.7}%
+\contentsline {section}{\numberline {8}Spin-$3/2$ QFTs}{7}{section.8}%
+\contentsline {section}{\numberline {9}Spin-$2$ QFTs}{7}{section.9}%

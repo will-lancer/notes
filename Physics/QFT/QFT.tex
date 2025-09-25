@@ -1,0 +1,322 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{william}
+\usepackage{tikz-cd}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03} % give a little extra room
+\setlength{\parindent}{0.2in} % reduce paragraph indent a bit
+\setcounter{secnumdepth}{2} % no numbered subsubsections
+\setcounter{tocdepth}{2} % no subsubsections in ToC
+
+\begin{document}
+
+% make title page
+\thispagestyle{empty}
+\bigskip \
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{22}{22} \selectfont Lecture Notes on}
+\vskip 16pt
+{\fontsize{36}{36} \selectfont \bf \sffamily QFT}
+\vskip 24pt
+{\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
+\vskip 6pt
+{\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com} 
+\vskip 24pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Resources used:
+\begin{itemize}
+    \item Xi Yin's 253ab courses. These lecture notes are the best
+    QFT resource on the planet. \note{add more; this is main resource
+    for these notes}
+    \item Steven Weinberg's two volumes.
+    \item Daniel Harlow's notes.
+    \item Sidney Coleman's QFT. A volume written by an absolute master
+    of the subject. Indeed, Weinberg said that he learned more QFT from Sidney
+    than from anyone else. \note{add more when you finish reading}
+    \item \emph{FIELDS} by Warren Siegel. \note{i am so conflicted about this
+    book bro}
+\end{itemize}
+We mostly follow Weinberg's notation, except where his notation sucks.
+
+% make table of contents
+\newpage
+\microtoc
+\newpage
+
+% main content
+
+\section{Overview}
+
+\note{overview things here; talk about how single-particle rel
+qm is inconsistent}
+
+\section{Relativistic Quantum Mechanics}
+
+We start by recalling the axioms of quantum mechanics\footnote{
+    Of course, there are different axioms than this that give
+    identical results. ``Axioms'' is really a misnomer; they're
+    just assumptions that let us build the rest of the theory.
+    There is nothing intrinsically fundamental about this set of
+    axioms as opposed to other ones.
+}:
+
+
+\begin{iidea}
+    [Axioms of quantum mechanics]
+    The axioms of quantum mechanics are:
+    \begin{itemize}
+        \item Quantum mechanical \vocab{states} are represented by \vocab{rays}
+        in a \vocab{Hilbert space}. We will denote Hilbert spaces by $\mathcal{H}$.
+        \item \vocab{Observables} are represented by self-adjoint operators on
+        our Hilbert space. Observed quantities are the eigenvalues of vectors in $\mathcal{H}$.
+        \item Let $\mathcal{R}$ be a ray. If $\mathcal{R}_1, \ldots, \mathcal{R}_n$ are a
+        set of mutually orthogonal rays, the probabilty of observing $\mathcal{R}$ in
+        $\mathcal{R}_i$ is
+        \begin{align*}
+            \mathbb{P}(\mathcal{R} \to \mathcal{R}_i) = | \braket{\psi}{\phi_i} |^2,
+        \end{align*}
+        where $\psi \in \mathcal{R}$ and $\phi_i \in \mathcal{R}_i$.
+    \end{itemize}
+\end{iidea}
+
+\noin
+Remarks:
+
+\begin{itemize}
+    \item Recall that rays are equivalence classes of kets up to
+    phase and normalization. Since this is an equivalence class,
+    WLOG we can choose our representative to be normalized.
+    \item Self-adjoint or Hermitian? \note{comment on this}
+    \item In our third axiom, we make reference to experiment.
+    How do we physically represent an experiment on our Hilbert space?
+    \note{good question}
+\end{itemize}
+
+The most important kinds of operators are operators that realize
+\emph{symmetry transformations} on our Hilbert space.
+
+\note{finish}
+
+\subsection{Symmetries}
+
+\note{add the normal ones, and then ps
+in the next section}
+
+\note{for whatever reason}, this continuity may also be found in the
+\emph{representation} of the symmetry.
+
+\subsection{Poincaré symmetry and the little group}
+Since we are doing relativistic quantum mechanics, let's
+see how the relativistic symmetry group acts on our Hilbert space.
+The Poincaré group in mostly-plus is given by
+\begin{align*}
+    \mathcal{P} = \reals^D \sdprod SO(D - 1, 1).
+\end{align*}
+Consider some Poincaré transformation $(\Lambda\indices{^\mu_\nu}, a^\mu)$.
+By Wigner's theorem, this is represented as a linear unitary operator on
+our Hilbert space; the group property is
+\begin{align*}
+    U(\Lambda, a) U(\bar{\Lambda}, \bar{a}) = U(\Lambda \bar{\Lambda}, \Lambda \bar{a} + a).
+\end{align*}
+Since the Poincaré group is a Lie group, things are continuous.
+Taylor-expanding $U(\Lambda, a)$ gives
+\begin{align*}
+    U(\Lambda, a) \simeq \delta^{\mu}_{\nu} - i a_\mu \widehat{\mathcal{P}} + \frac{i}{2} \omega_{\mu \nu} \widehat{J}^{\mu \nu}.
+\end{align*}
+The generators of $U(\Lambda, a)$ are very special: they are the
+four-momentum operator and the angular momentum/boost operator.
+Looking at $\widehat{J}^{\mu nu}$ gives
+\begin{align*}
+    \widehat{J}^{\mu \nu} = \begin{cases}
+        \note{put the boost angular momentum ops here}
+    \end{cases}
+\end{align*}
+\note{talk about general properties of $U(\Lambda)$ here first}
+We would like to see how $U(\Lambda, a)$ acts on our states now.
+Choose our states to be labeled as $\ket{\bfk, \sigma}$, where
+$\bfk$ is our spatial momentum and $\sigma$ is some set of internal
+degrees of freedom (which have not yet been specified). Note that
+we may well use $\ket{k, \sigma}$ instead of $\ket{\bfk, \sigma}$,
+but I like $\ket{\bfk, \sigma}$ more because it shows that these
+particles are all on-shell (as $k^0 = \sqrt{|\bfk|^2 + m^2}$ here).
+This basis diagonalizes translations, i.e.
+\begin{align*}
+    U(0, a) \ket{\bfk, \sigma} = e^{- i \widehat{\mathcal{P}} a} \ket{\bfk, \sigma} = e^{-i k a} \ket{\bfk, \sigma}.
+\end{align*}
+Let us now study how Lorentz transformations act on these states.
+Define an arbitrary ket state as
+\begin{align*}
+    \ket{\bfk, \sigma} \coloneqq N(\bfk) U(L(\bfk)) \ket{\bfk_R, \sigma},
+\end{align*}
+where $\bfk_R$ is a given \vocab{reference momentum}\footnote{This will
+be specific to the kinds of particles you are talking about, e.g.
+$k_R = (E, 0, 0, E)$ is a reference momentum for the massless little
+group in $D = 4$.}, $L(\bfk)$ is just some Lorentz transformation 
+that takes $\bfk_R \xrightarrow{L(\bfk)} \bfk$, and $N(\bfk)$
+a normalization factor to be determined. Consider some $U(\Lambda)$
+for arbitrary $\Lambda$. We have
+\begin{align*}
+    U(\Lambda) \ket{\bfk, \sigma} & = N(\bfk) U(\Lambda) U(L(\bfk)) \ket{\bfk_R, \sigma}\\
+    & = N(\bfk) N(\boldsymbol{\Lambda k})^{-1} U(L(\boldsymbol{\Lambda k})) U(\underbrace{L(\boldsymbol{\Lambda k})^{-1} \Lambda L(\bfk))}_{W}) \ket{\bfk_R, \sigma}.
+\end{align*}
+Look at $W$. The following diagram commutes:
+\[
+    \begin{tikzcd}[column sep=large, row sep=large]
+    \bfk_R \arrow[r, "\,L(\bfk)\,"] \arrow[rrd, "\,W\,"'] & \bfk \arrow[r, "\,\Lambda\,"] & \boldsymbol{\Lambda k} \arrow[d, "\,L(\boldsymbol{\Lambda k})^{-1}\,"] \\
+    & & \bfk_R
+    \end{tikzcd}
+\]
+Thus $W$ fixes $\bfk_R$. The set of $W$'s forms a group called the
+\vocab{little group} for our specific case (e.g. massless $D = 4$,
+massive $D = 3$, etc.). Thus $U(W)$ must be a linear combination of
+$\ket{\bfk_R, \sigma'}$ vectors, which we can write as
+\begin{align*}
+    U(W) \ket{\bfk_R, \sigma} = \sum_{\sigma'} D_{\sigma \sigma'}(W) \ket{\bfk_R, \sigma'}.
+\end{align*}
+Notice that $D(W_1 W_2) = D(W_2) D(W_1)$, as we can see from the definition.
+We now determine the normalization from orthogonality. Consider \note{finish}
+Putting this all together, we have that
+\begin{align*}
+    \boxed{U(\Lambda)\ket{\bfk, \sigma} = \sqrt{\frac{\omega_{\boldsymbol{\Lambda k}}}{\omega_{\bfk}}}\sum_{\sigma \sigma'} D_{\sigma \sigma'}(W(\bfk)) \ket{\boldsymbol{\Lambda \bfk}, \sigma'}.}
+\end{align*}
+\note{why does this hold for multiparticle states? I think because they
+are diff vectors, so doesn't matter; can use raising and lowering ops i think}
+\begin{align*}
+    \boxed{U(\Lambda, a)\ket{\bfk_1, \sigma_1; \bfk_2, \sigma_2; \ldots ; \bfk_n, \sigma_n}
+    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma \sigma'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1', \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
+\end{align*}
+This will be useful when we talk about scattering later.
+
+\subsection{Lagrangian QM}
+
+Now we'll get into Lagrangian QM, which naturally introduces
+the path integral and accompanying ideas (regularization, renormalization,
+etc.).
+
+\begin{iidea}
+    [The path integral]
+    Let $\bra{q_f}$ and $\ket{q_i}$ respectively be final
+    and initial position eigenstates. Call the time-translation
+    operator for a time $T$, $U(T)$. \note{finish}
+\end{iidea}
+
+\note{add lagrangian qm; reg, renorm, path integral derivation;
+add exercises from yin and weinberg here too}
+
+\section{Classical Field Theory}
+
+\section{Spin-0 QFTs}
+
+\section{Scattering}
+
+\subsection{The basics}
+
+\subsection{Symmetries of the $S$-matrix}
+
+\subsection{The LSZ reduction}
+
+\begin{reemark}
+    [On our derivation]
+    For the LSZ reduction, we follow Haag and Ruelle by way of Yin.
+    You may see his lecture notes on this from 253a linked on the
+    first page of these notes.
+
+    We will purposefully state many approximate results. One can get true equalities
+    here, but the derivation is much more obtuse, so we will stick to our wave
+    packets. Also, everything is basically the same anyways, so I don't care.
+\end{reemark}
+
+The goal of the LSZ reduction is to write our in and out
+states in terms of our field operators, thus giving us a
+connection between the $S$-matrix and perturbation theory.
+A priori, there is no connection here to speak about---indeed, 
+the LSZ reduction is \textbf{the most important
+result in all of quantum field theory}.
+
+We begin by defining a ``smeared field operator'' via
+\begin{align*}
+    \widehat{\phi}_f = \int d^D x \, f(x) \widehat{\phi}(x).
+\end{align*}
+We assume our smearing function's Fourier transform is supported 
+near the mass shell:
+\begin{align*}
+    \tilde{f}(k) \neq 0 \xleftrightarrow{\: \: \: \: \approx \: \: \: \:} k^2 + m^2 = 0.
+\end{align*}
+How do we talk about ``moving fields''? This is something we
+would like, as our in and out states are assumed to be asymptotically
+free; you can't get to an asympototic if you can't move anywhere. 
+Consider the following transformation on $f$:
+\begin{align*}
+    f(k) \mapsto f^{(T)}(k) \text{ by } f^{(T)}(k) = e^{i(k^0 - \omega_\bfk)T} f(k).
+\end{align*}
+How does this transformation act on our field operators?
+\note{add wave equation part here}
+Furthermore, the support of $\tilde{f}$ kills the
+multi-particle contribution of $\widehat{\phi}_{f} \ket{\Omega}$.
+Recall
+\begin{align*}
+    \widehat{\phi}(x) \ket{\Omega} & = \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
+    + \int_{\rm m.p.} d\alpha \, e^{-ip_\alpha x} \, \mathcal{Z}^{\rm eff}_{\alpha} \ket{\alpha}
+\end{align*}
+Applying the definition of $\widehat{\phi}_f$ and taking the inverse 
+Fourier transform of $f$ gives
+\begin{align*}
+    \widehat{\phi}_f \ket{\Omega} & = \int d^D x \, \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
+    + \int d^D x \int_{\rm m.p.} d\alpha \, e^{-ip_\alpha x} \, \mathcal{Z}^{\rm eff}_{\alpha} \ket{\alpha}\\
+    & = \int \dbar^{D - 1} \bfk \, \tilde{f}(\bfk, \omega_\bfk)\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk} + 0
+\end{align*}
+\note{explain why T transformation doesn't do anything}Thus,
+\begin{align*}
+    \boxed{\widehat{\phi}_f \ket{\Omega} \approx \widehat{\phi}_{f^{(T)}} \ket{\Omega}.}
+\end{align*}
+The intuition behind this is that ``there are a lot more operators than
+states''. Thus we may define our states as
+\begin{align*}
+    \ket{\phi_{f_1}, \ldots, \phi_{f_n}} \coloneqq \widehat{\phi}_{f_n} \cdots \widehat{\phi}_{f_1} \ket{\Omega}.
+\end{align*}
+Thus, by taking inner products of our states, we may get the $S$-matrix
+in terms of field operators acting on the vaccuum. We have \note{add $T$
+variables on all of these guys below}
+
+\subsection{Analyticity properties of the $S$-matrix}
+
+\note{my goat xi yin}
+
+\note{unitarity bounds too?}
+
+\section{Spin-$1/2$ QFTs}
+
+\section{Spin-$1$ QFTs}
+
+\section{Spin-$3/2$ QFTs}
+
+\section{Spin-$2$ QFTs}
+
+\note{maybe I should find a better organization scheme for this;
+this is nice tho}
+
+
+\end{document}
