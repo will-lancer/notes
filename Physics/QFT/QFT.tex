@@ -144,7 +144,7 @@ our Hilbert space; the group property is
 Since the Poincaré group is a Lie group, things are continuous.
 Taylor-expanding $U(\Lambda, a)$ gives
 \begin{align*}
-    U(\Lambda, a) \simeq \delta^{\mu}_{\nu} - i a_\mu \widehat{\mathcal{P}} + \frac{i}{2} \omega_{\mu \nu} \widehat{J}^{\mu \nu}.
+    U(\Lambda, a) \simeq \delta^{\mu}_{\nu} - i a_\mu \widehat{\mathcal{P}}^\mu + \frac{i}{2} \omega_{\mu \nu} \widehat{J}^{\mu \nu}.
 \end{align*}
 The generators of $U(\Lambda, a)$ are very special: they are the
 four-momentum operator and the angular momentum/boost operator.
@@ -154,33 +154,36 @@ Looking at $\widehat{J}^{\mu \nu}$ gives
         \note{put the boost angular momentum ops here}
     \end{cases}
 \end{align*}
-\note{talk about general properties of $U(\Lambda)$ here first}
-We would like to see how $U(\Lambda, a)$ acts on our states now.
+\note{continue talking about the general properties of the
+operators here}
+We would now like to see how $U(\Lambda, a)$ acts on our states.
 Choose our states to be labeled as $\ket{\bfk, \sigma}$, where
 $\bfk$ is our spatial momentum and $\sigma$ is some set of internal
 degrees of freedom (which have not yet been specified). Note that
 we may well use $\ket{k, \sigma}$ instead of $\ket{\bfk, \sigma}$,
 but I like $\ket{\bfk, \sigma}$ more because it shows that these
 particles are all on-shell (as $k^0 = \sqrt{|\bfk|^2 + m^2}$ here).
-This basis diagonalizes translations, i.e.
+First note that this basis diagonalizes translations, i.e.
 \begin{align*}
     U(0, a) \ket{\bfk, \sigma} = e^{- i \widehat{\mathcal{P}} a} \ket{\bfk, \sigma} = e^{-i k a} \ket{\bfk, \sigma}.
 \end{align*}
-Let us now study how Lorentz transformations act on these states.
-Define an arbitrary ket state as
+Indeed, this is one of the reasons we chose our states to be labeled
+by momentum eigenvalues; they are conserved under translations. Let us
+now study how Lorentz transformations act on these states. Define an 
+arbitrary ket state as
 \begin{align*}
-    \ket{\bfk, \sigma} \coloneqq N(\bfk) U(L(\bfk)) \ket{\bfk_R, \sigma},
+    \ket{\bfk, \sigma} \coloneqq \mathcal{N}(\bfk) U(L(\bfk)) \ket{\bfk_R, \sigma},
 \end{align*}
 where $\bfk_R$ is a given \vocab{reference momentum}\footnote{This will
 be specific to the kinds of particles you are talking about, e.g.
 $k_R = (E, 0, 0, E)$ is a reference momentum for the massless little
 group in $D = 4$.}, $L(\bfk)$ is just some Lorentz transformation 
-that takes $\bfk_R \xrightarrow{L(\bfk)} \bfk$, and $N(\bfk)$
+that takes $\bfk_R \xrightarrow{L(\bfk)} \bfk$, and $\mathcal{N}(\bfk)$
 a normalization factor to be determined. Consider some $U(\Lambda)$
 for arbitrary $\Lambda$. We have
 \begin{align*}
-    U(\Lambda) \ket{\bfk, \sigma} & = N(\bfk) U(\Lambda) U(L(\bfk)) \ket{\bfk_R, \sigma}\\
-    & = N(\bfk) N(\boldsymbol{\Lambda k})^{-1} U(L(\boldsymbol{\Lambda k})) U(\underbrace{L(\boldsymbol{\Lambda k})^{-1} \Lambda L(\bfk))}_{W}) \ket{\bfk_R, \sigma}.
+    U(\Lambda) \ket{\bfk, \sigma} & = \mathcal{N}(\bfk) U(\Lambda) U(L(\bfk)) \ket{\bfk_R, \sigma}\\
+    & = \mathcal{N}(\bfk) \mathcal{N}(\boldsymbol{\Lambda k})^{-1} U(L(\boldsymbol{\Lambda k})) U(\underbrace{L(\boldsymbol{\Lambda k})^{-1} \Lambda L(\bfk))}_{W}) \ket{\bfk_R, \sigma}.
 \end{align*}
 Look at $W$. The following diagram commutes:
 \[
@@ -206,7 +209,7 @@ Putting this all together, we have that
 are diff vectors, so doesn't matter; can use raising and lowering ops i think}
 \begin{align*}
     \boxed{U(\Lambda, a)\ket{\bfk_1, \sigma_1; \bfk_2, \sigma_2; \ldots ; \bfk_n, \sigma_n}
-    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma_i \sigma_i'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1', \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
+    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma_i \sigma_i'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1, \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
 \end{align*}
 This will be useful when we talk about scattering later.
 
