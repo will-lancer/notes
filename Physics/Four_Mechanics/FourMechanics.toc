@@ -15,6 +15,8 @@
 \contentsline {subsection}{\numberline {2.4}Magnetostatics}{15}{subsection.2.4}%
 \contentsline {subsubsection}{Vacuum}{15}{section*.6}%
 \contentsline {subsection}{\numberline {2.5}Electrodynamics}{15}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Retarded potentials}{15}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Waves}{15}{subsection.2.7}%
 \contentsline {section}{\numberline {3}Statistical Mechanics}{16}{section.3}%
 \contentsline {subsubsection}{Core ideas; the microscopic picture}{16}{section*.7}%
 \contentsline {section}{\numberline {4}Quantum Mechanics}{17}{section.4}%

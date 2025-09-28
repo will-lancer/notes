@@ -1,0 +1,2 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Commutative rings}{3}{section.1}%

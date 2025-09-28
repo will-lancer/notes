@@ -8,8 +8,8 @@
 \contentsline {section}{\numberline {4}Spin-0 QFTs}{5}{section.4}%
 \contentsline {section}{\numberline {5}Scattering}{5}{section.5}%
 \contentsline {subsection}{\numberline {5.1}The basics}{5}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Symmetries of the $S$-matrix}{5}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The LSZ reduction}{5}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.2}Symmetries of the $S$-matrix}{6}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The LSZ reduction}{6}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Analyticity properties of the $S$-matrix}{7}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Spin-$1/2$ QFTs}{7}{section.6}%
 \contentsline {section}{\numberline {7}Spin-$1$ QFTs}{7}{section.7}%

@@ -49,13 +49,6 @@ These are notes on the ``Four Mechanics'': classical
 mechanics, classical electrodynamics, statistical mechanics, and
 quantum mechanics. These are meant to be review notes
 for myself, and aren't meant to be learned from.
-
-I created these notes from scratch, so all explanations are my own.
-As such, expect idiosyncrasies.
-
-
-
-
 Resources used:
 \begin{itemize}
     \item Classical mechanics:
@@ -413,7 +406,7 @@ The Lagrangian for electromagnetism is
 \end{align*}
 This may be recast into relativistic notation in the form of
 \begin{align*}
-    \mathcal{L} = - \underbrace{\frac{1}{4} F_{\mu \nu} F^{\mu \nu}}_{\rm fields} + \underbrace{A_{\mu} J^{\mu}}_{\rm interaction}.
+    \mathcal{L} = - \underbrace{\frac{1}{4} F_{\mu \nu} F^{\mu \nu}}_{\rm fields} - \underbrace{A_{\mu} J^{\mu}}_{\rm interaction}.
 \end{align*}
 Note that you can also get the Lorentz force law by adding
 the kinetic term $(1/2)m|\dot{\bfr}|^2$ to $\el$.
@@ -432,18 +425,18 @@ gives $\partial_\mu J^\mu = 0$, which is continuity.
     [Maxwell's equations]
     Writing out $\el$ more explicitly gives
     \begin{align*}
-        \el = - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)^2 + A_\mu J^\mu.
+        \el = - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)^2 - A_\mu J^\mu.
     \end{align*}
     Considering each term in the ELE gives
     \begin{align*}
         \pd{\el}{(\partial_\alpha A_\beta)} & = - \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu) 
         (\delta^\alpha_\mu \delta^\beta_\nu - \delta^\alpha_\nu \delta^\beta_\mu)
         = - (\partial^\alpha A^\beta - \partial^\beta A^\alpha) = - F^{\alpha \beta},\\
-        \pd{\el}{A_\beta} & = \delta^\beta_\mu J^\mu = J^\beta.
+        \pd{\el}{A_\beta} & = - \delta^\beta_\mu J^\mu = - J^\beta.
     \end{align*}
     So the ELE are
     \begin{align*}
-        \boxed{\partial_\mu F^{\mu \nu} = - J^\nu.}
+        \boxed{\partial_\mu F^{\mu \nu} = J^\nu.}
     \end{align*}
     Writing this equation out in components gives the inhomogeneous ME,
     \begin{align*}
@@ -483,7 +476,7 @@ gives $\partial_\mu J^\mu = 0$, which is continuity.
     Let's cover this again from the language of forms.
     Define the one-form
     \begin{align*}
-        A \coloneqq \Phi \, dt - A_i \, dx^i.
+        A \coloneqq - \Phi \, dt + A_i \, dx^i.
     \end{align*}
     Then $F = dA$ gives
     \begin{align*}
@@ -495,12 +488,12 @@ gives $\partial_\mu J^\mu = 0$, which is continuity.
     \end{align*}
     The Lagrangian for this system is then
     \begin{align*}
-        \el = - \frac{1}{2} F \wedge \star F + A \wedge \star J.
+        \el = - \frac{1}{2} F \wedge \star F - A \wedge \star J.
     \end{align*}
     Demanding $\delta S = 0$ to first-order and using the fact that
     $d$ and $\delta$ commute gives the inhomogeneous ME,
     \begin{align*}
-        \boxed{d \star F = - \star J} \iff \partial_\mu F^{\mu \nu} = - J^\nu.
+        \boxed{d \star F = \star J} \iff \partial_\mu F^{\mu \nu} = J^\nu.
     \end{align*}
     Using the fact that $d^2 = 0$ gives the homogeneous ME,
     \begin{align*}
@@ -664,6 +657,7 @@ of ``free-field'' $+$ ``boundary terms''.
 
 \begin{reemark}
     [More general boundary conditions]
+    \note{check this}
     You may wonder how the Green's function would be specified in the
     case of Robin boundary conditions (linear combinations of Dirichlet
     and Neumann BC), or other more exotic boundary conditions. Here is the general
@@ -770,6 +764,12 @@ equation}.
     \end{itemize}
 \end{iidea}
 
+\begin{iidea}
+    [Eigenfunction expansion]
+    \note{talk about more general eigenfunction expansion here;
+    delete the previous section in the laplace's equation idea}
+\end{iidea}
+
 \subsubsection{Dielectric media}
 
 \begin{reemark}
@@ -835,23 +835,31 @@ We are going to be quick here, because a lot of this is review from
 electrostatics. Solving Poisson's equation via Green's function
 methods gives
 \begin{align*}
-    G(\bfx, \bfx') = \frac{1}{4\pi} \frac{1}{|\bfx - \bfx'|}, 
+    G(\bfx, \bfx') = \frac{1}{|\bfx - \bfx'|}, 
 \end{align*}
 so our vector potential is
 \begin{align*}
     \boxed{\mathbf{A} = \frac{\mu_0}{4\pi} \int d^3 \bfx' \, \frac{\mathbf{J}(\bfx')}{|\bfx - \bfx'|}.}
 \end{align*}
-The approximation schemes for the vector potential are slightly
-harder.
+The approximation schemes for the vector potential are significantly
+harder, as we're now dealing with a vector instead of a scalar.
 
-\note{I need to really recreate things from scratch, not just
-do it kinda and then be like ``yeah I guess we can do this, but whatever''}
+\note{talk about vector spherical harmonics here}
 
 
 \subsection{Electrodynamics}
 
-\note{TBD}
+So far we've assumed that our fields are not time-dependent.
+This is not a realistic assumption for most purposes, so now
+we introduce time-dependence. The good thing is that our previous 
+techinques mostly work with some modifications.
 
+\subsection{Retarded potentials}
+
+We now solve for the Green's function \note{finish,
+ts is trivial}
+
+\subsection{Waves}
 \newpage
 
 \section{Statistical Mechanics}

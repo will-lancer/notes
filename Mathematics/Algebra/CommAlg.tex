@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz-cd}
+\usepackage{william}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03} % give a little extra room
+\setlength{\parindent}{0.2in} % reduce paragraph indent a bit
+\setcounter{secnumdepth}{2} % no numbered subsubsections
+\setcounter{tocdepth}{2} % no subsubsections in ToC
+
+\begin{document}
+
+% make title page
+\thispagestyle{empty}
+\bigskip \
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{22}{22} \selectfont Lecture Notes on}
+\vskip 16pt
+{\fontsize{36}{36} \selectfont \bf \sffamily Commutative Algebra}
+\vskip 24pt
+{\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
+\vskip 6pt
+{\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com} 
+\vskip 24pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Notes on commutative algebra. Resources used:
+\begin{itemize}
+    \item Atiyah and MacDonald's \emph{Introduction to Commutative Algebra}.
+    \item Altman and Kleiman's \emph{A Term of Commutative Algebra}.
+    \item Aluffi's \emph{Algebra: Chapter 0}
+\end{itemize}
+
+% make table of contents
+\newpage
+\microtoc
+\newpage
+
+% main content
+\section{Commutative rings}
+
+Just how groups are ``sets decorated with structure'', rings
+are ``abelian groups decorated with multiplication''. Formally,
+this means that
+\begin{definition}
+    A \vocab{commutative ring} is an abelian group equipped with a multiplication
+    operation that is distributive, associative, and commutative.
+\end{definition}
+We take every ring to have $1_R$, the multiplicative
+identity.
+\begin{eexample}
+    [Examples of rings]
+    Here are some examples of rings:
+    \begin{itemize}
+        \item Fields are rings with division, i.e. $(\ints, +, \cdot)$,
+        $(\reals, +, \cdot)$, $(\mathbb{Q}, +, \cdot)$, $(\complex, +, \cdot)$,
+        etc. So every example of a field is an example of a ring.
+        \item Polynomial rings over a field $k$ in $n$ variables: $k[x_1, \ldots, x_n]$.
+        In fact, by the UMP for polynomials, every ring can be uniquely ``embedded''
+        into a polynomial ring in the obvious way. Some examples here are $\reals[x]$,
+        $\complex[x]$, and $\ints[x]$.
+        \item $\ints/p\ints$ is a ring if $p$ is prime.
+        \item Matrix rings, $M_n(R)$, where $R$ is our ring. Concretely, these are
+        matrices with entries taken from $R$. One can also take these over a finite
+        field, which is cool.
+        \item Rings of functions, like $C([0, 1], \reals)$ (the set of real-valued 
+        continuous functions on $[0, 1]$)
+        \item Some more exotic examples: Boolean rings and the quaternions $\mathbb{H}$.
+    \end{itemize}
+\end{eexample}
+
+Rings form a category, {\cat{Ring}}; its morphisms are constructed as
+to have the following diagram commute (if $A$ and $B$ are rings) for
+both addition and multiplication:
+
+\[
+\begin{tikzcd}
+A \times A \arrow[r, "\phi \times \phi"] \arrow[d, "m_A"'] & B \times B \arrow[d, "m_B"] \\
+A \arrow[r, "\phi"] & B
+\end{tikzcd}
+\]
+
+This guarantees \vocab{ring homomorphisms} preserve the ring
+structure, i.e. $\phi(a + b) = \phi(a) + \phi(b)$ and $\phi(ab) = \phi(a)\phi(b)$.
+A psychological remark here is that ring morphisms are more
+beefy than group morphisms, but that's expected, as rings
+are more beefy than groups.
+
+We want to have some sort of natural quotient structure
+on a ring. The way we do this is through an \vocab{ideal}
+\begin{definition}
+    An \vocab{ideal} $\mathfrak{a}$ is a subset of $A$
+    that satisfies $A\mathfrak{a} \subseteq \mathfrak{a}$.
+\end{definition}
+Intuitively, you ``can't move out of $\mathfrak{a}$ with $A$'',
+or (calling reference to representation theory) an
+ideal is an ``invariant subspace'' of a ring.
+
+We now state a useful and obvious theorem: that
+some notion of size is preserved when you take the quotient
+\note{finish}
+
+\end{document}

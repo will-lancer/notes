@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1753841830.22164 "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" "FourMechanics.pdf" "FourMechanics" 1753841832.07724 0
-  "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" 1753841830.01437 38142 8e2a0c3fd47e6955a447dc8aff5d7f1a ""
+["pdflatex"] 1759035353.25312 "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" "FourMechanics.pdf" "FourMechanics" 1759035355.01022 0
+  "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" 1759035350.9163 38549 84dba12e296a9f193c6d17376e759dd8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -275,11 +275,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1745641536 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "FourMechanics.aux" 1753841831.89161 8057 82221221af9049f4fc5fa6910b9abb3d "pdflatex"
-  "FourMechanics.out" 1753841831.89276 1992 09aa95d4e6d6669bc8291340a72e45ec "pdflatex"
-  "FourMechanics.tex" 1753841830.01437 38142 8e2a0c3fd47e6955a447dc8aff5d7f1a ""
-  "FourMechanics.toc" 1753841831.89296 1588 f8f337a28cb989b26b226532a1d94c02 "pdflatex"
-  "william.sty" 1753841744.53302 22356 80d6193725f4efb82e4789882242e9a6 ""
+  "FourMechanics.aux" 1759035354.89254 8561 360a9bfc5b1dd7db266061656cfaa2b4 "pdflatex"
+  "FourMechanics.out" 1759035354.89374 2231 88369b4cd08dbe5c79b1289bc1f3cef0 "pdflatex"
+  "FourMechanics.tex" 1759035350.9163 38549 84dba12e296a9f193c6d17376e759dd8 ""
+  "FourMechanics.toc" 1759035354.89396 1746 99d59094e249b4abeb38b209bae01a0b "pdflatex"
+  "william.sty" 1758815858.04956 22356 80d6193725f4efb82e4789882242e9a6 ""
   (generated)
   "FourMechanics.aux"
   "FourMechanics.log"

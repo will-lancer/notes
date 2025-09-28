@@ -148,7 +148,7 @@ Taylor-expanding $U(\Lambda, a)$ gives
 \end{align*}
 The generators of $U(\Lambda, a)$ are very special: they are the
 four-momentum operator and the angular momentum/boost operator.
-Looking at $\widehat{J}^{\mu nu}$ gives
+Looking at $\widehat{J}^{\mu \nu}$ gives
 \begin{align*}
     \widehat{J}^{\mu \nu} = \begin{cases}
         \note{put the boost angular momentum ops here}
@@ -206,9 +206,11 @@ Putting this all together, we have that
 are diff vectors, so doesn't matter; can use raising and lowering ops i think}
 \begin{align*}
     \boxed{U(\Lambda, a)\ket{\bfk_1, \sigma_1; \bfk_2, \sigma_2; \ldots ; \bfk_n, \sigma_n}
-    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma \sigma'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1', \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
+    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma_i \sigma_i'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1', \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
 \end{align*}
 This will be useful when we talk about scattering later.
+
+We now take a closer look at the $D$ matrices. \note{finish}
 
 \subsection{Lagrangian QM}
 
@@ -232,7 +234,15 @@ add exercises from yin and weinberg here too}
 
 \section{Scattering}
 
+We now get into scattering theory. This is probably the most
+important part of QFT, so we'll go relatively deep into it.
+
 \subsection{The basics}
+
+Composite particles decay, and fundamental particles
+
+
+
 
 \subsection{Symmetries of the $S$-matrix}
 
@@ -258,7 +268,7 @@ result in all of quantum field theory}.
 
 We begin by defining a ``smeared field operator'' via
 \begin{align*}
-    \widehat{\phi}_f = \int d^D x \, f(x) \widehat{\phi}(x).
+    \widehat{\phi}_f \coloneqq \int d^D x \, f(x) \widehat{\phi}(x).
 \end{align*}
 We assume our smearing function's Fourier transform is supported 
 near the mass shell:
@@ -316,7 +326,8 @@ variables on all of these guys below}
 \section{Spin-$2$ QFTs}
 
 \note{maybe I should find a better organization scheme for this;
-this is nice tho}
+this is nice tho; probably will reorganize after I finish learning
+QFT II and put all of the content in here or smth}
 
 
 \end{document}
