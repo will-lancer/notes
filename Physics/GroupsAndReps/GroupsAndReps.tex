@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{william}
+\usepackage{tikz-cd}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03} % give a little extra room
+\setlength{\parindent}{0.2in} % reduce paragraph indent a bit
+\setcounter{secnumdepth}{2} % no numbered subsubsections
+\setcounter{tocdepth}{2} % no subsubsections in ToC
+
+\begin{document}
+
+% make title page
+\thispagestyle{empty}
+\bigskip \
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{22}{22} \selectfont Lecture Notes on}
+\vskip 16pt
+{\fontsize{36}{36} \selectfont \bf \sffamily Groups and Representations}
+\vskip 24pt
+{\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
+\vskip 6pt
+{\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com} 
+\vskip 24pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Notes on group and representations, as used in physics. Resources used:
+\begin{itemize}
+    \item Peter van Nieuwenhuizen's PHY 680 course at SBU,
+    and the lecture notes from the course.
+    \item Andre Lukas' lecture notes on groups and representations.
+    \item Fulton and Harris' \emph{Representation Theory: A First Course}.
+    \item Parts of Xi Yin's 253ab courses.
+\end{itemize}
+% make table of contents
+\newpage
+\microtoc
+\newpage
+
+% main content
+
+\section{Finite Groups and Representations}
+
+We begin by collecting the most important facts about the representation
+theory of finite groups. At the end, we touch on Majorana spinors and the normal
+modes of atomic molecules. For general background, see the notes on
+algebra \href{https://github.com/will-lancer/notes/tree/main/Mathematics/Algebra}{here}.
+
+\begin{eexample}
+    [The most important finite groups for physics]
+    Of course, the most important groups for physics are (semi-simple)
+    Lie groups, but there are a few important finite ones as well:
+    \begin{itemize}
+        \item $S_n$. This group is good for talking about permutations
+        of objects, and is necessary for talking about group actions.
+        \item $A_n$. See above, but sometimes we only want even permutations.
+        \item $D_n$. Because $D_n$ is, by definition, the group of isometries
+        of a planar $n$-point object, this is useful to look at when studing
+        planar objects. We can also think about certain continuous groups
+        as limits of $D_n$, e.g. emergent $O(N)$ symmetry in spin systems.
+        \item $\ints/n\ints$. These groups are useful for a number of things.
+        $\ints/2\ints$ is parity, and modding out by it also produces quite
+        a few useful Lie groups (e.g. \note{give examples here}). It also
+        catalogues cyclic groups, so it's useful when we want to think about
+        those ideas. Additionally, these groups are closely connected to number
+        theory when $n = p$ is prime, and there are more and more connections
+        between physics and number theory as time goes on$\ldots$
+    \end{itemize}
+\end{eexample}
+
+\noin
+We now get into the most important definitions behind finite
+group theory for physics.
+
+\begin{definition}
+    Consider $\gamma_g \colon G \to G$ by $\gamma_g(a) = g a g^{-1}$.
+    We say $\gamma_g$ is an \vocab{inner automorphism} of $G$, and we
+    denote the set of $\gamma_g$'s by $\operatorname{Inn}_{\text{\cat{Grp}}}(G)$.
+\end{definition}
+
+\noin
+We may talk about the orbit of some $a$ under the elements of 
+$\operatorname{Inn}_{\text{\cat{Grp}}}(G)$; this is called the
+\vocab{class} of $a$. The practical algorithm for producing classes
+is as follows:
+\begin{enumerate}
+    \item Take some $a \in G$. Consider $g a g^{-1}$ for all $g$
+    in $g$.
+    \item If $g a g^{-1}$ is not already in your set, add it to the
+    set.
+    \item Once you are done, take some $b \in G$ not in the set
+    and repeat these steps.
+\end{enumerate}
+This algorithm terminates, as conjugation is an equivalence relation,
+so the classes of $G$ partition it.
+
+
+\begin{definition}
+    The \vocab{center} of a group is defined as
+    $\mathcal{Z}(G) \coloneqq \{ z \in G \mid zg = gz \: \: \forall g \in G \}$.
+\end{definition}
+
+\noin
+Intuitively, the center of a group tells you how abelian the group is.
+Indeed, we have that $\mathcal{Z}(G) = G \iff G$ is abelian.
+We may ask the question of how to take some non-abelian group
+and ``turn it into'' an abelian group. The only natural mechanism
+for this would be modding out by a subgroup. As it turns out,
+the smallest subgroup that makes this possible is
+
+\begin{definition}
+    The \vocab{commutator subgroup} $[G, G]$ of $G$ is
+    defined as the group containing the elements $ab a^{-1} b^{-1}$
+    for all $a, b \in G$.
+\end{definition}
+
+\begin{definition}
+    The \vocab{abelianization} of $G$ is defined as $G^{\rm ab} = G/[G, G]$.
+\end{definition}
+
+
+
+\begin{iidea}
+    [Most important facts about finite groups]
+    Whenever you see a finite group, you want to answer these questions:
+    \begin{itemize}
+        \item What is the order of the group? I find this question to be 
+        psychologically comforting, and it also tells me what the possible 
+        orders of the subgroups of $G$ are.
+        \item \textbf{What are its classes?} The reason this is useful is because
+        characters are class functions, and so there are a number of useful facts we can
+        draw from knowing the classes of a group.
+        \item What are the orders of its classes? This is less important, but useful
+        if one wants to check whether a map $V$ is a representation or not.
+        \item \textbf{What is its center?}  This is useful, because if we mod out 
+        by $\mathcal{Z}(G)$, the order of this group is the number of one-dimensional 
+        representations of $G$ (so it tells us how many representations we can 
+        promptly throw away).
+        \item \textbf{What is its commutator subgroup?} As we saw above, the commutator
+        subgroup is the smallest subgroup of $G$ such that $G/H$ is abelian.
+        \note{add more once you recall this}
+    \end{itemize}
+\end{iidea}
+
+\end{document}
