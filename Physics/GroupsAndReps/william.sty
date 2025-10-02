@@ -377,9 +377,13 @@ backgroundcolor=CarnationPink!5,
 
 \declaretheorem[%
         style=thmpinkbox,name=Preview,numberwithin=section]{ppreview}
+\declaretheorem[%
+        style=thmpinkbox,name=Problem,numberwithin=section]{pproblem}
 
 
 % general math commands
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
 \newcommand{\lra}{\leftrightarrow}
 \newcommand{\mytilde}{{\,\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}\,}}
 \newcommand{\myceil}[1]{\left \lceil #1 \right \rceil }
@@ -410,7 +414,7 @@ backgroundcolor=CarnationPink!5,
   \mathopen{\copy\@brx\mkern2mu\kern-0.9\wd\@brx\usebox{\@brx}}}
 \newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\) }% right angle bracket
   \mathclose{\copy\@brx\mkern2mu\kern-0.9\wd\@brx\usebox{\@brx}}}
-\newcommand{\cat}[1]{\sffamily{#1}} % font for writing category names a la Paolo Aluffi
+\newcommand{\cat}[1]{\text{\sffamily{#1}}} % font for writing category names a la Paolo Aluffi
 \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} % partial differentiation
 \newcommand{\rn}[0]{\reals^n} % r^n space
 \newcommand{\sint}{\sin{\theta}} % sine of theta

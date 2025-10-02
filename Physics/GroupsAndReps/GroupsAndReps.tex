@@ -38,7 +38,7 @@
 \vskip 16pt
 {\fontsize{36}{36} \selectfont \bf \sffamily Groups and Representations}
 \vskip 24pt
-{\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
+{\fontsize{18}{18} \selectfont \rmfamily \href{https://will-lancer.github.io}{Will Lancer}} 
 \vskip 6pt
 {\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com} 
 \vskip 24pt
@@ -49,8 +49,12 @@
 Notes on group and representations, as used in physics. Resources used:
 \begin{itemize}
     \item Peter van Nieuwenhuizen's PHY 680 course at SBU,
-    and the lecture notes from the course.
-    \item Andre Lukas' lecture notes on groups and representations.
+    and the lecture notes from the course. This is the primary
+    source of content; I just explain things in my own way, and
+    make things more formal and precise.
+    \item Andre Lukas' 
+    \href{https://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/groupsrepslecturenotes.pdf}{lecture notes} 
+    on groups and representations.
     \item Fulton and Harris' \emph{Representation Theory: A First Course}.
     \item Parts of Xi Yin's 253ab courses.
 \end{itemize}
@@ -66,7 +70,9 @@ Notes on group and representations, as used in physics. Resources used:
 We begin by collecting the most important facts about the representation
 theory of finite groups. At the end, we touch on Majorana spinors and the normal
 modes of atomic molecules. For general background, see the notes on
-algebra \href{https://github.com/will-lancer/notes/tree/main/Mathematics/Algebra}{here}.
+algebra \href{https://github.com/will-lancer/notes/blob/main/Mathematics/Algebra/Algebra.pdf}{here}.
+
+\subsection{Finite groups}
 
 \begin{eexample}
     [The most important finite groups for physics]
@@ -90,7 +96,6 @@ algebra \href{https://github.com/will-lancer/notes/tree/main/Mathematics/Algebra
     \end{itemize}
 \end{eexample}
 
-\noin
 We now get into the most important definitions behind finite
 group theory for physics.
 
@@ -100,7 +105,6 @@ group theory for physics.
     denote the set of $\gamma_g$'s by $\operatorname{Inn}_{\text{\cat{Grp}}}(G)$.
 \end{definition}
 
-\noin
 We may talk about the orbit of some $a$ under the elements of 
 $\operatorname{Inn}_{\text{\cat{Grp}}}(G)$; this is called the
 \vocab{class} of $a$. The practical algorithm for producing classes
@@ -122,13 +126,13 @@ so the classes of $G$ partition it.
     $\mathcal{Z}(G) \coloneqq \{ z \in G \mid zg = gz \: \: \forall g \in G \}$.
 \end{definition}
 
-\noin
 Intuitively, the center of a group tells you how abelian the group is.
 Indeed, we have that $\mathcal{Z}(G) = G \iff G$ is abelian.
 We may ask the question of how to take some non-abelian group
 and ``turn it into'' an abelian group. The only natural mechanism
 for this would be modding out by a subgroup. As it turns out,
-the smallest subgroup that makes this possible is
+the smallest subgroup that makes this possible is the commutator
+subgroup.
 
 \begin{definition}
     The \vocab{commutator subgroup} $[G, G]$ of $G$ is
@@ -140,7 +144,53 @@ the smallest subgroup that makes this possible is
     The \vocab{abelianization} of $G$ is defined as $G^{\rm ab} = G/[G, G]$.
 \end{definition}
 
+Note that every map $\varphi \colon G \to A$ factors through 
+the abelianization. This is true, as $\varphi([a, b]) = e$,
+as one can check, so $[G, G] \subset \ker{\varphi}$.
+Concretely, the following diagram commutes.
 
+
+\begin{center}
+\begin{tikzcd}
+G \arrow[rr, "\varphi"] \arrow[dr, two heads, "\pi"'] & & A \\
+& G^{\rm ab} \arrow[ur, "\widetilde{\varphi}"'] &
+\end{tikzcd}
+\end{center}
+\noin
+where $\pi \colon G \surj G^{\rm ab}$ is the canonical
+projection and $\widetilde{\varphi}$ is the unique map making this
+all commute. We now prove an obvious but important theorem on the 
+abelianization of $G$.
+
+\begin{theorem}
+    $[G, G]$ is the smallest normal subgroup of $G$ such that $G/N$ is abelian.
+\end{theorem}
+
+\begin{proof}
+    We first show that $G^{\rm ab}$ is abelian. Note that
+    \begin{align*}
+        [G, G] = b^{-1} a^{-1} b a [G, G] \implies ba [G, G] = ab [G, G]
+    \end{align*}
+    so $G^{\rm ab}$ is abelian. Consider $\phi \colon G \to G/N$, where
+    $G/N$ is an abelian quotient of $G$. Then this map factorizes through
+    $G$, and there is a surjection $G^{\rm ab} \surj G/N$, so 
+    $|G^{\rm ab}| \geq |G/N|$. 
+\end{proof}
+
+Kind of how like the center measured how abelian a group is, the commutator
+subgroup measures how ``non-abelian'' it is. We can see that $[G, G] = 0$
+for abelian groups, and if $[G, G] = G$ then we say $G$ is \vocab{perfect}.
+Equivalently, a perfect group has no non-trivial abelian quotients. An interesting
+fact is that all non-abelian simple groups are perfect.
+
+Another way to look at this is to notice that abelianization is a
+functor $F \colon \cat{Grp} \to \cat{Ab}$ by $G \to G^{\rm ab}$, 
+and that it's the left adjoint to inclusion $\iota \colon \cat{Ab} \inj \cat{Grp}$, so
+\begin{align*}
+    \Hom_{\cat{Ab}}(F(G), A) \cong \Hom_{\cat{Grp}}(G, \iota(A)).
+\end{align*}
+This encapsulates the universal property nicely: every map from
+$G \to A$ corresponds to a unique map $G^{\rm ab} \to A$. 
 
 \begin{iidea}
     [Most important facts about finite groups]
@@ -154,14 +204,63 @@ the smallest subgroup that makes this possible is
         draw from knowing the classes of a group.
         \item What are the orders of its classes? This is less important, but useful
         if one wants to check whether a map $V$ is a representation or not.
-        \item \textbf{What is its center?}  This is useful, because if we mod out 
-        by $\mathcal{Z}(G)$, the order of this group is the number of one-dimensional 
-        representations of $G$ (so it tells us how many representations we can 
-        promptly throw away).
+        \item \textbf{What is its center?} This is useful for a few reasons.
+        The main reason is that $\rho(z) = \lambda \id$ for all $z \in \mathcal{Z}(G)$
+        by Schur's lemma. \note{there are other reasons that we'll learn
+        later apparently}
         \item \textbf{What is its commutator subgroup?} As we saw above, the commutator
         subgroup is the smallest subgroup of $G$ such that $G/H$ is abelian.
-        \note{add more once you recall this}
+        This tells us that 1D reps of $G$ acts on the abelianization of $G$,
+        so $|G^{\rm ab}| = n_{1 \, \rm{diml}}$
     \end{itemize}
 \end{iidea}
+
+
+\begin{pproblem}
+    \note{exercises to do to recall things}
+\end{pproblem}
+
+Some general algebraic constructions are also useful here
+for physics, namely products, group actions, and semi-direct products.
+For posterity, we recall the writings on these subjects from the 
+\href{https://github.com/will-lancer/notes/blob/main/Mathematics/Algebra/Algebra.pdf}{algebra} 
+notes here.
+
+The direct product group is the product in \cat{Grp}. This means that by 
+the universal property, for all $\varphi_G \colon A \to G$, $\varphi_{H} \colon A \to H$,
+there exists a unique map $\widetilde{\varphi} \colon A \to G \times H$
+making the diagram
+
+\begin{center}
+\begin{tikzcd}
+& & G \\
+A \arrow[r, dashed, "\widetilde{\varphi}"] \arrow[urr, bend left=15, "\varphi_G"] \arrow[drr, bend right=15, "\varphi_H"'] & G \times H \arrow[ur, "\pi_G"] \arrow[dr, "\pi_H"'] & \\
+& & H
+\end{tikzcd}
+\end{center}
+
+\noin
+commute. Concretely, taking the binary operations on $G$
+and $H$ and defining 
+\begin{align*}
+    m_G \times m_H \colon (G \times H) & \times (G \times H) \to G \times H\\
+    (m_G \times m_H)((g_1, h_1), \, (g_2, h_2)) & \mapsto (m_G((g_1, g_2)), \, m_H((h_1, h_2))).
+\end{align*}
+gives the set $G \times H$ a group structure
+\begin{align*}
+    (g_1, h_1) * (g_2, h_2) = (g_1 g_2, h_1 h_2).
+\end{align*}
+
+\note{group actions}
+
+\note{semi-direct products}
+
+\subsection{Representations of finite groups}
+
+Some motivation for representation theory:
+
+\note{finish}
+
+
 
 \end{document}

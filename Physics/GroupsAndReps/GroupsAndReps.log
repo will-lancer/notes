@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  1 OCT 2025 22:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  2 OCT 2025 00:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1037,19 +1037,20 @@ Package thmtools Info: Key `mdframed' (with value `style=mdpinkbox')
 (thmtools)             Will pass this to every \declaretheorem
 (thmtools)             that uses `style=thmpinkbox' on input line 376.
 \c@ppreview=\count391
+\c@pproblem=\count392
 \@brx=\box140
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@theorem=\count392
-\c@motivation=\count393
-\c@corollary=\count394
-\c@lemma=\count395
-\c@definition=\count396
-\c@remark=\count397
-\c@proposition=\count398
-\c@hwproblem=\count399
-\c@hwsolution=\count400
+\c@theorem=\count393
+\c@motivation=\count394
+\c@corollary=\count395
+\c@lemma=\count396
+\c@definition=\count397
+\c@remark=\count398
+\c@proposition=\count399
+\c@hwproblem=\count400
+\c@hwsolution=\count401
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
@@ -1201,16 +1202,16 @@ LaTeX Font Info:    ... okay on input line 29.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count401
+\scratchcounter=\count402
 \scratchdimen=\dimen307
 \scratchbox=\box141
-\nofMPsegments=\count402
-\nofMParguments=\count403
+\nofMPsegments=\count403
+\nofMParguments=\count404
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count404
+\MPscratchCnt=\count405
 \MPscratchDim=\dimen308
-\MPnumerator=\count405
-\makeMPintoPDFobject=\count406
+\MPnumerator=\count406
+\makeMPintoPDFobject=\count407
 \everyMPtoPDFconversion=\toks63
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1242,7 +1243,7 @@ Package microtype Info: Using default kerning set `alltext'.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\c@lstlisting=\count407
+\c@lstlisting=\count408
 Package hyperref Info: Link coloring ON on input line 29.
  (./GroupsAndReps.out) (./GroupsAndReps.out)
 \@outlinefile=\write4
@@ -1287,38 +1288,47 @@ Package microtype Warning: I cannot find a spacing list for font
 [2]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 72.
-Package hyperref Info: bookmark level for unknown eexample defaults to 0 on input line 72.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 98.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 146.
-Package hyperref Info: bookmark level for unknown iidea defaults to 0 on input line 146.
+(mdframed)              on input line 78.
+Package hyperref Info: bookmark level for unknown eexample defaults to 0 on input line 78.
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 103.
 
 
 [3]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 166.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 196.
+Package hyperref Info: bookmark level for unknown iidea defaults to 0 on input line 196.
 
-[4] (./GroupsAndReps.aux)
+
+[4]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 220.
+Package hyperref Info: bookmark level for unknown pproblem defaults to 0 on input line 220.
+
+
+[5] (./GroupsAndReps.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `GroupsAndReps.out' has not changed.
-(rerunfilecheck)             Checksum: 9E42FB7D1C6503012418A0E7E76D0455;217.
+(rerunfilecheck)             Checksum: 32B1C198BF625E5C4BC42A0D56593B30;568.
  ) 
 Here is how much of TeX's memory you used:
- 36533 strings out of 473190
- 713057 string characters out of 5715801
- 1203954 words of memory out of 5000000
- 59045 multiletter control sequences out of 15000+600000
- 573813 words of font info for 127 fonts, out of 8000000 for 9000
+ 36772 strings out of 473190
+ 718202 string characters out of 5715801
+ 1209475 words of memory out of 5000000
+ 59257 multiletter control sequences out of 15000+600000
+ 575585 words of font info for 141 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,13n,120p,1062b,1170s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on GroupsAndReps.pdf (4 pages, 164939 bytes).
+ 117i,14n,120p,1062b,1204s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on GroupsAndReps.pdf (5 pages, 212300 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
- 43541 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 174 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 51749 words of extra memory for PDF output out of 61914 (max. 10000000)
 
