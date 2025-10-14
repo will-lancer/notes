@@ -5,6 +5,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{william}
+\usepackage{tikz-cd}
 
 % page formatting
 \usepackage{fancyhdr}
@@ -56,6 +57,76 @@ Notes on algebra. Resources used:
 \newpage
 
 % main content
+\section{Categorical preliminaries}
+
+\note{fill-in}
+
 \section{Groups}
+
+We review the properties of groups here. First,
+two high-brow definitions of a group:
+\begin{itemize}
+    \item A \vocab{group} is a group object in \cat{Set}.
+    \item A \vocab{group} is a one-object groupoid.
+\end{itemize}
+These aren't bad definitions, but they're more explicitly
+useful when they're unpacked a bit.
+\begin{definition}
+    A \vocab{group} is a set with an associative binary operation
+    $m_G \colon G \to G$ that has identites and inverses.
+\end{definition}
+We can phrase this by saying that a group has two additional unique maps,
+$\iota \colon G \to G$ by $g \mapsto g^{-1}$ and $\id \colon G \to G$
+by $g \mapsto g$. This is the more categorical and ``morally correct''
+way of putting this.
+\begin{eexample}
+    [Canonical group examples]
+    The most canonical group examples are
+    \begin{itemize}
+        \item Any field with addition, $\ints$, $\reals$, $\complex$, $\mathbb{Q}$,
+        etc.. Some of them also work with multiplication.
+        \item $\ints/n\ints$: the integers mod $n$ under addition. $(\ints/n\ints)^\times$
+        are the units mod $n$.
+        \item $D_n$. The isometries of a planar solid.
+        \item $S_n$ and $A_n$. The permutations and even permutations of $n$ objects.
+        \item Matrices over some field under addition or multiplication (if the operation
+        is multiplication then needs invertibility).
+        \item Types of functions under addition, e.g. smooth, periodic, etc..
+    \end{itemize}
+\end{eexample}
+
+Groups form a category, \cat{Grp}. Its maps are \vocab{group homomorphisms},
+which are maps $\varphi \colon G \to G'$ that respect the group structure,
+$\varphi(ab) = \varphi(a)\varphi(b)$. One way of saying this is that the
+following diagram commutes:\\
+\note{put diagram}\\
+We now investigate what other universal constructions exist in \cat{Grp}. 
+\begin{itemize}
+    \item \textbf{Products}: the product in \cat{Grp} is the \vocab{direct product
+    group}. This means that for all $\varphi_G \colon A \to G$, $\varphi_{H} \colon A \to H$,
+    there exists a unique map $\widetilde{\varphi} \colon A \to G \times H$
+    making the diagram
+    \begin{center}
+        \begin{tikzcd}
+        & & G \\
+        A \arrow[r, dashed, "\widetilde{\varphi}"] \arrow[urr, bend left=15, "\varphi_G"] \arrow[drr, bend right=15, "\varphi_H"'] & G \times H \arrow[ur, "\pi_G"] \arrow[dr, "\pi_H"'] & \\
+        & & H
+        \end{tikzcd}
+    \end{center}
+    commute. Concretely, taking the binary operations on $G$
+    and $H$ and defining 
+    \begin{align*}
+        m_G \times m_H \colon (G \times H) & \times (G \times H) \to G \times H\\
+        (m_G \times m_H)((g_1, h_1), \, (g_2, h_2)) & \mapsto (m_G((g_1, g_2)), \, m_H((h_1, h_2))).
+    \end{align*}
+    gives the set $G \times H$ a group structure
+    \begin{align*}
+        (g_1, h_1) * (g_2, h_2) = (g_1 g_2, h_1 h_2).
+    \end{align*}
+    \item \textbf{Coproducts}: there is not a generic coproduct in \cat{Grp}.
+    \note{talk about free product and \cat{Ab}}
+    \item \textbf{Quotients} \note{add}
+\end{itemize}
+
 
 \end{document}

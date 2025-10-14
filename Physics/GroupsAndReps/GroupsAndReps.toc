@@ -2,3 +2,6 @@
 \contentsline {section}{\numberline {1}Finite Groups and Representations}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Finite groups}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Representations of finite groups}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Applications}{9}{subsection.1.3}%
+\contentsline {subsubsection}{Dirac, Majorana, and Weyl spinors}{9}{section*.2}%
+\contentsline {subsubsection}{Normal modes of atoms}{15}{section*.3}%
