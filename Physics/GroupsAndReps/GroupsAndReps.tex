@@ -7,6 +7,7 @@
 \usepackage{william}
 \usepackage{tikz-cd}
 \usepackage{extarrows}
+\usepackage{changepage}
 
 % page formatting
 \usepackage{fancyhdr}
@@ -298,15 +299,13 @@ for more about this.}).
 How can we get a group to ``act'' on a vector space?
 
 A natural choice may be a group action on $\cat{Vect}_k$, 
-but this cannot work; we need to do more than just permute the elements
-of our vector space: we need linear combinations of elements.
+but this cannot work; we need to do more than just permute
+operators and vector spaces: we need linear combinations of elements.
 
-\note{is it just a group action on vect k?}
-
-This naturally leads us to operators on $V$. So, we intuitively
-need some sort of map into $\End{V}$ that respects the group
-structure of $G$. This is what the definition of a representation
-encodes.
+This naturally leads us to mapping into a set of operators on 
+$V$. So, we intuitively need some sort of map into $\End{V}$ that 
+respects the group structure of $G$. This is what the definition 
+of a representation encodes.
 
 \begin{definition}
     A \vocab{representation} of $G$ on $V$ is the pair $(\rho, V)$,
@@ -569,10 +568,16 @@ of them, which is the content of the next few propositions.
     We may uniquely decompose any representation as a direct
     sum of irreducible representations
     \begin{align*}
-        V = \bigoplus_i V_i^{\oplus a_i}
+        V = \bigoplus_i V_i^{\oplus a_i}.
     \end{align*}
+    This is both psychologically and computationally useful,
+    as it tells us that to understand every finite representation,
+    we only have to understand the irreducible ones.
 \end{corollary}
 
+\subsection{Characters}
+
+\note{finish later}
 
 \subsection{Applications}
 
@@ -611,17 +616,42 @@ To start our analysis of the $\gamma$-matrices, we first need to talk
 about the Clifford algebra. Recall the definition of an $R$-algebra.
 
 \begin{definition}
-    An \vocab{R-algebra} is \note{finish}
+    An \vocab{$R$-algebra} is a vector space $A$ over a commutative ring $R$
+    equipped with a bi-linear multiplication $\bullet \colon A \times A \to A$
+    that commutes with multiplication by $r$.
 \end{definition}
 
 \begin{definition}
-    The complex \vocab{Clifford algebra} is a $\complex$-algebra spanned
-    by vectors $e_i$ such that $\{ e^i, e^j \} = 2 \eta^{ij}$. \note{or
-    something like this}
+    Let $R$ be a commutative ring with $1$ and let $(V, q)$ be a free $R$-module
+    equipped with a quadratic form $q \colon V \to R$. The \vocab{Clifford algebra}
+    $\operatorname{Cl}(V, q)$ is the associative unital $R$-algebra defined as the
+    quotient
+    \[
+        \operatorname{Cl}(V, q) \coloneqq T_R(V)\Big/ \big\langle v \otimes v - q(v)\,1 \: \big| \: v \in V \big\rangle,
+    \]
+    where $T_R(V)$ is the tensor algebra of $V$ and $1$ is the unit. Equivalently
+    (when $2 \in R^\times$), writing the polar form $B(u, v) \coloneqq \tfrac{1}{2}\big(q(u+v)-q(u)-q(v)\big)$,
+    the images of $u, v \in V$ in $\operatorname{Cl}(V, q)$ satisfy
+    \[
+        uv + vu = 2\,B(u, v)\,1.
+    \]
+    The canonical map $\iota \colon V \inj \operatorname{Cl}(V, q)$ sends $v \mapsto v$ and
+    obeys $v^2 = q(v)\,1$.
 
-    \note{add general definition, and universal property}
-    \note{then add physicist definition, which is what is useful
-    for our purposes}
+    \textbf{Universal property.} For any $R$-algebra $A$ and any $R$-linear map
+    $j \colon V \to A$ with $j(v)^2 = q(v)\,1_A$ for all $v \in V$, there exists a unique
+    $R$-algebra homomorphism $\Phi \colon \operatorname{Cl}(V, q) \to A$ such that
+    $\Phi \circ \iota = j$.
+
+    \textbf{Physicist's form.} Over $\complex$ with a nondegenerate bilinear form
+    $\eta^{\mu \nu}$ of signature $(s, t)$, the complex Clifford algebra is
+    \[
+        \operatorname{Cl}_{\eta}(\complex) = \langle \gamma^\mu \rangle \Big/ \big\{ \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 \, \eta^{\mu \nu} \, 1 \big\}.
+    \]
+    Any choice of matrices $\gamma^\mu \in \End{S}$ obeying $\{ \gamma^\mu, \gamma^\nu \} = 2 \, \eta^{\mu \nu} \, I_S$
+    is a representation of the abstract Clifford algebra on the spinor space $S$.
+    In Euclidean signature $\eta^{\mu \nu} = \delta^{\mu \nu}$; in Minkowski signature one may
+    take $\eta^{00} = -1$, $\eta^{aa} = +1$ for spatial indices $a$.
 \end{definition}
 
 \begin{definition}
@@ -701,9 +731,9 @@ Some facts about the Dirac group:
 
 We now get into representations of the Dirac group.
 This is where the fun\footnote{This is one way to describe
-it$\ldots$} begins. As a psychological remark, this is a relatively straightforward
-but tedious process of bootstrapping our way to whatever dimension
-representation we desire. The boostrap goes as follows:
+it$\ldots$} begins. As a psychological remark, this is going to be 
+a relatively straightforward but tedious process of bootstrapping our 
+way to whatever dimension representation we desire. The boostrap goes as follows:
 \begin{itemize}
     \item \textbf{Even $\to$ odd}: we first construct the \vocab{chirality matrix}
     as follows: $\gamma_c = \alpha \gamma^1 \cdots \gamma^n$,
@@ -985,10 +1015,153 @@ MW?
 SpM?
 reality properties}
 
+\note{rep is faithful iff gammac is pm 1}
 
-\note{add reality properties, spinor indices, and everything like that for each
-entry later; basically do every single case that PvN could possibly ask about in
-your notes}
+\note{$C_- = \gamma_c C_+$}
+
+\note{fill out this table yourself; that's literally all of the
+practice you need for this freaking test bro}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $D = s + t$ & $C_+/C_-$ & Sym. & Diag & Sp. Ind. & Faithful & M & W & MW & SpM\\
+        \hline
+    \end{tabular}
+    \caption{Table for properties of the charge conjugation matrices
+    and what kinds of spinors are allowed.}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $D = s + t$ & Faithful & Hermitian & Reality\\
+        \hline
+        $D = 2 + 0$ & Yes & Yes & Real: $1 + 2 - 1 = 2$\\
+        $D = 1 + 1$ & Yes & No; $i\sigma_2$ & Real: \\
+        $D = 3 + 0$ & Yes & \\
+        $D = 2 + 1$ & Yes &\\
+        $D = 4 + 0$ & Yes &\\
+        $D = 3 + 1$ & Yes\\
+        $D = 5 + 0$ & No\\
+        $D = 4 + 1$ & Yes\\
+        $D = 6 + 0$ & Yes\\
+        $D = 5 + 1$ & \note{input}\\
+        $D = 7 + 0$ & Yes\\
+        $D = 6 + 1$ & \note{input}\\
+        $D = 8 + 0$ & Yes\\
+        $D = 7 + 1$ & Yes\\
+        $D = 9 + 0$ & \note{input}\\
+        $D = 8 + 1$ & \note{input}\\
+        $D = 10 + 0$ & \note{input}\\
+        $D = 9 + 1$ & \note{input}\\
+        $D = 11 + 0$ & \note{input}\\
+        $D = 10 + 1$ & \note{input}\\
+        \hline
+    \end{tabular}
+    \caption{Table for properties of the $\gamma$-matrices.}
+\end{table}
+
+\note{ADD HERMITICITY}
+
+\begin{adjustwidth}{-2cm}{-2cm}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $D=s+t$ & $C_+/C_-$ & Symmetry & Diag & Sp. Ind. & Faithful & M & W & MW & SpM & Reality\\
+    \hline
+    % 2
+    $2{+}0$ &
+    $C_+=\gamma^2\ (\equiv\sigma^1)$ &
+    S & diag & same & yes & yes & yes & no & no & real\\
+    \hline
+    $1{+}1$ &
+    $C_-=\gamma^0\gamma^1$ &
+    A & off & diff & yes & yes & yes & no & no & real\\
+    \hline
+    % 3
+    $3{+}0$ &
+    $C_+=\gamma^2$ &
+    A & diag & same & yes & yes & - & - & - & real\\
+    \hline
+    $2{+}1$ &
+    $C_-=\gamma^0\gamma^2$ &
+    A & off & same & no & yes & - & - & - & real\\
+    \hline
+    % 4
+    $4{+}0$ &
+    $C_+=\gamma^2\gamma^4$ &
+    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
+    \hline
+    $3{+}1$ &
+    $C_-=\gamma^0\gamma^2$ &
+    A & off  & diff & yes & yes & yes & no & no & real\\
+    \hline
+    % 5
+    $5{+}0$ &
+    $C_+=\gamma^2\gamma^4$ &
+    S & diag & same & yes & no & - & - & yes* & pr*\\
+    \hline
+    $4{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4$ &
+    S & off & same & yes & no & - & - & yes & pr\\
+    \hline
+    % 6
+    $6{+}0$ &
+    $C_+=\gamma^2\gamma^4\gamma^6$ &
+    S & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
+    \hline
+    $5{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4$ &
+    A & off  & diff & yes & SpM & yes & SpM-W & yes & pr\\
+    \hline
+    % 7
+    $7{+}0$ &
+    $C_+=\gamma^2\gamma^4\gamma^6$ &
+    A & diag & same & yes & yes & - & - & - & real\\
+    \hline
+    $6{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6$ &
+    A & off & same & yes & yes & - & - & - & real\\
+    \hline
+    % 8
+    $8{+}0$ &
+    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8$ &
+    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
+    \hline
+    $7{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6$ &
+    S & off  & diff & yes & SpM & yes & no & yes & pr\\
+    \hline
+    % 9
+    $9{+}0$ &
+    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8$ &
+    S & diag & same & yes & yes & - & - & - & real\\
+    \hline
+    $8{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8$ &
+    S & off & same & yes & yes & - & - & - & real\\
+    \hline
+    % 10
+    $10{+}0$ &
+    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8\gamma^{10}$ &
+    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
+    \hline
+    $9{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8$ &
+    S & off  & diff & yes & no & yes & yes & no & real (MW)\\
+    \hline
+    % 11
+    $10{+}1$ &
+    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8\gamma^{10}$ &
+    A & diag & same & yes & yes & - & - & - & real\\
+    \hline
+    \end{tabular}
+    
+\end{adjustwidth}
 
 
 \subsubsection{Normal modes of atoms}
@@ -996,7 +1169,7 @@ your notes}
 Molecules with multiple atoms generally obey
 a periodic structure, and thus they are symmetric
 under certain operations (translations and rotations).
-Generally, symmetry constrains dynamics, and it is no different
+Generally, symmetry constrains dynamics, and it is no diff
 here: we can decompose a molecule's normal modes through
 group theory, specifically through decomposing the characters
 of reducible representations into irreps, thus giving us \note{multiplets?
@@ -1044,21 +1217,199 @@ this no matter how many times I say it. Now you know if you're
 a physicist or a mathematician, no one told you before but now you know.''
 \note{fix quote}}.
 
-Consider the character for rotations, $\chi^{\reals^3}$. This is related
+Consider the character for rotations, $\chi_{\reals^3}$. This is related
 to the genuine normal modes by
 \begin{align*}
-    \boxed{\chi_{\rm gen} = \chi_S - \chi_{\rm tr} - \chi_{\rm rot} = \chi^{\reals^3} (c_g - 1 - \det{D}),}
+    \boxed{\chi_{\rm gen} = \chi_S - \chi_{\rm tr} - \chi_{\rm rot} = \chi_{\reals^3} (c_g - 1 - \det{D}),}
 \end{align*}
-so $\chi_S = c_g \chi^{\reals^3}$, $\chi_{\rm tr} = \chi^{\reals^3}$,
+so $\chi_S = c_g \chi_{\reals^3}$, $\chi_{\rm tr} = \chi_{\reals^3}$,
 taking all of the possible modes and subtracting out the trivial ones.
 It is only slightly reductionistic to say that this is the most important equation
 in this entire analysis. Our entire goal will be to find $\chi_{\rm gen}$
-and then take inner products of it with our irrechs to find how many irreps
-are contained in the genuine motion.
+and then take inner products of it with our irrep characters to find how 
+many irreps are contained in the genuine motion.
 
 \note{explain why the relations between the rotations and the other
 trivial modes are true}
 
+The general process for determining the normal modes of a molecule
+goes as follows:
+\begin{enumerate}
+    \item Analyze the number of normal modes using the formulae
+    $n = 2N - 3$, $n = 3N - 6$. \note{check formula for d = 2}
+    \item Determine the symmetry group of the molecule.
+    \item Find the classes of the group and their orders.
+    \item Find the commutator subgroup of the group.
+    \item Find the dimensions of the irreps.
+    \item Find the character table for the irreps
+    \item Find $\chi_{\rm tr}$, $\chi_{\rm rot}$, and $\chi_S$
+    through $\chi_{\reals^3}$.
+    \item Find $\chi_{\rm gen}$.
+    \item Take inner products of the normal modes to determine
+    the decomposition of $\chi_{\rm gen}$.
+    \item Write the motion as a direct sum of irreps.
+    \item Using symmetry considerations, determine the
+    physical realization of the normal modes.
+\end{enumerate}
 
+We now show a number of canonical examples, answering the standard
+questions for each molecule.
+
+\begin{eexample}
+    [Triangle]
+    We have:
+    \begin{enumerate}
+        \item The symmetry group is $D_3$.
+        \item The classes are $\{ e \}$, $\{ (12) \}$, $\{ (123) \}$.
+        Their orders are $1 + 3 + 2 = 6$.
+        \item The commutator subgroup is $A_3$.
+        \item There are $2$ $1D$-irreps and $1$ $2D$-irrep.
+        \item The character table is
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                 & $e$ & $(12)$ & $(123)$\\
+                 & $1$ & $3$ & $2$\\
+                \hline
+                $\id$ & $1$ & $3$ & $2$\\
+                ${\rm sgn}$ & $1$ & $-1$ & $1$\\
+                $\chi^2$ & $2$ & $0$ & $-1$\\
+                $\chi_{\rm gen}$ & $2$ & $0$ & $2$\\
+                \hline
+            \end{tabular}
+        \end{table}
+        \item We can use the formula $\chi_{\rm gen} = \chi^2 (c_g - 1 - \det{D})$,
+        to get the last row of the table above.
+        \item Taking inner products gives
+        \begin{align*}
+            (\chi_{\rm gen}, \id) & = \frac{1}{6} (2 + 4) = 1,\\
+            (\chi_{\rm gen}, \sgn) & = \frac{1}{6} (2 + 4) = 1,\\
+            (\chi_{\rm gen}, \chi^2) & = \frac{1}{6} (4 - 4) = 0.
+        \end{align*}
+        \item So our motion is
+        \begin{align*}
+            \boxed{\Omega = A_1 \oplus A_2.}
+        \end{align*}
+        \item This corresponds to the breather and the stretcher.
+    \end{enumerate}
+\end{eexample}
+
+
+\begin{eexample}
+    [Square]
+    We have:
+    \begin{enumerate}
+        \item There are $2N - 3 = 5$ non-trivial planar normal modes,
+        and $3N - 6 = 6$ non-trivial 3D normal modes.
+        \item The symmetry group is $D_4$.
+        \item The classes are $\{ e \}$, $\{ r, r^3 \}$, $\{ r^2 \}$, $\{ \sigma r, \sigma r^3 \}$, $\{ \sigma, \sigma r^2 \}$.
+        Their orders are obvious.
+        \item The commutator subgroup is $\{e, r^2 \}$.
+        \item There are $4$ $1D$-irreps and there is $1$ $2D$-irrep.
+        \item The character table is
+        \begin{table}[H]
+            \centering 
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                & $e$ & $r^2$ & $r^{2k + 1}$ & $\sigma r^2$ & $\sigma r^{2k + 1}$\\
+                & $1$ & $1$ & $2$ & $2$ & $2$\\
+                \hline
+                $\id$ & $1$ & $1$ & $1$ & $1$ & $1$\\
+                $\sgn$ & $1$ & $1$ & $-1$ & $1$ & $-1$\\
+                $\chi^1$ & $1$ & $1$ & $-1$ & $1$ & $-1$\\
+                $\chi^2$ & $1$ & $1$ & $-1$ & $-1$ & $1$\\
+                $\chi_{2D}$ & $2$ & $-2$ & $0$ & $0$ & $0$\\
+                $\chi_{\rm gen}$ & $4$ & $4$ & $0$ & $0$ & $0$\\
+                \hline
+            \end{tabular}
+        \end{table}
+        \item See above, use $\chi_{\rm gen} = \chi_{2D}(c_g - 1 - \det{D})$.
+        \item Taking inner products gives
+        \begin{align*}
+            (\chi_{\rm gen}, \id) & = \frac{1}{8} (4 + 4) = 1,\\
+            (\chi_{\rm gen}, \sgn) & = \frac{1}{8} (4 + 4) = 1,\\
+            (\chi_{\rm gen}, \chi^1) & = \frac{1}{8} (4 + 4) = 1,\\
+            (\chi_{\rm gen}, \chi^2) & = \frac{1}{8} (4 + 4) = 1,\\
+            (\chi_{\rm gen}, \chi_{2D}) & = \frac{1}{8} (8 - 8) = 0.
+        \end{align*}
+        \item So our motion is
+        \begin{align*}
+            \boxed{\Omega = A_1 \oplus A_2 \oplus A_3 \oplus A_4.}
+        \end{align*}
+        \item This corresponds to the breather, the (out-of-plane) twister, 
+        the (x-y) stretcher, and the (diagonal) shearer.
+    \end{enumerate}
+\end{eexample}
+
+\begin{eexample}
+    [Tetrahedron]
+    We have:
+    \begin{enumerate}
+        \item The symmetry group is $S_4$.
+        \item The classes are $\{ e \}$, $\{ (12) \}$, $\{ (123) \}$, $\{ (12)(34)\}$, and $\{ (1234) \}$.
+        Their orders are $1 + 6 + 6 + 3 + 8 = 24$.
+        \item The commutator subgroup is $A_4$.
+        \item There are $2$ $1D$-irreps, $1$ $2D$-irrep, and $2$ $3D$-irreps.
+        \item The character table is
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                 & $e$ & $(12)$ & $(123)$ & $(12)(34)$ & $(1234)$\\
+                 & $1$ & $6$ & $6$ & $3$ & $8$\\
+                \hline
+                $\id$ & $1$ & $1$ & $1$ & $1$ & $1$\\
+                $\operatorname{sgn}$ & $1$ & $-1$ & $1$ & $1$ & $-1$\\
+                $\chi^2$ & $2$ & $0$ & $-1$ & $2$ & $0$\\
+                $\chi^3$ & $3$ & $1$ & $0$ & $-1$ & $-1$\\    
+                $\chi^3_{\rm sgn}$ & $3$ & $-1$ & $0$ & $-1$ & $1$\\
+                $\chi_{\rm gen}$ & $6$ & $2$ & $0$ & $2$ & $0$\\
+                \hline
+            \end{tabular}
+        \end{table}
+        Some explanation for the table:
+        \begin{itemize}
+            \item Identity and sign are obvious.
+            \item $\chi^2$ is difficult to find. You get it through orthogonality
+            with the other rows, as there are four equations and four unknowns.
+            \item $\chi^3$ is given through finding $1 + 2\cos{\theta}$ for each
+            entry, with $1$ for reflections.
+            \item $\chi^3_{\rm sgn}$ is $\chi^3 \, {\rm sgn}$.
+        \end{itemize}
+        \item We can use the formula $\chi_{\rm gen} = \chi^3 (c_g - 1 - \det{D})$
+        to fill in the last row of the table, as given above.
+        \item Taking inner products, we have
+        \begin{align*}
+            (\chi_{\rm gen}, \chi^2) & = \frac{1}{24} (6 + 12 + 0 + 6 + 0) = 1,\\
+            (\chi_{\rm gen}, \chi^2) & = \frac{1}{24} (12 + 0 + 0 + 12 + 0) = 1,\\
+            (\chi_{\rm gen}, \chi^3) & = \frac{1}{24} (18 + 12 + 0 - 6 + 0) = 1,\\
+            (\chi_{\rm gen}, \chi^3_{\rm sgn}) & = \frac{1}{24} (18 - 12 + 0 - 6 + 0) = 0.
+        \end{align*}
+        \item Thus, our motion is
+        \begin{align*}
+            \boxed{\Omega = A_1 \oplus A_2 \oplus A_3.}
+        \end{align*}
+        \item Physically, $A_1$ is the breather, $A_2$ is the stretcher,
+        and $A_3$ is the shearer.
+    \end{enumerate}
+\end{eexample}
+
+\begin{eexample}
+    [Triangle with dot]
+\end{eexample}
+
+\begin{eexample}
+    [Square with dot]
+\end{eexample}
+
+\begin{eexample}
+    [Tetrahedron with dot]
+\end{eexample}
+
+\note{don't really need to add any examples 
+that PvN already has in his notes}
+
+\note{add other common examples}
 
 \end{document}
