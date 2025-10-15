@@ -479,6 +479,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT ./Figures/pvnsolution.png
+INPUT ./Figures/pvnsolution.png
+INPUT ./Figures/pvnsolution.png
+INPUT ./Figures/pvnsolution.png
+INPUT ./Figures/pvnsolution.png
 INPUT GroupsAndReps.aux
 INPUT ./GroupsAndReps.out
 INPUT ./GroupsAndReps.out

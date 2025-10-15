@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1}Finite Groups and Representations}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Finite groups}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Representations of finite groups}{5}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Characters}{9}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.3}Characters}{10}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Applications}{10}{subsection.1.4}%
 \contentsline {subsubsection}{Dirac, Majorana, and Weyl spinors}{10}{section*.2}%
-\contentsline {subsubsection}{Normal modes of atoms}{17}{section*.3}%
+\contentsline {subsubsection}{Normal modes of atoms}{19}{section*.3}%

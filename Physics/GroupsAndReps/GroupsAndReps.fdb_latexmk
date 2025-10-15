@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760477061.30646 "/Users/willlancer/Notes/notes/Physics/GroupsAndReps/GroupsAndReps.tex" "GroupsAndReps.pdf" "GroupsAndReps" 1760477063.57778 0
-  "/Users/willlancer/Notes/notes/Physics/GroupsAndReps/GroupsAndReps.tex" 1760477061.0637 58099 bbf89f542e5ddd9d6ee7c6317692aff4 ""
+["pdflatex"] 1760561031.99382 "/Users/willlancer/Notes/notes/Physics/GroupsAndReps/GroupsAndReps.tex" "GroupsAndReps.pdf" "GroupsAndReps" 1760561034.07425 0
+  "/Users/willlancer/Notes/notes/Physics/GroupsAndReps/GroupsAndReps.tex" 1760561029.50329 65190 2ef02b1b63b0e37ea6cc07186ff8aa3e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -290,10 +290,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1745641536 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "GroupsAndReps.aux" 1760477063.43546 10284 944c8bc392806be097feb2343749cda5 "pdflatex"
-  "GroupsAndReps.out" 1760477063.43748 792 c7cdecbd6c94d0f719191333b6c4efdd "pdflatex"
-  "GroupsAndReps.tex" 1760477061.0637 58099 bbf89f542e5ddd9d6ee7c6317692aff4 ""
-  "GroupsAndReps.toc" 1760477063.43771 604 05cac9800d1ee0bf64bc9ae322ad18de "pdflatex"
+  "Figures/pvnsolution.png" 1760487053.16466 41766 f3dc9f18ee45ffa26a66c3f1db7d974f ""
+  "GroupsAndReps.aux" 1760561033.94514 11110 33a3b8e5e6df9fb52d5ed8d54f7b2e80 "pdflatex"
+  "GroupsAndReps.out" 1760561033.94634 792 c7cdecbd6c94d0f719191333b6c4efdd "pdflatex"
+  "GroupsAndReps.tex" 1760561029.50329 65190 2ef02b1b63b0e37ea6cc07186ff8aa3e ""
+  "GroupsAndReps.toc" 1760561033.94656 605 9352515f06fabd601b997df2222f7f9a "pdflatex"
   "william.sty" 1760474825.08673 22606 712f34b1e8bb4de218338ef753dee685 ""
   (generated)
   "GroupsAndReps.aux"

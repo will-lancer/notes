@@ -60,6 +60,7 @@ Notes on group and representations, as used in physics. Resources used:
     \item Fulton and Harris' \emph{Representation Theory: A First Course}.
     \item Georgi's \emph{Lie Algebras in Particle Physics}.
 \end{itemize}
+
 % make table of contents
 \newpage
 \microtoc
@@ -430,7 +431,28 @@ If there is an intertwiner between two reps, we say they're
 \vocab{equivalent}. This is written as $V \cong W$, or 
 $\rho = \varphi^{-1} \circ \widetilde{\rho} \circ \varphi$\footnote{Physicists
 usually write this as $M = S A S^{-1}$, where $M$ and $A$ are representations
-of $G$.}. If $V = W$ this is just a change of basis. Similar to how we find bases 
+of $G$.}. If $V = W$ this is just a change of basis. We may further classify
+representations according to their \emph{reality} properties; we
+distinguish between three kinds of reprsentations:
+\begin{itemize}
+    \item \textbf{Real representations}: these are representations
+    such that $\rho^* = S \rho S^{-1}$ for some $S$, and there exists
+    a similarity transformation such that $\rho' = A \rho A^{-1}$ is
+    completely real.
+    \item \textbf{Pseudoreal representations}: these are representations
+    such that $\rho^* = S \rho S^{-1}$ for some $S$, but there \emph{does not}
+    exist a similarity transformation such that $\rho' = A \rho A^{-1}$ is
+    completely real.
+    \item \textbf{Complex representations}: these are representations
+    such that $\rho^* \neq S \rho S^{-1}$ for any $S$.
+\end{itemize}
+
+
+
+
+
+
+Similar to how we find bases 
 in vector spaces, we may ask if there is a ``basis'' for representations. The 
 answer is yes, and these are called \emph{irreducible representations}.
 
@@ -763,7 +785,25 @@ way to whatever dimension representation we desire. The boostrap goes as follows
     Constructing the chirality matrix, we have $\gamma^3 = \alpha \gamma^1 \gamma^2$,
     where $(\gamma^3)^2 = - \alpha^2 (\gamma^1)^2 (\gamma^2)^2 = - \alpha^2$,
     so WLOG $\alpha = -i$. This gives $\gamma^3 = \sigma^3$. So our rep in $D = 3 + 0$
-    is $\{ I_2, \sigma^1, \sigma^2, \sigma^3 \}$. Tensoring the identity
+    is $\{ I_2, \sigma^1, \sigma^2, \sigma^3 \}$. For posterity,
+    recall the explicit forms of the Pauli matrices:
+    \begin{align*}
+        \sigma^1 = \begin{pmatrix}
+            0 & 1\\
+            1 & 0
+        \end{pmatrix},
+        \mathspace
+        \sigma^2 = \begin{pmatrix}
+            0 & -i\\
+            i & 0
+        \end{pmatrix},
+        \mathspace
+        \sigma^3 = \begin{pmatrix}
+            1 & 0\\
+            0 & -1
+        \end{pmatrix}.
+    \end{align*}
+    Tensoring the identity
     with $\sigma^1$ and the $\gamma$'s with $-\sigma^2$ gives
     \begin{align*}
         & \gamma^a = -i \begin{pmatrix}
@@ -784,7 +824,7 @@ way to whatever dimension representation we desire. The boostrap goes as follows
             0 & \sigma^a\\
             - \sigma^a & 0
         \end{pmatrix}
-        & \gamma^4 = I_2 \otimes \sigma^1 = -i \begin{pmatrix}
+        & \gamma^4 = -i(I_2 \otimes \sigma^1) = -i \begin{pmatrix}
             0 & I_2\\
             I_2 & 0
         \end{pmatrix}.
@@ -826,7 +866,7 @@ way to whatever dimension representation we desire. The boostrap goes as follows
              & & & \sigma^2
         \end{pmatrix}.
     \end{align*}
-    For $D = 7 + 0$, the chirality matrix is
+    For $D = 6 + 0$, the chirality matrix is
     \begin{align*}
         \gamma^7 & = \alpha \gamma^1 \cdots \gamma^6
         = \alpha (\gamma^1 \cdots \gamma^5 \otimes (\sigma^1)^5)(I_4 \otimes \sigma^2)
@@ -908,7 +948,8 @@ We now get into the machinery behind these spinors.
         \lambda^\dagger i^\sigma \gamma^1 \cdots \gamma^{n_t} = \lambda^T C,
     \end{align*}
     where $C$ is the \vocab{charge conjugation matrix}. We will
-    denote Majorana spinors by $\zeta$.
+    denote Majorana spinors by $\zeta$. If a representation
+    is real, then Majorana spinors exist.
     \note{put consistency condition here}
 \end{definition}
 
@@ -931,6 +972,7 @@ We now get into the machinery behind these spinors.
     \begin{align*}
         \gamma_c \chi^{\pm} = \pm \chi^{\pm}.
     \end{align*}
+    Weyl spinors only exist in even dimensions.
     \note{put consistency condition here}
 \end{definition}
 
@@ -947,7 +989,6 @@ We now get into the machinery behind these spinors.
         & D_E \equiv 0 \mod 8
         & D_M \equiv 2 \mod 8.
     \end{align*}
-
 \end{definition}
 
 \begin{definition}
@@ -970,7 +1011,9 @@ We now get into the machinery behind these spinors.
     If you \emph{do not have} symplectic/normal Majorana
     spinors in some given $D = s + t$, then you \emph{do
     have} normal/symplectic Majorana spinors in $D = s + t$.
-    You may also have both in a given dimension.
+    You may also have both in a given dimension, or neither.
+    If an irrep is pseudoreal, then symplectic Majorana spinors
+    exist.
 \end{definition}
 
 The definition of the Majorana spinor introduces a new object,
@@ -980,6 +1023,20 @@ conditions on $C$. We gave the most useful one in the definition,
 but we list the rest here:
 \begin{itemize}
     \item \note{finish}
+\end{itemize}
+
+
+Reality condition for the Dirac matrices in $D = s + 1$
+dimensions
+\begin{align*}
+    \# = \sum_{k = 0}^D (-1)^{k(k - 1)/2} \left( {n \choose k} - {n \choose k - 1} \right),
+\end{align*}
+where ${n \choose - 1} \coloneqq 0$. Also you can use
+Bott periodicity, $s - t \equiv n \mod 8$, where
+\begin{itemize}
+    \item $n \in \{ 0, 1, 2 \} \implies $ real.
+    \item $n \in \{ 4, 5, 6 \} \implies $ pseudoreal.
+    \item $n \in \{ 3, 7 \} \implies $ complex.
 \end{itemize}
 
 \begin{eexample}
@@ -1004,35 +1061,7 @@ but we list the rest here:
     Constructing the Majorana and Weyl spinors gives us \note{finish}
 \end{eexample}
 
-\note{make table with the following columns:
-which charge conj exists, what it is
-symmetric?
-block diagonal?
-spinor indices?
-M?
-W?
-MW?
-SpM?
-reality properties}
-
-\note{rep is faithful iff gammac is pm 1}
-
-\note{$C_- = \gamma_c C_+$}
-
-\note{fill out this table yourself; that's literally all of the
-practice you need for this freaking test bro}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-        $D = s + t$ & $C_+/C_-$ & Sym. & Diag & Sp. Ind. & Faithful & M & W & MW & SpM\\
-        \hline
-    \end{tabular}
-    \caption{Table for properties of the charge conjugation matrices
-    and what kinds of spinors are allowed.}
-\end{table}
-
+\note{rep is NOT faithful iff gammac is pm 1}
 
 \begin{table}[H]
     \centering
@@ -1040,128 +1069,186 @@ practice you need for this freaking test bro}
         \hline
         $D = s + t$ & Faithful & Hermitian & Reality\\
         \hline
-        $D = 2 + 0$ & Yes & Yes & Real: $1 + 2 - 1 = 2$\\
-        $D = 1 + 1$ & Yes & No; $i\sigma_2$ & Real: \\
-        $D = 3 + 0$ & Yes & \\
-        $D = 2 + 1$ & Yes &\\
-        $D = 4 + 0$ & Yes &\\
-        $D = 3 + 1$ & Yes\\
-        $D = 5 + 0$ & No\\
-        $D = 4 + 1$ & Yes\\
-        $D = 6 + 0$ & Yes\\
-        $D = 5 + 1$ & \note{input}\\
-        $D = 7 + 0$ & Yes\\
-        $D = 6 + 1$ & \note{input}\\
-        $D = 8 + 0$ & Yes\\
-        $D = 7 + 1$ & Yes\\
-        $D = 9 + 0$ & \note{input}\\
-        $D = 8 + 1$ & \note{input}\\
-        $D = 10 + 0$ & \note{input}\\
-        $D = 9 + 1$ & \note{input}\\
-        $D = 11 + 0$ & \note{input}\\
-        $D = 10 + 1$ & \note{input}\\
-        \hline
+        $D = 2 + 0$ & Yes & Yes & Real\\
+        $D = 1 + 1$ & Yes & No & Real\\
+        $D = 3 + 0$ & Yes & Yes & Complex\\
+        $D = 2 + 1$ & Yes & No & Real\\
+        $D = 4 + 0$ & Yes & Yes & Pseudoreal\\
+        $D = 3 + 1$ & Yes & No & Real\\
+        $D = 5 + 0$ & No & Yes & Pseudoreal\\
+        $D = 4 + 1$ & Yes & No & Complex \\
+        $D = 6 + 0$ & Yes & Yes & Pseudoreal\\
+        $D = 5 + 1$ & Yes & No & Pseudoreal\\
+        $D = 7 + 0$ & Yes & Yes & Complex\\
+        $D = 6 + 1$ & No & No & Pseduoreal\\
+        $D = 8 + 0$ & Yes & Yes & Real\\
+        $D = 7 + 1$ & Yes & No & Pseudoreal\\
+        $D = 9 + 0$ & No & Yes & Real\\
+        $D = 8 + 1$ & Yes & No & Complex\\
+        $D = 10 + 0$ & Yes & Yes & Real\\
+        $D = 9 + 1$ & Yes & No & Real\\
+        $D = 11 + 0$ & Yes & Yes & Complex\\
+        $D = 10 + 1$ & Yes & No & Real\\
+        \hline 
     \end{tabular}
-    \caption{Table for properties of the $\gamma$-matrices.}
 \end{table}
 
-\note{ADD HERMITICITY}
+\note{$C_- = \gamma_c C_+$}
 
-\begin{adjustwidth}{-2cm}{-2cm}
+\note{fill out this table yourself; that's literally all of the
+practice you need for this freaking test bro}
 
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
-    \hline
-    $D=s+t$ & $C_+/C_-$ & Symmetry & Diag & Sp. Ind. & Faithful & M & W & MW & SpM & Reality\\
-    \hline
-    % 2
-    $2{+}0$ &
-    $C_+=\gamma^2\ (\equiv\sigma^1)$ &
-    S & diag & same & yes & yes & yes & no & no & real\\
-    \hline
-    $1{+}1$ &
-    $C_-=\gamma^0\gamma^1$ &
-    A & off & diff & yes & yes & yes & no & no & real\\
-    \hline
-    % 3
-    $3{+}0$ &
-    $C_+=\gamma^2$ &
-    A & diag & same & yes & yes & - & - & - & real\\
-    \hline
-    $2{+}1$ &
-    $C_-=\gamma^0\gamma^2$ &
-    A & off & same & no & yes & - & - & - & real\\
-    \hline
-    % 4
-    $4{+}0$ &
-    $C_+=\gamma^2\gamma^4$ &
-    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
-    \hline
-    $3{+}1$ &
-    $C_-=\gamma^0\gamma^2$ &
-    A & off  & diff & yes & yes & yes & no & no & real\\
-    \hline
-    % 5
-    $5{+}0$ &
-    $C_+=\gamma^2\gamma^4$ &
-    S & diag & same & yes & no & - & - & yes* & pr*\\
-    \hline
-    $4{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4$ &
-    S & off & same & yes & no & - & - & yes & pr\\
-    \hline
-    % 6
-    $6{+}0$ &
-    $C_+=\gamma^2\gamma^4\gamma^6$ &
-    S & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
-    \hline
-    $5{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4$ &
-    A & off  & diff & yes & SpM & yes & SpM-W & yes & pr\\
-    \hline
-    % 7
-    $7{+}0$ &
-    $C_+=\gamma^2\gamma^4\gamma^6$ &
-    A & diag & same & yes & yes & - & - & - & real\\
-    \hline
-    $6{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6$ &
-    A & off & same & yes & yes & - & - & - & real\\
-    \hline
-    % 8
-    $8{+}0$ &
-    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8$ &
-    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
-    \hline
-    $7{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6$ &
-    S & off  & diff & yes & SpM & yes & no & yes & pr\\
-    \hline
-    % 9
-    $9{+}0$ &
-    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8$ &
-    S & diag & same & yes & yes & - & - & - & real\\
-    \hline
-    $8{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8$ &
-    S & off & same & yes & yes & - & - & - & real\\
-    \hline
-    % 10
-    $10{+}0$ &
-    $C_+=\gamma^2\gamma^4\gamma^6\gamma^8\gamma^{10}$ &
-    A & either  & diff & yes & no & yes & no & yes* & complex/pr*\\
-    \hline
-    $9{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8$ &
-    S & off  & diff & yes & no & yes & yes & no & real (MW)\\
-    \hline
-    % 11
-    $10{+}1$ &
-    $C_-=\gamma^0\gamma^2\gamma^4\gamma^6\gamma^8\gamma^{10}$ &
-    A & diag & same & yes & yes & - & - & - & real\\
-    \hline
+Symmetry of charge conjugation matrices:
+\begin{itemize}
+    \item $C_+^T = (-1)^{\lfloor t/2 \rfloor} C_+$
+    \item $C_-^T = (-1)^{\lfloor (t + 1)/2 \rfloor} C_-$
+\end{itemize}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $D = s + t$ & $C_+/C_-$ & Sym. & Diag & Sp. Ind. & M & W & MW & SpM\\
+        \hline
+        $D = 2 + 0$ & Both & Sym & Both (Weyl) & Weyl & Y & Y & Y & N\\
+        $D = 1 + 1$ & Both & 50/50 & Both & Weyl & Y & Y & Y & Y\\
+        $D = 3 + 0$ & $C_- = \gamma^2$ & Sym & Off & None & N & N & N & N\\
+        $D = 2 + 1$ & $C_- = \gamma^2$ & 50/50 & Off & Norm & Y & N & N & Y\\
+        $D = 4 + 0$ & Both & Sym & Both & SpWeyl & Y & Y & Y & Y\\
+        $D = 3 + 1$ & Both & 50/50 & Both & Weyl & Y & Y & Y & Y\\
+        $D = 5 + 0$ & $C_+ = \gamma^1 \gamma^3$ & Sym & Block & Sp & N & N & N & Y\\
+        $D = 4 + 1$ & $C_+ = \gamma^1 \gamma^3$ & 50/50 & Block & None & N & N & N & N\\
+        $D = 6 + 0$ & Both & Sym & Both & SpWeyl & N & Y & N & Y\\
+        $D = 5 + 1$ & Both & 50/50 & Both & SpWeyl & N & Y & N & Y\\
+        $D = 7 + 0$ & $C_- = \gamma^1 \gamma^3 \gamma^6$ & Sym & Off & None & N & N & N & N\\
+        $D = 6 + 1$ & $C_- = \gamma^1 \gamma^3 \gamma^6$ & 50/50 & Off & Sp & N & N & N & Y\\
+        $D = 8 + 0$ & Both & Sym & Both & Weyl & Y & Y & Y & N\\
+        $D = 7 + 1$ & Both & 50/50 & Both & SpWeyl & N & Y & N & Y\\
+        $D = 9 + 0$ & $C_+ = \gamma^2 \gamma^4 \gamma^5 \gamma^7$ & Sym & Block & Norm & Y & N & N & N\\
+        $D = 8 + 1$ & $C_+ = \gamma^2 \gamma^4 \gamma^5 \gamma^7$ & 50/50 & Block & Norm & Y & N & N & Y\\
+        $D = 10 + 0$ & Both & Sym & Both & Weyl & Y & Y & Y & N\\
+        $D = 9 + 1$ & Both & 50/50 & Both & Weyl & Y & Y & Y & N\\
+        $D = 11 + 0$ & $C_+ = \gamma^2 \gamma^4 \gamma^5 \gamma^7 \gamma^{11}$ & Sym & Off & None & N & N & N & N\\
+        $D = 10 + 1$ & $C_+ = \gamma^2 \gamma^4 \gamma^5 \gamma^7 \gamma^{11}$ & 50/50 & Off & Norm & Y & N & N & Y\\
+        \hline
     \end{tabular}
-    
-\end{adjustwidth}
+    \caption{Table for properties of the charge conjugation matrices
+    and what kinds of spinors are allowed. See \ref{table:c_matrices}
+    for explicit constructions of $C_+$ and $C_-$. Sym goes to
+    normal sym (see above) under time-like additions to the metric.}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+         & $\gamma^1$ & $\gamma^2$ & $\gamma^3$ & $\gamma^4$ & $\gamma^5$ & $\gamma^6$ & $\gamma^7$ & $\gamma^8$ & $\gamma^9$ & $\gamma^{10}$ & $\gamma^{11}$ \\
+        \hline
+        $D = 2$  &  $+$  &  $-$  &     &     &     &     &     &     &     &     & \\ 
+        $D = 3$  &  $+$  &  $-$  &  $+$  &     &     &     &     &     &     &     & \\
+        $D = 4$  &  $-$  &  $+$  &  $-$  &  $+$  &     &     &     &     &     &     & \\
+        $D = 5$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &     &     &     &     &     & \\
+        $D = 6$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &  $-$  &     &     &     &     & \\
+        $D = 7$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &  $-$  &  $+$  &     &     &     & \\
+        $D = 8$  &  $+$  &  $-$  &  $+$  &  $-$  &  $-$  &  $+$  &  $-$  &  $+$  &     &     & \\
+        $D = 9$  &  $+$  &  $-$  &  $+$  &  $-$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &     & \\
+        $D = 10$ &  $+$  &  $-$  &  $+$  &  $-$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &  $+$  & \\
+        $D = 11$ &  $+$  &  $-$  &  $+$  &  $-$  &  $-$  &  $+$  &  $-$  &  $+$  &  $+$  &  $+$  &  $-$  \\
+        \hline
+    \end{tabular}
+    \caption{Symmetry properties of the $\gamma$'s.}
+\end{table}
+
+\note{need to figure out specific similarity transformations}
+
+We now determine the charge conjugation matrices in every dimension.
+We can generally construct the matrix as follows for dimension $D$.
+\begin{itemize}
+    \item Write out the $D$ equations of commutation/anti-commutation
+    for the charge conjugation matrix. You will get some number of pluses
+    and minuses for each, e.g. $C \gamma^2 = - \gamma^2 C$, which implies
+    that $\{ C, \gamma^2 \} = 0$.
+    \item Take the product of all of the pluses and minuses. This will give you
+    $C_+$ and $C_-$. Now take $C \gamma^1 C^{-1}$ and see if it's $\pm \gamma^1$.
+    From this you can determine which is which.
+    \item In odd dimensions, you just need to check what the value of the matrices
+    are on the chirality matrix; one of them will fail. Then you discard that one
+    and choose the other one as your matrix.
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \label{table:c_matrices}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & $C_+$ & $C_-$ \\
+        \hline
+        $D = 2$ & $\gamma^1$ & $\gamma^2$\\
+        $D = 3$ & DNE & $\gamma^1 \gamma^3$\\
+        $D = 4$ & $\gamma^1 \gamma^3$ & $\gamma^2 \gamma^4$\\
+        $D = 5$ & $\gamma^1 \gamma^3$ & DNE\\
+        $D = 6$ & $\gamma^2 \gamma^4 \gamma^5$ & $\gamma^1 \gamma^3 \gamma^6$\\
+        $D = 7$ & DNE & $\gamma^1 \gamma^3 \gamma^6$\\
+        $D = 8$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7$ & $\gamma^1 \gamma^3 \gamma^6 \gamma^8$\\
+        $D = 9$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7$ & DNE\\
+        $D = 10$ & $\gamma^2 \gamma^3 \gamma^5 \gamma^7$ & $\gamma^1 \gamma^4 \gamma^6 \gamma^8 \gamma^{10}$\\
+        $D = 11$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7 \gamma^{11}$ & DNE\\
+        \hline
+    \end{tabular}
+    \caption{Charge conjugation matrices up to $D = 11 + 0$. Note multiplying
+    by $\pm i$ doesn't change anything, so the Minkowski and Euclidean signatures
+    are the same.}
+\end{table}
+
+Fact: $C_+ = C_- \gamma_c$.
+
+\begin{eexample}
+    [A deep dive into six dimensions]
+    This is the second problem from the $2021$ PvN midterm.
+    We start in $D = 4 + 0$, with the standard representation
+    (see previous example). We construct the chirality matrix
+    $\gamma^5 = I_2 \otimes \sigma^1$, and get $\gamma^{(5)} = \{ \gamma^{(4)}, \gamma^5 \}$.
+    This representation is not unique, as we could have
+    also used $- \gamma^5$. Tensoring up by $\sigma^1$
+    and $\sigma^2$ gives the standard answer. Every matrix
+    here is Hermitian. The chirality matrix is $\gamma_7 = I_4 \otimes \sigma^3$.
+    This representation is unique. Going to $D = 5 + 1$ by
+    instead tensoring up with $-i \sigma^2$ gives another
+    unqiue representation, but with $\gamma^6$ anti-hermitian
+    instead of Hermitian. We now explicitly construct the charge conjugation
+    matrices in $D = 4$, $5$, and $6$, giving:
+    \begin{itemize}
+        \item $D = 4$. $\gamma^1$ and $\gamma^3$ are symmetric,
+        and $2, 4$ are antisymmetric. So, $C_+ = \gamma^1 \gamma^3$,
+        and $C_- = \gamma^2 \gamma^4$.
+        \item $D = 5$. Only $C_+$ satisfies the condition that
+        $C_\pm \gamma^5 = (\gamma^5)^T C_\pm$.
+        \item $D = 6$. Symmetric ones: $2, 4, 5$. Asymmetric ones: $1, 3, 6$.
+        So $C_+ = \gamma^2 \gamma^4 \gamma^5$, and $C_- = \gamma^1 \gamma^3 \gamma^6$.
+        Explicitly, $C_+^6 = C_+^5 \otimes C_+^2$, and $C_-^6 = C_+^5 \otimes C_-^2$.
+        $C_+^6 = C_-^6 \gamma_7$, as
+        \begin{align*}
+            (\gamma^1 \gamma^3 \otimes \sigma^1) = (\gamma^1 \gamma^3 \otimes (- i \sigma^2)) (I_4 \otimes \sigma^3).
+        \end{align*}
+        Since adding an $i$ to the $C_\pm$ doesn't do anything for transposition,
+        it can't affect symmetry properties.
+    \end{itemize}
+    Note that the irrep in $D = 6 + 0$ is pseudoreal by Bott periodicity.
+    The matrix $S$ such that $S \gamma^M S^{-1} = (\gamma^M)^*$ is given by
+    $S = C_+$. The $D = 5 + 1$ irrep is the same, but $S = \gamma^1 \gamma^3 \otimes I_4$,
+    which is clearly symmetric. Weyl spinors exist ($6$ is even), and 
+    since $C_-$ is symmetric, Majorana spinors exist in $D = 6 + 0$.
+    There are no Majorana spinors in $D = 5 + 1$, as neither $C_+$
+    is symmetric or $C_-$ antisymmetric. Majorana-Weyl spinors do
+    not exist in either dimension. To show that $C_+$ stays symmetric
+    under a similarity transformation, see below.
+\end{eexample}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/pvnsolution.png}
+\end{figure}
 
 
 \subsubsection{Normal modes of atoms}
@@ -1390,8 +1477,9 @@ questions for each molecule.
         \begin{align*}
             \boxed{\Omega = A_1 \oplus A_2 \oplus A_3.}
         \end{align*}
-        \item Physically, $A_1$ is the breather, $A_2$ is the stretcher,
-        and $A_3$ is the shearer.
+        \item Physically, $A_1$ is the breather, $A_2$ is the four
+        pumpers (along and against a line), and $A_3$ is the three twisters (twisting any
+        two edges in the opposite way).
     \end{enumerate}
 \end{eexample}
 
