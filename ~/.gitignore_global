@@ -50,3 +50,8 @@ _latexmk/
 # LaTeX packages and styles (optional - uncomment if you want to ignore them)
 # *.sty
 # *.cls 
+
+# Ignore the PvN files
+Physics/GroupsAndReps/2021_PvN680_Midterm_Solution.pdf
+Physics/GroupsAndReps/2021_PvN680_Midterm.pdf
+Physics/GroupsAndReps/PvN_FiniteGroupsAndReps.pdf
