@@ -1,15 +1,20 @@
 # notes
 In Fall 2025, I started writing notes for the subjects I've learned.
-I am generally against typing notes, as they're an inefficient way to learn, but I
-think once you know a subject, typing up notes for future reference can be very beneficial.
+I am against typing notes for *learning* a subject, as it's an inefficient method,
+but typed notes are very useful for *storing* knowledge for future reference.
 
-I develop the subjects in a way I see logically fit, and as such I do not follow
-the approach of any resource I know. I am more mathematically precise than
-most resources, try to always develop things as simply as possible, and I have 
-certain computational results that are hard to find
-elsewhere (e.g. vector spherical harmonics for approximating the vector potential).
-I will also sometimes skip something if I think I can derive it myself later or if I know I
-won't forget it. 
+I develop the subjects in a way I see logically fit; as such, I do not follow
+any particular resource--these notes are typed up from memory after I've had time
+to think things through myself.
 
-My notes are **not** meant to be learned from, but if you already know the subject
-they cover you might learn something from reading them.
+A few differences I usually implement are mathematical precision, simplicity,
+and motivation. I also explicitly compute things that most books skimp out on,
+e.g. vector spherical harmonics for approximating the vector potential, or explicitly
+computing the Dirac matrices up to D = 11. I skip things I think I will not forget,
+so some basic points are likely missing. I also write these notes assuming knowledge
+of the subject already, so I will reference things later in the subject freely (but
+I do define everything I use in the main text, i.e. I only reference things later in the
+subject off-handedly).
+
+My notes are **not** meant to be learned from, but if you already know a
+subject, they might be a useful reference.
