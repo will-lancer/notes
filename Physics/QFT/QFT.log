@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 SEP 2025 14:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  19 OCT 2025 19:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -995,8 +995,8 @@ Package zref Info: New property: mdf@pagevalue on input line 895.
 Package thmtools Info: Key `mdframed' (with value `style=mdbluebox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmbluebox' on input line 222.
-Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 226.
+(thmtools)             that uses `style=thmbluebox' on input line 223.
+Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 227.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2023/05/04 v0.76
 )
@@ -1007,7 +1007,7 @@ Package: thmdef-mdframed 2023/05/04 v0.76
 Package thmtools Info: Key `mdframed' (with value `style=mdredbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmredbox' on input line 252.
+(thmtools)             that uses `style=thmredbox' on input line 253.
 \c@iintuition=\count383
 \c@ttechnique=\count384
 \c@eexample=\count385
@@ -1015,41 +1015,42 @@ Package thmtools Info: Key `mdframed' (with value `style=mdredbox')
 Package thmtools Info: Key `mdframed' (with value `style=mdyellowbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmyellowbox' on input line 280.
+(thmtools)             that uses `style=thmyellowbox' on input line 281.
 \c@eequation=\count387
 Package thmtools Info: Key `mdframed' (with value `style=mdgreenbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmgreenbox' on input line 307.
+(thmtools)             that uses `style=thmgreenbox' on input line 308.
 \c@qquestion=\count388
 Package thmtools Info: Key `mdframed' (with value `style=mdblackbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmblackbox' on input line 330.
+(thmtools)             that uses `style=thmblackbox' on input line 331.
 \c@nnote=\count389
 Package thmtools Info: Key `mdframed' (with value `style=mdpurplebox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpurplebox' on input line 354.
+(thmtools)             that uses `style=thmpurplebox' on input line 355.
 \c@reemark=\count390
 Package thmtools Info: Key `mdframed' (with value `style=mdpinkbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpinkbox' on input line 376.
+(thmtools)             that uses `style=thmpinkbox' on input line 377.
 \c@ppreview=\count391
+\c@pproblem=\count392
 \@brx=\box140
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@theorem=\count392
-\c@motivation=\count393
-\c@corollary=\count394
-\c@lemma=\count395
-\c@definition=\count396
-\c@remark=\count397
-\c@proposition=\count398
-\c@hwproblem=\count399
-\c@hwsolution=\count400
+\c@theorem=\count393
+\c@motivation=\count394
+\c@corollary=\count395
+\c@lemma=\count396
+\c@definition=\count397
+\c@remark=\count398
+\c@proposition=\count399
+\c@hwproblem=\count400
+\c@hwsolution=\count401
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
  (/usr/local/texlive/2025/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
@@ -1201,16 +1202,16 @@ LaTeX Font Info:    ... okay on input line 29.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count401
+\scratchcounter=\count402
 \scratchdimen=\dimen307
 \scratchbox=\box141
-\nofMPsegments=\count402
-\nofMParguments=\count403
+\nofMPsegments=\count403
+\nofMParguments=\count404
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count404
+\MPscratchCnt=\count405
 \MPscratchDim=\dimen308
-\MPnumerator=\count405
-\makeMPintoPDFobject=\count406
+\MPnumerator=\count406
+\makeMPintoPDFobject=\count407
 \everyMPtoPDFconversion=\toks63
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1242,7 +1243,7 @@ Package microtype Info: Using default kerning set `alltext'.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\c@lstlisting=\count407
+\c@lstlisting=\count408
 Package hyperref Info: Link coloring ON on input line 29.
  (./QFT.out) (./QFT.out)
 \@outlinefile=\write4
@@ -1303,62 +1304,62 @@ Package mdframed Info: mdframed detected package amsthm
 (mdframed)              on input line 225.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 247.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 247.
 
 
 
 [5]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 255.
-Package hyperref Info: bookmark level for unknown reemark defaults to 0 on input line 255.
+(mdframed)              on input line 252.
+Package hyperref Info: bookmark level for unknown reemark defaults to 0 on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 317.
+(hyperref)                removing `math shift' on input line 314.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 317.
+(hyperref)                removing `math shift' on input line 314.
 
 
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
+(hyperref)                removing `math shift' on input line 320.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 323.
+(hyperref)                removing `math shift' on input line 320.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 325.
+(hyperref)                removing `math shift' on input line 324.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 325.
+(hyperref)                removing `math shift' on input line 324.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 328.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 327.
+(hyperref)                removing `math shift' on input line 328.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(hyperref)                removing `math shift' on input line 332.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 329.
+(hyperref)                removing `math shift' on input line 332.
 
 
 
@@ -1368,21 +1369,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `QFT.out' has not changed.
-(rerunfilecheck)             Checksum: 480AA6793B727664D49CD3BBF71356EF;2276.
+(rerunfilecheck)             Checksum: 9D91CEF4E4D1E065FD4F3FD199EF454F;2756.
  ) 
 Here is how much of TeX's memory you used:
- 36797 strings out of 473190
- 717279 string characters out of 5715801
- 1206971 words of memory out of 5000000
- 59234 multiletter control sequences out of 15000+600000
- 585285 words of font info for 190 fonts, out of 8000000 for 9000
+ 36822 strings out of 473190
+ 717654 string characters out of 5715801
+ 1207418 words of memory out of 5000000
+ 59259 multiletter control sequences out of 15000+600000
+ 585174 words of font info for 188 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,18n,120p,1042b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on QFT.pdf (7 pages, 299125 bytes).
+Output written on QFT.pdf (7 pages, 303239 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 33 named destinations out of 1000 (max. 500000)
- 60045 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 292 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 60069 words of extra memory for PDF output out of 61914 (max. 10000000)
 

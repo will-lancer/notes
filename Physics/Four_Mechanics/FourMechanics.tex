@@ -902,4 +902,184 @@ by the Regular Value Theorem.
 
 \subsection{Assumptions}
 
+\note{insert intermediate stuff}
+
+\subsection{Perturbation theory}
+
+\subsubsection{Hamiltonian}
+
+We first cover bound-state perturbation theory.
+Only studying bound states simplifies things, as continuous spectra
+require more complicted techniques (i.e. TD-perturbation theory).
+We follow the Brillouin-Wigner (BW) derivation for bound-state perturbation
+theory, showing equivalence to Rayleigh-Schrodinger perturbation theory (RSPT)
+along the way (as the latter is generally more immediately useful).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/QM/LJ_pertTh.png}
+    \caption{Algebraic and geometric pictures associated with perturbation
+    theory.}
+    \label{fig:geoAlgPT}
+\end{figure}
+
+It is often true that useful physical systems take the form of a
+known system plus a small perturbation; indeed, every prediction
+we see from colliders like the LHC tacitly assume this statement.
+So we should have a formalism to deal with these kinds of problems; 
+this is the study of \vocab{perturbation theory}. We cover the quantum
+mechanical version here\footnote{This idea is also found in
+classical mechanics and quantum field theory, and more generally
+in analysis.}.
+
+Consider a Hamiltonian $H$, and assume that it may be written as
+\begin{align*}
+    H = H_0 + \lambda H_1 = H_0 + \widetilde{H}_1.
+\end{align*}
+where $\lambda \in [0, 1]$ interpolates between the free system ($H_0$)
+and the full system ($H$). Another way of looking at this is brought to us
+by Wilsonian QFT; we may think of $\lambda H_1$ has being an operator
+$\widetilde{H}_1 = g \bigo$, where $\bigo$ is composed of $a$'s and $a^\dagger$'s.
+Then $\lambda$ is defined through $g = \Lambda^{d - \Delta_\bigo} \lambda$,
+with $\Delta_\bigo \coloneqq [\bigo]$ being the mass dimension of $\bigo$,
+and we may proceed as usual. As a concrete example, consider the anharmonic 
+oscillator---in this case, $H_0 = p^2/2m + (1/2)m\omega^2 q^2$ and 
+$\widetilde{H}_1 = g q^4 / 4!$. We have that $\lambda = L^{d - \Delta_\bigo} g$, 
+where $L$ is the characteristic length scale of our system, and $d$ the dimension.
+
+We now study the geometry of this problem. Introduce
+\begin{align*}
+    & \mathcal{H}_n = \{ \text{unperturbed eigenspace} \}
+    & \mathcal{H}_n^\perp = \{ \text{perturbed eigenspace} \}.
+\end{align*}
+These spaces are orthogonal, as they're eigenspaces of different
+eigenvalues. Label the kets in the spaces respectively by $\{ \ket{n\alpha} \}$ and 
+$\{ \ket{k \alpha} \}$, where $\alpha$ is a label used to resolve 
+degeneracies. These states are orthonormal, $\braket{n\alpha}{k\beta} = \delta^{k}_n \delta^{\beta}_\alpha$.
+Note that kets correspond to upper indices and bras to lower indices.
+Introduce commuting projectors onto the eigenspaces
+\begin{align*}
+    & P \coloneqq \sum_{\alpha}
+    \ketbra{n\alpha}{n\alpha},
+    & Q \coloneqq \sum_{\substack{k \neq n \\ \alpha}} \ketbra{k\alpha}{k\alpha}.
+\end{align*}
+Then $\ket{\psi} = P \ket{\psi} + Q \ket{\psi}$. $P\ket{\psi}$ is known by assumption,
+and $Q\ket{\psi}$ is not. This is the goal of perturbation theory: solve for the small hard part
+$Q\ket{\psi}$ in terms of big easy part $P\ket{\psi}$. The full Hamiltonian is assumed
+to satisfy
+\begin{align}
+    \label{eq:PTenergyEvals}
+    H \ket{\psi} = (H_0 + \lambda H_1)\ket{\psi} = E \ket{\psi},
+\end{align}
+where $E$ and $\ket{\psi}$ are assumed to be $\lambda$-dependent. As $\lambda \to 0$,
+$E \to \epsilon_n$ and $\ket{\psi} \to \ket{n\alpha} \in \mathcal{H}_n$. This second
+statement shows the difficulty of degenerate perturbation theory; since $\mathcal{H}_n$
+is degenerate, the ``tracing back'' of $\ket{\psi}$ as $\lambda$ turns off is not unique,
+and this is also true in reverse---as we turn on $\lambda$, $\ket{\psi}$ generically splits
+into one of many energy eigenstates, the number of which determined by $\dim{\mathcal{H}_n}$.
+
+As stated before, we may write $\ket{\psi} = P\ket{\psi} + Q\ket{\psi}$,
+where the perturbation is entirely found in $Q\ket{\psi}$. Rewriting eq. 
+(\ref{eq:PTenergyEvals}) gives
+\begin{align}
+    \label{eq:PTEminusH0}
+    (E - H_0)\ket{\psi} = \lambda H_1 \ket{\psi}.
+\end{align}
+So, we'd like to invert $E - H_0$. Write $E - H_0$ as a
+function of the energy eigenstates,
+\begin{align*}
+    E - H_0 = \sum_{k, \, \alpha} \frac{\ketbra{k\alpha}{k\alpha}}{E - \epsilon_k}.
+\end{align*}
+This expression has a zero eigenvalue at $E = \epsilon_n$, and so it
+is meaningless as it stands. To resolve this, introduce
+\begin{align*}
+    R = \sum_{\substack{k \neq n\\ \alpha}} \frac{\ketbra{k\alpha}{k\alpha}}{E - \epsilon_k}.
+\end{align*}
+$R$ satisfies $RQ = QR = R$, and $[R, P] = 0$. We also note that $R (E - H_0) = (E - H_0)R = Q$,
+and so $R|_{\mathcal{H}_n^\perp} = \id_{\mathcal{H}_n^\perp}$, and $Q\ket{\psi} = \lambda R H_1 \ket{\psi}$
+(which we can see by multiplying (\ref{eq:PTEminusH0}) through by $R$). So,
+\begin{align*}
+    \ket{\psi} = P \ket{\psi} + Q \ket{\psi} = P \ket{\psi} + \lambda R H_1 \ket{\psi}.
+\end{align*}
+Solving for $\ket{\psi}$ and expanding gives
+\begin{align}
+    \label{eq:PTstate}
+    (1 - \lambda R H_1) \ket{\psi} = P \ket{\psi} \implies \boxed{\ket{\psi} = \sum_{n = 0}^\infty \lambda^n (RH_1)^n P \ket{\psi}.}
+\end{align}
+So we've accomplished our goal of writing $\ket{\psi}$ in
+terms of the easy part $P\ket{\psi}$. We now explore the consequences
+of this equation with a few general examples.
+
+\begin{eexample}
+    [Non-degenerate perturbation theory]
+    Assume $\dim{\mathcal{H}_n} = 1$---call this state $\ket{n}$. Note that
+    $\braket{\psi}{n} = 1$ by assumption of $\braket{n}{n} = 1$. $P$ takes an
+    especially simple form in this case, $P = \ketbra{n}{n}$. Referencing eq. (\ref{eq:PTstate}),
+    we have
+    \begin{align*}
+        \ket{\psi} & = \ket{n} + \lambda R H_1 \ket{n} + \lambda^2 (RH_1)^2 \ket{n} + \cdots\\
+        & = \ket{n} + \sum_{\substack{k \neq n \\ \alpha}} \ket{k\alpha} \frac{\bra{k\alpha}H_1 \ket{n}}{E - \epsilon_k} + \cdots
+    \end{align*}
+    The energies are given by bra-ing through eq. (\ref{eq:PTEminusH0})
+    by $\bra{n}$,
+    \begin{align*}
+        \bra{n}E - H_0 \ket{\psi} = E - \epsilon_n = \lambda \bra{n} H_1 \ket{\psi},
+    \end{align*}
+    so
+    \begin{align*}
+        E = \epsilon_n + \lambda \bra{n} H_1 \ket{n} + \lambda^2 \bra{n} H_1 R H_1 \ket{n} + \cdots
+    \end{align*}
+    Substituting the zeroth-order approximation for $E$ ($E = \epsilon_n$) gives
+    \begin{align*}
+        \ket{\psi} = \ket{n} + \lambda \sum_{\substack{k \neq n \\ \alpha}} \ket{k\alpha} \frac{\bra{k\alpha}H_1 \ket{n}}{\epsilon_n - \epsilon_k} + \cdots
+    \end{align*}
+    which, along with the equation for $\ket{\psi}$, agrees with RSPT to first order.
+    We remark upon a general fact here: the $\lambda$-expansion for $E$ is always ``one-behind''
+    the expansion for $\ket{\psi}$. Concretely, if we know $E$ to order $\lambda^n$,
+    then we know $\ket{\psi}$ to order $\lambda^{n + 1}$. This is because $E$ only shows
+    up in $\ket{\psi}$ \emph{starting at} order $\lambda$, so $\ket{\psi}$ is always
+    ``one-ahead'' of $E(\lambda)$. 
+
+    In RSPT, we simply identify things slightly differently.
+    $\ket{n} \to \ket{n_0}$, and $\lambda^k (RH_1)^k \ket{n} \to \ket{n_k}$.
+    Each of the states $\{ n_k \}$ is assumed to be orthogonal to $\ket{n_0}$,
+    which follows from the fact that $R$ projects out all $k = n$ states,
+    or from using eq. (\ref{eq:PTEminusH0}) and noting that that $\braket{P\psi}{Q\psi} = 0$.
+    Everything else follows from this.
+\end{eexample}
+
+\begin{eexample}
+    [Degenerate perturbation theory]
+    We assume that the unperturbed eigenspace is degenerate,
+    and thus $P = \sum_\alpha \ketbra{n\alpha}{n\alpha}$.
+    $P$ acting on $\ket{\psi}$ gives some combination of
+    the $\ket{n\alpha}$'s, $P\ket{\psi} = \sum_\alpha c_\alpha \ket{n\alpha}$.
+    The main difference between non-degenerate and degenerate
+    perturbation theory is that we must solve for the state ($c_\alpha$)
+    and the energy $E$ simultaneously. Subbing $\ket{\psi}$ into the energy
+    equation we previously found gives
+    \begin{align*}
+        & \text{\underline{State}:} & \ket{\psi} = c_\alpha \ket{n\alpha} + \lambda R H_1 (c_\alpha \ket{n\alpha}) + \cdots\\
+        & \text{\underline{Energies}:} & (E - \epsilon_n) c_\alpha = \left\{ \lambda \ket{n\alpha}H_1 \ket{n\beta} + \lambda^2 \sum_{\substack{k \neq n \\ \gamma}} \frac{\bra{n\alpha} H_1 \ket{k\gamma} \bra{k\gamma} H_1 \ket{n\beta}}{E - \epsilon_k} + \cdots \right\} c_\beta.
+    \end{align*}
+    From the second equation we can see what the $c_\alpha$'s are:
+    eigenvectors with respect to the $g \times g$ matrix in the braces
+    (with $g = \dim{\mathcal{H}_n}$). Their eigenvalues are $(E - \epsilon_n)$.
+    In practice, we truncate the energy series at $\bigo(\lambda)$.
+
+    \note{show equivalence to RSPT}
+\end{eexample}
+
+\begin{eexample}
+    [Nearly degenerate perturbation theory]
+\end{eexample}
+
+
+
+
+
+
+
+\subsubsection{Lagrangian}
+
 \end{document}

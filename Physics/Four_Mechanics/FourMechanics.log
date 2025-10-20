@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  28 SEP 2025 00:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 OCT 2025 13:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -995,8 +995,8 @@ Package zref Info: New property: mdf@pagevalue on input line 895.
 Package thmtools Info: Key `mdframed' (with value `style=mdbluebox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmbluebox' on input line 222.
-Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 226.
+(thmtools)             that uses `style=thmbluebox' on input line 223.
+Package thmtools Info: Automatically pulling in `thmdef-mdframed' on input line 227.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/thmtools/thmdef-mdframed.sty
 Package: thmdef-mdframed 2023/05/04 v0.76
 )
@@ -1007,7 +1007,7 @@ Package: thmdef-mdframed 2023/05/04 v0.76
 Package thmtools Info: Key `mdframed' (with value `style=mdredbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmredbox' on input line 252.
+(thmtools)             that uses `style=thmredbox' on input line 253.
 \c@iintuition=\count383
 \c@ttechnique=\count384
 \c@eexample=\count385
@@ -1015,41 +1015,42 @@ Package thmtools Info: Key `mdframed' (with value `style=mdredbox')
 Package thmtools Info: Key `mdframed' (with value `style=mdyellowbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmyellowbox' on input line 280.
+(thmtools)             that uses `style=thmyellowbox' on input line 281.
 \c@eequation=\count387
 Package thmtools Info: Key `mdframed' (with value `style=mdgreenbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmgreenbox' on input line 307.
+(thmtools)             that uses `style=thmgreenbox' on input line 308.
 \c@qquestion=\count388
 Package thmtools Info: Key `mdframed' (with value `style=mdblackbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmblackbox' on input line 330.
+(thmtools)             that uses `style=thmblackbox' on input line 331.
 \c@nnote=\count389
 Package thmtools Info: Key `mdframed' (with value `style=mdpurplebox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpurplebox' on input line 354.
+(thmtools)             that uses `style=thmpurplebox' on input line 355.
 \c@reemark=\count390
 Package thmtools Info: Key `mdframed' (with value `style=mdpinkbox')
 (thmtools)             is not a known style key.
 (thmtools)             Will pass this to every \declaretheorem
-(thmtools)             that uses `style=thmpinkbox' on input line 376.
+(thmtools)             that uses `style=thmpinkbox' on input line 377.
 \c@ppreview=\count391
+\c@pproblem=\count392
 \@brx=\box140
  (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@theorem=\count392
-\c@motivation=\count393
-\c@corollary=\count394
-\c@lemma=\count395
-\c@definition=\count396
-\c@remark=\count397
-\c@proposition=\count398
-\c@hwproblem=\count399
-\c@hwsolution=\count400
+\c@theorem=\count393
+\c@motivation=\count394
+\c@corollary=\count395
+\c@lemma=\count396
+\c@definition=\count397
+\c@remark=\count398
+\c@proposition=\count399
+\c@hwproblem=\count400
+\c@hwsolution=\count401
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@headwidth=\skip136
@@ -1189,16 +1190,16 @@ LaTeX Font Info:    ... okay on input line 28.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count401
+\scratchcounter=\count402
 \scratchdimen=\dimen303
 \scratchbox=\box141
-\nofMPsegments=\count402
-\nofMParguments=\count403
+\nofMPsegments=\count403
+\nofMParguments=\count404
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count404
+\MPscratchCnt=\count405
 \MPscratchDim=\dimen304
-\MPnumerator=\count405
-\makeMPintoPDFobject=\count406
+\MPnumerator=\count406
+\makeMPintoPDFobject=\count407
 \everyMPtoPDFconversion=\toks63
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1230,7 +1231,7 @@ Package microtype Info: Using default kerning set `alltext'.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-\c@lstlisting=\count407
+\c@lstlisting=\count408
 Package hyperref Info: Link coloring ON on input line 28.
  (./FourMechanics.out) (./FourMechanics.out)
 \@outlinefile=\write4
@@ -1452,28 +1453,66 @@ Package hyperref Info: bookmark level for unknown definition defaults to 0 on in
 
 
 [16]
+<Figures/QM/LJ_pertTh.png, id=249, 490.83376pt x 172.645pt>
+File: Figures/QM/LJ_pertTh.png Graphic file (type png)
+<use Figures/QM/LJ_pertTh.png>
+Package pdftex.def Info: Figures/QM/LJ_pertTh.png  used on input line 920.
+(pdftex.def)             Requested size: 375.80544pt x 132.18889pt.
 
-[17] (./FourMechanics.aux)
+
+[17 <./Figures/QM/LJ_pertTh.png>]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1014.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1015     A
+            ssume $\dim{\mathcal{H}_n} = 1$---call this state $\ket{n}$. Not...
+
+[18]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1052.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1053     W
+            e assume that the unperturbed eigenspace is degenerate,
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1071.
+
+
+[19]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1074.
+
+
+[20] (./FourMechanics.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `FourMechanics.out' has not changed.
-(rerunfilecheck)             Checksum: 88369B4CD08DBE5C79B1289BC1F3CEF0;2231.
+(rerunfilecheck)             Checksum: DECCD5E93E0A64A6F124A3F5C72A396F;2387.
  ) 
 Here is how much of TeX's memory you used:
- 35977 strings out of 473190
- 690267 string characters out of 5715801
- 1191260 words of memory out of 5000000
- 58354 multiletter control sequences out of 15000+600000
- 581886 words of font info for 185 fonts, out of 8000000 for 9000
+ 36045 strings out of 473190
+ 691477 string characters out of 5715801
+ 1192106 words of memory out of 5000000
+ 58405 multiletter control sequences out of 15000+600000
+ 581937 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,15n,120p,1063b,1125s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on FourMechanics.pdf (17 pages, 332551 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on FourMechanics.pdf (20 pages, 374266 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 300 compressed objects within 3 object streams
- 86 named destinations out of 1000 (max. 500000)
- 62093 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 416 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 62106 words of extra memory for PDF output out of 74296 (max. 10000000)
 

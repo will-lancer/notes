@@ -21,3 +21,6 @@
 \contentsline {subsubsection}{Core ideas; the microscopic picture}{16}{section*.7}%
 \contentsline {section}{\numberline {4}Quantum Mechanics}{17}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Assumptions}{17}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Perturbation theory}{17}{subsection.4.2}%
+\contentsline {subsubsection}{Hamiltonian}{17}{section*.8}%
+\contentsline {subsubsection}{Lagrangian}{20}{section*.9}%

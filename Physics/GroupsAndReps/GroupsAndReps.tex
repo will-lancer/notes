@@ -25,8 +25,6 @@
 
 \linespread{1.03} % give a little extra room
 \setlength{\parindent}{0.2in} % reduce paragraph indent a bit
-\setcounter{secnumdepth}{2} % no numbered subsubsections
-\setcounter{tocdepth}{2} % no subsubsections in ToC
 
 \begin{document}
 
@@ -54,6 +52,10 @@ Notes on group and representations, as used in physics. Resources used:
     and the lecture notes from the course. This is the primary
     source of content; I just explain things in my own way, and
     make things more formal and precise.
+    \item Fuchs and Schweigert's \emph{Symmetries, Lie Algebras, and
+    Representations}. The number two source of content for these notes;
+    this book provides the theory counterpart to PvN's incredible emphasis 
+    on computation.
     \item Andre Lukas' 
     \href{https://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/groupsrepslecturenotes.pdf}{lecture notes} 
     on groups and representations.
@@ -79,19 +81,19 @@ algebra \href{https://github.com/will-lancer/notes/blob/main/Mathematics/Algebra
 
 \begin{eexample}
     [The most important finite groups for physics]
-    Of course, the most important groups for physics are (semi-simple)
+    Of course, the most important groups for physics are simple
     Lie groups, but there are a few important finite ones as well:
     \begin{itemize}
         \item $S_n$. This group is good for talking about permutations
         of objects, and is necessary for talking about group actions.
-        \item $A_n$. See above, but sometimes we only want even permutations.
+        \item $A_n$. See above, when we only want even permutations.
         \item $D_n$. Because $D_n$ is, by definition, the group of isometries
         of a planar $n$-point object, this is useful to look at when studing
         planar objects. We can also think about certain continuous groups
         as limits of $D_n$, e.g. emergent $O(N)$ symmetry in spin systems.
         \item $\ints/n\ints$. These groups are useful for a number of things.
         $\ints/2\ints$ is parity, and modding out by it also produces quite
-        a few useful Lie groups (e.g. $SU(2)/\ints/2\ints \cong SO(3)$). It also
+        a few useful Lie groups (e.g. $SU(2)/(\ints/2\ints) \cong SO(3)$). It also
         catalogues cyclic groups, so it's useful when we want to think about
         those ideas. Additionally, these groups are closely connected to number
         theory when $n = p$ is prime, and there are more and more connections
@@ -201,16 +203,16 @@ $G \to A$ corresponds to a unique map $G^{\rm ab} \to A$.
     \begin{itemize}
         \item \textbf{What is the order of the group?} I find this question to be 
         psychologically comforting, and it also tells me what the possible 
-        orders of the subgroups of $G$ are.
+        orders of the subgroups of $G$ are by Lagrange's theorem.
         \item \textbf{What are its classes?} The reason this is useful is because
         characters are class functions, and so there are a number of useful facts we can
-        draw from knowing the classes of a group.
-        \item What are the orders of its classes? This is less important, but useful
-        if one wants to check whether a map $V$ is a representation or not.
+        draw from knowing the classes of a group (e.g. number of irreps,
+        classes for characters to act on, possible normal subgroups, etc.).
+        You should also check the order of the classes.
         \item \textbf{What is its commutator subgroup?} As we saw above, the commutator
         subgroup is the smallest subgroup of $G$ such that $G/H$ is abelian.
-        This tells us that 1D reps of $G$ acts on the abelianization of $G$,
-        so $|G^{\rm ab}| = n_{1 \, \rm{diml}}$
+        This tells us that the 1D irreps of $G$ act through the abelianization 
+        of $G$, so $|G^{\rm ab}| = n_{1 \, \rm{diml}}$
     \end{itemize}
 \end{iidea}
 
@@ -305,8 +307,8 @@ operators and vector spaces: we need linear combinations of elements.
 
 This naturally leads us to mapping into a set of operators on 
 $V$. So, we intuitively need some sort of map into $\End{V}$ that 
-respects the group structure of $G$. This is what the definition 
-of a representation encodes.
+respects the group structure of $G$, so it should be a homomorphism
+$G \to \End{V}$. This is what the definition of a representation encodes.
 
 \begin{definition}
     A \vocab{representation} of $G$ on $V$ is the pair $(\rho, V)$,
@@ -322,12 +324,12 @@ of a representation encodes.
 
 \begin{reemark}
     [The importance of $V$ in $(\rho, V)$]
-    It is \emph{vitally} important to note that a representation includes the
-    vector space you're acting on in it. This point is not emphasized by
-    physicists, but not realizing this causes a number of conceptual
-    difficulties later. Just realize that when you say ``representation'',
-    you are referring \emph{both} to a homomorphism and to a vector space
-    on which your operators act.
+    It is vitally important to note that a representation
+    includes both a map \emph{and} a vector space in its construction.
+    Physicists usually think of a representation as just a set of matrices,
+    one for each group element---neither the general map nor the vector space 
+    is emphasized; this is morally incorrect, and leads to issues later down the 
+    line. We do not take this unnatural view in these notes.
 \end{reemark}
 
 \begin{nnote}
@@ -375,12 +377,13 @@ the maps $\rho$:
     with $U$ and $W$ representations, we can define
     $\rho_V(u \oplus W) = \rho_U(u) + \rho_W(w)$ to be the
     \vocab{direct sum representation} of $U$ and $W$.
+    This will be useful later when we talk about reducibility.
 \end{itemize}
 
 \begin{nnote}
     [A refresher on the tensor product]
     We will have to actually compute with the tensor product in these
-    notes, so we recall the basic computational construction here:\\
+    notes, so we recall the basic construction here:\\
 
     \noin
     If we have two matrices $A$ and $B$, $A \otimes B$
@@ -429,32 +432,27 @@ V & W \arrow[l, "\varphi^{-1}"']
 \end{center}
 If there is an intertwiner between two reps, we say they're 
 \vocab{equivalent}. This is written as $V \cong W$, or 
-$\rho = \varphi^{-1} \circ \widetilde{\rho} \circ \varphi$\footnote{Physicists
-usually write this as $M = S A S^{-1}$, where $M$ and $A$ are representations
-of $G$.}. If $V = W$ this is just a change of basis. We may further classify
+$\rho = \varphi^{-1} \circ \widetilde{\rho} \circ \varphi$;
+in matrix notation, this reads $M = S A S^{-1}$, where $M$ and $A$ are reps.
+If $V = W$ this is just a change of basis. We may further classify
 representations according to their \emph{reality} properties; we
 distinguish between three kinds of reprsentations:
 \begin{itemize}
     \item \textbf{Real representations}: these are representations
     such that $\rho^* = S \rho S^{-1}$ for some $S$, and there exists
-    a similarity transformation such that $\rho' = A \rho A^{-1}$ is
+    a similarity transformation such that $\widetilde{\rho}= A \rho A^{-1}$ is
     completely real.
     \item \textbf{Pseudoreal representations}: these are representations
     such that $\rho^* = S \rho S^{-1}$ for some $S$, but there \emph{does not}
-    exist a similarity transformation such that $\rho' = A \rho A^{-1}$ is
+    exist a similarity transformation such that $\widetilde{\rho}= A \rho A^{-1}$ is
     completely real.
     \item \textbf{Complex representations}: these are representations
     such that $\rho^* \neq S \rho S^{-1}$ for any $S$.
 \end{itemize}
 
-
-
-
-
-
-Similar to how we find bases 
-in vector spaces, we may ask if there is a ``basis'' for representations. The 
-answer is yes, and these are called \emph{irreducible representations}.
+Similar to how we find bases in vector spaces, we may ask if there is a 
+``basis'' for representations. The answer is yes, and these are called 
+\emph{irreducible representations}.
 
 \begin{definition}
     A \vocab{subrepresentation} $U \subset V$ is a subspace
@@ -526,9 +524,9 @@ of them, which is the content of the next few propositions.
     ``group averaging''. It basically means that we can make any
     operator $A$ $G$-invariant by defining its averaged version,
     \begin{align*}
-        \bar{A} \coloneqq \frac{1}{|G|} \sum_g g A.
+        \langle A \rangle \coloneqq \frac{1}{|G|} \sum_g g A.
     \end{align*}
-    Then clearly $h\bar{A} = \bar{A}$, which we can see by re-indexing.
+    Then clearly $h\langle A \rangle = \langle A \rangle$, which we can see by re-indexing.
 \end{nnote}
 
 \begin{theorem}
@@ -597,9 +595,52 @@ of them, which is the content of the next few propositions.
     we only have to understand the irreducible ones.
 \end{corollary}
 
+\begin{reemark}
+    [Nascent connection to the little group]
+    The previous corollary is kind of like the little group in QFT, 
+    where to understand all one-particle states $\ket{\bfk, \sigma, n}$, 
+    we only have to understand the reference state, $\ket{\bfk_R, \sigma, n}$.
+    This gives the following idea to play around with.
+\end{reemark}
+
+\begin{iidea}
+    [References]
+    If a group of objects can be considered as being built up from or a transformed
+    version of some reference object, it's usually easier to just work with
+    the reference object and then get the other objects from there.
+\end{iidea}
+
+\begin{eexample}
+    [Examples of references]
+    Some examples of references:
+    \begin{itemize}
+        \item Bases in vector spaces, generators in algebra.
+        \item Direct sums, tensor products.
+        \item Abelian Lie algebras being the direct sum of $\lie{u}(1)$'s.  
+        \item Irreducible representations in representation theory.
+        \item States and polarization vectors from the little group.
+        \item Prime numbers.
+    \end{itemize}
+\end{eexample}
+
 \subsection{Characters}
 
-\note{finish later}
+Recall that there are two algebraic invariants for any matrix:
+the trace and the determinant. Thus, it would make sense that
+these help us classify representations. Indeed, as we will see
+in this subsection, the trace of a representation is the most useful
+bit of information we can reasonably find out about it. We call this
+number the \vocab{character} of our rep.
+
+\begin{definition}
+    Let $\rho$ be a representation. The \vocab{character} is the trace of
+    $\rho$, $\chi(g) = \tr{\rho(g)}$.
+\end{definition}
+
+Just how we can build up representations from irreducible representations,
+we can do the same thing for characters
+
+\note{read more about characters first; organize it in your own head}
 
 \subsection{Applications}
 
@@ -638,42 +679,12 @@ To start our analysis of the $\gamma$-matrices, we first need to talk
 about the Clifford algebra. Recall the definition of an $R$-algebra.
 
 \begin{definition}
-    An \vocab{$R$-algebra} is a vector space $A$ over a commutative ring $R$
-    equipped with a bi-linear multiplication $\bullet \colon A \times A \to A$
-    that commutes with multiplication by $r$.
+    An \vocab{R-algebra} is an $R$-module with a bilinear multiplication
+    defined on it.
 \end{definition}
 
 \begin{definition}
-    Let $R$ be a commutative ring with $1$ and let $(V, q)$ be a free $R$-module
-    equipped with a quadratic form $q \colon V \to R$. The \vocab{Clifford algebra}
-    $\operatorname{Cl}(V, q)$ is the associative unital $R$-algebra defined as the
-    quotient
-    \[
-        \operatorname{Cl}(V, q) \coloneqq T_R(V)\Big/ \big\langle v \otimes v - q(v)\,1 \: \big| \: v \in V \big\rangle,
-    \]
-    where $T_R(V)$ is the tensor algebra of $V$ and $1$ is the unit. Equivalently
-    (when $2 \in R^\times$), writing the polar form $B(u, v) \coloneqq \tfrac{1}{2}\big(q(u+v)-q(u)-q(v)\big)$,
-    the images of $u, v \in V$ in $\operatorname{Cl}(V, q)$ satisfy
-    \[
-        uv + vu = 2\,B(u, v)\,1.
-    \]
-    The canonical map $\iota \colon V \inj \operatorname{Cl}(V, q)$ sends $v \mapsto v$ and
-    obeys $v^2 = q(v)\,1$.
-
-    \textbf{Universal property.} For any $R$-algebra $A$ and any $R$-linear map
-    $j \colon V \to A$ with $j(v)^2 = q(v)\,1_A$ for all $v \in V$, there exists a unique
-    $R$-algebra homomorphism $\Phi \colon \operatorname{Cl}(V, q) \to A$ such that
-    $\Phi \circ \iota = j$.
-
-    \textbf{Physicist's form.} Over $\complex$ with a nondegenerate bilinear form
-    $\eta^{\mu \nu}$ of signature $(s, t)$, the complex Clifford algebra is
-    \[
-        \operatorname{Cl}_{\eta}(\complex) = \langle \gamma^\mu \rangle \Big/ \big\{ \gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2 \, \eta^{\mu \nu} \, 1 \big\}.
-    \]
-    Any choice of matrices $\gamma^\mu \in \End{S}$ obeying $\{ \gamma^\mu, \gamma^\nu \} = 2 \, \eta^{\mu \nu} \, I_S$
-    is a representation of the abstract Clifford algebra on the spinor space $S$.
-    In Euclidean signature $\eta^{\mu \nu} = \delta^{\mu \nu}$; in Minkowski signature one may
-    take $\eta^{00} = -1$, $\eta^{aa} = +1$ for spatial indices $a$.
+    \note{definition of clifford algebra here}
 \end{definition}
 
 \begin{definition}
@@ -682,13 +693,12 @@ about the Clifford algebra. Recall the definition of an $R$-algebra.
     \begin{align*}
         {\rm Dir}(n) = \{ \pm \gamma^{\mu_1} \cdots \gamma^{\mu_n} \mid \mu_i < \mu_{i + 1}, \: \: \gamma^{\mu_i} \in \operatorname{Cl}_n(\complex) \}.
     \end{align*}
-    \textbf{Important note:} a priori, the $\gamma$-elements in ${\rm Dir}(n)$
-    are \emph{not} matrices. This is a point that is touched on in the
-    next remark. We may think of them as matrices, though.
+    \note{probably change the $\gamma$'s to $e$'s}
 \end{definition}
 
 \begin{reemark}
     [What are the $\gamma$'s?]
+    \note{probably get rid of this}
     It is often stated that the Dirac group is spanned by the product of
     ``$\gamma$-matrices''. This is \emph{false}; the elements of ${\rm Dir}(n)$
     are just symbols. There is no inherent meaning to them. Indeed, that 
@@ -762,17 +772,15 @@ way to whatever dimension representation we desire. The boostrap goes as follows
     with $(\gamma_c)^2 = 1$. Note that $\{ \gamma_c, \gamma^\mu \} = 0$
     for all $\gamma^\mu \in \operatorname{Dir}(n)$. We then
     add either $+ \gamma_c$ or $- \gamma_c$ to our set of matrices
-    $\gamma^{(2n)}$, and this is our new representation, $\{ \gamma^{(2n)}, \pm \gamma_c \}$.
+    $\gamma^{(2n)}$, and this is our new representation, $\{ \gamma^{(n)}, \pm \gamma_c \}$.
     These are $2n \times 2n$ matrices.
     \item \textbf{Odd $\to$ even}: we tensor up all of the $\gamma$'s with some sigma matrices. 
-    Concretely, given some representation $\gamma^{(2k + 1)}$, our new representation 
-    in even dimensions is $\{ \gamma^{(2k + 1)} \otimes \sigma^1, I_{2k} \otimes \sigma^2 \}$,
+    Concretely, given some representation $\gamma^{(n)}$, our new representation 
+    in even dimensions is $\{ \gamma^{(n)} \otimes \sigma^1, I_{n - 1} \otimes \sigma^2 \}$,
     or the same with $(\sigma^1, \sigma^2 \leftrightarrow \sigma^1, \sigma^3)$,
     or $(\sigma^1, \sigma^2 \leftrightarrow \sigma^2, \sigma^3)$.
-    You can choose this flippantly, \note{as it does not change anything}, 
-    but if you want to retain reality properties you should not
-    choose to tensor with $\sigma^2$. Note that these matrices
-    are now $4k \times 4k$ in size.
+    It does not matter which sigmas you use to do this with. 
+    Note that these matrices are now $4k \times 4k$ in size.
 \end{itemize}
 
 \begin{eexample}
@@ -949,8 +957,13 @@ We now get into the machinery behind these spinors.
     \end{align*}
     where $C$ is the \vocab{charge conjugation matrix}. We will
     denote Majorana spinors by $\zeta$. If a representation
-    is real, then Majorana spinors exist.
-    \note{put consistency condition here}
+    is real, then Majorana spinors exist. A consistency
+    condition for Majorana spinors is
+    \begin{align*}
+        & C_+^T = (-1)^{\lfloor t/2 \rfloor} C_+
+        & C_-^T = (-1)^{\lfloor (t + 1)/2 \rfloor} C_-.
+    \end{align*}
+    \note{justify}
 \end{definition}
 
 \begin{definition}
@@ -1006,14 +1019,9 @@ We now get into the machinery behind these spinors.
             - I_n & 0
         \end{pmatrix}.
     \end{align*}
-    The symplectic Majorana conjugate is only defined if you have
-    pairs of spinors in even dimensions. \note{is this true}?
-    If you \emph{do not have} symplectic/normal Majorana
-    spinors in some given $D = s + t$, then you \emph{do
-    have} normal/symplectic Majorana spinors in $D = s + t$.
-    You may also have both in a given dimension, or neither.
-    If an irrep is pseudoreal, then symplectic Majorana spinors
-    exist.
+    Note that one requires at least two spinors for this construction
+    to hold. If an irrep is pseudoreal, then symplectic Majorana spinors
+    exist. \note{justify this}
 \end{definition}
 
 The definition of the Majorana spinor introduces a new object,
@@ -1061,42 +1069,40 @@ Bott periodicity, $s - t \equiv n \mod 8$, where
     Constructing the Majorana and Weyl spinors gives us \note{finish}
 \end{eexample}
 
-\note{rep is NOT faithful iff gammac is pm 1}
-
+Note that for constructing the similarity transformation,
+$S^T = S$ if the rep is real, and $S^T = - S$ if the rep is pseudoreal.
+The similarity transformation that works is $(C_+^{-1})^T$ for Euclidean dimensions,
+and $(C_+^{-1})^T \gamma^0$ for Minkowski dimensions. That is what
+ChatGPT says, at least.
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|}
         \hline
-        $D = s + t$ & Faithful & Hermitian & Reality\\
+        $D = s + t$ & Faithful & Hermitian & Reality & Similarity\\
         \hline
-        $D = 2 + 0$ & Yes & Yes & Real\\
-        $D = 1 + 1$ & Yes & No & Real\\
-        $D = 3 + 0$ & Yes & Yes & Complex\\
-        $D = 2 + 1$ & Yes & No & Real\\
-        $D = 4 + 0$ & Yes & Yes & Pseudoreal\\
-        $D = 3 + 1$ & Yes & No & Real\\
-        $D = 5 + 0$ & No & Yes & Pseudoreal\\
-        $D = 4 + 1$ & Yes & No & Complex \\
-        $D = 6 + 0$ & Yes & Yes & Pseudoreal\\
-        $D = 5 + 1$ & Yes & No & Pseudoreal\\
-        $D = 7 + 0$ & Yes & Yes & Complex\\
-        $D = 6 + 1$ & No & No & Pseduoreal\\
-        $D = 8 + 0$ & Yes & Yes & Real\\
-        $D = 7 + 1$ & Yes & No & Pseudoreal\\
-        $D = 9 + 0$ & No & Yes & Real\\
-        $D = 8 + 1$ & Yes & No & Complex\\
-        $D = 10 + 0$ & Yes & Yes & Real\\
-        $D = 9 + 1$ & Yes & No & Real\\
-        $D = 11 + 0$ & Yes & Yes & Complex\\
-        $D = 10 + 1$ & Yes & No & Real\\
+        $D = 2 + 0$ & Yes & Yes & Real & $\gamma^1$\\
+        $D = 1 + 1$ & Yes & No & Real & $\gamma^1 \gamma^0$\\
+        $D = 3 + 0$ & Yes & Yes & Complex & DNE \\
+        $D = 2 + 1$ & Yes & No & Real $\gamma^3 \gamma^1 \gamma^0$\\
+        $D = 4 + 0$ & Yes & Yes & Pseudoreal & $\gamma^3 \gamma^1$\\
+        $D = 3 + 1$ & Yes & No & Real $\gamma^3 \gamma^1 \gamma^0$\\
+        $D = 5 + 0$ & No & Yes & Pseudoreal & $\gamma^3 \gamma^1$\\
+        $D = 4 + 1$ & Yes & No & Complex & DNE\\
+        $D = 6 + 0$ & Yes & Yes & Pseudoreal & $\gamma^5 \gamma^4 \gamma^2$\\
+        $D = 5 + 1$ & Yes & No & Pseudoreal & $\gamma^5 \gamma^4 \gamma^2 \gamma^0$\\
+        $D = 7 + 0$ & Yes & Yes & Complex & DNE\\
+        $D = 6 + 1$ & No & No & Pseduoreal & \note{$C_- \gamma^0$}\\
+        $D = 8 + 0$ & Yes & Yes & Real & $\gamma^7 \gamma^5 \gamma^4 \gamma^2$\\
+        $D = 7 + 1$ & Yes & No & Pseudoreal & $\gamma^7 \gamma^5 \gamma^4 \gamma^2 \gamma^0$\\
+        $D = 9 + 0$ & No & Yes & Real & $\gamma^7 \gamma^5 \gamma^4 \gamma^2$\\
+        $D = 8 + 1$ & Yes & No & Complex & DNE\\
+        $D = 10 + 0$ & Yes & Yes & Real & $\gamma^7 \gamma^5 \gamma^3 \gamma^2$\\
+        $D = 9 + 1$ & Yes & No & Real & $\gamma^7 \gamma^5 \gamma^3 \gamma^2 \gamma^0$\\
+        $D = 11 + 0$ & Yes & Yes & Complex & DNE\\
+        $D = 10 + 1$ & Yes & No & Real & $\gamma^{11} \gamma^7 \gamma^5 \gamma^4 \gamma^2 \gamma^0$\\
         \hline 
     \end{tabular}
 \end{table}
-
-\note{$C_- = \gamma_c C_+$}
-
-\note{fill out this table yourself; that's literally all of the
-practice you need for this freaking test bro}
 
 Symmetry of charge conjugation matrices:
 \begin{itemize}
@@ -1104,6 +1110,9 @@ Symmetry of charge conjugation matrices:
     \item $C_-^T = (-1)^{\lfloor (t + 1)/2 \rfloor} C_-$
 \end{itemize}
 
+
+\note{the symmetry properties are wrong for the minkowskian
+entries in this table; redo later}
 
 \begin{table}[H]
     \centering
@@ -1159,8 +1168,6 @@ Symmetry of charge conjugation matrices:
     \end{tabular}
     \caption{Symmetry properties of the $\gamma$'s.}
 \end{table}
-
-\note{need to figure out specific similarity transformations}
 
 We now determine the charge conjugation matrices in every dimension.
 We can generally construct the matrix as follows for dimension $D$.
@@ -1255,16 +1262,17 @@ Fact: $C_+ = C_- \gamma_c$.
 
 Molecules with multiple atoms generally obey
 a periodic structure, and thus they are symmetric
-under certain operations (translations and rotations).
-Generally, symmetry constrains dynamics, and it is no diff
-here: we can decompose a molecule's normal modes through
-group theory, specifically through decomposing the characters
-of reducible representations into irreps, thus giving us \note{multiplets?
-or smth like that. idk.}
+under certain operations (translations, generalized rotations, and
+generalized reflections). Since symmetries constrain dynamics,
+it's natural to find that we can use this information to determine
+the normal modes of the molecule. We do this through
+analyzing the characters of the representation of the symmetry
+group acting on our vector space, which we will take to be $\reals^n$
+for $n = 2$ and $3$ (planar and $3D$ objects, respectively).
 
-Let us define a few things first. A molecule with $N$ atoms
-can be described by the $3N$-dimensional vector $\mathbf{X} = (\bfx_1, \ldots, \bfx_N)$.
-Considering deviations from equilibrium for each atom
+A molecule with $N$ atoms can be described by the $3N$-dimensional 
+vector $\mathbf{X} = (\bfx_1, \ldots, \bfx_N)$, where $\bfx_i$ are
+the positions of the atoms. Considering deviations from equilibrium for each atom
 and defining $\boldsymbol{\xi}_a = \bfx_a - \bfx_a^0$
 gives $\widetilde{\mathbf{X}} = (\boldsymbol{\xi}_1, \ldots, \boldsymbol{\xi}_N)$.
 The energy associated with the small deviations of the molecule is
@@ -1278,6 +1286,8 @@ and then orthogonalize $K_{\alpha \beta}'$ as it's symmetric;
 we then have the equation \note{PvN's equation is wrong with
 index contractions, fix later}
 
+The physical interpretation of this is then clear: normal modes
+are the eigenvalues of \note{finish after fixing his equation}
 
 There are three ingredients we need to consider
 to represent our atom using representation theory:
@@ -1323,7 +1333,7 @@ The general process for determining the normal modes of a molecule
 goes as follows:
 \begin{enumerate}
     \item Analyze the number of normal modes using the formulae
-    $n = 2N - 3$, $n = 3N - 6$. \note{check formula for d = 2}
+    $n = 2N - 3$, $n = 3N - 6$.
     \item Determine the symmetry group of the molecule.
     \item Find the classes of the group and their orders.
     \item Find the commutator subgroup of the group.
@@ -1485,19 +1495,84 @@ questions for each molecule.
 
 \begin{eexample}
     [Triangle with dot]
+    We have
+    \begin{itemize}
+        \item There are $2N - 3 = 8 - 3 = 5$ non-trivial planar normal modes.
+        \item The symmetry group is $D_3$.
+        \item The classes are $\{ e \}$, $\{ r, r^2 \}$, $\{ \sigma, r \sigma, r^2 \sigma \}$.
+        \item The commutator subgroup is $A_3$.
+        \item There are $2$ $1D$-irreps and $1$ $2D$-irrep.
+        \item The character table is
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                 & $e$ & $r$ & $\sigma r$\\
+                 & $1$ & $2$ & $3$\\
+                \hline
+                $\id$ & $1$ & $1$ & $1$\\
+                $\sgn$ & $1$ & $1$ & $-1$\\
+                $\chi^2$ & $2$ & $-1$ & $0$\\
+                $\chi_{\rm gen}$ & $8$ & $-1$ & $0$\\
+                \hline
+            \end{tabular}
+            \item One $A_1$, two $A_3$'s.
+            \item Breather and two doublets.
+        \end{table}
+    \end{itemize}
 \end{eexample}
 
-\begin{eexample}
-    [Square with dot]
-\end{eexample}
+\section{Lie groups and algebras}
 
-\begin{eexample}
-    [Tetrahedron with dot]
-\end{eexample}
+We now turn our attention to continuous groups
+and their algebras. Let us first recall some definitions.
 
-\note{don't really need to add any examples 
-that PvN already has in his notes}
+\begin{definition}
+    An \vocab{$R$-module} is an abelian group with a scalar
+    multiplication on it that respects addition.
+\end{definition}
 
-\note{add other common examples}
+\begin{definition}
+    An \vocab{$R$-algebra} is an $R$-module with a bilinear
+    map on it.
+\end{definition}
+
+Specializing $R = k$ (a field), an $R$-module turns into a $k$-vector space,
+and an $R$-algebra a $k$-algebra. We will almost exclusively work over $k$-algebras
+in these notes. To turn a $k$-algebra into a Lie algebra, we require that the bilinear
+map on it satisfies two properties.
+
+\begin{definition}
+    A \vocab{Lie algebra}, $\lie{g}$, is a $k$-algebra whose multiplication
+    satisfies $[x, x] = 0$ for all $x \in \lie{g}$, and that satisfies
+    the Jacobi identity, $\sum_{\rm cyc} [x, [y, z]] = 0$.
+\end{definition}
+
+The basis of a Lie algebra are called its \vocab{generators}, $T_a$.
+So, by assumption, there exists some coefficients in the base field such
+that
+\begin{align*}
+    [T_a, T_b] = \sum_{c = 1}^{\dim{\lie{g}}} \tensor{f}{_{ab}^c} T_c.
+\end{align*}
+These are called the \vocab{structure constants} of the Lie algebra. 
+A nice example of a Lie algebra is $\reals^3$ with 
+$[\bfx, \mathbf{y}] = \bfx \times \mathbf{y}$.
+If the generators are $T_a = \bfe_a$, then the structure constants
+are $f_{abc} = \epsilon_{abc}$.
+
+If some set of elements of $\lie{g}$ forms a Lie algebra, we say
+it's a \vocab{Lie subalgebra}. This is equivalent to saying that $[\lie{h}, \lie{h}] \subset \lie{h}$,
+for $\lie{h} \subset \lie{g}$. Furthermore, if the algebra is invariant
+under multiplication by $\lie{g}$, then we say it's an \vocab{ideal};
+concretely, an ideal is a Lie subalgebra that satisfies $[\lie{h}, \lie{g}] \subset \lie{h}$.
+This should all be very reminiscent of normal subgroups for groups,
+and ideals for rings.
+
+There are only two kinds of Lie algebras that we really care about in
+physics: abelian and simple Lie algebras. A Lie algebra is \vocab{abelian}
+if $[\lie{g}, \lie{g}] = 0$, and \vocab{simple} if it's not abelian and has
+no non-trivial ideals.
+
+
 
 \end{document}

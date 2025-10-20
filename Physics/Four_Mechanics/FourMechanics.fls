@@ -463,6 +463,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
+INPUT ./Figures/QM/LJ_pertTh.png
+INPUT ./Figures/QM/LJ_pertTh.png
+INPUT ./Figures/QM/LJ_pertTh.png
+INPUT ./Figures/QM/LJ_pertTh.png
+INPUT ./Figures/QM/LJ_pertTh.png
 INPUT FourMechanics.aux
 INPUT ./FourMechanics.out
 INPUT ./FourMechanics.out
@@ -470,6 +475,7 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
