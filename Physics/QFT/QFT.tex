@@ -48,16 +48,14 @@
 \noin
 Resources used:
 \begin{itemize}
-    \item Xi Yin's 253ab courses. These lecture notes are the best
-    QFT resource on the planet. \note{add more; this is main resource
-    for these notes}
+    \item Xi Yin's 253ab courses.
     \item Steven Weinberg's two volumes.
     \item Daniel Harlow's notes.
-    \item Sidney Coleman's QFT. A volume written by an absolute master
-    of the subject. Indeed, Weinberg said that he learned more QFT from Sidney
-    than from anyone else. \note{add more when you finish reading}
-    \item \emph{FIELDS} by Warren Siegel. \note{i am so conflicted about this
-    book bro}
+    \item Sidney Coleman's QFT. 
+    \item Peskin and Schroeder.
+    \item Schwartz.
+    \item Srednicki.
+    \item \emph{FIELDS} by Warren Siegel.
 \end{itemize}
 We mostly follow Weinberg's notation, except where his notation sucks.
 
@@ -71,7 +69,47 @@ We mostly follow Weinberg's notation, except where his notation sucks.
 \section{Overview}
 
 \note{overview things here; talk about how single-particle rel
-qm is inconsistent}
+qm is inconsistent; talk about how particles are fundamental,
+and not fields (not so sure about this anymore)}
+
+
+Which is more fundamental, particles or fields? Most physicists
+are likely to say fields---they are \emph{wrong}: particles are fundamental.
+To see this, just ask an experimentalist what they measure. They measure
+\emph{particles}! In the calorimeter at the LHC, \emph{particles} hit the
+walls of the collider, blazing paths through the detector that we can reconstruct
+as paths these particles take. The energy and momentum of these particles, combined
+with the ingenuity of experimentalists, tells you exactly what kind of particle
+this was. There is no mention of fields anywhere in this picture. \note{can
+steelman this, but should also fight back}\\
+
+
+\note{think about this more}\\
+An ``axiom'' of QFT is that it has local, microcausal field operators. These
+represent local ``measurement'' on our system. One can think of this as taking
+inspiration from electromagnetism, since that's our only example of a truly
+local observable (e.g. the electric field; you measure it at a \emph{point}.
+This is obvious actually, as this is what \emph{must} occur mathematically,
+i.e. $\phi \colon M \to \reals$, so there is no sense of asking its value at
+anywhere but a point you ``can reach''). Since these are, by definition, observables,
+they also must be Hermitian. Since things are local, they must obey Poincaré
+symmetry. Enumerating these conditions for the scalar field gives
+\begin{enumerate}
+    \item \textbf{Poincaré symmetry}: under a Poincaré transformation $U(\Lambda, a)$,
+    our fields must transform as
+    \begin{align*}
+        U(\Lambda, a) \hat{\phi}(x) U(\Lambda, a)^{-1} = \hat{\phi}(\Lambda x + a).
+    \end{align*}
+    \item \textbf{Microcausality}: our fields must be local and causal, e.g. spacelike
+    separated measurements can't effect each other. This corresponds to
+    \begin{align*}
+        & [\phi(x), \phi(y)] = 0 
+        & (x - y)^2 > 0.
+    \end{align*}
+    \item \textbf{Unitarity}: as stated, the fields must be Hermitian,
+    $\hat{\phi} = \hat{\phi}^\dagger$.
+\end{enumerate}
+
 
 \section{Relativistic Quantum Mechanics}
 
@@ -192,10 +230,13 @@ Look at $W$. The following diagram commutes:
     & & \bfk_R
     \end{tikzcd}
 \]
-Thus $W$ fixes $\bfk_R$. The set of $W$'s forms a group called the
+Thus, $W$ fixes $\bfk_R$. The set of $W$'s forms a group called the
 \vocab{little group} for our specific case (e.g. massless $D = 4$,
-massive $D = 3$, etc.). Thus $U(W)$ must be a linear combination of
-$\ket{\bfk_R, \sigma'}$ vectors, which we can write as
+massive $D = 3$, etc.). So, $U(W)$ can't change $\bfk_R$, but it
+can change our $\sigma$ labels; thus, the $\sigma$ labels tell you
+how the particle transforms under the little group. The operator
+$U(W)$ generically gives a combination of particles with the same
+$\bfk_R$ but different $\sigma$ labels, which we may write as
 \begin{align*}
     U(W) \ket{\bfk_R, \sigma} = \sum_{\sigma'} D_{\sigma \sigma'}(W) \ket{\bfk_R, \sigma'}.
 \end{align*}
@@ -203,13 +244,13 @@ Notice that $D(W_1 W_2) = D(W_2) D(W_1)$, as we can see from the definition.
 We now determine the normalization from orthogonality. Consider \note{finish}
 Putting this all together, we have that
 \begin{align*}
-    \boxed{U(\Lambda)\ket{\bfk, \sigma} = \sqrt{\frac{\omega_{\boldsymbol{\Lambda k}}}{\omega_{\bfk}}}\sum_{\sigma \sigma'} D_{\sigma \sigma'}(W(\bfk)) \ket{\boldsymbol{\Lambda \bfk}, \sigma'}.}
+    \boxed{U(\Lambda)\ket{\bfk, \sigma} = \sqrt{\frac{\omega_{\boldsymbol{\Lambda \bfk}}}{\omega_{\bfk}}}\sum_{\sigma \sigma'} D_{\sigma \sigma'}(W(\bfk)) \ket{\boldsymbol{\Lambda \bfk}, \sigma'}.}
 \end{align*}
 \note{why does this hold for multiparticle states? I think because they
 are diff vectors, so doesn't matter; can use raising and lowering ops i think}
 \begin{align*}
     \boxed{U(\Lambda, a)\ket{\bfk_1, \sigma_1; \bfk_2, \sigma_2; \ldots ; \bfk_n, \sigma_n}
-    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda k}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma_i \sigma_i'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1, \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
+    = \prod_{i = 1}^n e^{-i k_i a}\sqrt{\frac{\omega_{\boldsymbol{\Lambda \bfk}_i}}{\omega_{\bfk_i}}} \sum_{\sigma_i \sigma_i'} D_{\sigma_i \sigma_i'}(W(\bfk_i)) \ket{\boldsymbol{\Lambda \bfk}_1, \sigma_1'; \boldsymbol{\Lambda \bfk}_2, \sigma_2'; \ldots, \boldsymbol{\Lambda \bfk}_n, \sigma_n'}}
 \end{align*}
 This will be useful when we talk about scattering later.
 
@@ -323,7 +364,31 @@ variables on all of these guys below}
 
 \section{Spin-$1$ QFTs}
 
-\note{photons!}
+\note{motivation}
+
+\subsection{Basic constructions}
+
+There are two cases for spin-$1$ particles: massless or massive.
+They correspond to different representations of the little group,
+respectively being $SO(D - 1)$ and $SO(D - 2)$. In $D = 4$, this means
+that a massive spin-$1$ particle has \emph{three} spin DOF,
+while a massless spin-$1$ particle has \emph{two} spin DOF.
+This discontinuous jump in the number of DOF between massive and massless
+is the root cause behind the difficulties of dealing with massless spin-$1$
+particles.
+
+\note{general Lorentz transformation properties of spin-1 particles
+go here;}
+
+
+
+\note{\begin{itemize}
+    \item particles; massive vs massless
+    \item little group representations
+    \item particles -> fields; massless vs massive
+    \item Path integral construction; gauge fixing
+\end{itemize}}
+
 
 \section{Spin-$3/2$ QFTs}
 
@@ -349,6 +414,37 @@ We have that
 \end{align*}
 
 \subsection{Dirac matrices}
+
+We reproduce some of the results covered in the notes on
+\note{group theory} here. We may form the Dirac matrices
+in any dimension. The most useful is $D = 4$. A choice
+of Dirac matrices in $D = 3 + 1$ is
+\begin{align*}
+    & \gamma^0 = - i \begin{pmatrix}
+        0 & I_2\\
+        - I_2 & 0
+    \end{pmatrix}
+    & \gamma^a = -i \begin{pmatrix}
+        0 & \sigma^a\\
+        - \sigma^a & 0
+    \end{pmatrix}.
+\end{align*}
+You can construct the Dirac matrices in any dimension by
+simply finding matrices that obey the Clifford algebra,
+$\{ \gamma^\mu, \gamma^\nu \} = 2 \eta^{\mu \nu}$. Practically,
+this is done by bootstrapping your way up from a given dimension
+via the following iterative process:
+\begin{itemize}
+    \item \textbf{Even $\to$ odd}: to go from even to odd dimensions,
+    add the chirality matrix to your basis, $\gamma_c = \alpha \gamma^1 \cdots \gamma^n$.
+    Fix $\alpha$ by demanding $(\gamma_c)^2 = 1$. This gives two inequivalent
+    irreps, $\{ \gamma^{(n)}, \gamma_c \}$ and $\{ \gamma^{(n)}, - \gamma_c \}$.
+    \item \textbf{Odd $\to$ even}: to go from odd to even dimensions,
+    tensor the existing representation by one Pauli matrix, and
+    add the identity times another Pauli matrix to get your representation.
+    Concretely, if your odd rep is $\gamma^{(2k + 1)}$, then your even rep 
+    is $\{ \gamma^{(2k + 1)} \otimes \sigma^a, I_{2k} \otimes \sigma^b \}$.
+\end{itemize}
 
 
 \end{document}

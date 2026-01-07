@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760980474.03699 "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" "FourMechanics.pdf" "FourMechanics" 1760980476.01473 0
-  "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" 1760980473.81507 47649 84e6eab92ee6bcde70252a8add403878 ""
+["pdflatex"] 1767470449.20306 "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" "FourMechanics.pdf" "FourMechanics" 1767470451.15633 0
+  "/Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex" 1767470446.87066 47640 671a1d2698837bf1101821736f4dd3ae ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -277,10 +277,10 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Figures/QM/LJ_pertTh.png" 1760974674.617 29878 923c1ee29b9f5ddf82c6ac71f8f3a609 ""
-  "FourMechanics.aux" 1760980475.88865 10145 fd805ce04fc684ba316f4bc74057c43d "pdflatex"
-  "FourMechanics.out" 1760980475.89064 2387 deccd5e93e0a64a6f124a3f5c72a396f "pdflatex"
-  "FourMechanics.tex" 1760980473.81507 47649 84e6eab92ee6bcde70252a8add403878 ""
-  "FourMechanics.toc" 1760980475.89086 1951 986e088aefd7e9b889e17dfe765518e2 "pdflatex"
+  "FourMechanics.aux" 1767470451.03204 10139 92820e8667c3ff2d0f0fee667fc1e3b6 "pdflatex"
+  "FourMechanics.out" 1767470451.03342 2387 deccd5e93e0a64a6f124a3f5c72a396f "pdflatex"
+  "FourMechanics.tex" 1767470446.87066 47640 671a1d2698837bf1101821736f4dd3ae ""
+  "FourMechanics.toc" 1767470451.03385 1949 51eefa3cf40706f687cffbdfa90fb2d8 "pdflatex"
   "william.sty" 1760975952.52682 22657 c11619964497087ccb1e7ae6921043c3 ""
   (generated)
   "FourMechanics.aux"

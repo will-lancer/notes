@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1760915490.54775 "/Users/willlancer/Notes/notes/Physics/QFT/QFT.tex" "QFT.pdf" "QFT" 1760915491.98318 0
-  "/Users/willlancer/Notes/notes/Physics/QFT/QFT.tex" 1760915490.35079 13532 5eb5d1648f9796a5759a523c67cac1e4 ""
+["pdflatex"] 1763611687.61527 "/Users/willlancer/Notes/notes/Physics/QFT/QFT.tex" "QFT.pdf" "QFT" 1763611689.08489 0
+  "/Users/willlancer/Notes/notes/Physics/QFT/QFT.tex" 1763611687.38362 17808 0398fede86eff06e84fa04ea63bbb889 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -52,6 +52,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb" 1248133631 34793 87a84b12f86dfd35a1cf1bb142b75602 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb" 1248133631 32378 2b20eba6bb36c716382b6d96240eaa69 ""
@@ -283,11 +284,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1745641536 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "QFT.aux" 1760915491.87027 3378 c95c3cab7032b1a6c5582c398f9c6b1c "pdflatex"
-  "QFT.out" 1760915491.87113 2756 9d91cef4e4d1e065fd4f3fd199ef454f "pdflatex"
-  "QFT.tex" 1760915490.35079 13532 5eb5d1648f9796a5759a523c67cac1e4 ""
-  "QFT.toc" 1760915491.87134 1613 63618f022810c2afdc0beaaf251dc745 "pdflatex"
-  "william.sty" 1760474825.08673 22606 712f34b1e8bb4de218338ef753dee685 ""
+  "QFT.aux" 1763611688.97012 3546 ec3b9a362e378dd52848b9c894ce182f "pdflatex"
+  "QFT.out" 1763611688.97098 2912 0da84baced887615afcc4ecc383a3331 "pdflatex"
+  "QFT.tex" 1763611687.38362 17808 0398fede86eff06e84fa04ea63bbb889 ""
+  "QFT.toc" 1763611688.97119 1698 0268010fd60204a947956c588a38f3eb "pdflatex"
+  "william.sty" 1760975952.52682 22657 c11619964497087ccb1e7ae6921043c3 ""
   (generated)
   "QFT.aux"
   "QFT.log"

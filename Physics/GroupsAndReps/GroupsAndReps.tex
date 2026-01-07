@@ -8,6 +8,7 @@
 \usepackage{tikz-cd}
 \usepackage{extarrows}
 \usepackage{changepage}
+\usepackage{ytableau}
 
 % page formatting
 \usepackage{fancyhdr}
@@ -46,22 +47,41 @@
 
 {\parindent0pt \baselineskip=15.5pt}
 \noin
-Notes on group and representations, as used in physics. Resources used:
+References:
 \begin{itemize}
-    \item Peter van Nieuwenhuizen's PHY 680 course at SBU,
-    and the lecture notes from the course. This is the primary
-    source of content; I just explain things in my own way, and
-    make things more formal and precise.
-    \item Fuchs and Schweigert's \emph{Symmetries, Lie Algebras, and
-    Representations}. The number two source of content for these notes;
-    this book provides the theory counterpart to PvN's incredible emphasis 
-    on computation.
-    \item Andre Lukas' 
-    \href{https://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/groupsrepslecturenotes.pdf}{lecture notes} 
-    on groups and representations.
-    \item Fulton and Harris' \emph{Representation Theory: A First Course}.
-    \item Georgi's \emph{Lie Algebras in Particle Physics}.
+    \item Peter van Nieuwenhuizen's PHY 680 course at Stony Brook University,
+    and their associated lecture notes. The most detailed group theory for physics
+    resource in existence---no other book even comes close.
+    \item Andre Lukas' groups and representations \href{https://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/groupsrepslecturenotes.pdf}{lecture notes}.
+    Good notes covering the essential topics from a more precise perspective (relative
+    to physics standards; he is an M-theorist, after all). One downside of these notes is 
+    that they are telegraphic in places.
+    \item Fuchs and Schweigert's \emph{Symmetries, Lie Algebras and Representations: 
+    A Graduate Course for Physicists}. A solid resource that covers all of the standard
+    material rigorously, and contains lots of important hep-th coded topics (e.g. Kac-Moody,
+    univeral enveloping algebras, etc.).
 \end{itemize}
+
+
+% Notes on group and representations, as used in physics. Resources used:
+% \begin{itemize}
+%     \item Peter van Nieuwenhuizen's PHY 680 course at SBU,
+%     and the lecture notes from the course. This is the primary
+%     source of content. The explanations are my own, though.
+%     \item Fuchs and Schweigert's \emph{Symmetries, Lie Algebras, and
+%     Representations}. The number two source of content for these notes;
+%     this book provides the theory counterpart to PvN's incredible emphasis 
+%     on computation.
+%     \item Andre Lukas' 
+%     \href{https://www-thphys.physics.ox.ac.uk/people/AndreLukas/GroupsandRepresentations/groupsrepslecturenotes.pdf}{lecture notes} 
+%     on groups and representations. These notes are good, but telegraphic.
+%     He often states non-trivial or not obvious things without any further
+%     exposition, and even without mentioning
+%     \item Fulton and Harris' \emph{Representation Theory: A First Course}.
+%     \item Georgi's \emph{Lie Algebras in Particle Physics}.
+% \end{itemize}
+
+% put this in a references section in the back of the notes
 
 % make table of contents
 \newpage
@@ -271,7 +291,7 @@ here. The semi-direct product follow naturally from this.
     [Why are groups so ubiquitous in physics?]
     After seeing so much group theory in physics, one may begin to
     wonder if there is any motivation for \emph{why} this is the case.
-    Martin Ro\oldv{c}ek gave the following nice explanation for why:\\
+    Martin Ro\oldv{c}ek gives the following nice explanation:\\
     
     \noin
     If you have some system, you can transform it in the following
@@ -407,14 +427,14 @@ the maps $\rho$:
         \end{pmatrix}
         \otimes
         \begin{pmatrix}
-            0 & i\\
-            -i & 0
+            0 & -i\\
+            i & 0
         \end{pmatrix}
         = \begin{pmatrix}
-            0 & i & 0 & 0\\
-            -i & 0 & 0 & 0\\
-            0 & 0 & 0 & -i\\
-            0 & 0 & i & 0
+            0 & -i & 0 & 0\\
+            i & 0 & 0 & 0\\
+            0 & 0 & 0 & i\\
+            0 & 0 & - i & 0
         \end{pmatrix}.
     \end{align*}
     This construction will be necessary later when we talk about
@@ -445,7 +465,8 @@ distinguish between three kinds of reprsentations:
     \item \textbf{Pseudoreal representations}: these are representations
     such that $\rho^* = S \rho S^{-1}$ for some $S$, but there \emph{does not}
     exist a similarity transformation such that $\widetilde{\rho}= A \rho A^{-1}$ is
-    completely real.
+    completely real. \note{mention here the fact that if its symmetric then
+    real if asym then pseudoreal}
     \item \textbf{Complex representations}: these are representations
     such that $\rho^* \neq S \rho S^{-1}$ for any $S$.
 \end{itemize}
@@ -483,13 +504,15 @@ of them, which is the content of the next few propositions.
 
 \begin{reemark}
     [Unitarity]
-    The next theorem is oftentimes presented under the assumption
-    that $V$ has a metric. It is a psychological problem amongst physicists 
+    The next theorem is almost always presented under the assumption
+    that $V$ has a metric. Indeed, it is a psychological problem amongst physicists 
     to assume that every vector space have a metric, while in fact this is not 
     always true\footnote{It is a reasonable assumption to make, though, as all 
     Hilbert spaces necessarily have metrics, and physicists almost exclusively 
     work in Hilbert spaces.}. Giving a vector space an unnatural
-    metric is always almost a mistake, and is morally incorrect.
+    metric is always almost a mistake, and is morally incorrect,
+    so we present a proof that doesn't employ an inner product
+    in its construction.
 \end{reemark}
 
 \begin{theorem}{\vocab{Maschke's Theorem}}\\
@@ -552,11 +575,11 @@ of them, which is the content of the next few propositions.
     It's called ``re-indexing'', and it consists of
     noticing that if you sum over a group then it doesn't matter what 
     element you use. This is effectively just a group ``u-sub'', e.g. like
-    in QFT when we switch the measure $\ell - kx \to \ell$ because we're integrating
-    over all space. In the immortal words of Georgi,
+    in QFT when we switch the measure $\ell - kx \to \ell$ because of
+    translational invariance. In the immortal words of Georgi,
     \begin{quote}
         ``$\ldots$ where the last line follows because $hg$ runs over all
-        elements of $G$ when $h$ does. QED.''
+        elements of $G$ when $h$ does. QED.'' -- Howard Georgi
     \end{quote}
 \end{nnote}
 
@@ -598,7 +621,7 @@ of them, which is the content of the next few propositions.
 \begin{reemark}
     [Nascent connection to the little group]
     The previous corollary is kind of like the little group in QFT, 
-    where to understand all one-particle states $\ket{\bfk, \sigma, n}$, 
+    where to understand all $n$-particle states, $\ket{\bfk, \sigma, n}$, 
     we only have to understand the reference state, $\ket{\bfk_R, \sigma, n}$.
     This gives the following idea to play around with.
 \end{reemark}
@@ -1109,6 +1132,13 @@ Symmetry of charge conjugation matrices:
     \item $C_+^T = (-1)^{\lfloor t/2 \rfloor} C_+$
     \item $C_-^T = (-1)^{\lfloor (t + 1)/2 \rfloor} C_-$
 \end{itemize}
+Note that in odd dimensions, \emph{either} $C_+$ or $C_-$ exist.
+You inherit the two charge conjugation matrices from even dimensions, and then
+you test them on some test $\gamma$-matrix to see which one stays around.
+Recall that the charge conjugation matrices satisfy
+\begin{align*}
+    \boxed{C_{\pm} \gamma C_{\pm}^{-1} = \pm \gamma^T.}
+\end{align*}
 
 
 \note{the symmetry properties are wrong for the minkowskian
@@ -1199,14 +1229,23 @@ We can generally construct the matrix as follows for dimension $D$.
         $D = 7$ & DNE & $\gamma^1 \gamma^3 \gamma^6$\\
         $D = 8$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7$ & $\gamma^1 \gamma^3 \gamma^6 \gamma^8$\\
         $D = 9$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7$ & DNE\\
-        $D = 10$ & $\gamma^2 \gamma^3 \gamma^5 \gamma^7$ & $\gamma^1 \gamma^4 \gamma^6 \gamma^8 \gamma^{10}$\\
-        $D = 11$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7 \gamma^{11}$ & DNE\\
+        $D = 10$ & $\gamma^2 \gamma^4 \gamma^5 \gamma^7$ & $\gamma^1 \gamma^3 \gamma^6 \gamma^8 \gamma^9 \gamma^{10}$\\
+        $D = 11$ & DNE & $\gamma^2 \gamma^4 \gamma^5 \gamma^7 \gamma^{11}$ \\
         \hline
     \end{tabular}
-    \caption{Charge conjugation matrices up to $D = 11 + 0$. Note multiplying
-    by $\pm i$ doesn't change anything, so the Minkowski and Euclidean signatures
-    are the same.}
+    \caption{Charge conjugation matrices up to $D = 11 + 0$ for the $\gamma$-matrix
+    construction performed earlier. Note multiplying by $\pm i$ doesn't change anything, 
+    (transposes do nothing to those) so the Minkowski and Euclidean signatures are the same.}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/spinor_reality_props.png}
+    \caption{Reality properties of spinor irreps in various dimensions.
+    Note that the dimension here is equivalent to the number of single
+    $\gamma$-matrices, or the dimension of the underlying space, e.g.
+    when we say the ``10-dimensional'' irrep we mean $\reals^{10}$, etc.}
+\end{figure}
 
 Fact: $C_+ = C_- \gamma_c$.
 
@@ -1257,6 +1296,25 @@ Fact: $C_+ = C_- \gamma_c$.
     \includegraphics[width=\textwidth]{Figures/pvnsolution.png}
 \end{figure}
 
+Process of finding reality properties of spinor irreps
+for $SO(N)$:
+\begin{itemize}
+    \item Construct $N$ $\Gamma$-matrices.
+    \item Construct the spinor irreps: $M_{ij} = \frac{1}{2} \Gamma_i \Gamma_j$
+    for $i < j$.
+    \item Now to find some $S$ such that $M_{ij}^* = S M_{ij} S^{-1}$.
+    Take the c.c. of all generators. Find the ones that turn negative.
+    From this, obtain a set of constraints on the possible $S$'s.
+    \item If you find $S$, the symmetry of it obeys: real if symmetric,
+    and psuedoreal if anti-symmetric. If you could not find such an $S$,
+    then the irrep is \emph{complex}.
+\end{itemize}
+
+Deligne's Bott periodicity for spinor irreps
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/deligne_spinorReality.png}
+\end{figure}
 
 \subsubsection{Normal modes of atoms}
 
@@ -1574,5 +1632,552 @@ if $[\lie{g}, \lie{g}] = 0$, and \vocab{simple} if it's not abelian and has
 no non-trivial ideals.
 
 
+\section{Highest weight decomposition}
+
+How to find Dynkin labels of irreps:
+\begin{itemize}
+    \item $SU(N)$: this is the easiest case. The Dynkin labels are just the
+    differences in the length of the rows of the Young Tableaux corresponding to
+    the irrep. For example, the adjoint in $SU(3)$ is two boxes, then one box,
+    then no boxes. The differences are $2 - 1 = 1$, and $1 - 0 = 1$, so the Dynkin
+    label for the adjoint of $SU(3)$ is $(1, 1)$.
+    \item For general Lie Algebras: let the weight be $\boldsymbol{\zeta} = c_i \boldsymbol{\mu}_{\rm FW}^i$.
+    Then the Dynkin labels are
+    \begin{align*}
+        \boxed{a_i = 2 \frac{(\boldsymbol{\zeta}, \boldsymbol{\alpha}^I)}{(\boldsymbol{\alpha}^I, \boldsymbol{\alpha}^I)}.}
+    \end{align*}
+    Note that this instantly tells you the Dynkin labels of the fundamental
+    weights; just $\delta^K_I$
+\end{itemize}
+
+\textbf{Fact:} the highest weight of an irrep is
+\begin{align*}
+    \boxed{\boldsymbol{\zeta}_{\rm HW} = a_i \boldsymbol{\mu}^i_{\rm FW}.}
+\end{align*}
+Examples:
+\begin{itemize}
+    \item The highest weight of the fundamental and anti-fundamental reps
+    of $SU(3)$ are $\boldsymbol{\mu}^1_{\rm FW}$ and $\boldsymbol{\mu}^2_{\rm FW}$, as
+    we'd expect from the formula.
+    \item The highest weight of the adjoint of $SU(3)$ is indeed $\boldsymbol{\mu}^1_{\rm FW}
+    + \boldsymbol{\mu}^2_{\rm FW}$.
+\end{itemize}
+
+Spinor decompositions. Spinors decompose as
+\begin{align*}
+    \psi^\alpha \chi^\beta = \sum_k a_k (\gamma^{\mu_1 \cdots \mu_k} C^{-1})^{\alpha \beta} (\psi^T C \gamma_{\mu_1 \cdots \mu_k} \chi).
+\end{align*}
+The process for finding the Clebsch-Gordon decomp of these spinors is
+\begin{itemize}
+    \item Find the structure of the charge conjugation matrix. If it's
+    diagonal, then only even terms contribute. If it's off-diagonal, then
+    only odd terms contribute. The terms go until $N$ for $SO(N)$. You \emph{flip}
+    this for chiral spinors: for a BOD c.c. matrix, only \emph{even} terms contribute,
+    and for a block diagonal c.c. matrix only \emph{odd} terms contribute.
+    \item The dimensions of each term is ${N \choose k}$. If $k = N/2$,
+    then you need another factor of $1/2$ because things split into self-dual
+    and anti-self dual parts.
+    \item Really important fact: in general, the \emph{Dirac} spinor irrep
+    has dimension $2^{N}$ for $SO(N)$, but the chiral spinor irreps have
+    dimension $2^{N - 1}$ for $SO(2N)$.
+\end{itemize}
+
+The Cartan-Weyl basis in terms of the Gell-Mann matrices:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/gellmann1.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/gellmann2.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/gellmann3.png}
+\end{figure}
+
+$d_{abc} = \tr(\{ \lambda_a, \lambda_b \} \lambda_c)$ for $SU(3)$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/randompvnsoln.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/randompvnsoln2.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/randompvnsoln3.png}
+\end{figure}
+
+A useful isomorphism is that
+\begin{align*}
+    \boxed{U(N) \cong \frac{SU(N) \times U(1)}{\ints_N}.}
+\end{align*}
+
+One can raise and lower indices using the epsilon symbol in $SU(N)$.
+
+Young tableaux facts:
+\begin{itemize}
+    \item The dimension of a totally antisymmetric tensor is ${N \choose k}$,
+    a totally symmetric tensor is ${N + k - 1 \choose k}$, and a totally symmetric
+    and traceless tensor is ${N + k - 1 \choose k} - {N + k - 3 \choose k - 2}$.
+\end{itemize}
+
+
+
+% Some questions that may be on the exam:
+
+% \begin{eexample}
+%     [Spinors in $D = 10$ and $D = 8$]
+%     Questions similar to this came up on a few PvN finals.
+%     Specifically, eight and ten-dimensional Dirac and spinor irreps
+%     (2012 Dec., 2016, 2020, 2021):
+%     \begin{itemize}
+%         \item How many Dirac and spinor irreps in $D = 8 + 0$ and $D = 10 + 0$? How about $D = 9 + 1$?
+%         \item What are the reality properties of the Dirac irreps and the spinor irreps in
+%         $D = 8 + 0$, $D = 10 + 0$, and $D = 9 + 1$? (You
+%         may use that there is a imaginary irrep of the Dirac matrices in $D = 7$,
+%         which implies that there is a real and symmetric irrep in $D = 8$.)
+%         \item How big are these matrices?
+%         \item Construct the charge conjugation matrices in $D = 8$ and $D = 10$. What are their
+%         symmetry properties? Do they change if we go to $D = 9 + 1$? Are they block-diagonal
+%         or block-off-diagonal?
+%         \item Do MW spinors exist in $D = 10 + 0$ and/or $D = 9 + 1$? (2020)
+%         \item Do M spinors exist in $D = 10 + 1$ and/or $D = 11 + 0$? (2020)
+%         \item Perform a Clebsch-Gordon decomposition of two $s$-spinor irreps
+%         of $SO(10)$, and of an $s$-spinor times a $c$-spinor. Do this in terms of
+%         Young tableaux and in terms of tensors. Determine the dimensions of each irrep
+%         in the decomposition. Do the same for $SO(8)$. (2012 Dec., 2020)
+%     \end{itemize}
+%     There was also lower-dimensional questions a few times (2012 Jan., 2014):
+%     \begin{itemize}
+%         \item Answer for the Dirac group in $D = 4 + 1$: dimension, number of
+%         classes, number of $1D$-irreps, number of higher-dimensional irreps.
+%         \item Construct the charge conjugation matrix in $D = 4 + 1$ in terms
+%         of $C_-^{(4)}$. Why are the E and M matrices the same? Are the matrices
+%         $C^5$, $C^5 \Gamma_M$, $C^5 \Gamma_M \Gamma_N$ sym or asym?
+%         \item Do CG-decomp for two spinor irreps of $SO(5)$. Do both YT and tensor decomps.
+%         \item Reality properties of Dirac and spinor irreps? Lorentz generator reality properties?
+%         \item Derive the reality properties of the spinor irrep
+%         in $D = 4 + 1$ Minkowski space.
+%     \end{itemize}
+
+%     \noin
+%     \textbf{Solution:}\\
+%     Spinors in $D = 8, 9, 10$:
+%     \begin{itemize}
+%         \item There is one Dirac irrep and two spinor irreps in even dimensions, regardless
+%         of signature. The opposite is true for odd dimensions.
+%         \item We first consider the case of the Dirac irrep. Constructing the
+%         $D = 8$ rep from $D = 7$, we get $\Gamma_{(8)} = \{ \Gamma_{(7)}, I_8 \otimes \sigma^1 \}$.
+%         These matrices are real and symmetric. Now for $D = 10$. We take the
+%         real and symmetric $8D$ irrep, get the $9D$ irrep by adding $+ \Gamma_9$
+%         (which is real as well), and get the $10D$ irreps:
+%         \begin{align*}
+%             & \Gamma_{(10 + 0)} = \{ \Gamma_{(9)} \otimes \sigma_1, I_{16} \otimes \sigma_2 \text{ or } I_{16} \otimes \sigma_3 \}
+%             & \Gamma_{(9 + 1)} = \{ \Gamma_{(9)} \otimes \sigma_1, I_{16} \otimes (-i\sigma_2) \}.
+%         \end{align*}
+%         In $D = 9 + 1$, this rep is clearly real. In $D = 10 + 0$, it is also
+%         clearly real if we use $\sigma_3$.
+%         For $D = 8 + 0$, the spinor irrep generators are $(1/4)[\Gamma_M, \Gamma_N]$. The
+%         $s$ and $c$ irreps are ``clearly'' real. In $D = 9 + 1$, the spinor irreps are
+%         real if we take:
+%         \begin{align*}
+%             & s-{\rm rep} = \frac{1}{2} \{ \Gamma^{(9)}_{[m} \Gamma^{(9)}_{n]}, \Gamma^{(9)}_{m} \},
+%             & c-{\rm rep} = \frac{1}{2} \{ \Gamma^{(9)}_{[m} \Gamma^{(9)}_{n]}, - \Gamma^{(9)}_{n} \}.
+%         \end{align*}
+%         For $D = 10 + 0$, we add a factor of $i$ in the second entry to $D = 9 + 1$.
+%         The rep is complex because $S \Gamma^{(9)} S^{-1} = - \Gamma^{(9)}$ would imply
+%         that $C_-$ exists, which is false.
+%         \item In $D = 8$, they're $16 \times 16$, and in $D = 10$, they're $32 \times 32$.
+%         \item In $D = 8$, using the construction above, they are
+%         \begin{align*}
+%             & C_+ = I_8 \otimes I_2
+%             & C_- = I_8 \otimes \sigma^3.
+%         \end{align*}
+%         These are clearly block-diagonal and symmetric. In $D = 10$, the charge conjugation
+%         matrices are $C_+ = I_{16} \otimes \sigma_1$ and $C_- = \Gamma_0$. These are
+%         block off-diagonal, $C_+$ is symmetric, and $C_-$ is antisymmetric.
+%         \item They exist in $D = 9 + 1$ and don't exist in $D = 10 + 0$.
+%         \item They exist in $D = 10 + 1$ (use $C_-$) and don't exist in $D = 11 + 0$ ($C_-$ is anti-symmetric, so doesn't work).
+%         \item CG for two $s$-spinors for $SO(8)$. Since the c.c. matrices are block-diagonal,
+%         only the even terms contribute, so $k = 0$, $2$, and $4$. We have
+%         \begin{align*}
+%             \psi^\alpha \chi^\beta = (C^{-1})^{\alpha \beta} (\psi^\gamma C_{\gamma \delta} \chi^\delta)
+%             + (\gamma^{\mu \nu} C^{-1})^{\alpha \beta} [\psi^\gamma (C\gamma_{\mu \nu})_{\gamma \delta} \chi^\delta]
+%             + (\gamma^{\mu \nu \rho \sigma} C^{-1})^{\alpha \beta} [\psi^\gamma (C\gamma_{\mu \nu \rho \sigma})_{\gamma \delta} \chi^\delta].
+%         \end{align*}
+%         The YT decomp is: x otimes x = bullet oplus two column oplus three column, which
+%         has dimension
+%         \begin{align*}
+%             \times \otimes \times & = \bullet \oplus \ydiagram{1, 1} \oplus \ydiagram{1, 1, 1}\\
+%             \mathbf{8} \times \mathbf{8} & = \mathbf{1} + \mathbf{28} + \mathbf{35}.
+%         \end{align*}
+%         For an $s$-spinor times a $c$-spinor, we have
+%         \begin{align*}
+%             \psi^\alpha \beta_{\beta} = (\gamma^\mu)^{\alpha}_{\beta} [\psi^\gamma (\gamma_\mu)_{\gamma}^\delta \chi_{\delta}]
+%             + (\gamma^{\mu \nu \rho}) [\psi^\gamma (\gamma_{\mu \nu \rho})_{\gamma}^\delta \chi_\delta].
+%         \end{align*}
+%         The YT decomp is
+%         \begin{align*}
+%             \times \otimes + & = \ydiagram{1} \oplus \ydiagram{1, 1, 1},\\
+%             \mathbf{8} \times \mathbf{8} & = \mathbf{8} + \mathbf{56}.
+%         \end{align*}
+%         Now for $SO(10)$. We first compute the product of two chiral spinors in $D = 10 + 0$.
+%         Since the c.c. matrices are block off-diagonal, only the odd terms contribute, so $k = 1$, $3$, and $5$.
+%         Note the self-duality in the last step.
+%         \begin{align*}
+%             \psi^\alpha \chi^\beta = \sum_{k = 1, 3, 5} a_k (\gamma^{\mu_1 \cdots \mu_k} C^{-1})^{\alpha \beta} (\psi^T C \gamma_{\mu_1 \cdots \mu_k} \chi).
+%         \end{align*}
+%         The YT decomp is:
+%         \begin{align*}
+%             \times \otimes \times & = \ydiagram{1} \oplus \ydiagram{1, 1, 1} \oplus \ydiagram{1, 1, 1, 1, 1},\\
+%             \mathbf{16} \times \mathbf{16} & = \mathbf{10} + \mathbf{120} + \mathbf{126}.
+%         \end{align*}
+%         For an $s$-spinor times a $c$-spinor, we have
+%         \begin{align*}
+%             \times \otimes + & = \bullet \oplus \ydiagram{1, 1} \oplus \ydiagram{1, 1, 1, 1}\\
+%             \mathbf{16} \times \mathbf{16} & = \mathbf{1} + \mathbf{45} + \mathbf{210}.
+%         \end{align*}
+%     \end{itemize}
+%     Spinors in $D = 4, 5$:
+%     \begin{itemize}
+%         \item $64$, $34$, $32$, two $4D$ irreps.
+%         \item Only $C_+$ exists, and it's $C_-^4 \gamma_5$. $C_+$
+%         is asym, $C_+ \Gamma$ asym, two gamma is sym. Proof:
+%         \begin{align*}
+%             C_+^T & = (C_- \gamma_5)^T = \gamma_5^T (-C_-) = - C_+,\\
+%             (C_+ \Gamma)^T & = \Gamma^T (-C_+) = - C_+ \Gamma,\\
+%             (C_+ \Gamma_M \Gamma_N)^T & = \Gamma_{[N}^T \Gamma_{M]}^T (- C_+) = - C_+ \Gamma_{[N} \Gamma_{M]} = C_+ \Gamma_{MN}.
+%         \end{align*}
+%         Tensor decomp is
+%         \begin{align*}
+%             \psi^\alpha \chi^\beta = a (C^{-1})^{\alpha \beta} (\psi^T C \chi) + b (C^{-1})^{\alpha \beta} (\psi^T C \Gamma_M \chi) + c (C^{-1})^{\alpha \beta} (\psi^T C \Gamma_M \Gamma_N \chi).
+%         \end{align*}
+%         Contracting with various $C\Gamma$'s gives $a = b = 1/4$, $c = - 1/8$.
+%         YT decomp:
+%         \begin{align*}
+%             + \otimes + & = \bullet \oplus \ydiagram{1} \oplus \ydiagram{1, 1}\\
+%             \mathbf{4} \times \mathbf{4} & = \mathbf{1} + \mathbf{5} + \mathbf{10}.
+%         \end{align*}
+%         \item By FS, Dirac is complex. Spinor reps are PR.
+%     \end{itemize}
+% \end{eexample}
+
+% \begin{eexample}
+%     [Young Tableaux, Casimirs, and Dynkin diagrams for $SU(N)$ and $SO(N)$]
+%     Questions similar to this came up on a few PvN finals.\\
+
+%     \noin
+%     Young Tableaux:
+%     \begin{itemize}
+%         \item What is the maximal number of boxes in a row and in a column for a 
+%         Young tableaux of $SU(N)$ and of $SO(N)$? (2021)
+%         \item Write down the dimensions of the following irreps of $SU(N)$ and $SO(N)$ (2020):
+%         \begin{itemize}
+%             \item The totally-antisymmetric $k$-tensor.
+%             \item The totally-symmetric $k$-tensor.
+%         \end{itemize}
+%         \item As a check, write down the results for $N = 3$, and $k = 1, 2, 3$ for each
+%         case. Question: why is the dimension of the totally-antisymmetric $2$-tensor in $SO(4)$
+%         $\mathbf{3}$ and not $\mathbf{6}$? What is it in $SU(4)$? What $SO(6)$ irrep corresponds
+%         to this irrep in $SU(4)$? (2020)
+%         \item Evaluate the product of the two column times the two row for $SU(4)$
+%         and $SO(4)$. (2020)
+%         \item Write down the product of two fundamental irreps for $SU(N)$ and $SO(N)$;
+%         write down the dimensions of each irrep in the decomposition. (2012 Dec.)
+%         \item Consider the first $7$ irreps of $SU(4)$; this is the decomposition of the
+%         product of two adjoint reps of $SU(4)$ (second part is 2014). Write down the tableaux, dimension,
+%         and Dynkin labels for each irrep. Repeat for $SO(6)$. (2014, 2021)
+%         \item Compute the product of the two column times the fundamental for $SO(6)$,
+%         and the two row times the fundamental for $SO(6)$. Write down the corresponding
+%         decomposition for $SU(4)$. Construct the reality properties of the irreps. (2012 Jan.)
+%     \end{itemize}
+
+%     \noin
+%     Casimirs and Dynkin diagrams:
+%     \begin{itemize}
+%         \item Write down the Dynkin diagrams for $SU(N)$ and $SO(N)$. Consider $SU(4)$
+%         and $SO(6)$; are their Dykin diagrams related? What does this say about the
+%         relationship between the two Lie algebras? (2014, 2021)
+%         \item Write down the Casimirs and Dynkin indices for the following irreps: (2020)
+%         \begin{itemize}
+%             \item The fundamental and adjoint of $SU(N)$.
+%             \item The fundamental and adjoint of $SO(N)$.
+%         \end{itemize}
+%         \item Specialize to $SO(5)$. Write down the Casmimirs and Dynkin indices
+%         for the box, the two-box column, and the two-box row (2014).
+%         \item Do the same for the $s$-rep of $SO(4)$ and the spinor rep of $SO(5)$. (2020)
+%     \end{itemize}
+
+%     \noin
+%     \textbf{Solution:}\\
+%     YTs:
+%     \begin{itemize}
+%         \item For $SU(N)$: $N - 1$, $SO(N)$: $N$ boxes. Rows are arbitrary.
+%         \item Asym: ${N \choose k}$. For $SO(N)$, if $k = N/2$ then times another $1/2$.
+%         Sym: for $SU(N)$, ${N + k - 1 \choose k}$. For $SO(N)$, ${N + k - 1 \choose k} - {N + k - 3 \choose k - 2}$.
+%         \item $SU(N)$: $\mathbf{3}$, $\mathbf{6}$, $\mathbf{10}$ for 123 row; is 3 5 7 for SO(3).
+%         For SU(3), bullet box two column is 1 3 3 star. For SO3, bullet box that's it. 1 and 3.
+%         The reason it's 3 and not 6 is because it can be further broken down into a self dual and
+%         anti self dual part. In SU(4) it's a six, which is an anti-sym tensor that still decomposes
+%         as sd and asd. a box in so6 corresponds to this.
+%         \item See below.
+%         \item See below.
+%         \item See below.
+%         \item See below.
+%     \end{itemize}
+%     Casimirs and Dynkin diagrams:
+%     \begin{itemize}
+%         \item Obvious.
+%         \item We have:
+%         \begin{itemize}
+%             \item $SU(N)$: $T(\square) = 1/2$ for the fundamental, and so
+%             $C_2(\square) = (N^2 - 1)/2N$.  For the adjoint, we use
+%             \begin{align*}
+%                 T(\square \otimes \bar{\square} - I) = T(\square)\dim{\bar{\square}} + \dim{\square}T(\bar{\square}) - t(I) = N.
+%             \end{align*}
+%             So $C_2({\rm ad}) = N$, as $\dim{\rm ad} = N^2 - 1$.
+%             \item $SO(N)$: $T(\square) = 1/2$ which implies that $C_2(\square) = (N - 1)/4$.
+%             For the adjoint, we have
+%             \begin{align*}
+%                 C_2({\rm ad}) & = \sum_{i < j} (A_i + A_j)^2 = \frac{1}{2} (\sum_{i, j} - \sum_{i = j}) (A_i + A_j)^2\\
+%                 & = \frac{1}{2} T(\square) N + \frac{1}{2} N T(\square) - \frac{1}{2} 4T(\square) = \frac{N}{2} - 1.
+%             \end{align*}
+%             \item For the box, we use $T(\square) = 1/2$. For the two row, we have 
+%             \begin{align*}
+%                 T(\square \square) & = \sum_{i \leq j} \left( A_i + A_j - \frac{1}{5} \delta_{ij} \sum_{k,l} \delta^{kl}(A_k + A_l)\right)\\
+%                 & = \frac{1}{2} (\sum_{i,j} + \sum_{i = j})(A_i + A_j)^2 = \frac{1}{2} \cdot 5 \cdot 2 \tr{A_i^2} + \tr{A_i^2} = 7 \tr{A_i^2}.
+%             \end{align*}
+%             So it's $7T(\square)$. Similarly, the two column is $3T(\square)$. So
+%             \begin{align*}
+%                 C_2(\square) = 1,
+%                 \mathspace
+%                 C_2(\square square) = 5/2,
+%                 \mathspace
+%                 C_2(\text{two column}) = 3/2.
+%             \end{align*}
+%             \item For the $s$-rep of $SO(4)$, we have $C_2 = - \sum_{m < n} (1/2)^2 (\sigma_{mn})^2 = (1/4)(6) = 3/2$.
+%             For the spinor rep of $SO(5)$, we have $C_2 = - \sum_{m < n} (1/2)^2 (\gamma_{mn})^2 = (1/4)(10) = 5/2$.
+%             This is assuming that $T(\square) = 1/2$.
+%         \end{itemize}
+%     \end{itemize}
+% \end{eexample}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/yt1.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/yt2.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/yt3.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/yt4.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{Figures/yt5.png}
+% \end{figure}
+
+% \begin{eexample}
+%     [Groups ``in the large'']
+%     Compute the Haar measure for the following groups:
+%     \begin{itemize}
+%         \item $GL(2, \reals)$ (2012 Dec., 2021)
+%         \item $SL(2, \reals)$
+%         \item $SU(2)$: elements are $g = a^4 + i a^k \sigma_k$. (2012 Jan)
+%         \item The Euclidean group in two dimensions, i.e.
+%         the Lie group with elements
+%         \begin{align*}
+%             g(x, y, \theta) = \begin{pmatrix}
+%                 1 & 0 & 0\\
+%                 x & \cos{\theta} & - \sin{\theta}\\
+%                 y & \sin{\theta} & \cos{\theta}
+%             \end{pmatrix}.
+%         \end{align*}
+%     \end{itemize}
+%     For $GL(2, \reals)$ and $E_2$, answer these extra questions (2012 Jan., 2014, 2021):
+%     \begin{itemize}
+%         \item Is this a Lie group? Is is compact, simple, semi-simple, connected,
+%         simply-connected? What is its covering group, if any?
+%         \item Generators in the defining representation? 
+%         \item Compute three structure constants.
+%         \item (Only for $GL(2, \reals)$): Derive the LI-Haar measure from the LI-measure of $SL(2, \reals)$
+%         (which was calculated in the notes).
+%     \end{itemize}
+
+%     \noin
+%     \textbf{Solution:}\\
+%     Haar measure:
+%     \begin{itemize}
+%         \item See below.
+%         \item Done out in the notes.
+%         \item Done out in the notes.
+%     \end{itemize}
+%     $GL(2, \reals)$ and $E_2$:
+%     \begin{itemize}
+%         \item We have
+%         \begin{itemize}
+%             \item GL: Yes LG as mult law analytic in parameters. Noncompact (vol diverges),
+%             non-semisimple (diagonal elements are ideal), and is connected (clearly), but not 
+%             SC because equals $GL(2, \reals) \cong \reals \times SL(2, \reals)$. $SL(2, \reals)
+%             \cong S^1 \times \reals^2$, and $S^1$ is not SC. Covering group is $\reals^4$.
+%             See below for pictures.
+%         \end{itemize}
+%     \end{itemize}
+% \end{eexample}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterMoreGLstuff.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterGLstuff.png}
+% \end{figure}
+
+% \begin{eexample}
+%     [Extended Dynkin diagrams]
+%     This question or something like it came up a few times. It's constructing
+%     the extended Dynkin diagram. The procedure is as follows:
+%     \begin{enumerate}
+%         \item Add the lowest root to the set of roots. The lowest root is the
+%         negative of the highest root. By the ``highest root'', I mean the highest
+%         \emph{overall} root, not the highest simple root or the highest positive root.
+%         Denote this root $\boldsymbol{\alpha}^0$.
+%         \item Take the inner products of $\boldsymbol{\alpha}^0$ with each of the simple roots.
+%         \item Add it to the diagram as per usual.
+%     \end{enumerate}
+%     To practice, write down the extended Dynkin diagram for: (2016)
+%     \begin{itemize}
+%         \item $SU(N)$
+%         \item $SO(2N)$
+%         \item $SO(2N + 1)$
+%     \end{itemize}
+%     Specifically, construct them for $SU(4)$ and $SO(6)$ (2021).\\
+
+%     \noin
+%     \textbf{Solution:}\\
+%     Extended Dynkin diagrams:
+%     \begin{itemize}
+%         \item See below.
+%     \end{itemize}
+%     $SU(4)$ and $SO(6)$:
+%     \begin{itemize}
+%         \item See below.
+%     \end{itemize}
+% \end{eexample}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterExtendedDynkinSUnSOn.png}
+% \end{figure}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterExtendedDynkinSONplusone.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterextendeddynkinsu4so6.png}
+% \end{figure}
+
+% \begin{eexample}
+%     [Full analyses of certain $SU(N)$ irreps]
+%     Perform a full analysis of $SU(3)$ (2021):
+%     \begin{itemize}
+%         \item Write down: the CW-generators in the defining rep,
+%         simple roots and FWs.
+%         \item Write down the formula that expresses the highest weight of
+%         an irrep in terms of the fundamental weights and Dynkin labels.
+%         \item Consider $t^{ij}_{kl}$ of $SU(3)$ that's symmetric in $ij$ and $kl$,
+%         and traceless. Calculate its YT and dimension (both using tensor methods and
+%         YT methods).
+%         \item What is its highest weight? Fill out the weight diagram.
+%         \item Bonus problem: decompose a tensor $u^{ij}_{kl}$ of $SU(3)$ that's
+%         neither symmetric in $ij$ nor $kl$, and not traceless, into irreps using
+%         tensor methods and YTs.
+%     \end{itemize}
+%     Now, the $\mathbf{6}$ of $SU(3)$: (2016)
+%     \begin{itemize}
+%         \item Write down: the YT and tensor.
+%         \item Do CG-decomp for this, for both YT and tensors.
+%         \item HW? HW in terms of FWs?
+%         \item Draw weight diagram. Label each weight.
+%         \item There is a weight that may be reached by two paths. Is this
+%         weight degenerate, and why?
+%         \item How many $\alpha$-chains start at the HW? Calculate $p$ and $q$
+%         for them (it).
+%         \item Reality properties?
+%     \end{itemize}
+
+%     \noin
+%     \textbf{Solution:}\\
+%     Full analysis of $SU(3)$:
+%     \begin{itemize}
+%         \item Obvious.
+%         \item $\boldsymbol{\mu}_{\rm HW} = a_i \boldsymbol{\mu}^i_{\rm FW}$, where $a_i$
+%         are the Dynkin labels.
+%         \item Tensor method: before taking traces, it has 36 components;
+%         removing the traces gives 27 components. Two rows. First row: 4, second row: 2. Dimension is 27.
+%         \item Highest weight is $\boldsymbol{\mu}_{\rm HW} = 2 \boldsymbol{\mu}^1_{\rm FW} + 2 \boldsymbol{\mu}^2_{\rm FW} = (1, \sqrt{3})$.
+%         The weight diagram is below.
+%         \item See below. YT is kinda obvious though.
+%     \end{itemize}
+%     $\mathbf{6}$ of $SU(3)$:
+%     \begin{itemize}
+%         \item Obvious.
+%         \item Obvious.
+%         \item Obvious. It's $2\boldsymbol{\mu}^1_{\rm FW} = 2 \boldsymbol{\mu}^1$.
+%         \item See above.
+%         \item The highest weight is $(1, 1/\sqrt{3})$. See below for diagram.
+%         \item See below.
+%         \item Two alpha chains start at the heighest weight.
+%         \item The $\mathbf{6}$ is complex because the weight diagram doesn't equal its complex
+%         conjugate.
+%     \end{itemize}
+% \end{eexample}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterWeightDiagram.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterTensorDecomp.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterWeightDiagram6.png}
+% \end{figure}
+
+% Random questions that I'm putting on here because I didn't know how to instantly
+% do them:
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterRandomQuestion1.png}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{Figures/peterRandomQuestion2.png}
+% \end{figure}
 
 \end{document}

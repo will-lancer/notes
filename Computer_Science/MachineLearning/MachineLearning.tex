@@ -47,7 +47,10 @@
 
 {\parindent0pt \baselineskip=15.5pt}
 \noin
-Notes on machine learning.
+Notes on machine learning. Each section is another ML course or paper
+that I did. Links to the resources are included section by section.
+Then there is my organization of the content as a whole (coming after
+I familiarize myself with the landscape of AI/ML).
 
 % make table of contents
 \newpage
@@ -55,7 +58,7 @@ Notes on machine learning.
 \newpage
 
 % main content
-\section{Kaggle and Google's \emph{Introduction to Machine Learning}}
+\section{Kaggle's intro course and Google's \emph{Introduction to Machine Learning}}
 
 See the \href{https://github.com/will-lancer/notes/Computer_Science/Python/Python.pdf}{notes} 
 on Python to refresh on the necessary NumPy and Pandas
@@ -112,7 +115,7 @@ to follow the example below.
     We first need to make our data into a DataTable to do analysis on it.
     We can import it from a csv by using \verb|df = pd.read_csv(dataFilePath)|.
     We look through our data using \verb|df.describe()| and \verb|df.head()|.
-    We now need to specify featurese and a label. We do this by
+    We now need to specify features and a label. We do this by
     \begin{verbatim}
         features = ['column1', 'column2', ..., 'columnN']
         # 'X' is the standard name for the vector of feature data
@@ -147,11 +150,32 @@ to follow the example below.
     to get some validation data from your training set.
 \end{eexample}
 
-That's it! That's our first basic ML model.
+That's it! That's our first basic ML model. Let's summarize what we did
+in more abstract terms now:
+\begin{itemize}
+    \item We had a given cleaned data set to work with.
+    \item We set up our data for processing by turning it into a DataTable.
+    \item We used a given algorithm to train our model on this data.
+    \item We tested our model on some validation data.
+    \item We further refined this model by giving it an optimization condition---in this
+    case, we were minimizing the $L^1$ norm (MAE) as compared to the validation data.
+\end{itemize}
 
+\noin
+From this I will remind ourselves of a meta-level heuristic from King Ilya:
+\begin{quote}
+    \emph{The model just wants to learn}. All we did was set up data-processing,
+    say which algorithm we were using, and get out of the model's way. Then it tried
+    its best to learn given the training data we gave it. After checking its progress, we 
+    then gave it another learning tool (the MAE); this gives the model a more precise way
+    of telling whether things are right or wrong (i.e. there is some measure of magnitude
+    which isn't present in a binary classifier). The model did everything difficult here: we
+    just helped it along its way.
+\end{quote}
 
+\section{CS 231n}
 
-
-
+This section of the notes follows Karpathy's \href{http://cs231n.stanford.edu}{CS 231n course}.
+This is my first bonafide ML course.
 
 \end{document}
