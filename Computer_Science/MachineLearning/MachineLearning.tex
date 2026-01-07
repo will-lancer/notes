@@ -12,9 +12,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\renewcommand{\sectionmark}[1]{\markright{sf{\arabic{section}. #1}}}
+\renewcommand{\sectionmark}[1]{\markright{\sffamily #1}}
 \renewcommand{\subsectionmark}[1]{}
-\lhead{bf{\thepage} \ \ \nouppercase{\rightmark}}
+\lhead{\bfseries\thepage \ \ \nouppercase{\rightmark}}
 \chead{}
 \rhead{}
 \lfoot{}
@@ -172,6 +172,33 @@ From this I will remind ourselves of a meta-level heuristic from King Ilya:
     which isn't present in a binary classifier). The model did everything difficult here: we
     just helped it along its way.
 \end{quote}
+
+A useful way of thinking about the difference between parameter correction and 
+model correction.
+\begin{eexample}
+    [Inner-loop vs. outer-loop learning, and a physical analogy]
+    The \emph{inner loop} is the model learning by itself, and the \emph{outer loop}
+    is outside sources telling the model other ways to learn. This is the distinction between
+    the model training itself on some set of training data vs. the validation and correction phase
+    of learning. The model is doing inner loop learning, then you come in and do outer loop
+    learning. Of course, human intervention is not necessary---one could imagine another AI
+    telling the model to change something. But something has to come in and help this model
+    do outer loop learning. There is some sense of discontinuity with model correction vs.
+    parameter correction. 
+    
+    An analogy is electrostatic equilibrium: if you place two charged conductors
+    in the vicinity of one another, they will continuously relax into equilibrium by minimizing
+    $\mathcal{E} = 1/8\pi \int d^3 \bfr' \, \elec \cdot \mathbf{D}$. This is parameter correction. Model correction 
+    would be you changing the material of the conductor. There is no continuous sense in which this occurs:
+    you just change it and let things re-run.
+
+    Another analogy is a kid learning how to ride a bike. The kid continuously adjusts their strategy
+    in response to the optimization condition of balancing (i.e. keeping the COM over the supports):
+    this is parameter adjustment. Then let's say the kid's dad comes in and gives him a smaller bike (he
+    determined that the one he was riding was too big) and tells him to not try and pedal so fast (the kid was
+    always trying to go to fast and thus was losing his balance too quickly), and tells him to go out there and
+    try again. This is model correction.
+\end{eexample}
 
 \section{CS 231n}
 
