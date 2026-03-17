@@ -1,0 +1,4 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Geometry}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Manifolds}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Differential constructions}{3}{subsection.1.2}%

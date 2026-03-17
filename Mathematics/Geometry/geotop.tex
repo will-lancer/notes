@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{william}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03}
+\setlength{\parindent}{0.2in}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\begin{document}
+
+\thispagestyle{empty}
+\bigskip \
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{22}{22} \selectfont Lecture Notes on}
+\vskip 16pt
+{\fontsize{36}{36} \selectfont \bf \sffamily Geometry and Topology}
+\vskip 24pt
+{\fontsize{18}{18} \selectfont \rmfamily \href{https://will-lancer.github.io}{Will Lancer}}
+\vskip 6pt
+{\fontsize{14}{14} \selectfont \ttfamily will.m.lancer@gmail.com}
+\vskip 24pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Notes on geometry and topology. Resources used:
+\begin{itemize}
+    \item Frederic Schuller's \emph{Geometrical Anatomy of Theoretical Physics}
+    video lectures.
+    \item Bott and Tu's \emph{Differential Forms in Algebraic Topology}.
+    \item Littlejohn's \emph{Physics 250} lecture notes
+\end{itemize}
+
+\newpage
+\microtoc
+\newpage
+
+\section{Geometry}
+
+\subsection{Manifolds}
+
+
+
+
+
+\subsection{Differential constructions}
+
+Define $\Omega^*$ to be the $\reals$-algebra generated
+by the symbols $dx^1, \ldots, dx^n$ satisfying $dx^i dx^i = 0$
+and $dx^i dx^j = - dx^j dx^i$\footnote{This second condition is
+actually necessary, as we're dealing with the multiplication of
+the symbols themselves; we can't just apply condition (1)
+to $dx^i + dx^j$ and get condition (2) for free.}. We define the 
+\vocab{vector space of $C^\infty$ differential forms} to be
+\begin{align*}
+    \Omega^*(M) = C^\infty(M) \otimes_\reals \Omega^*.
+\end{align*}
+A \vocab{differential $k$-form} is then a function in $\Omega^*(M)$
+that has $k$ $dx^i$'s in it, i.e. $\omega = \omega_I dx^I$ 
+for some multi-index $I = (i_1, \ldots, i_k)$. We can rewrite $\Omega^*(M)$
+in terms of these spaces as $\Omega^*(M) = \bigoplus_{k = 0}^{\dim{M}} \Omega^k(M)$;
+this is just saying that you can partition this space into subspaces 
+based on the degree of the differential form. Note the upper summand: by anti-symmetry, $k \leq \dim{M}$ (because otherwise you'd have
+$dx^i \wedge dx^i$ terms in your form).
+
+\begin{reemark}
+    There is a clear similarity here between $\Omega^*(M)$ and the Fock 
+    space $\mathcal{F} = \bigoplus_{n = 0}^{\infty} \mathcal{H}_n$
+    by analogizing $n$-forms to $n$-particle states. The similarity increases
+    further when you consider a fermionic Fock space, where you directly
+    identify fermionic fields $\psi \leftrightarrow dx$.
+\end{reemark}
+
+There are two natural constructions on the space of differential forms: the 
+\vocab{wedge product} and the \vocab{exterior derivative}. The wedge product is 
+just the natural way of multiplying forms; it's directly given by
+\begin{align*}
+    \omega \wedge \eta = \omega_I \eta_J dx^I dx^J.
+\end{align*}
+By definition, we can see that $\omega \wedge \eta = (-1)^{\deg{\omega} \deg{\eta}} \, \eta \wedge \omega$.
+The natural derivation on $\Omega^*(M)$ is the \vocab{exterior derivative},
+$d \colon \Omega^n(M) \to \Omega^{n+1}(M)$, defined by
+\begin{itemize}
+    \item If $f \in \Omega^0(M)$, then $df = \partial_i f dx^i$.
+    \item If $\omega \in \Omega^k(M)$, then $d\omega = df_I dx^I$.
+\end{itemize}
+
+The two most important properties of the exterior derivative are
+that it's nilpotent and that it obeys graded Leibniz. That is,
+\begin{align*}
+    & d^2 \equiv 0 
+    & d(\omega \wedge \eta) = d\omega \wedge \eta + (-1)^{\deg{\omega}} \, \omega \wedge d\eta.
+\end{align*}
+Notice that the minus sign in the second term only depends on the degree
+of the first form in the product. This is because you have to anti-commute
+the $d$ only past $\omega$, thus moving it past $\deg{\omega}$ $dx$'s.
+
+\begin{eexample}
+    [Div, grad, curl, and all that]
+    With the exterior derivative we can regain the definitions of
+    div, grad, and curl extremely easily. On $\reals^3$, $\Omega^0(M)
+    \cong C^\infty(\reals^3) \cong \Omega^3(M)$, and $\Omega^1(M) \cong \Omega^2(M)$,
+    so we can identify these spaces with one another. Let $f \in \Omega^0(M)$.
+    On functions, 
+    \begin{align*}
+        df & = \partial_x f \, dx + \partial_y f \, dy + \partial_z f \, dz \leftrightarrow \grad f
+    \end{align*}
+    On one-forms,
+    \begin{align*}
+        d(f_i \, dx^i) & = (\partial_x f_y - \partial_y f_x) \, dx \wedge dy + (\partial_y f_z - \partial_z f_y) \, dy \wedge dz + (\partial_z f_x - \partial_x f_z) \, dz \wedge dx \leftrightarrow \curl f
+    \end{align*}
+    And on two-forms,
+    \begin{align*}
+        d(2\partial_{[i} f_{j]} \, dx^i \wedge dx^j) & = \left( \partial_x f_x + \partial_y f_y + \partial_z f_z \right) dx \wedge dy \wedge dz \leftrightarrow \div f
+    \end{align*}
+    In summary,
+    \begin{align*}
+        d(0\text{-forms}) & = \text{gradient},\\
+        d(1\text{-forms}) & = \text{curl},\\
+        d(2\text{-forms}) & = \text{divergence}.
+    \end{align*}
+    Pretty cool!
+\end{eexample}
+
+\note{talk about cohomology theory here, then rewrite the first part of this
+talking about how getting to cohomology is one of our explicit goals}
+
+
+
+\end{document}

@@ -1,8 +1,8 @@
-PWD /Users/willlancer/Notes/notes/Physics/Four_Mechanics
+PWD /Users/wlancer/notes-1/Physics/Four_Mechanics
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/willlancer/Notes/notes/Physics/Four_Mechanics/FourMechanics.tex
+INPUT /Users/wlancer/notes-1/Physics/Four_Mechanics/FourMechanics.tex
 OUTPUT FourMechanics.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls

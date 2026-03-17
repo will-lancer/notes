@@ -5,6 +5,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{william}
+\newcommand{\fd}[2]{\frac{\delta #1}{\delta #2}} % functional derivative
 \usepackage{tikz-cd}
 
 % page formatting
@@ -98,7 +99,7 @@ symmetry. Enumerating these conditions for the scalar field gives
     \item \textbf{Poincaré symmetry}: under a Poincaré transformation $U(\Lambda, a)$,
     our fields must transform as
     \begin{align*}
-        U(\Lambda, a) \hat{\phi}(x) U(\Lambda, a)^{-1} = \hat{\phi}(\Lambda x + a).
+        U(\Lambda, a) \phi(x) U(\Lambda, a)^{-1} = \phi(\Lambda x + a).
     \end{align*}
     \item \textbf{Microcausality}: our fields must be local and causal, e.g. spacelike
     separated measurements can't effect each other. This corresponds to
@@ -107,7 +108,7 @@ symmetry. Enumerating these conditions for the scalar field gives
         & (x - y)^2 > 0.
     \end{align*}
     \item \textbf{Unitarity}: as stated, the fields must be Hermitian,
-    $\hat{\phi} = \hat{\phi}^\dagger$.
+    $\phi = \phi^\dagger$.
 \end{enumerate}
 
 
@@ -179,64 +180,74 @@ our Hilbert space; the group property is
 \begin{align*}
     U(\Lambda, a) U(\bar{\Lambda}, \bar{a}) = U(\Lambda \bar{\Lambda}, \Lambda \bar{a} + a).
 \end{align*}
-Since the Poincaré group is a Lie group, things are continuous.
+Notice that this form implies that the Poincaré group is
+a \emph{semi-direct product}, not a direct product (as the
+translation entry is ``twisted'' by $\Lambda$). Since the Poincaré 
+group is a Lie group, things are continuous.
 Taylor-expanding $U(\Lambda, a)$ gives
 \begin{align*}
-    U(\Lambda, a) \simeq \delta^{\mu}_{\nu} - i a_\mu \widehat{\mathcal{P}}^\mu + \frac{i}{2} \omega_{\mu \nu} \widehat{J}^{\mu \nu}.
+    U(\Lambda, a) \simeq \delta^{\mu}_{\nu} - i a_\mu \mathcal{P}^\mu + \frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}.
 \end{align*}
 The generators of $U(\Lambda, a)$ are very special: they are the
 four-momentum operator and the angular momentum/boost operator.
-Looking at $\widehat{J}^{\mu \nu}$ gives
+Considering their components gives
 \begin{align*}
-    \widehat{J}^{\mu \nu} = \begin{cases}
-        \note{put the boost angular momentum ops here}
+    & P^\mu = (H, \mathbf{P}),
+    & J^{\mu \nu} = \begin{cases}
+        J^{0i} = K^i\\
+        J^{ij} = \epsilon^{ijk}J_k,
     \end{cases}
 \end{align*}
-\note{continue talking about the general properties of the
-operators here}
+where $K^i$ is the generator of boosts.
+
 We would now like to see how $U(\Lambda, a)$ acts on our states.
 Choose our states to be labeled as $\ket{\bfk, \sigma}$, where
 $\bfk$ is our spatial momentum and $\sigma$ is some set of internal
 degrees of freedom (which have not yet been specified). Note that
 we may well use $\ket{k, \sigma}$ instead of $\ket{\bfk, \sigma}$,
-but I like $\ket{\bfk, \sigma}$ more because it shows that these
-particles are all on-shell (as $k^0 = \sqrt{|\bfk|^2 + m^2}$ here).
-First note that this basis diagonalizes translations, i.e.
+but we choose $\ket{\bfk, \sigma}$ here because it emphasizes that these
+particles are all on-shell (i.e., that $k^0 = \sqrt{|\bfk|^2 + m^2}$).
+First, note that this basis diagonalizes translations,
 \begin{align*}
-    U(0, a) \ket{\bfk, \sigma} = e^{- i \widehat{\mathcal{P}} a} \ket{\bfk, \sigma} = e^{-i k a} \ket{\bfk, \sigma}.
+    U(0, a) \ket{\bfk, \sigma} = e^{- i \mathcal{P} a} \ket{\bfk, \sigma} = e^{-i k a} \ket{\bfk, \sigma}.
 \end{align*}
 Indeed, this is one of the reasons we chose our states to be labeled
-by momentum eigenvalues; they are conserved under translations. Let us
-now study how Lorentz transformations act on these states. Define an 
-arbitrary ket state as
+by momentum eigenvalues; momentum is symmetric under translations. Let us
+now study how Lorentz transformations act on these states. \emph{Define} an 
+arbitrary state as
 \begin{align*}
     \ket{\bfk, \sigma} \coloneqq \mathcal{N}(\bfk) U(L(\bfk)) \ket{\bfk_R, \sigma},
 \end{align*}
 where $\bfk_R$ is a given \vocab{reference momentum}\footnote{This will
 be specific to the kinds of particles you are talking about, e.g.
 $k_R = (E, 0, 0, E)$ is a reference momentum for the massless little
-group in $D = 4$.}, $L(\bfk)$ is just some Lorentz transformation 
+group in $D = 4$.}, $L(\bfk)$ is some Lorentz transformation 
 that takes $\bfk_R \xrightarrow{L(\bfk)} \bfk$, and $\mathcal{N}(\bfk)$
-a normalization factor to be determined. Consider some $U(\Lambda)$
+a normalization factor to be determined. Consider $U(\Lambda) \ket{\bfk, \sigma}$
 for arbitrary $\Lambda$. We have
 \begin{align*}
     U(\Lambda) \ket{\bfk, \sigma} & = \mathcal{N}(\bfk) U(\Lambda) U(L(\bfk)) \ket{\bfk_R, \sigma}\\
     & = \mathcal{N}(\bfk) \mathcal{N}(\boldsymbol{\Lambda k})^{-1} U(L(\boldsymbol{\Lambda k})) U(\underbrace{L(\boldsymbol{\Lambda k})^{-1} \Lambda L(\bfk))}_{W}) \ket{\bfk_R, \sigma}.
 \end{align*}
-Look at $W$. The following diagram commutes:
+Let's study $W$. The following diagram commutes:
 \[
     \begin{tikzcd}[column sep=large, row sep=large]
-    \bfk_R \arrow[r, "\,L(\bfk)\,"] \arrow[rrd, "\,W\,"'] & \bfk \arrow[r, "\,\Lambda\,"] & \boldsymbol{\Lambda k} \arrow[d, "\,L(\boldsymbol{\Lambda k})^{-1}\,"] \\
+    \bfk_R \arrow[r, "\,L(\bfk)\,"] \arrow[rrd, "\,W\,"'] & \bfk \arrow[r, "\,\Lambda\,"] & \boldsymbol{\Lambda \bfk} \arrow[d, "\,L(\boldsymbol{\Lambda \bfk})^{-1}\,"] \\
     & & \bfk_R
     \end{tikzcd}
 \]
-Thus, $W$ fixes $\bfk_R$. The set of $W$'s forms a group called the
-\vocab{little group} for our specific case (e.g. massless $D = 4$,
-massive $D = 3$, etc.). So, $U(W)$ can't change $\bfk_R$, but it
-can change our $\sigma$ labels; thus, the $\sigma$ labels tell you
-how the particle transforms under the little group. The operator
-$U(W)$ generically gives a combination of particles with the same
-$\bfk_R$ but different $\sigma$ labels, which we may write as
+Thus, $W$ fixes $\bfk_R$. We call $W$ a \vocab{Wigner rotation},
+and we call the set of such $W$'s the \vocab{little group} for
+our given $\bfk_R$. Note that the little group is specific
+to the kind of reference momentum $\bfk_R$ is, e.g. massless
+particles in $D = 4$ form one little group. 
+
+The key observation to make is that while $U(W)$
+can't change $\bfk_R$, it can change our $\sigma$
+labels; thus, the $\sigma$ labels tell you
+how the particle transforms under the \emph{little group}. 
+We may generically write such a representation of the little group
+as
 \begin{align*}
     U(W) \ket{\bfk_R, \sigma} = \sum_{\sigma'} D_{\sigma \sigma'}(W) \ket{\bfk_R, \sigma'}.
 \end{align*}
@@ -274,6 +285,112 @@ add exercises from yin and weinberg here too}
 
 \section{Classical Field Theory}
 
+We briefly review classical field theory here; for a more in-depth analysis,
+see the \note{notes} on classical field theory.
+
+As always, we start with an action:
+\begin{align*}
+    S[\phi] = \int d^D x \, \el = \int dt \int d^{D - 1}\mathbf{x} \, \el(\phi, \partial \phi, \ldots),
+\end{align*}
+where the bounds on this integral are generically over all of $\reals^D$,
+but may be restricted to a subset of it (e.g. the upper half plane of $\reals^2$).
+The equations of motion are derived from the action by demanding stationarity
+\begin{align*}
+    \fd{S}{\phi} = 0 \iff \boxed{\partial_\mu \left( \pd{\el}{(\partial_\mu \phi)} \right) - \pd{\el}{\phi} = 0.}
+\end{align*}
+If we interchange $\phi$ for a tensor field, e.g. $A_\mu$ or $h_{\mu \nu}$,
+the ELE above become tensor equations: one for each component of the tensor
+field. 
+
+\note{talk about canonical coordinates here}
+
+
+We now investigate symmetries of the action---we consider the infinitesimal
+case and build from there. Let
+\begin{align*}
+    \phi \to \phi'(x) = \phi(x) + (\delta_\epsilon \phi)(x),
+\end{align*}
+where $(\delta_\epsilon \phi)(x) \coloneqq \epsilon \, \delta \phi(x)$,
+with $\epsilon \ll 1$ and $\delta \phi(x)$ a field variation.
+Notice only the field variable is primed. If we prime both
+variables, we get an equality: $\phi'(x') = \phi(x)$. This
+is fundamentally because the transformed field at the transformed point
+should give the same measurement as the original field at the
+original point. If the coordinate transformation above 
+is a symmetry, that means that the action is unchanged
+under such a transformation. Consider a non-symmetry
+transformation:
+\begin{align*}
+    \phi \to \phi'(x) = \phi(x) + \tilde{\delta}_\epsilon \phi(x),
+\end{align*}
+where $(\tilde{\delta}_\epsilon \phi)(x) \coloneqq \epsilon(x) \delta \phi(x)$.
+We call this process of making $\epsilon$ $x$-dependent ``gauging the symmetry''---we
+also say this is turning a global symmetry into a local one. The action
+should no longer be invariant under such a transformation, but should take the
+form
+\begin{align*}
+    \tilde{\delta} S = \int d^D x \, \partial_\mu \epsilon(x) j^\mu(x) \;
+    \xrightarrow{\epsilon(x) \, = \, \epsilon} \; \delta S = 0.
+\end{align*}
+Note that this implies that $\partial_\mu j^\mu = 0$ when $\epsilon$ is constant,
+thus giving us a locally conserved current. Integrating $\tilde{\delta}S$ by parts 
+gives an expression for $j^\mu(x)$,
+\begin{align*}
+    \boxed{j^\mu(x) = \pd{\el}{(\partial_\mu \phi)} \delta \phi - \mathcal{U},}
+\end{align*}
+where $\mathcal{U}$ is what's left over. Concretely,
+\begin{align*}
+    \tilde{\delta} S[\phi] 
+    & = \int d^D x \, \pd{\el}{\phi} \, (\tilde{\delta}_\epsilon \phi)(x) + \pd{\el}{(\partial_\mu \phi)} \, \partial_\mu (\tilde{\delta}_\epsilon \phi)(x)\\
+    & = \int d^D x \, \partial_\mu \epsilon(x) \left( \pd{\el}{(\partial_\mu \phi)} \delta \phi(x) \right) + \epsilon(x) \underbrace{\left(\pd{\el}{\phi} \delta \phi(x) + \pd{\el}{(\partial_\mu \phi)} \partial_\mu \delta \phi(x) \right)}_{\partial_\mu \, \mathcal{U}(x)}.
+\end{align*}
+We may also form a conserved charge from $j^\mu$ by integrating its
+time component over some fixed time-slice. We have
+\begin{align*}
+    Q \coloneqq \int d^{D - 1} \bfx \, j^0(\bfx).
+\end{align*}
+One can see that $Q$ is conserved by taking its time derivative
+and using the fact that $\partial_\mu j^\mu = 0$. One can also
+check that $Q$ generates the symmetry $\delta \phi$ in the sense 
+of Hamiltonian mechanics:
+\begin{align*}
+    \delta \phi(x) = \{ Q, \phi \}|_{\pi(\bfx) = \partial \el / \partial \dot{\phi}(\bfx)}
+\end{align*}
+
+The most important Noether current in a classical field theory is
+the stress-energy-momentum tensor $j^\mu(x) = a^\nu T^\mu{}_\nu(x)$.
+Consider its derivation: if we translate the fields by an infinitesimal
+amount $a^\mu$, we have that
+\begin{align*}
+    \phi'(x') & = \phi(x)\\
+    \phi'(x + a) & = \phi(x)\\
+    \phi'(x) + a^\mu \partial_\mu \phi'(x) & = \phi(x)\\
+    \implies \phi'(x) & = \phi(x) - a^\mu \partial_\mu \phi(x).
+\end{align*}
+So, $\epsilon \rightsquigarrow a^\mu$ and $\delta \phi \rightsquigarrow \partial_\mu \phi(x)$.
+Note an important step: we replaced $\partial_\mu \phi'(x)$ with $\partial_\mu \phi(x)$.
+We can do this because $\phi'(x) = \phi(x)$ to first-order: concretely,
+\begin{align*}
+    a^\mu \partial_\mu \phi'(x) - a^\mu \partial_\mu \phi(x)
+    = a^\mu \partial_\mu (\phi'(x) - \phi(x))
+    \simeq a^\mu \partial_\mu (\delta_a \phi(x)) \sim O(a^2),
+\end{align*}
+and thus we're safe to replace $\partial_\mu \phi'(x)$ with $\partial_\mu \phi(x)$.
+Inputting these variations into the expression for $j^\mu(x)$ gives
+\begin{align*}
+    chung
+\end{align*}
+
+\begin{eexample}
+    [Poincaré symmetry]
+    \note{todo}
+\end{eexample}
+
+
+
+
+
+
 \section{Spin-0 QFTs}
 
 \section{Scattering}
@@ -309,16 +426,15 @@ result in all of quantum field theory}.
 
 We begin by defining a ``smeared field operator'' via
 \begin{align*}
-    \widehat{\phi}_f \coloneqq \int d^D x \, f(x) \widehat{\phi}(x).
+    \phi_f \coloneqq \int d^D x \, f(x) \phi(x).
 \end{align*}
 We assume our smearing function's Fourier transform is supported 
 near the mass shell:
 \begin{align*}
     \tilde{f}(k) \neq 0 \xleftrightarrow{\: \: \: \: \approx \: \: \: \:} k^2 + m^2 = 0.
 \end{align*}
-How do we talk about ``moving fields''? This is something we
-would like, as our in and out states are assumed to be asymptotically
-free; you can't get to an asympototic if you can't move anywhere. 
+We must be able to talk about ``moving fields''---how else
+are they supposed to travel out to infinity?
 Consider the following transformation on $f$:
 \begin{align*}
     f(k) \mapsto f^{(T)}(k) \text{ by } f^{(T)}(k) = e^{i(k^0 - \omega_\bfk)T} f(k).
@@ -326,27 +442,27 @@ Consider the following transformation on $f$:
 How does this transformation act on our field operators?
 \note{add wave equation part here}
 Furthermore, the support of $\tilde{f}$ kills the
-multi-particle contribution of $\widehat{\phi}_{f} \ket{\Omega}$.
+multi-particle contribution of $\phi_{f} \ket{\Omega}$.
 Recall
 \begin{align*}
-    \widehat{\phi}(x) \ket{\Omega} & = \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
+    \phi(x) \ket{\Omega} & = \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
     + \int_{\rm m.p.} d\alpha \, e^{-ip_\alpha x} \, \mathcal{Z}^{\rm eff}_{\alpha} \ket{\alpha}
 \end{align*}
-Applying the definition of $\widehat{\phi}_f$ and taking the inverse 
+Applying the definition of $\phi_f$ and taking the inverse 
 Fourier transform of $f$ gives
 \begin{align*}
-    \widehat{\phi}_f \ket{\Omega} & = \int d^D x \, \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
+    \phi_f \ket{\Omega} & = \int d^D x \, \int \dbar^{D - 1} \bfk \, e^{-ikx}\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk}
     + \int d^D x \int_{\rm m.p.} d\alpha \, e^{-ip_\alpha x} \, \mathcal{Z}^{\rm eff}_{\alpha} \ket{\alpha}\\
     & \approx \int \dbar^{D - 1} \bfk \, \tilde{f}(\bfk, \omega_\bfk)\, \mathcal{Z}^{\rm eff}_{\bfk} \ket{\bfk} + 0
 \end{align*}
 \note{explain why T transformation doesn't do anything}Thus,
 \begin{align*}
-    \boxed{\widehat{\phi}_f \ket{\Omega} \approx \widehat{\phi}_{f^{(T)}} \ket{\Omega}.}
+    \boxed{\phi_f \ket{\Omega} \approx \phi_{f^{(T)}} \ket{\Omega}.}
 \end{align*}
 The intuition behind this is that ``there are a lot more operators than
 states''. Thus we may define our states as
 \begin{align*}
-    \ket{\phi_{f_1}, \ldots, \phi_{f_n}} \coloneqq \widehat{\phi}_{f_n} \cdots \widehat{\phi}_{f_1} \ket{\Omega}.
+    \ket{\phi_{f_1}, \ldots, \phi_{f_n}} \coloneqq \phi_{f_n} \cdots \phi_{f_1} \ket{\Omega}.
 \end{align*}
 Thus, by taking inner products of our states, we may get the $S$-matrix
 in terms of field operators acting on the vaccuum. We have \note{add $T$
@@ -360,13 +476,13 @@ variables on all of these guys below}
 
 \section{Spin-$1/2$ QFTs}
 
-\note{talk about fermions here}
+
 
 \section{Spin-$1$ QFTs}
 
 \note{motivation}
 
-\subsection{Basic constructions}
+\subsection{Gauge reundancy; $2 \neq 3$}
 
 There are two cases for spin-$1$ particles: massless or massive.
 They correspond to different representations of the little group,
@@ -376,6 +492,27 @@ while a massless spin-$1$ particle has \emph{two} spin DOF.
 This discontinuous jump in the number of DOF between massive and massless
 is the root cause behind the difficulties of dealing with massless spin-$1$
 particles.
+
+Concretely, we describe the potential of (say) a photon using
+a four-vector to manifest Poincaré symmetry, i.e.
+\begin{align*}
+    A_\mu(x) = \epsilon_\mu e^{ikx}.
+\end{align*}
+We can demand transversality, $k \cdot \epsilon = 0$, which takes us
+from $4 \to 3$ DOF. If we have a massive particle, hooray! $3 = 3$.
+But if we have a massless particle, we're dead in the water---there are no
+other Lorentz invariant constraints that we can impose on $\epsilon$.
+Thus, we have introduced \emph{gauge redundancy}: concretely, we
+have defined the equivalence relation
+\begin{align*}
+    \epsilon_\mu \sim \epsilon_\mu + \alpha k_\mu.
+\end{align*}
+Thus, saying ``the'' polarization vector when referring to a photon
+is a misnomer---you really mean ``a'' polarization vector. We can
+see from this example that the biggest qualitative difference
+between massless and massive spin-$1$ QFTs is the number of DOF
+of their particles. This will cause lots of problems for us later,
+so buckle in and let's go!
 
 \note{general Lorentz transformation properties of spin-1 particles
 go here;}

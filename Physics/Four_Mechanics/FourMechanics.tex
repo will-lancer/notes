@@ -386,6 +386,10 @@ Let's define the term I used in the title of this section.
 \end{eexample}
 
 
+\subsection{Rigid bodies}
+
+
+
 \subsection{Phase space}
 
 \note{chungus?}
@@ -400,17 +404,19 @@ Let's define the term I used in the title of this section.
 
 \subsection{Generalities}
 
+\note{redo all of this shit}
+
 The Lagrangian for electromagnetism is
 \begin{align*}
-    \mathcal{L} = \frac{1}{2} (|\elec|^2 + |\magn|^2) + \rho \Phi - \mathbf{j} \cdot \mathbf{A}.
+    \mathcal{L} = \frac{1}{2} (|\elec|^2 + |\magn|^2) - \rho \Phi + \mathbf{j} \cdot \mathbf{A}.
 \end{align*}
 This may be recast into relativistic notation in the form of
 \begin{align*}
-    \mathcal{L} = - \underbrace{\frac{1}{4} F_{\mu \nu} F^{\mu \nu}}_{\rm fields} - \underbrace{A_{\mu} J^{\mu}}_{\rm interaction}.
+    \mathcal{L} = - \underbrace{\frac{1}{4} F_{\mu \nu} F^{\mu \nu}}_{\rm fields} + \underbrace{A_{\mu} J^{\mu}}_{\rm interaction}.
 \end{align*}
 Note that you can also get the Lorentz force law by adding
 the kinetic term $(1/2)m|\dot{\bfr}|^2$ to $\el$.
-(For mostly minus, the interaction term is $- A_{\mu} J^\mu$.)
+(For mostly minus, the interaction term is $A_{\mu} J^\mu$.)
 This tells us how our fields propagate freely, and how they interact
 with charged matter (charge and current densities). Note the definition
 of the Faraday tensor, $F^{\mu \nu} \coloneqq \partial^\mu A^\nu - \partial^\nu A^\mu$.
@@ -425,7 +431,7 @@ gives $\partial_\mu J^\mu = 0$, which is continuity.
     [Maxwell's equations]
     Writing out $\el$ more explicitly gives
     \begin{align*}
-        \el = - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)^2 - A_\mu J^\mu.
+        \el = - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)^2 + A_\mu J^\mu.
     \end{align*}
     Considering each term in the ELE gives
     \begin{align*}
@@ -736,6 +742,12 @@ addition theorem in its second equality.
     \end{align*}
 \end{iidea}
 
+\begin{eexample}
+    \note{do an example or two here; talk about method of images as well}
+\end{eexample}
+
+\subsubsection{Method of images}
+
 Now that we've covered Poisson's equation in painful
 detail, we move to its homogeneous counterpart: \vocab{Laplace's
 equation}.
@@ -864,38 +876,142 @@ ts is trivial}
 
 \section{Statistical Mechanics}
 
-\begin{iidea}
-    [Statistical mechanics]
-    Statistical mechanics is mechanics, treated statistically.
-\end{iidea}
-After that rousing battle cry, we are ready to begin the study
-of this subject.
+The fundamental idea behind statistical mechanics is that it is
+mechanics, treated statistically. Statistical mechanics aims to make 
+predictions about the bulk properties of systems with a large number of 
+degrees of freedom. ``Large'' may generally be defined as
+when the number of particles is on the order of Avogadro's number,
+$N_A = 6.022 \times 10^{23}$ mol$^{-1}$, where the mol$^{-1}$ in the 
+expression for $N_A$ comes from the fact that we want to write things 
+like $N = n N_A$.
 
-Statistical mechanics aims to make predictions about the bulk properties
-of systems with a large number of degrees of freedom. The ``thermodynamic
-limit'' is about $\sim 10^{23}$ particles. \note{explain} To do this, we need statistics, 
-because solving for the dynamics of $\sim 10^{23}$ molecules is intractable.
+\begin{reemark}
+    [Avogadro's number]
+    Historically, Avogadro's number was defined as the number of atoms 
+    in $12 \text{ g}$ of carbon-12. Here is a less stupid derivation of it: 
+    just comparing length scales.
 
-\subsubsection{Core ideas; the microscopic picture}
-
-Since we're doing mechanics, we will use a Hamiltonian. Furthermore,
-because all of our particles are tiny, everything is elastic, so energy
-is conserved.
-
-\begin{definition}
-    Let our system have $N$ particles. We define the Hamiltonian of our system to be
+    An atom is on the order of $10^{-10} \, \unit{m}$, and a centimeter $10^{-2} \, \unit{m}$.
+    Considering the number of atoms in $1 \, \unit{cm}^3$ gives
     \begin{align*}
-        H(\bfp, \bfq) = \sum_{i = 1}^{N} \frac{|\bfp_i|^2}{2m_i^2} + V_i(\bfr_1, \ldots, \bfr_{N}).
+        \# \text{ atoms} \sim \frac{10^{-6}}{10^{-30}} = 10^{24} \, \unit{atoms}
     \end{align*}
-\end{definition}
+    which is about the same OOM as Avogadro's number. Another derivation
+    comes through considering that the scale of atomic mass is $10^{-26} \, \unit{kg}$,
+    while the gram is $10^{-3} \, \unit{kg}$, and thus there are roughly
+    $10^{23}$ atoms per gram of mass.
+\end{reemark}
 
-\begin{definition}
-    Call the phase space of our system $\mathcal{H}$. Note that necessarily,
-    $\dim{\mathcal{H}} = 6N$. Let the energy of the system be $E$.
-\end{definition}
+While we may define thermodynamic quantities when
+the number of particles is on the order of Avogadro's number, many results 
+in thermodynamics only hold in the \vocab{thermodynamic limit}; this is when you 
+send both the particle number and volume of the system to infinity, but keep the density
+constant. This limit is actually quite deep---its effects will become most noticable 
+when we talk about phase transitions later in these notes, as we need this limit
+to make sense of even basic ideas in the subject.
 
-$H(\bfp, \bfq) - E = 0$ defines a submanifold $\Omega \subset \mathcal{H}$
-by the Regular Value Theorem.
+\subsection{The microscopic picture}
+
+% Since we're doing mechanics, we will use a Hamiltonian. Furthermore,
+% because all of our particles are tiny, everything is elastic, so energy
+% is conserved.
+
+% \begin{definition}
+%     Let our system have $N$ particles. We define the Hamiltonian of our system to be
+%     \begin{align*}
+%         H(\bfp, \bfq) = \sum_{i = 1}^{N} \frac{|\bfp_i|^2}{2m_i^2} + V_i(\bfr_1, \ldots, \bfr_{N}).
+%     \end{align*}
+% \end{definition}
+
+% \begin{definition}
+%     Call the phase space of our system $\mathcal{H}$. Note that necessarily,
+%     $\dim{\mathcal{H}} = 6N$. Let the energy of the system be $E$.
+% \end{definition}
+
+% $H(\bfp, \bfq) - E = 0$ defines a submanifold $\Omega \subset \mathcal{H}$
+% by the Regular Value Theorem.
+% \newpage
+
+The fundamental object in statistical mechanics is the \emph{density operator},
+$\rho$. We recall its definition here. If there is a probability $p_i$ that
+a system is in state $\ket{\psi_i}$, the density operator for that system
+is given by 
+\begin{align*}
+    \rho = \sum_i p_i \ketbra{\psi_i}{\psi_i}.
+\end{align*}
+For a system in a pure state $\ket{\psi}$, clearly $\rho = \ketbra{\psi}{\psi}$.
+It can be shown that a density operator generically satisfies $\tr{\rho} = 1$
+and $\rho \geq 0$; this makes sense, as we'd like to think about $\rho$ as
+a probability distribution of sorts. While $\rho$ is the fundamental object
+of statistical mechanics, as the world is fundamentally quantum mechanical,
+treating the microscopic dynamics as \emph{classical} is oftentimes an almost
+perfect approximation to the quantum mechanical theory, and thus we also define
+the \emph{Hamiltonian}, $H$. Note that two completely different microscopic
+theories can give the same coarse-grained result is because of the renormalization
+group---averaging out the fast degrees of freedom gives basically the same effective theory.
+
+The Hamiltonian of a system is a smooth function on phase space that gives the
+dynamics of the system when differentiated. Concretely, if we have a system with 
+$N$ degrees of freedom, the phase space is generically $2N$-dimensional, and the Hamiltonian
+is a function $H = H(\bfp, \bfq)$ on this space. The state of the system
+evolves due to \emph{Hamilton's equations},
+\begin{align*}
+    & \dot{\bfq} = \pd{H}{\bfp},
+    & \dot{\bfp} = - \pd{H}{\bfq}.
+\end{align*}
+\note{talk about symplectic two form here, as well as Liouville's theorem}
+
+
+Along with these fundamental objects, we must make a fundamental assumption
+called the \vocab{ergodic hypothesis}.
+
+\begin{iidea}
+    [The Ergodic Hypothesis]
+    The ergodic hypothesis states that over long times, a system explores
+    all possible accessible microstates at an energy $E$. Thus, time averages 
+    equal ensemble averages. \note{fix this ``definition'' after reading the
+    paper}
+\end{iidea}
+
+\begin{reemark}
+    [Is the ergodic hypothesis true?]
+    Yes and no. For most systems, yes, the ergodic hypothesis seems to 
+    hold just fine. But there are classes of systems where it does not hold.
+    We can further delineate between these two classes by observing \emph{how}
+    they break ergodicity. There are those systems whose time scales for exploration
+    are just incredibly long (e.g. longer than the time to the end of the universe),
+    and thus practically break the hypothesis: this is \vocab{weak breaking}.
+    Then there are those systems who will \emph{never} explore all of the states
+    available to them, regardless of the time they have to access the states:
+    this is \vocab{strong breaking}.
+
+    Examples of weak breaking may be found in spin glasses and generic finite
+    systems, where the latter case is an example of the Poincare recurrence theorem.
+    To recall from the notes on classical mechanics, the Poincare recurrence theorem
+    roughly states that chaotic systems return arbitarily close to their initial
+    state. This practically restricts the volume of phase space that the system explores,
+    thus breaking ergodicity. Spin glasses are just complicated systems with lots of
+    potential barriers, thus making it really difficult to explore microstates; the time
+    scale for exploration becomes absurdly long as the system gets larger, thus weakly
+    breaking ergodicity.
+
+    The examples of strong breaking are much more interesting and deep. The quintessential
+    example of strong breaking is an \emph{integrable} system. That is, a Hamiltonian
+    system with as many conserved quantities as degrees of freedom.
+\end{reemark}
+
+\begin{eexample}
+    \note{give concrete example of where it fails}
+\end{eexample}
+
+We now talk about the three different ``ensembles'' of thermodynamics.
+We start with the microcanonical ensemble. A priori, the distinguishing
+factor delineating the three ensembles from each other is the variables
+that are assumed to be held constant for that ensemble. In the microcanonical
+ensemble, energy, volume, and particle number are held constant.
+
+\note{at some point talk about special relativistic thermodynamics}
+
 \newpage
 
 \section{Quantum Mechanics}
@@ -988,7 +1104,7 @@ where the perturbation is entirely found in $Q\ket{\psi}$. Rewriting eq.
 So, we'd like to invert $E - H_0$. Write $E - H_0$ as a
 function of the energy eigenstates,
 \begin{align*}
-    E - H_0 = \sum_{k, \, \alpha} \frac{\ketbra{k\alpha}{k\alpha}}{E - \epsilon_k}.
+    (E - H_0)^{-1} = \sum_{k, \, \alpha} \frac{\ketbra{k\alpha}{k\alpha}}{E - \epsilon_k}.
 \end{align*}
 This expression has a zero eigenvalue at $E = \epsilon_n$, and so it
 is meaningless as it stands. To resolve this, introduce
