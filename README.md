@@ -1,7 +1,9 @@
 # notes
 In Fall 2025, I started writing notes for the subjects I've learned.
 I am against typing notes for *learning* a subject, as it's an inefficient method,
-but typed notes are very useful for *storing* knowledge for future reference.
+but typed notes are useful for *storing* knowledge for future reference. Honestly,
+I don't spend much time writing these notes, as I have all of this content
+in my mind-maps, but I think writing is fun so I let myself do it occasionally.
 
 I develop the subjects in a way I see logically fit; as such, I do not follow
 any particular resource--these notes are typed up from memory after I've had time
