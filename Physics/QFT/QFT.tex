@@ -167,7 +167,7 @@ in the next section}
 \note{for whatever reason}, this continuity may also be found in the
 \emph{representation} of the symmetry.
 
-\subsection{Poincaré symmetry and the little group}
+\subsubsection{Poincaré symmetry and the little group}
 Since we are doing relativistic quantum mechanics, let's
 see how the relativistic symmetry group acts on our Hilbert space.
 The Poincaré group in mostly-plus is given by
@@ -195,10 +195,12 @@ Considering their components gives
     & P^\mu = (H, \mathbf{P}),
     & J^{\mu \nu} = \begin{cases}
         J^{0i} = K^i\\
-        J^{ij} = \epsilon^{ijk}J_k,
+        J^{ij} = \epsilon^{ijk}J_k \rightsquigarrow J^k.
     \end{cases}
 \end{align*}
-where $K^i$ is the generator of boosts.
+where $K^i$ is the generator of boosts, and we usually write
+$J^{ij} \rightsquigarrow J^k$, e.g. $J^{12} \eqqcolon J^3$,
+the standard angular momentum in the $z$-direction.
 
 We would now like to see how $U(\Lambda, a)$ acts on our states.
 Choose our states to be labeled as $\ket{\bfk, \sigma}$, where
@@ -271,7 +273,21 @@ We now take a closer look at the $D$ matrices. \note{finish}
 
 Now we'll get into Lagrangian QM, which naturally introduces
 the path integral and accompanying ideas (regularization, renormalization,
-etc.).
+etc.). There are a few things that must be stated:
+\begin{itemize}
+    \item The regularization of the measure $\mathcal{D}\phi$
+    and counter-terms $\delta \el$ should be viewed as necessary
+    requirements to define a path integral. This point-of-view is most 
+    clear in quantum mechanics, where we can of course just compare our
+    observables to the very well-defined Hamiltonian picture---if they
+    don't match, then we have simply made an error in our procedure.
+\end{itemize}
+
+\subsubsection{The Bosonic Path Integral}
+
+\note{do Yin derivation here}
+
+\subsubsection{The Fermionic Path Integral}
 
 \begin{iidea}
     [The path integral]
@@ -288,6 +304,10 @@ add exercises from yin and weinberg here too}
 We briefly review classical field theory here; for a more in-depth analysis,
 see the \note{notes} on classical field theory.
 
+\subsection{General Theory}
+
+\subsubsection{Actions and the Canonical Formalism}
+
 As always, we start with an action:
 \begin{align*}
     S[\phi] = \int d^D x \, \el = \int dt \int d^{D - 1}\mathbf{x} \, \el(\phi, \partial \phi, \ldots),
@@ -300,10 +320,46 @@ The equations of motion are derived from the action by demanding stationarity
 \end{align*}
 If we interchange $\phi$ for a tensor field, e.g. $A_\mu$ or $h_{\mu \nu}$,
 the ELE above become tensor equations: one for each component of the tensor
-field. 
+field. Note that we assume scattering boundary conditions in this derivation
+and thus drop boundary terms---this assumption may not hold if we do not integrate
+over all space.
 
-\note{talk about canonical coordinates here}
+We may define a field momentum in exact analogy with Hamiltonian mechanics:
+$\pi(x) \coloneqq \partial_{\dot \phi} \el$. Note that this approach singles out the
+time coordinate, thus breaking the manifest Poincaré invariance found in
+the Lagrangian formalism---this will cause us to favor the Lagrangian approach
+when doing quantum field theory. The field Hamiltonian is then defined as the functional
+Legendre transform of the field Lagrangian, \note{functional Legendre transforms? might
+be interesting to learn}
+\begin{align*}
+    \mathcal{H}(x) = \pi(x) \dot{\phi}(x) - \el.
+\end{align*}
+Continuing on this line, we may define a Poisson
+bracket for functionals of fields and momenta in the natural way. Let $\mathcal{F}$
+and $\mathcal{G}$ be functions of our canonical variables: then, we may define
+the Poisson bracket of the field functionals as
+\begin{align*}
+    \{ \mathcal{F}, \mathcal{G} \} \coloneqq \int d^{D - 1} \bfx \, \left(
+    \fd{\mathcal{F}}{\phi} \fd{\mathcal{G}}{\pi}
+    - \fd{\mathcal{F}}{\pi} \fd{\mathcal{G}}{\phi} \right). 
+\end{align*}
+Letting $\mathcal{F} = \phi$ and $\pi$ gives the generalizations 
+you would expect from classical mechanics:
+\begin{align*}
+    & \{ \phi, \mathcal{G}, \phi \} = \fd{\mathcal{G}}{\pi},
+    & \{ \pi, \mathcal{G} \} = - \fd{\mathcal{G}}{\phi}.
+\end{align*}
+Furthermore, if we let both $\mathcal{F}$ and $\mathcal{G}$ be $\phi$ and $\pi$,
+we recover the canonical commutation relations
+\begin{align*}
+    \{ \phi(\bfx), \phi(\bfx') \} = 0,
+    \mathspace
+    \{ \pi(\bfx), \pi(\bfx') \} = 0,
+    \mathspace
+    \{ \phi(\bfx), \pi(\bfx') \} = \delta^{D - 1}(\bfx - \bfx').
+\end{align*}
 
+\subsubsection{Symmetries and Noether's Theorem}
 
 We now investigate symmetries of the action---we consider the infinitesimal
 case and build from there. Let
@@ -314,27 +370,29 @@ where $(\delta_\epsilon \phi)(x) \coloneqq \epsilon \, \delta \phi(x)$,
 with $\epsilon \ll 1$ and $\delta \phi(x)$ a field variation.
 Notice only the field variable is primed. If we prime both
 variables, we get an equality: $\phi'(x') = \phi(x)$. This
-is fundamentally because the transformed field at the transformed point
-should give the same measurement as the original field at the
-original point. If the coordinate transformation above 
-is a symmetry, that means that the action is unchanged
-under such a transformation. Consider a non-symmetry
+is fundamentally because physics is independent of the coordinate
+system we use to describe it. If the action is unchanged
+under such a coordinate transformation we say that that
+transformation is a \vocab{symmetry}. Consider a non-symmetry
 transformation:
 \begin{align*}
     \phi \to \phi'(x) = \phi(x) + \tilde{\delta}_\epsilon \phi(x),
 \end{align*}
 where $(\tilde{\delta}_\epsilon \phi)(x) \coloneqq \epsilon(x) \delta \phi(x)$.
-We call this process of making $\epsilon$ $x$-dependent ``gauging the symmetry''---we
-also say this is turning a global symmetry into a local one. The action
-should no longer be invariant under such a transformation, but should take the
-form
+The action generically varies under such a transformation, and should take the form
 \begin{align*}
-    \tilde{\delta} S = \int d^D x \, \partial_\mu \epsilon(x) j^\mu(x) \;
-    \xrightarrow{\epsilon(x) \, = \, \epsilon} \; \delta S = 0.
+    \tilde{\delta} S = \int d^D x \, \partial_\mu \epsilon(x) j^\mu(x)
 \end{align*}
-Note that this implies that $\partial_\mu j^\mu = 0$ when $\epsilon$ is constant,
-thus giving us a locally conserved current. Integrating $\tilde{\delta}S$ by parts 
-gives an expression for $j^\mu(x)$,
+for some function $j^\mu(x)$---notice that $j^\mu$ must be built from
+$\phi$ and its derivatives, so $j^\mu(x) = j^\mu(\phi, \partial \phi, \ldots, x)$.
+Looking forward, this is why it's easy to promote $j^\mu$ to an operator
+when we switch to quantized fields, as we just have to quantize the $\phi$'s and
+we're done. 
+
+Integrating the above result by parts 
+implies that $\partial_\mu j^\mu = 0$ when $\epsilon$ is constant, thus giving 
+us a locally conserved current. Integrating $\tilde{\delta}S$ by parts gives an 
+expression for $j^\mu(x)$,
 \begin{align*}
     \boxed{j^\mu(x) = \pd{\el}{(\partial_\mu \phi)} \delta \phi - \mathcal{U},}
 \end{align*}
@@ -354,13 +412,12 @@ and using the fact that $\partial_\mu j^\mu = 0$. One can also
 check that $Q$ generates the symmetry $\delta \phi$ in the sense 
 of Hamiltonian mechanics:
 \begin{align*}
-    \delta \phi(x) = \{ Q, \phi \}|_{\pi(\bfx) = \partial \el / \partial \dot{\phi}(\bfx)}
+    \delta \phi(x) = \{ \phi, Q \}|_{\pi(\bfx) \, = \, \partial_{\dot{\phi}} \el}
 \end{align*}
 
-The most important Noether current in a classical field theory is
-the stress-energy-momentum tensor $j^\mu(x) = a^\nu T^\mu{}_\nu(x)$.
-Consider its derivation: if we translate the fields by an infinitesimal
-amount $a^\mu$, we have that
+The most important Noether current in a classical field theory comes
+from the \vocab{stress tensor}. Consider its derivation: if we translate 
+the fields by an infinitesimal amount $a^\mu$, we have that
 \begin{align*}
     \phi'(x') & = \phi(x)\\
     \phi'(x + a) & = \phi(x)\\
@@ -386,12 +443,11 @@ Inputting these variations into the expression for $j^\mu(x)$ gives
     \note{todo}
 \end{eexample}
 
-
-
-
-
-
 \section{Spin-0 QFTs}
+
+\subsection{Non-interacting}
+
+\subsection{Interacting}
 
 \section{Scattering}
 

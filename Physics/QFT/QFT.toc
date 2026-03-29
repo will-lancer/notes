@@ -2,21 +2,28 @@
 \contentsline {section}{\numberline {1}Overview}{3}{section.1}%
 \contentsline {section}{\numberline {2}Relativistic Quantum Mechanics}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Symmetries}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Poincaré symmetry and the little group}{4}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Lagrangian QM}{6}{subsection.2.3}%
+\contentsline {subsubsection}{Poincaré symmetry and the little group}{4}{section*.2}%
+\contentsline {subsection}{\numberline {2.2}Lagrangian QM}{6}{subsection.2.2}%
+\contentsline {subsubsection}{The Bosonic Path Integral}{6}{section*.3}%
+\contentsline {subsubsection}{The Fermionic Path Integral}{6}{section*.4}%
 \contentsline {section}{\numberline {3}Classical Field Theory}{6}{section.3}%
-\contentsline {section}{\numberline {4}Spin-0 QFTs}{8}{section.4}%
-\contentsline {section}{\numberline {5}Scattering}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}The basics}{8}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Symmetries of the $S$-matrix}{8}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The LSZ reduction}{8}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Analyticity properties of the $S$-matrix}{9}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Spin-$1/2$ QFTs}{9}{section.6}%
-\contentsline {section}{\numberline {7}Spin-$1$ QFTs}{9}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Gauge reundancy; $2 \neq 3$}{9}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Spin-$3/2$ QFTs}{10}{section.8}%
-\contentsline {section}{\numberline {9}Spin-$2$ QFTs}{10}{section.9}%
-\contentsline {section}{\numberline {10}Useful formulae}{10}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Integrals and special functions}{10}{subsection.10.1}%
-\contentsline {subsubsection}{Schwinger Parameters}{10}{section*.2}%
-\contentsline {subsection}{\numberline {10.2}Dirac matrices}{10}{subsection.10.2}%
+\contentsline {subsection}{\numberline {3.1}General Theory}{6}{subsection.3.1}%
+\contentsline {subsubsection}{Actions and the Canonical Formalism}{6}{section*.5}%
+\contentsline {subsubsection}{Symmetries and Noether's Theorem}{7}{section*.6}%
+\contentsline {section}{\numberline {4}Spin-0 QFTs}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Non-interacting}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Interacting}{9}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Scattering}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}The basics}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Symmetries of the $S$-matrix}{9}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The LSZ reduction}{9}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Analyticity properties of the $S$-matrix}{10}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Spin-$1/2$ QFTs}{10}{section.6}%
+\contentsline {section}{\numberline {7}Spin-$1$ QFTs}{10}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Gauge reundancy; $2 \neq 3$}{10}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Spin-$3/2$ QFTs}{11}{section.8}%
+\contentsline {section}{\numberline {9}Spin-$2$ QFTs}{11}{section.9}%
+\contentsline {section}{\numberline {10}Useful formulae}{11}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Integrals and special functions}{11}{subsection.10.1}%
+\contentsline {subsubsection}{Schwinger Parameters}{11}{section*.7}%
+\contentsline {subsection}{\numberline {10.2}Dirac matrices}{11}{subsection.10.2}%

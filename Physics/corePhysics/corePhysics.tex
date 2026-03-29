@@ -35,7 +35,7 @@
 \begin{center}
 {\fontsize{22}{22} \selectfont Lecture Notes on}
 \vskip 16pt
-{\fontsize{36}{36} \selectfont \bf \sffamily The Four Mechanics}
+{\fontsize{36}{36} \selectfont \bf \sffamily Core Physics}
 \vskip 24pt
 {\fontsize{18}{18} \selectfont \rmfamily Will Lancer} 
 \vskip 6pt
@@ -47,7 +47,14 @@
 \noin
 These are notes on basic physics, covering classical mechanics,
 classical field theory, statistical mechanics, and quantum mechanics.
-Resources used:
+Resources used: \note{fill in later}
+\begin{itemize}
+    \item Classical mechanics:
+    \item Classical field theory:
+    \item Statisical mechanics:
+    \item Quantum mechanics:
+\end{itemize}
+
 % \begin{itemize}
 %     \item Classical mechanics:
 %     \begin{itemize}
@@ -388,11 +395,37 @@ Let's define the term I used in the title of this section.
 
 \subsection{Rigid bodies}
 
-
+\note{need to re-learn this subject; i'm excited to do that, though!
+really looking forward to it. tong for a first pass, then goldbart,
+then landau, then arnol'd? something like that}
 
 \subsection{Phase space}
 
-\note{chungus?}
+\subsubsection{Generalities}
+
+Regardless of how we derive the Hamiltonian, we first
+must define the canonical momentum $\bfp = \partial_{\dot{\bfq}} L$.
+\note{comment on this---what's deep about the canonical momentum?
+how can it be motivated? maybe in relation to the ele but eh, feels weak}
+Then, we can define the \vocab{Hamiltonian} of a system as the Legendre 
+transform of the Lagrangian for that system,
+\begin{align*}
+    H \coloneqq \bfp \cdot \dot{\bfq} - L|_{\bfp = \partial_{\dot{\bfq}} L}.
+\end{align*}
+
+\textcolor{red}{todos:
+\begin{itemize}
+    \item cover legendre transform in an idea box; put it before the expression
+    for the lagrangian; use Arnol'd to do this
+    \item motivate the canonical momentum; why is it useful? i don't really get it
+    \item two-form picture of Hamiltonian mechanics
+\end{itemize}}
+
+\subsubsection{Poisson Brackets}
+
+\subsubsection{Coordinate Transformations}
+
+\subsubsection{Symplectic Mechanics}
 
 \newpage
 
@@ -400,117 +433,79 @@ Let's define the term I used in the title of this section.
 
 \subsection{Mathematical identities}
 
-\note{basically input the front cover of Jackson here}
+We'll be using index notation throughout these notes, so most vector identities
+are useless to put here. We will simply record those identities that are hard to
+remember.
+
+\subsubsection{Differential identities}
+
+\begin{align*}
+    \grad^2_{\rm sph} & = \frac{1}{r^2} \partial_r (r^2 \partial_r) + \frac{1}{r^2} \underbrace{\left( \frac{1}{\sin \theta} \partial_\theta (\sin \theta \partial_\theta) + \frac{1}{\sin^2 \theta} \partial_\phi^2 \right)}_{\grad^2_{\Omega}}\\
+    \grad^2_{\rm cyl} & = \frac{1}{r} \partial_r (r \partial_r) + \frac{1}{r^2} \partial_\phi^2 + \partial_z^2\\
+\end{align*}
+
+\subsubsection{Integral identities}
+
+\subsubsection{Special functions}
+
 
 \subsection{Generalities}
 
-\note{redo all of this shit}
-
-The Lagrangian for electromagnetism is
+The action for electromagnetism is
 \begin{align*}
-    \mathcal{L} = \frac{1}{2} (|\elec|^2 + |\magn|^2) - \rho \Phi + \mathbf{j} \cdot \mathbf{A}.
+    S[A] = \int d^4 x \, \left( - \frac{1}{4} F_{\mu \nu} F^{\mu \nu} + j^\mu A_\mu \right),
 \end{align*}
-This may be recast into relativistic notation in the form of
+where $F_{\mu \nu} \coloneqq 2 \partial_{[\mu} A_{\nu]}$, and $j^\mu$ our current.
+Varying this action gives the equations of motion
 \begin{align*}
-    \mathcal{L} = - \underbrace{\frac{1}{4} F_{\mu \nu} F^{\mu \nu}}_{\rm fields} + \underbrace{A_{\mu} J^{\mu}}_{\rm interaction}.
+    \fd{S[A]}{A_\nu} = 0 \implies \boxed{\partial_\mu F^{\mu \nu} = - j^\nu.}
 \end{align*}
-Note that you can also get the Lorentz force law by adding
-the kinetic term $(1/2)m|\dot{\bfr}|^2$ to $\el$.
-(For mostly minus, the interaction term is $A_{\mu} J^\mu$.)
-This tells us how our fields propagate freely, and how they interact
-with charged matter (charge and current densities). Note the definition
-of the Faraday tensor, $F^{\mu \nu} \coloneqq \partial^\mu A^\nu - \partial^\nu A^\mu$.
-Using the Euler-Lagrange equations on $\el$ give Maxwell's equations:
+There are also two natural constraints that arise from this construction:
+the first comes from the anti-symmetry of $F$,
 \begin{align*}
-    \partial_\mu \left( \pd{\el}{(\partial_\mu A_\nu)} \right) - \pd{\el}{A_\nu} & = 0
+    \partial_\nu \partial_\mu F^{\mu \nu} = - \partial_\nu j^\nu = 0 \implies \boxed{\partial_\mu j^\mu = 0.}
 \end{align*}
-Note that the gauge-redundancy of $S$ ($A_\mu \to A_\mu + \partial_\mu \chi$)
-gives $\partial_\mu J^\mu = 0$, which is continuity.
-
-\begin{dderivation}
-    [Maxwell's equations]
-    Writing out $\el$ more explicitly gives
-    \begin{align*}
-        \el = - \frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)^2 + A_\mu J^\mu.
-    \end{align*}
-    Considering each term in the ELE gives
-    \begin{align*}
-        \pd{\el}{(\partial_\alpha A_\beta)} & = - \frac{1}{2} (\partial_\mu A_\nu - \partial_\nu A_\mu) 
-        (\delta^\alpha_\mu \delta^\beta_\nu - \delta^\alpha_\nu \delta^\beta_\mu)
-        = - (\partial^\alpha A^\beta - \partial^\beta A^\alpha) = - F^{\alpha \beta},\\
-        \pd{\el}{A_\beta} & = - \delta^\beta_\mu J^\mu = - J^\beta.
-    \end{align*}
-    So the ELE are
-    \begin{align*}
-        \boxed{\partial_\mu F^{\mu \nu} = J^\nu.}
-    \end{align*}
-    Writing this equation out in components gives the inhomogeneous ME,
-    \begin{align*}
-        & \div \elec = \rho 
-        & \curl \magn - \partial_t \elec = \mathbf{J}.
-    \end{align*}
-    Inherent in the construction of the four-potential is the constraint
-    (due to skew-symmetry and Clairaut's theorem;
-    as we'll see in a second, really just because $d^2 = 0$),
-    \begin{align*}
-        \partial_{[\mu} F_{\nu \rho]} = 0.
-    \end{align*}
-    Writing out these components gives the homogeneous ME,
-    \begin{align*}
-        & \curl \elec + \partial_t \magn = \mathbf{0}.
-        & \div \magn = 0.
-    \end{align*}
-    Writing out all of the ME at once shows you the lack
-    of symmetry between $\elec$ and $\magn$ (namely, the lack of
-    magnetic monopoles and currents).
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            & Inhomogeneous & Homogeneous\\
-            \hline
-            Constraint & $\div \elec = \rho$ & $\div \magn = 0$\\
-            Dynamics & $\curl \magn - \partial_t \elec = \mathbf{J}$ & $\curl \elec + \partial_t \magn = \mathbf{0}$.\\
-            \hline
-        \end{tabular}
-    \end{table}
-    \noin
-    A short remark is that equations of dynamics are \emph{also}
-    constraints: by definition, they constrain how a system can evolve in time.\\
-
-    \noin
-    Let's cover this again from the language of forms.
-    Define the one-form
-    \begin{align*}
-        A \coloneqq - \Phi \, dt + A_i \, dx^i.
-    \end{align*}
-    Then $F = dA$ gives
-    \begin{align*}
-        F = \frac{1}{2} F_{\mu \nu} \, dx^\mu \wedge dx^\nu.
-    \end{align*} 
-    We also define the three-form $J$ by
-    \begin{align*}
-        J = J^\mu \epsilon_{\mu \nu \rho \sigma} \, dx^\nu \wedge dx^\rho \wedge dx^\sigma.
-    \end{align*}
-    The Lagrangian for this system is then
-    \begin{align*}
-        \el = - \frac{1}{2} F \wedge \star F - A \wedge \star J.
-    \end{align*}
-    Demanding $\delta S = 0$ to first-order and using the fact that
-    $d$ and $\delta$ commute gives the inhomogeneous ME,
-    \begin{align*}
-        \boxed{d \star F = \star J} \iff \partial_\mu F^{\mu \nu} = J^\nu.
-    \end{align*}
-    Using the fact that $d^2 = 0$ gives the homogeneous ME,
-    \begin{align*}
-       \boxed{dF = 0} \iff \partial_{[\mu} F_{\nu \rho]} = 0.
-    \end{align*}
-    Note that gauge redundancy ($A \to A + d\chi$) again demands
-    that $d \star J = 0$ (continuity).
-\end{dderivation}
+Thus, to couple the matter sector of electromagnetism with our $U(1)$ gauge
+field, the current must be locally conserved; you can also view this as a consequence
+of demanding that $S[A]$ is gauge invariant\footnote{You can trick yourself into thinking
+that the conservation of $j^\mu$ arises due to some sort of ``Noether's theorem'' applied to 
+gauge redunancy---this is, of course, false. The conservation of current in electromagnetism
+is a \emph{consistency condition} for matter to couple with electromagnetism, not a conservation
+law in the sense of Noether.} Additionally, from the definition of $F_{\mu \nu}$, we have that
+\begin{align*}
+    \boxed{\epsilon^{\mu \nu \rho \sigma} \partial_\nu F_{\rho \sigma} = 0.}
+\end{align*}
+One can see this is true as follows: write out $\partial_\nu F_{\rho \sigma} = \partial_\nu \partial_\rho A_\sigma - \partial_\nu \partial_\sigma A_\rho$
+and then contract with $\epsilon$, renaming indices in the second term:
+\begin{align*}
+    \epsilon^{\mu \nu \rho \sigma} \partial_\nu F_{\rho \sigma}
+    & = \epsilon^{\mu \nu \rho \sigma} (\partial_\nu \partial_\rho A_\sigma - \partial_\nu \partial_\sigma A_\rho)\\
+    & = \epsilon^{\mu \nu \rho \sigma} \partial_\nu \partial_\rho A_\sigma - \epsilon^{\mu \nu \sigma \rho} \partial_\nu \partial_\rho A_\sigma\\
+    & = \epsilon^{\mu \nu \rho \sigma} \partial_\nu \partial_\rho A_\sigma + \epsilon^{\mu \nu \rho \sigma} \partial_\nu \partial_\rho A_\sigma\\
+    & = 2 \epsilon^{\mu \nu \rho \sigma} \partial_\nu \partial_\rho A_\sigma = 2 \epsilon^{\mu [\nu \rho] \sigma} \partial_{(\nu} \partial_{\rho)} A_\sigma = 0.
+\end{align*}
+Together, these two equations constitute \vocab{Maxwell's equations}:
+\begin{align*}
+    & \boxed{\partial_\mu F^{\mu \nu} = - j^\nu,}
+    & \boxed{\epsilon^{\mu \nu \rho \sigma} \partial_\nu F_{\rho \sigma} = 0.}
+\end{align*}
+Besides the equations of motion, we'd like to consider the symmetries of classical
+electromagnetism. Generically, classical electromagnetism has gauge redunancy and
+translational symmetry, with the latter giving rise to the stress-energy-momentum
+tensor:
+\begin{align*}
+    j^\mu = \pd{\el}{(\partial_\mu A_\nu)} \delta A_\nu - \mathcal{U}^\mu = - F^{\mu \nu} a^\rho \partial_\rho A_\nu - a^\rho \delta^\mu_{\rho} \el = - a^\rho T^\mu{}_\rho,
+\end{align*}
+where
+\begin{align*}
+    T^\mu{}_\nu = F^{\mu \rho} \partial_\nu A_\rho + \delta^{\mu}_\nu \el
+\end{align*}
+\note{check work}
 
 
-\subsection{Electrostatics}
+
+
+\subsection{Conductor electrostatics}
 
 The equations of motion in electrostatics are
 \begin{align*}
@@ -523,32 +518,42 @@ Since we're dealing with statics, we should think of these as equations of const
 not dynamics. The first EOM tells you exactly how $\elec$ must be sourced,
 the second is a constraint on $\elec$'s components,
 and the last tells you how we relate the field picture
-to the measurable quantity of force. Poisson's equation 
-just combines the Maxwell's equations into a more useful 
-form.
+to the measurable quantity of force. Poisson's equation
+is just a way of rewriting Gauss' law by taking the curl-free
+condition into account.
 
 \begin{reemark}
     [On $\curl \elec = \mathbf{0} \implies \elec = - \grad \Phi$]
     We often conclude that the curl-free condition gives a \emph{global} 
     scalar potential $\Phi$ such that $\elec = - \grad \Phi$. This isn't quite
-    right. While we may always define a local $\Phi$ that satisfies such a
-    condition, a global potential function requires the domain we're working
-    on to be simply connected, so $H^1(M) = 0$, where $M$ is our domain,
-    and $H^1$ is the first de Rham cohomology (lest things become multivalued). 
-    This is intuitively obvious, as the statement $\curl \elec = \mathbf{0}$ is 
-    really just the statement that $dE = 0$, so if $H^1(M) \neq 0$, then Poincar\'e's 
-    lemma doesn't hold, so $E$ isn't necessarily $- d\Phi$ for some $\Phi$.
+    right. While we may always define a local $\Phi$ such that $E = - d \Phi$,
+    a global $\Phi$ satisfying such a condition requires Poincar\'e's lemma
+    to hold, and thus our domain must be simply connected.
 \end{reemark}
 
-\subsubsection{Vacuum and conductors}
+\subsubsection{Field properties}
 
-There are two broad divisions to vacuum and conductor electrostatics:
-\begin{itemize}
-    \item Potential problems.
-    \item Field properties, conductor properties, and field-conductor interactions.
-\end{itemize}
+In addition to the equations of motion, we should naturally consider
+the symmetries---and thus conserved currents---of electromagnetism.
+Recall the improved stress-energy-momentum tensor for electromagnetism:
 
-We first treat potential problems. The only way we solve Poisson's equation in 
+\begin{align*}
+    T^\mu{}_\nu = \note{put here}
+\end{align*}
+
+\note{need to learn more about this before writing this section}
+
+\textcolor{red}{
+    \begin{itemize}
+        \item read Griffiths ch. 7
+        \item landau...
+        \item tong...
+    \end{itemize}
+}
+
+\subsubsection{Inhomogeneous solutions}
+
+We now treat potential problems. The only way we solve Poisson's equation in 
 practice is through Green's functions\footnote{See Littlejohn's notes on Green's functions 
 \href{https://bohr.physics.berkeley.edu/classes/209/f02/green.pdf}{here}.}.
 \begin{iidea}
@@ -583,22 +588,24 @@ practice is through Green's functions\footnote{See Littlejohn's notes on Green's
         \qed
     \end{proof}\\
     In words, a Green's function tells you about the response of a linear system
-    to a delta-function source; heuristically, it tells you how much
-    to weight each delta function source term in considering your solution
-    field $\psi$.
+    to a $\delta$-function source; heuristically, it's a weighting factor for a bunch
+    of $\delta$-function sources that each contribute to your solution $\psi$. The
+    physical analogy here is $\delta$-functions $\leftrightarrow$ point charges,
+    so $G$ basically just counts a bunch of tiny point charges that all contribute
+    to the ``potential'', $\psi$.
 \end{iidea}
 
 Some comments on Green's functions, both in generality
 and in the context of electrostatics:
 \begin{itemize}
-    \item Green's functions are a priori not unique. This is because
+    \item Green's functions are, \emph{a priori}, not unique. This is because
     we may add homogeneous solutions to $G$ and still satisfy (\ref{greensFunc}).
-    This is solved by implementing boundary conditions on $G$. This
-    is to be expected, of course, as we're still solving a PDE,
-    so boundary conditions are necessary to specify unique solutions.
-    Before we specify boundary conditions, solving (\ref{greensFunc})
+    This indeterminacy is solved by implementing boundary conditions on $G$. We should
+    expect $G$ to be ill-defined before implementing boundary conditions,
+    as we're still solving a PDE, and boundary conditions are necessary to specify 
+    unique solutions to PDEs. Before we specify boundary conditions, solving (\ref{greensFunc})
     actually solves for an entire equivalence class of Green's functions
-    for the operator $\el$. More concretely, if $\Lambda$ obeys $(\el \Lambda)(\bfx, \bfx') = 0$,
+    for the operator $\el$. More concretely, if $\Lambda$ obeys $(\el \Lambda)(x, x') = 0$,
     then
     \begin{align*}
         G(x, x') \sim G(x, x') + \Lambda(x, x'),
@@ -618,10 +625,10 @@ and in the context of electrostatics:
     just because we only care about what's happening inside of our domain,
     so adding homogeneous solution (extraneous charges) doesn't change anything
     that we care about. We will use this freedom in our choice to make
-    things as easy as possible for ourselves.
+    things as easy as possible for ourselves. \note{think about this}
     \item The physical interpretation of boundary conditions on $\Phi$
     and $G$ in electrostatics is some potential and/or charge distribution
-    on the boundary of our domain.
+    on the boundary of our domain. \note{?}
 \end{itemize}
 
 Applying this to electrostatics gives some nice results. We first
@@ -641,9 +648,9 @@ $G \to 0$ as $|\bfx| \to \infty$) gives the unique solution of
     \boxed{G_{FF}(\bfx, \bfx') = \frac{1}{|\bfx - \bfx'|}.}
 \end{align*}
 This is called the \vocab{free-field Green's function}.
-You can find this via the Fourier transform of $G$.
-Integrating this gives the potential for a localized charge
-distribution:
+\note{do this derivation}
+You can find this via Fourier transform. Integrating this 
+result gives the potential for a localized charge distribution:
 \begin{align}
     \boxed{\Phi(\bfx) = \frac{1}{4\pi \epsilon_0} \int_{\Omega} d^3\bfx' \, \frac{\rho(\bfx')}{|\bfx - \bfx'|}.}
     \label{freeFieldPotential}
@@ -661,48 +668,53 @@ we may use Green's theorem to get
 Note the inevitable fact that both of these solutions have the form
 of ``free-field'' $+$ ``boundary terms''.
 
-\begin{reemark}
-    [More general boundary conditions]
-    \note{check this}
-    You may wonder how the Green's function would be specified in the
-    case of Robin boundary conditions (linear combinations of Dirichlet
-    and Neumann BC), or other more exotic boundary conditions. Here is the general
-    procedure:\\
+% \begin{reemark}
+%     [More general boundary conditions]
+%     \note{check this}
+%     You may wonder how the Green's function would be specified in the
+%     case of Robin boundary conditions (linear combinations of Dirichlet
+%     and Neumann BC), or other more exotic boundary conditions. Here is the general
+%     procedure:\\
 
-    \noin
-    Let $\el = - \grad^2$, and $\alpha \Phi + \beta \partial_n \Phi = 0$
-    on $\partial \Omega$. This implies that $\el$ is self-adjoint.
-    We aim to solve $\el \Phi_n = \lambda_n \Phi_n$ with $\alpha \Phi + \beta \partial_n \Phi = 0$
-    on $\partial \Omega$. Note that we have $\int_\Omega d^3\bfx' \, \Phi_m \Phi_n = \delta_{nm}$,
-    and $\lambda_n \in \reals$. Since $\Omega$ is bounded by assumption,
-    and $\el$ is an elliptic differential operator, then $(\el + \mu I)^{-1}$
-    is compact\footnote{See more \href{https://en.wikipedia.org/wiki/Resolvent_formalism?utm_source=chatgpt.com}{here}.
-    More accurately, the inclusion $H^2(\Omega) \hookrightarrow L^2(\Omega)$
-    from the Sobolev space $H^2$ to $L^2$ is compact.}. 
-    The Spectral theorem then tells us that the $\Phi_n$ are a complete
-    orthonormal basis of $L^2(\Omega)$. Completeness means, by definition,
-    that
-    \begin{align*}
-        \sum_{n = 1}^\infty \Phi_n(x) \Phi_n(x') = \delta(x - x'),
-    \end{align*}
-    and by definition $(\el G)(x, x') = \delta(x - x')$, so
-    \begin{align*}
-        G(x, x') = \sum_{n = 1}^\infty \frac{\Phi_n(x) \Phi_n(x')}{\lambda_n}.
-    \end{align*}
-    This series is guaranteed to converge (in the Sobolev sense)
-    to a function that's smooth outside of the diagonal $x = x'$ due
-    to the fact that $\el$ is elliptic. Then since $G$ is \emph{literally}
-    the kernel of $- \grad^2$, we then get the solution
-    \begin{align*}
-        \Phi(\bfx) = \int_\Omega d^3\bfx' \, \rho(\bfx') G(\bfx, \bfx') + (\text{boundary terms}). 
-    \end{align*}
-\end{reemark}
+%     \noin
+%     Let $\el = - \grad^2$, and $\alpha \Phi + \beta \partial_n \Phi = 0$
+%     on $\partial \Omega$. This implies that $\el$ is self-adjoint.
+%     We aim to solve $\el \Phi_n = \lambda_n \Phi_n$ with $\alpha \Phi + \beta \partial_n \Phi = 0$
+%     on $\partial \Omega$. Note that we have $\int_\Omega d^3\bfx' \, \Phi_m \Phi_n = \delta_{nm}$,
+%     and $\lambda_n \in \reals$. Since $\Omega$ is bounded by assumption,
+%     and $\el$ is an elliptic differential operator, then $(\el + \mu I)^{-1}$
+%     is compact\footnote{See more \href{https://en.wikipedia.org/wiki/Resolvent_formalism?utm_source=chatgpt.com}{here}.
+%     More accurately, the inclusion $H^2(\Omega) \hookrightarrow L^2(\Omega)$
+%     from the Sobolev space $H^2$ to $L^2$ is compact.}. 
+%     The Spectral theorem then tells us that the $\Phi_n$ are a complete
+%     orthonormal basis of $L^2(\Omega)$. Completeness means, by definition,
+%     that
+%     \begin{align*}
+%         \sum_{n = 1}^\infty \Phi_n(x) \Phi_n(x') = \delta(x - x'),
+%     \end{align*}
+%     and by definition $(\el G)(x, x') = \delta(x - x')$, so
+%     \begin{align*}
+%         G(x, x') = \sum_{n = 1}^\infty \frac{\Phi_n(x) \Phi_n(x')}{\lambda_n}.
+%     \end{align*}
+%     This series is guaranteed to converge (in the Sobolev sense)
+%     to a function that's smooth outside of the diagonal $x = x'$ due
+%     to the fact that $\el$ is elliptic. Then since $G$ is \emph{literally}
+%     the kernel of $- \grad^2$, we then get the solution
+%     \begin{align*}
+%         \Phi(\bfx) = \int_\Omega d^3\bfx' \, \rho(\bfx') G(\bfx, \bfx') + (\text{boundary terms}). 
+%     \end{align*}
+% \end{reemark}
 
 The above remark tells us about an interesting and useful idea:
-expanding $G$ in the eigenfunctions of $\grad^2$\footnote{Or
-$- \grad^2$, it doesn't really matter.}. This is
+expanding $G$ in the eigenfunctions of $-\grad^2$. \note{fix
+all of the below after learning about eigenfunction expansions
+more broadly}
+
+
+
+This is
 actually quite useful, as it allows us to construct an \emph{approximate} solution
-to the oftentimes intractable expression (\ref{freeFieldPotential}).
+to the oftentimes intractable expression (\ref{freeFieldPotential}). \note{think about this}
 The eigenfunctions of $\grad_{\rm sph}^2$ and $\grad_{\rm cyl}^2$
 are respectively spherical harmonics and Bessel functions.
 Expanding $G_{FF}$ in each coordinate system gives\footnote{For
@@ -716,8 +728,10 @@ This is called the \vocab{method of direct integration}.}
     \frac{1}{|\bfx - \bfx'|} & = \frac{2}{\pi} \sum_{m = - \infty}^\infty
     \int_0^\infty dq \, e^{im(\phi - \phi')} \cos(q(z - z')) I_m(q\rho_<) K_m(q\rho_>)
 \end{align*}
+\note{fix indices on the first expression}
 Note that the expansion in spherical harmonics uses the
-addition theorem in its second equality.
+addition theorem in its second equality. \note{derive the spherical one
+using the method of direct integration}
 
 \begin{iidea}
     [Addition theorem of spherical harmonics]
@@ -742,15 +756,45 @@ addition theorem in its second equality.
     \end{align*}
 \end{iidea}
 
+We are physicists, so it's uncommon that we take more than the leading
+term in any sort of approximation. Thus, it's useful to give names to the
+first few terms in the more common expansions; in the Cartesian expansion,
+we write
+\begin{align*}
+    & \mathbf{p} \coloneqq \int d^3 \bfx' \, \rho(\bfx') \, \bfx',
+    & \mathbb{Q}_{ab} \coloneqq \int d^3 \bfx' \, \rho(\bfx') \left( \frac{3x_a' x_b' - (r')^2 \delta_{ab}}{r^5} \right).
+\end{align*}
+These are respectively called the electric \vocab{dipole} and \vocab{quadrupole}
+moments. Whether a potential goes like its dipole or quadrupole moment can oftentimes
+be determined by inspection: if there is reflection symmetry in a given direction,
+you know that the dipole moment in that direction is zero. \note{wb for quadrupole?
+give examples} Inserting the definitions of the dipole and quadrupole moments
+into the expression (\ref{freeFieldPotential}) gives
+\begin{align*}
+    \Phi(\bfx) \simeq \frac{1}{4\pi\epsilon_0} \left( \frac{Q}{r} + \frac{\bfx \cdot \bfp}{r^3} + \frac{x_a x_b \mathbb{Q}^{ab}}{r^5} + \bigo((r')^3) \right)
+\end{align*}
+We can also define spherical moments: assume that $r' < r$. Then, we have
+that
+\begin{align*}
+    q_{\ell m} \coloneqq \int d^3 \bfx' \, \rho(\bfx') (r')^\ell Y_{\ell m}^*(\Omega')
+\end{align*}
+Inserting this definition into (\ref{freeFieldPotential}) gives
+\begin{align*}
+    \Phi(\bfx) & = \frac{1}{4\pi\epsilon_0} \sum_{\ell = 0}^\infty \frac{4\pi}{2\ell + 1} \sum_{m = -\ell}^\ell \frac{q_{\ell m}}{r^{\ell + 1}}\\
+    & \simeq \frac{1}{4\pi\epsilon_0} \left( 4\pi \frac{q_{00}}{r} + \frac{4\pi}{3} \frac{q_{1, -1} + q_{10} + q_{11}}{r^2} + \bigo((r')^3) \right).
+\end{align*}
+\note{write out the first few spherical moments}
+
 \begin{eexample}
     \note{do an example or two here; talk about method of images as well}
 \end{eexample}
 
 \subsubsection{Method of images}
 
-Now that we've covered Poisson's equation in painful
-detail, we move to its homogeneous counterpart: \vocab{Laplace's
-equation}.
+\subsubsection{Homogeneous solutions}
+
+We now consider \vocab{Laplace's equation}, the homogeneous counterpart
+to Poisson's equation.
 
 \begin{iidea}
     [Laplace's equation]
@@ -776,13 +820,16 @@ equation}.
     \end{itemize}
 \end{iidea}
 
+\note{need to get a lot more clear on what an eigenfunction expansion
+is---i really don't know what it is}
+
 \begin{iidea}
     [Eigenfunction expansion]
     \note{talk about more general eigenfunction expansion here;
     delete the previous section in the laplace's equation idea}
 \end{iidea}
 
-\subsubsection{Dielectric media}
+\subsection{Dielectric electrostatics}
 
 \begin{reemark}
     [The Wilsonian view of dielectrics]
@@ -816,6 +863,8 @@ to consider what a conductor is.
 
 \subsection{Magnetostatics}
 
+\note{Purcell derivation???}
+
 Magnetostatics is basically just electrostatics
 upon the following identifications:
 \begin{align*}
@@ -836,10 +885,12 @@ more or less.
 
 The first ME gives a constraint on $\magn$, and tells us that
 we may introduce $\mathbf{A}$, the vector potential. The second
-ME tells us how the $\magn$ field is sourced. Combining these two
-equations and choosing the Coulomb gauge gives our Poisson
-equation, and the Lorentz force law tells us how the magnetic
-field measurably couples to charge.
+ME tells us how the $\magn$ field is sourced---notice the qualitative
+difference between the sourcing of $\elec$ and $\magn$: $\elec$
+is related to its source via a divergence, while $\magn$ is related
+to its source via a curl. Combining these two equations and choosing 
+the Coulomb gauge gives our Poisson equation, and the Lorentz force 
+law tells us how the magnetic field couples to charged matter.
 
 \subsubsection{Vacuum}
 
@@ -847,7 +898,7 @@ We are going to be quick here, because a lot of this is review from
 electrostatics. Solving Poisson's equation via Green's function
 methods gives
 \begin{align*}
-    G(\bfx, \bfx') = \frac{1}{|\bfx - \bfx'|}, 
+    G_{FF}(\bfx, \bfx') = \frac{1}{|\bfx - \bfx'|}, 
 \end{align*}
 so our vector potential is
 \begin{align*}
@@ -855,6 +906,9 @@ so our vector potential is
 \end{align*}
 The approximation schemes for the vector potential are significantly
 harder, as we're now dealing with a vector instead of a scalar.
+\note{derive the results for the dirichlet and neumann bc on vector potential}
+
+\note{in approx schemes, talk about multi-pole expansion etc}
 
 \note{talk about vector spherical harmonics here}
 
@@ -872,6 +926,7 @@ We now solve for the Green's function \note{finish,
 ts is trivial}
 
 \subsection{Waves}
+
 \newpage
 
 \section{Statistical Mechanics}
@@ -943,12 +998,12 @@ For a system in a pure state $\ket{\psi}$, clearly $\rho = \ketbra{\psi}{\psi}$.
 It can be shown that a density operator generically satisfies $\tr{\rho} = 1$
 and $\rho \geq 0$; this makes sense, as we'd like to think about $\rho$ as
 a probability distribution of sorts. While $\rho$ is the fundamental object
-of statistical mechanics, as the world is fundamentally quantum mechanical,
-treating the microscopic dynamics as \emph{classical} is oftentimes an almost
-perfect approximation to the quantum mechanical theory, and thus we also define
-the \emph{Hamiltonian}, $H$. Note that two completely different microscopic
-theories can give the same coarse-grained result is because of the renormalization
-group---averaging out the fast degrees of freedom gives basically the same effective theory.
+of statistical mechanics---as the world is fundamentally quantum mechanical---treating
+the microscopic dynamics as \emph{classical} is oftentimes an almost
+perfect approximation to the quantum mechanical theory. This is, of course,
+due to the renormalization group---different microscopic theories oftentimes
+give way to the same effective theory. Thus, we are also interested
+the classical Hamiltonian of our system, $H$.
 
 The Hamiltonian of a system is a smooth function on phase space that gives the
 dynamics of the system when differentiated. Concretely, if we have a system with 
@@ -997,7 +1052,7 @@ called the \vocab{ergodic hypothesis}.
 
     The examples of strong breaking are much more interesting and deep. The quintessential
     example of strong breaking is an \emph{integrable} system. That is, a Hamiltonian
-    system with as many conserved quantities as degrees of freedom.
+    system with as many conserved quantities as degrees of freedom. \note{expand}
 \end{reemark}
 
 \begin{eexample}

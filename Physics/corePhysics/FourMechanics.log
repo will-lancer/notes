@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  6 MAR 2026 15:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  23 MAR 2026 13:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1257,16 +1257,16 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 92.
-Package hyperref Info: bookmark level for unknown reemark defaults to 0 on input line 92.
 
 
 Package microtype Warning: I cannot find a spacing list for font
 (microtype)                `TS1/cmr/m/n/10.95' (context: `nonfrench'). Switching off
-(microtype)                spacing for this font on input line 95.
+(microtype)                spacing for this font on input line 52.
 
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 99.
+Package hyperref Info: bookmark level for unknown reemark defaults to 0 on input line 99.
 
 
 [1
@@ -1280,94 +1280,81 @@ Package microtype Warning: I cannot find a spacing list for font
 [2]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 253.
+(mdframed)              on input line 260.
 
 pdfTeX warning (ext4): destination with the same identifier (name{reemark.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.254     W
+l.261     W
            hy does energy not follow the nice schema we have laid
 
 Package mdframed Warning: You got a bad break
 (mdframed)                because the last box will be empty
 (mdframed)                you have to change it manually
 (mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 259.
+(mdframed)                or something else on input line 266.
 
 
 
 [3]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 267.
-Package hyperref Info: bookmark level for unknown ddefinition defaults to 0 on input line 267.
+(mdframed)              on input line 274.
+Package hyperref Info: bookmark level for unknown ddefinition defaults to 0 on input line 274.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 273.
-Package hyperref Info: bookmark level for unknown eexample defaults to 0 on input line 273.
+(mdframed)              on input line 280.
+Package hyperref Info: bookmark level for unknown eexample defaults to 0 on input line 280.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 292.
+(mdframed)              on input line 299.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 310.
+(mdframed)              on input line 317.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 315.
-Package hyperref Info: bookmark level for unknown iidea defaults to 0 on input line 315.
+(mdframed)              on input line 322.
+Package hyperref Info: bookmark level for unknown iidea defaults to 0 on input line 322.
 
 
 [4]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 342.
+(mdframed)              on input line 349.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 373.
+(mdframed)              on input line 380.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 379.
+(mdframed)              on input line 386.
 
 
 [5]
 
 [6]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 431.
-Package hyperref Info: bookmark level for unknown dderivation defaults to 0 on input line 431.
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--480
-
- []
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 510.
-
 
 [7]
-
-[8]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 531.
+(mdframed)              on input line 522.
 
 pdfTeX warning (ext4): destination with the same identifier (name{reemark.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.532     W
+l.523     W
            e often conclude that the curl-free condition gives a \emph{global}
+
+[8]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 555.
+(mdframed)              on input line 560.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iidea.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.556     L
+l.561     L
            et $\mathcal{L}$ be a linear differential operator, $\psi(x)$ a f...
-Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 572.
+Package hyperref Info: bookmark level for unknown claim defaults to 0 on input line 577.
 
 
 [9]
@@ -1375,71 +1362,55 @@ Package hyperref Info: bookmark level for unknown claim defaults to 0 on input l
 [10]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 665.
-
-pdfTeX warning (ext4): destination with the same identifier (name{reemark.2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.666     \note{check this}
-                           
-Underfull \hbox (badness 10000) in paragraph at lines 666--671
-
- []
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 699.
-
-
-[11]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 723.
+(mdframed)              on input line 736.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iidea.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.724     P
+l.737     P
            lace $\bfx'$ on the $z$-axis, so $\theta' = 0$. Then
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 746.
 
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.746 ...ere; talk about method of images as well}
-                                                  
-Package mdframed Info: Not enough space on this page on input line 747.
-
-
-[12]
-Package mdframed Info: Not enough space on this page on input line 747.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 756.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 780.
+[11]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 788.
 
-pdfTeX warning (ext4): destination with the same identifier (name{reemark.3}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.789     T
+l.788 ...ere; talk about method of images as well}
+                                                  
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 799.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 820.
+
+
+[12]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 826.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 834.
+
+pdfTeX warning (ext4): destination with the same identifier (name{reemark.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.835     T
            his section uses a lot of ideas common in the Wilsonian
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 802.
+(mdframed)              on input line 848.
 
-Underfull \hbox (badness 10000) in paragraph at lines 803--807
+Underfull \hbox (badness 10000) in paragraph at lines 849--853
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 808--811
+Underfull \hbox (badness 10000) in paragraph at lines 854--857
 
  []
 
@@ -1448,112 +1419,110 @@ Underfull \hbox (badness 10000) in paragraph at lines 808--811
 [13]
 
 [14]
-
-[15]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 889.
+(mdframed)              on input line 943.
 
 pdfTeX warning (ext4): destination with the same identifier (name{reemark.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.890     H
+l.944     H
            istorically, Avogadro's number was defined as the number of atoms
 
-[16]
+[15]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 969.
+(mdframed)              on input line 1023.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iidea.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.970     T
-           he ergodic hypothesis states that over long times, a system explores
-Overfull \hbox (1.37082pt too wide) in paragraph at lines 970--974
+l.1024     T
+            he ergodic hypothesis states that over long times, a system expl...
+Overfull \hbox (1.37082pt too wide) in paragraph at lines 1024--1028
 \OT1/cmr/m/n/10.95 (-10) microstates at an energy $\OML/cmm/m/it/10.95 E$\OT1/cmr/m/n/10.95 (-10) . Thus, time averages equal ensemble averages. [](\OT1/cmr/bx/n/10.95 (-10) fix this ``definition''
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 977.
+(mdframed)              on input line 1031.
 
 pdfTeX warning (ext4): destination with the same identifier (name{reemark.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.978     Y
-           es and no. For most systems, yes, the ergodic hypothesis seems to
+l.1032     Y
+            es and no. For most systems, yes, the ergodic hypothesis seems to
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1004.
+(mdframed)              on input line 1058.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1004 ...give concrete example of where it fails}
+l.1058 ...give concrete example of where it fails}
                                                   
 
-[17]
-<Figures/QM/LJ_pertTh.png, id=261, 490.83376pt x 172.645pt>
+[16]
+<Figures/QM/LJ_pertTh.png, id=267, 490.83376pt x 172.645pt>
 File: Figures/QM/LJ_pertTh.png Graphic file (type png)
 <use Figures/QM/LJ_pertTh.png>
-Package pdftex.def Info: Figures/QM/LJ_pertTh.png  used on input line 1036.
+Package pdftex.def Info: Figures/QM/LJ_pertTh.png  used on input line 1090.
 (pdftex.def)             Requested size: 375.80544pt x 132.18889pt.
 
 
-[18 <./Figures/QM/LJ_pertTh.png>]
+[17 <./Figures/QM/LJ_pertTh.png>]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1130.
+(mdframed)              on input line 1184.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1131     A
+l.1185     A
             ssume $\dim{\mathcal{H}_n} = 1$---call this state $\ket{n}$. Not...
 
-[19]
+[18]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1168.
+(mdframed)              on input line 1222.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1169     W
+l.1223     W
             e assume that the unperturbed eigenspace is degenerate,
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 1187.
+(mdframed)              on input line 1241.
 
 
-[20]
+[19]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1190.
+(mdframed)              on input line 1244.
 
 
-[21] (./FourMechanics.aux)
+[20] (./FourMechanics.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `FourMechanics.out' has not changed.
-(rerunfilecheck)             Checksum: 7A204B9D9C71C48C083FAED1363EDFF0;2687.
+(rerunfilecheck)             Checksum: F615C65093D205BF76F102FB182D63D5;2926.
  ) 
 Here is how much of TeX's memory you used:
- 36063 strings out of 473190
- 691763 string characters out of 5715801
- 1192293 words of memory out of 5000000
- 58414 multiletter control sequences out of 15000+600000
- 582167 words of font info for 189 fonts, out of 8000000 for 9000
+ 36047 strings out of 473190
+ 691356 string characters out of 5715801
+ 1185083 words of memory out of 5000000
+ 58399 multiletter control sequences out of 15000+600000
+ 581537 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,15n,120p,1056b,1125s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on FourMechanics.pdf (21 pages, 379660 bytes).
+ 117i,17n,120p,1056b,1131s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on FourMechanics.pdf (20 pages, 382156 bytes).
 PDF statistics:
- 429 PDF objects out of 1000 (max. 8388607)
- 350 compressed objects within 4 object streams
- 104 named destinations out of 1000 (max. 500000)
- 62122 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 434 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 60082 words of extra memory for PDF output out of 61914 (max. 10000000)
 
