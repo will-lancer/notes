@@ -1,0 +1,14 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Basic physics}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Statistical mechanics}{3}{subsection.1.1}%
+\contentsline {subsubsection}{What is an ensemble?}{3}{section*.2}%
+\contentsline {subsubsection}{Why do physical systems minimize their free energy?}{3}{section*.3}%
+\contentsline {subsubsection}{What is the chemical potential?}{3}{section*.4}%
+\contentsline {section}{\numberline {2}Basic math}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Analysis}{4}{subsection.2.1}%
+\contentsline {subsubsection}{Big-O notation}{4}{section*.5}%
+\contentsline {subsubsection}{Useful fact about Fourier transforms: the uncertainty principle}{4}{section*.6}%
+\contentsline {section}{\numberline {3}Physics topics}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Condensed matter}{5}{subsection.3.1}%
+\contentsline {subsubsection}{What is a Fermi surface?}{5}{section*.7}%
+\contentsline {subsection}{\numberline {3.2}Quantum field theory}{5}{subsection.3.2}%
