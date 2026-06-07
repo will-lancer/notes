@@ -364,23 +364,100 @@ $G$ is non-commutative.
 \subsection{Fields in representations; the connection is Lie-algebra valued}
 % ----------------------------------------------------------------------
 
-Now matter $\psi(x)$ lives in a representation $R$ of $G$: it is a vector and $g\in G$
-acts as a matrix $R(g)$. Locally, $\psi \to g(x)\psi$ with $g(x)\in G$. The connection
-becomes \vocab{Lie-algebra valued},
+Now matter is no longer a single complex number. It is a multiplet $\psi(x)$ that
+transforms in a \vocab{representation} $R$ of $G$. Recall what that means: a
+representation assigns to each group element $g\in G$ a matrix $R(g)$ acting on the column
+vector $\psi$, compatibly with the group law, $R(g_1)R(g_2)=R(g_1g_2)$. A local gauge
+transformation is
 \[
-A_\mu = A_\mu^a\, T^a \in \lie{g},
+\psi(x)\;\longmapsto\;R\big(g(x)\big)\,\psi(x),\qquad g(x)\in G,
 \]
-where $T^a$ are the generators (Hermitian, with $[T^a,T^b]=if^{abc}T^c$). The
-covariant derivative and its transformation law are
-\[
-D_\mu\psi = (\partial_\mu - iA_\mu)\psi, \qquad
-\boxed{\;A_\mu \;\longmapsto\; g A_\mu g^{-1} + i\,g\,\partial_\mu g^{-1}\;}
-\]
-chosen, exactly as before, so that $D_\mu\psi \to g\,D_\mu\psi$.
+and we abbreviate $R(g)\equiv g$ when the representation is understood. Exactly as for the
+scalar in \S2, the ordinary derivative is not covariant:
+$\partial_\mu(g\psi)=g\,\partial_\mu\psi+(\partial_\mu g)\psi$, and the second term is the
+obstruction we must absorb.
 
-\begin{xca}[\textbf{(easy)} recover the abelian case]
-Set $G=\Uone$, $g=e^{i\alpha}$. Show the boxed law collapses to
-$A_\mu \to A_\mu + \partial_\mu\alpha$. Where did the $gA_\mu g^{-1}$ term go, and why?
+\medskip
+\noindent\textbf{First attempt, and why it leaves us unsatisfied.} Mimic \S2 and
+introduce a matrix-valued gauge field $\mathcal A_\mu$ of the same size as $\psi$, with
+covariant derivative $D_\mu\psi=(\partial_\mu-i\mathcal A_\mu)\psi$. Demanding the
+covariant transformation $D_\mu\psi\to g\,D_\mu\psi$ fixes the law of $\mathcal A_\mu$:
+expanding $(\partial_\mu-i\mathcal A_\mu')\,g\psi \stackrel{!}{=} g(\partial_\mu-i\mathcal
+A_\mu)\psi$ gives
+\[
+\mathcal A_\mu\;\longmapsto\;g\,\mathcal A_\mu\,g^{-1}-i(\partial_\mu g)g^{-1}
+=g\,\mathcal A_\mu\,g^{-1}+i\,g\,\partial_\mu g^{-1}
+\]
+(the two forms agree because $\partial_\mu(gg^{-1})=0$). This works---but it should make
+you uneasy, for a reason worth dwelling on. We defined $\mathcal A_\mu$ as a matrix in the
+\emph{matter} representation. Does every multiplet---the quark triplet, an adjoint
+gaugino, a charged singlet---then carry its \emph{own} gauge field? What if there is no
+matter at all? And how many of the entries of the matrix $\mathcal A_\mu$ are genuinely
+independent? In Maxwell theory a single photon $A_\mu$ coupled to all charged fields at
+once; we want that same economy here.
+
+\medskip
+\noindent\textbf{The resolution: one Lie-algebra-valued connection feeds every
+representation.} The cure is to insist that, in \emph{every} representation, $\mathcal
+A_\mu$ be assembled from the \emph{same} set of real coefficient functions $A_\mu^a(x)$:
+\[
+\mathcal A_\mu(x)=A_\mu^a(x)\,\tau^a,\qquad \tau^a\equiv R_*(T^a),
+\]
+where the $\tau^a$ are the generators of $G$ in the representation $R$---the matrices
+appearing in $R(e^{i\theta^a T^a})=e^{i\theta^a\tau^a}$---and the $T^a$ are the abstract
+generators. The honest gauge field is then the representation-\emph{independent} object
+\[
+A_\mu(x)=A_\mu^a(x)\,T^a\ \in\ \lie g,
+\]
+valued in the \vocab{Lie algebra} $\lie g$ of $G$: the tangent space to $G$ at the
+identity, spanned by the generators $T^a$, closed under the bracket
+$[T^a,T^b]=if^{abc}T^c$ (the real numbers $f^{abc}$ are the \vocab{structure constants},
+and $\exp$ maps $\lie g$ back into $G$). Each matter field reconstructs the matrix it
+needs, $\mathcal A_\mu=A_\mu^a\tau^a$, from this one $A_\mu$. We say $A_\mu$ is
+\vocab{Lie-algebra valued}, and it---not any of the $\mathcal A_\mu$---\emph{is} the gauge
+field.
+
+\medskip
+\noindent\textbf{Why this is consistent.} For ``$A_\mu\in\lie g$'' to be a meaningful
+constraint, the gauge transformation must keep $A_\mu$ inside $\lie g$, and it does---both
+terms cooperate. The homogeneous term $gA_\mu g^{-1}$ stays in $\lie g$ because
+conjugating a generator by a group element lands back in the algebra; this is precisely
+the \vocab{adjoint representation} $\Ad_g$ of $G$ acting on $\lie g$. The inhomogeneous
+term lies in $\lie g$ too: writing $g(x)=e^{i\theta^a(x)T^a}$ near a point,
+$i\,g\,\partial_\mu g^{-1}=\partial_\mu\theta^a\,T^a+\cdots$, a Lie-algebra element. So the
+gauge group acts \emph{within} $\lie g$. \emph{This is the real reason the connection is
+Lie-algebra valued:} it is the unique representation-independent carrier of the gauge
+field, and gauge transformations are exactly the operations that preserve that property.
+Collecting the result,
+\[
+D_\mu\psi=(\partial_\mu-iA_\mu)\psi,\qquad
+\boxed{\;A_\mu\;\longmapsto\;g\,A_\mu\,g^{-1}+i\,g\,\partial_\mu g^{-1}\;}
+\]
+with the law chosen so that $D_\mu\psi\to g\,D_\mu\psi$, just as in \S2. Setting
+$G=\Uone$, $g=e^{i\alpha}$ collapses this to $A_\mu\to A_\mu+\partial_\mu\alpha$: the
+abelian case is simply the special case with one generator, where conjugation does
+nothing.
+
+\begin{nnote}[Two objects, easy to conflate: $A_\mu$ versus $\mathcal A_\mu$]
+The connection $A_\mu=A_\mu^a T^a$ lives in the abstract Lie algebra $\lie g$ and knows
+nothing about any matter field. The matrix $\mathcal A_\mu=A_\mu^a\tau^a$ that sits inside
+a covariant derivative lives in whatever representation $R$ the matter occupies. Think of
+$A_\mu$ as \emph{the} gauge field and $\mathcal A_\mu$ as ``how it looks'' when handed to
+a particular multiplet. Physicists write both as ``$A_\mu$'' and let context
+disambiguate; we will too, but keep the distinction in your pocket---it is the difference
+between an element of $\lie g$ and its image under a representation.\footnote{The argument
+that one $\lie g$-valued field serves all representations, and the check that gauge
+transformations preserve $\lie g$, follows Harlow, \emph{8.325 Quantum Field Theory III}
+lecture notes, \S3.1.}
+\end{nnote}
+
+\begin{xca}[\textbf{(easy)} the inhomogeneous term really lands in $\lie g$]
+We claimed $i\,g\,\partial_\mu g^{-1}\in\lie g$. Prove it: differentiate
+$g\,g^{-1}=\mathbf 1$ to get $g\,\partial_\mu g^{-1}=-(\partial_\mu g)g^{-1}$, then write
+$g(x)=e^{i\theta^a(x)T^a}$ near a point and expand to first order to show
+$i\,g\,\partial_\mu g^{-1}=\partial_\mu\theta^a\,T^a+\dots\in\lie g$. \emph{This is the
+``due process'' behind the claim that gauge transformations keep $A_\mu$ Lie-algebra
+valued.}
 \end{xca}
 
 \begin{xca}[\textbf{(medium)} the connection is an affine, not linear, object]
@@ -396,18 +473,36 @@ space.}
 \subsection{Curvature and the Yang--Mills action}
 % ----------------------------------------------------------------------
 
-The field strength now has an extra, crucial nonlinear piece:
+The field strength now has an extra, crucial nonlinear piece. The cleanest definition is
+still the commutator of covariant derivatives, $F_{\mu\nu}=i[D_\mu,D_\nu]$, which works
+out to
 \[
-F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu - i[A_\mu,A_\nu] = i[D_\mu,D_\nu],
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu - i[A_\mu,A_\nu],
 \qquad
-F = \dd A - iA\wedge A.
+F = \dd A - iA\wedge A,
 \]
-Under a gauge transformation $F_{\mu\nu}\to g F_{\mu\nu} g^{-1}$: the curvature is no
-longer invariant but \emph{covariant} (transforms in the adjoint). To build an action
-we take a trace to kill the conjugation:
+or, in components, $F_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+f^{abc}A_\mu^b
+A_\nu^c$. A word on the notation $A\wedge A$: it means $A_\mu A_\nu\,\dd x^\mu\wedge\dd
+x^\nu$, the matrix product of the coefficients wedged together. Unlike the wedge of an
+\emph{ordinary} $1$-form with itself, this does \emph{not} vanish---the matrices $A_\mu$
+and $A_\nu$ need not commute, and indeed $A\wedge A=\tfrac12[A,A]$ encodes exactly that
+non-commutativity. (We make this notation precise in \S\ref{sec:liealgforms}.) Under a
+gauge transformation the inhomogeneous pieces cancel and
 \[
-S_{\mathrm{YM}} = -\frac{1}{2g^2}\int \dd^dx\;\tr\!\big(F_{\mu\nu}F^{\mu\nu}\big).
+F_{\mu\nu}\;\longmapsto\;g\,F_{\mu\nu}\,g^{-1},
 \]
+so $F$ is no longer gauge \emph{invariant} but gauge \emph{covariant} (it transforms in
+the adjoint). Note the sharp contrast with Maxwell: $F$ is gauge-invariant if and only if
+the adjoint representation is trivial---i.e.\ if and only if $G$ is abelian. For
+non-abelian $G$ we must take a trace to build an invariant action,
+\[
+S_{\mathrm{YM}} = -\frac{1}{2g^2}\int \dd^dx\;\tr\!\big(F_{\mu\nu}F^{\mu\nu}\big)
+= -\frac{1}{4g^2}\int \dd^dx\;F_{\mu\nu}^a F^{a\,\mu\nu},
+\]
+the second form using a basis with $\tr(T^aT^b)=\tfrac12\delta^{ab}$. The coupling $g$ can
+be slid into the covariant derivative by rescaling $A\to gA$ (then $D_\mu=\partial_\mu-ig
+A_\mu$ and the kinetic term is canonically $-\tfrac14 F^aF^a$); nothing physical depends
+on where it lives.
 
 \begin{iintuition}[Why gauge bosons self-interact]
 The $-i[A_\mu,A_\nu]$ term in $F$ means $\tr F^2$ contains cubic and quartic terms in
@@ -456,7 +551,8 @@ Physicists use Hermitian generators and $D=\partial - iA$, giving $F=\dd A - iA\
 and $A\to gAg^{-1}+ig\,\dd g^{-1}$. Mathematicians use anti-Hermitian generators and
 $D=\dd + A$, giving $F=\dd A + A\wedge A$ and $A\to gAg^{-1}-(\dd g)g^{-1}$. They differ
 only by where the $i$'s sit ($A_{\text{math}} = -iA_{\text{phys}}$). We use the physics
-convention except in \S4, where the math convention is cleaner.
+convention throughout these notes; just know that bundle-theory texts drop the $i$'s
+(and flip the matching signs) without changing any physics.
 \end{nnote}
 
 % ======================================================================
@@ -489,13 +585,67 @@ i.e.\ the two are related by a \emph{gauge transformation} where they overlap. T
 ``field'' is really the pair $(A_N,A_S)$ glued by a transition function
 $g_{NS}=e^{i\lambda}$. Single-valuedness of $g_{NS}$ forces $\frac{1}{2\pi}\int_{S^2}F
 \in\ints$: the monopole charge is quantized and \emph{topological}. There is no global
-$A$; there is a \vocab{bundle}.
+$A$; there is a \vocab{bundle}.\footnote{This is the Wu--Yang construction,
+\emph{Phys.\ Rev.\ D} \textbf{12} (1975); a modern pedagogical version (patchwork gauge
+fields, Dirac quantization) is Tong, \emph{Lectures on Gauge Theory}~\S1.1.}
 \end{eexample}
 
-This example contains the whole idea: a gauge field is a collection of local potentials
-$\{A_i\}$ on patches $\{U_i\}$, glued on overlaps by gauge transformations $g_{ij}$.
-The geometric name for this glued-together structure is a connection on a principal
-bundle.
+Let us draw the lesson slowly, because it is the whole point of the section. On the sphere
+$S^2$ surrounding the monopole there is simply \emph{no} smooth global vector potential:
+any single $A$ has a \vocab{Dirac string}, a line of singularity where the gauge choice
+breaks down (heuristically, the return flux of an infinitely thin solenoid feeding the
+monopole). The Wu--Yang cure is to use two potentials---$A_N$, regular everywhere except
+the south pole, and $A_S$, regular everywhere except the north pole---each perfectly good
+on its own patch (the northern and southern hemispheres, which overlap in a band around
+the equator). Where they overlap they describe the \emph{same} magnetic field, so they can
+differ only by a gauge transformation, $A_N=A_S+\dd\lambda$. The phase
+$g_{NS}=e^{i\lambda}:S^1_{\text{eq}}\to\Uone$ is the \vocab{transition function} gluing
+the two descriptions. For a charged wavefunction to be single valued, $g_{NS}$ must be
+single valued around the equator, so $\lambda$ winds by an integer multiple of $2\pi$;
+that integer is the monopole charge, and it equals $\frac{1}{2\pi}\int_{S^2}F$. \emph{The
+non-existence of a global $A$, and the integer measuring it, are topological facts about
+how the patches are glued---not about any local field value.}
+
+This is what a gauge field is, told honestly: a collection of local potentials $\{A_i\}$
+on patches $\{U_i\}$ covering spacetime, together with transition functions $\{g_{ij}\}$
+saying how to pass between patches. The geometric object that packages this data is a
+\vocab{connection on a principal bundle}. We build it in stages---notation, then the
+bundle, then matter, then the connection and its curvature---giving each piece its due.
+
+% ----------------------------------------------------------------------
+\subsection{Notation interlude: Lie-algebra-valued forms}
+\label{sec:liealgforms}
+% ----------------------------------------------------------------------
+
+We have been writing $A=A_\mu^a T^a\,\dd x^\mu$ and $F=\dd A-iA\wedge A$ without saying
+exactly what kind of object these are. Since the rest of the section leans on it, let us
+fix it now. Write $\Omega^k(M)$ for the space of ordinary differential $k$-forms on $M$.
+
+\begin{ddefinition}[Lie-algebra-valued forms]
+A \vocab{$\lie g$-valued $k$-form} is an object $\alpha=\alpha^a\,T^a$ whose coefficients
+$\alpha^a\in\Omega^k(M)$ are ordinary $k$-forms; their space is written
+$\Omega^k(M,\lie g)$. Thus the gauge field $A\in\Omega^1(M,\lie g)$ and the field strength
+$F\in\Omega^2(M,\lie g)$. For two such forms one wedges the form parts while bracketing the
+algebra parts,
+\[
+[\alpha,\beta]\;\defeq\;\alpha^a\wedge\beta^b\,[T^a,T^b],
+\qquad\text{so in particular}\quad
+A\wedge A\;\defeq\;A_\mu A_\nu\,\dd x^\mu\wedge\dd x^\nu=\tfrac12[A,A].
+\]
+\end{ddefinition}
+
+Two points repay attention, both already lurking in \S3. First, $A\wedge A\neq0$ even
+though the wedge of an ordinary $1$-form with itself vanishes: here the coefficients are
+non-commuting matrices, and $A\wedge A=\tfrac12[A,A]$ is precisely their failure to
+commute. Second, the natural derivative on $\lie g$-valued forms, once a connection is
+present, is the \vocab{covariant exterior derivative}
+\[
+\dd_A\alpha\;\defeq\;\dd\alpha-i[A,\alpha],
+\]
+which is to $\dd$ what $D_\mu$ is to $\partial_\mu$. With it, $F=\dd A-iA\wedge A$ and the
+Bianchi identity is just $\dd_A F=0$. Throughout, $\tr(\cdots)$ denotes the trace over the
+matrix (representation) indices; that trace is what turns the covariant $\tr(F\wedge F)$
+into an ordinary, gauge-invariant form.
 
 % ----------------------------------------------------------------------
 \subsection{Principal \texorpdfstring{$G$}{G}-bundles}
@@ -514,6 +664,34 @@ g_{ij}g_{jk}=g_{ik}\ \ (\text{cocycle condition}).
 \]
 \end{ddefinition}
 
+Every clause earns its keep; let us unpack them.
+\begin{itemize}
+\item The \vocab{total space} $P$ sits above spacetime via the \vocab{projection}
+$\pi:P\to M$. The \vocab{fiber} over $x\in M$ is $\pi^{-1}(x)$, the set of points of $P$
+lying above $x$. (The notation $\pi^{-1}(U_i)$ in the definition means the part of $P$
+sitting above the patch $U_i$.)
+\item ``$G$ acts freely and fiber-preservingly on the right'' means $G$ moves points
+within each fiber with no fixed points. A free transitive action makes each fiber a
+\vocab{torsor} for $G$: a copy of $G$ that has forgotten which element is the identity.
+Physically the fiber is the space of internal frames at $x$, with no canonical
+``unrotated'' frame---choosing one is choosing a gauge.
+\item A \vocab{local trivialization} $\Phi_i:\pi^{-1}(U_i)\xrightarrow{\sim}U_i\times G$
+is a choice, over the patch $U_i$, of how to identify each fiber with $G$ itself; the
+symbol ``$\xrightarrow{\sim}$'' denotes such an identifying (diffeomorphic) map. It always
+exists locally---the whole content of the bundle is whether the local choices can be made
+to agree everywhere at once.
+\item Comparing two trivializations on an overlap gives the \vocab{transition function}
+$g_{ij}=\Phi_i\circ\Phi_j^{-1}$. Consistency on triple overlaps forces the
+\vocab{cocycle condition} $g_{ij}g_{jk}=g_{ik}$. The $g_{ij}$ carry all the topology;
+relabeling each patch, $g_{ij}\to h_i\,g_{ij}\,h_j^{-1}$, describes the same bundle.
+\end{itemize}
+
+A \vocab{section} is a map $s:M\to P$ with $\pi\circ s=\id_M$---a choice of one point in
+each fiber, that is, a global gauge. A principal bundle admits a global section if and
+only if it is trivial, $P\cong M\times G$. This is the precise geometric content of ``you
+cannot always fix a gauge globally'': a nontrivial bundle has no global section, only
+local ones $s_i$ over each $U_i$.
+
 \begin{iintuition}[What the bundle ``is,'' physically]
 The fiber over $x\in M$ is a copy of $G$: it is the space of all possible internal
 frames (gauge choices) at $x$. A \vocab{gauge} is a choice of section---a way of picking
@@ -522,8 +700,20 @@ transition functions $g_{ij}$ are the gauge transformations relating the convent
 neighboring patches. \emph{The topology of how the fibers are glued is exactly the
 topology that monopole charge and instanton number measure.} Matter fields live in
 \vocab{associated bundles}: replace the fiber $G$ by the representation space $V$ on
-which $G$ acts, and $\psi$ becomes a section of $P\times_G V$.
+which $G$ acts, and $\psi$ becomes a section of $P\times_G V$ (defined carefully in \S\ref{sec:associated}).
 \end{iintuition}
+
+\begin{eexample}[The simplest nontrivial bundle: cylinder vs.\ M\"obius band]
+Take $M=S^1$ and let $G=\Ztwo=\{\pm1\}$ act on a line fiber by sign. Cover the circle with
+two arcs, so there are two overlap regions. Over each arc the bundle is just a product (a
+short ribbon); the only freedom is the transition function $\in\Ztwo$ on each overlap. If
+both gluings are $+1$ you get a \vocab{cylinder}---the trivial bundle, on which a global
+nonvanishing section exists. If one gluing is $-1$ you get a \vocab{M\"obius band}: going
+once around $S^1$ flips the fiber, and no global nonvanishing section exists. The invariant
+distinguishing the two is exactly the holonomy $\in\Ztwo$ around the circle. \emph{That is
+your first ``$\Ztwo$ gauge field,'' met as honest geometry; all of \S5 is this picture
+with $S^1$ replaced by a general spacetime and $\Ztwo$ by any group.}
+\end{eexample}
 
 A cartoon of the local picture (base, fibers, a section, and overlapping trivializations):
 
@@ -547,7 +737,7 @@ A cartoon of the local picture (base, fibers, a section, and overlapping trivial
 \end{tikzpicture}
 \end{center}
 
-\begin{eexample}[The simplest bundles]
+\begin{eexample}[A small zoo of bundles]
 \textbf{(a)} Trivial bundle $P=M\times G$: a global gauge exists; this is the case
 implicitly assumed in \S2--\S3. \textbf{(b)} The Hopf bundle
 $\Uone\hookrightarrow S^3\to S^2$: the charge-$1$ Dirac monopole. Its transition
@@ -559,21 +749,77 @@ $\mathrm{SO}(d)$ with a metric); its connection is the Levi-Civita connection of
 \end{eexample}
 
 % ----------------------------------------------------------------------
+\subsection{Associated bundles: where matter lives}
+\label{sec:associated}
+% ----------------------------------------------------------------------
+
+A principal bundle is about the gauge group itself. Matter fields live in
+\vocab{associated bundles} built from it, and spelling this out finally explains the
+notation $P\times_G V$ used above. Given a representation $(R,V)$ of $G$ (so $V$ is the
+vector space the multiplet lives in), form the \vocab{associated vector bundle}
+\[
+E=P\times_G V\;\defeq\;(P\times V)/\!\sim,\qquad (p\cdot g,\,v)\sim(p,\,R(g)\,v).
+\]
+In words: take pairs (frame $p$, vector $v$) and declare that rotating the frame by $g$
+while rotating the vector by $R(g)$ gives the same physical point. A \vocab{matter field}
+in representation $R$ is then a \vocab{section} of $E$: in a local gauge it is an ordinary
+$V$-valued function $\psi_i$ on $U_i$, and on overlaps the two descriptions are related by
+\[
+\psi_i=R(g_{ij})\,\psi_j\qquad\text{on }U_i\cap U_j.
+\]
+This is the global meaning of the rule ``$\psi\to g\psi$'' from \S3: a gauge
+transformation is the transition function $g_{ij}$ acting in the representation $R$. The
+covariant derivative $D_\mu\psi$ is the instruction for differentiating such a section in
+a way that respects the gluing---which is exactly what the connection provides, next.
+Finally, the curvature $F$ will live in the associated bundle for the \emph{adjoint}
+representation, the \vocab{adjoint bundle} $\ad P=P\times_G\lie g$; that is what the
+phrases ``$F$ transforms in the adjoint'' and ``$F$ is valued in $\ad P$'' mean precisely.
+
+% ----------------------------------------------------------------------
 \subsection{Connections: the gauge field as a global object}
 % ----------------------------------------------------------------------
 
+What does a connection \emph{do}? It provides \vocab{parallel transport}: a consistent
+rule for lifting a path in the base $M$ to a path in the total space $P$, i.e.\ for
+carrying an internal frame along as you move through spacetime. Infinitesimally, this is a
+choice at each point of $P$ of which directions count as \vocab{horizontal}---the
+directions ``along which the frame is not rotating.'' That choice is encoded in a single
+$\lie g$-valued $1$-form on $P$.
+
 \begin{ddefinition}[Connection / gauge field]
-A \vocab{connection} on a principal $G$-bundle $P$ is a $\lie g$-valued $1$-form $\omega$
-on the total space $P$ satisfying two equivariance conditions (it reproduces the
-generators on fibers and transforms in the adjoint under $G$). Pulled back along local
-sections it becomes a collection of $\lie g$-valued $1$-forms $A_i$ on the patches $U_i$,
-the \vocab{local gauge fields}, related on overlaps by
-\[
-\boxed{\;A_j = g_{ij}^{-1}A_i\,g_{ij} + i\,g_{ij}^{-1}\dd g_{ij}\;}
-\]
-This is the same gauge transformation as in \S3---now reinterpreted as the
-\emph{gluing law} between patches, not just a redundancy on one patch.
+A \vocab{connection} on $P$ is a $\lie g$-valued $1$-form $\omega\in\Omega^1(P,\lie g)$ on
+the total space, subject to two conditions:
+\begin{enumerate}[label=(\roman*)]
+\item on vertical (along-the-fiber) directions $\omega$ returns the Lie-algebra element
+generating them, so the horizontal directions are exactly $\ker\omega$;
+\item it is $G$-equivariant, $R_g^*\,\omega=\Ad_{g^{-1}}\omega$ (here $R_g$ is the right
+action of $g$ and $R_g^*$ its pullback), so the horizontal directions are carried
+consistently around each fiber.
+\end{enumerate}
 \end{ddefinition}
+
+This is the mathematician's (Ehresmann) definition, and it deliberately looks nothing like
+the physicist's $A_\mu$. \emph{The bridge between them is pullback by a section.} Pick a
+local gauge, i.e.\ a section $s_i:U_i\to P$. Then
+\[
+A_i\;\defeq\;s_i^{*}\,\omega\ \in\ \Omega^1(U_i,\lie g)
+\]
+is an honest $\lie g$-valued $1$-form on the patch $U_i$---and \emph{this is the
+physicist's $A_\mu^a T^a\,\dd x^\mu$.} (``Pullback $s_i^*$'' just means: $\omega$ lives on
+$P$, the section $s_i$ maps $U_i$ into $P$, and we read $\omega$ back along that map to get
+a form on $U_i$.) The abstract $\omega$ is gauge-independent; the familiar $A_\mu$ is what
+you see \emph{after} choosing a gauge $s_i$. Two sections over an overlap differ by a
+fiber rotation, $s_j=s_i\cdot g_{ij}$, and pulling back $\omega$ along each yields the
+\vocab{gluing law}
+\[
+\boxed{\;A_j=g_{ij}^{-1}A_i\,g_{ij}+i\,g_{ij}^{-1}\dd g_{ij}\;}
+\]
+This is \emph{identically} the gauge transformation of \S3, now with a sharper meaning: it
+is how the one connection $\omega$ looks in two different local gauges. Changing the
+section on a single patch, $s_i\to s_i\cdot h(x)$, is an ordinary gauge transformation;
+passing between patches is the transition $g_{ij}$; the gluing law shows these are the
+\emph{same} operation. That is why ``gauge redundancy'' and ``patching data'' are one
+notion, not two.
 
 \begin{eequation}[The definition to carry in your head]
 \[
@@ -585,18 +831,30 @@ On each patch it is the familiar $A_\mu^a T^a\,\dd x^\mu$; globally it is the pa
 related by a (globally defined) gauge transformation, i.e.\ a bundle automorphism.
 \end{eequation}
 
+The finite version of parallel transport is the \vocab{holonomy}: lift a loop $\gamma$
+horizontally and read off the group element relating the starting frame to the ending one.
+In a local gauge this is exactly the path-ordered Wilson line of \S3,
+$\Hol(\gamma)=\Pexp\,i\oint_\gamma A$. So the Wilson loop is not an extra gadget bolted
+onto gauge theory: it \emph{is} the connection's parallel transport, written in a gauge.
+
 \begin{ddefinition}[Curvature]
-The curvature of a connection is the $\lie g$-valued $2$-form
+The \vocab{curvature} of the connection is the $\lie g$-valued $2$-form
 \[
-F = \dd A + A\wedge A \quad(\text{math convention}),
+F = \dd A - i\,A\wedge A = \dd A - \tfrac{i}{2}[A,A]
 \]
-which is genuinely globally defined as a $2$-form valued in the adjoint bundle: on
-overlaps $F_j = g_{ij}^{-1}F_i\,g_{ij}$, no inhomogeneous term. It satisfies the Bianchi
-identity $\dd_A F \equiv \dd F + [A,F] = 0$.
+(physics convention, matching \S3; the two forms agree since $A\wedge A=\tfrac12[A,A]$).
+Although the local potentials $A_i$ glue by the inhomogeneous law above, the curvature
+glues \emph{homogeneously}, $F_j=g_{ij}^{-1}F_i\,g_{ij}$, with no $\dd g$ term. Hence $F$
+is a genuinely globally defined $2$-form valued in the adjoint bundle $\ad P$. It obeys the
+\vocab{Bianchi identity} $\dd_A F\equiv\dd F-i[A,F]=0$ (for abelian $G$ this is just
+$\dd F=0$, the homogeneous Maxwell equations). Geometrically, $F$ measures the failure of
+horizontal lifts to close up: the holonomy around an infinitesimal loop in the
+$\mu\nu$-plane is $\mathbf 1-iF_{\mu\nu}\,\dd x^\mu\dd x^\nu+\cdots$. This is the precise
+sense, promised in \S3.3, in which \emph{curvature is infinitesimal holonomy}.
 \end{ddefinition}
 
 \begin{xca}[\textbf{(medium)} the inhomogeneous term cancels in $F$]
-Starting from the gluing law for $A$, verify directly that $F=\dd A + A\wedge A$ glues
+Starting from the gluing law for $A$, verify directly that $F=\dd A - iA\wedge A$ glues
 covariantly, $F_j = g_{ij}^{-1}F_i g_{ij}$, with no $\dd g$ term. \emph{This is the
 calculation that explains why $\tr F^k$ are globally defined and give topological
 invariants.}
@@ -607,9 +865,12 @@ invariants.}
 \label{sec:topology}
 % ----------------------------------------------------------------------
 
-Because $\tr F^k$ are globally defined, closed forms, their integrals over cycles are
-topological invariants of the bundle---they do not change under any continuous
-deformation of $A$. These are the \vocab{characteristic classes}.
+Because $\tr F^k$ is globally defined, gauge invariant, and closed (closed by the Bianchi
+identity), its integral over a closed cycle does not change under any continuous
+deformation of the connection: it is a \vocab{topological invariant} of the bundle. The
+systematic recipe for manufacturing such invariants from $F$ is \vocab{Chern--Weil
+theory}, and the resulting de Rham classes are the \vocab{characteristic classes}. Two of
+them run most of physics.
 
 \begin{eequation}[The two invariants you must know]
 \textbf{First Chern number} (abelian flux / monopole charge), over a closed surface
@@ -625,6 +886,19 @@ k = \frac{1}{8\pi^2}\int_X \tr(F\wedge F) \in \ints.
 Integrality is the geometric origin of Dirac charge quantization and of the
 quantization of the $\theta$-angle's periodicity.
 \end{eequation}
+
+Why are these \emph{integers}, rather than arbitrary real numbers? Both count windings.
+For the abelian $c_1$, cover $\Sigma$ by patches; on overlaps the potentials differ by
+$\dd\lambda_{ij}$, and applying Stokes patch by patch reduces $\frac{1}{2\pi}\int_\Sigma F$
+to the total winding of the transition functions $e^{i\lambda_{ij}}:S^1\to\Uone$ around the
+patch boundaries. A map $S^1\to\Uone$ has an integer winding number---this is the
+statement $\pi_1(\Uone)=\ints$---so $c_1\in\ints$. This is precisely the monopole
+quantization of \S4.1, now recognized as a fact about $\pi_1$ of the gauge group. For the
+non-abelian instanton number, a finite-action field on $\reals^4$ must approach pure gauge
+at infinity, $A\to i\,g\,\dd g^{-1}$, defining a map $g:S^3_\infty\to G$; its winding lives
+in $\pi_3(G)=\ints$ for every simple $G$, and equals $\frac{1}{8\pi^2}\int\tr(F\wedge F)$.
+Here $\pi_n(X)$ denotes the $n$-th \vocab{homotopy group}, the set of homotopy classes of
+maps $S^n\to X$---the precise bookkeeping of ``how many times one sphere wraps a space.''
 
 \begin{eexample}[Instantons]
 On $\reals^4$ with finite action, $A$ must approach pure gauge at infinity,
@@ -748,7 +1022,12 @@ $\Ztwo$ gauge field assigns $g_e = \pm1$ to each edge. A gauge transformation fl
 $g_e\to h_{t}g_e h_{s}$ with $h_v=\pm1$ at vertices. The plaquette curvature is the
 product of the four edge signs around a square; flat means every plaquette product is
 $+1$. This is exactly Wegner's $\Ztwo$ lattice gauge theory (a.k.a.\ Ising gauge
-theory), and the dynamical version is the deconfined phase that is the toric code. When
+theory), and the dynamical version is the deconfined phase that is the toric
+code.\footnote{Lattice gauge theory of finite groups: Kogut, \emph{Rev.\ Mod.\ Phys.}
+\textbf{51} (1979). For the $\Ztwo$/toric-code/condensed-matter side of everything in
+this section, McGreevy, \emph{Generalized Symmetries in Condensed Matter},
+\texttt{arXiv:2204.03045}; and Harlow, \emph{8.325 (QFT III)}~\S8.1 for a clean
+Hamiltonian lattice answer to ``what is a gauge field?''} When
 someone writes ``$\mu$ is a $\Ztwo$-gauge field,'' $\mu$ is precisely this edge
 assignment (often written additively, $\mu\in C^1(M;\Ztwo)$; see below).
 \end{eexample}
@@ -830,7 +1109,9 @@ For $G=S_3$ (non-abelian), explain why ``flat connections up to gauge'' is
 $\mathrm{Hom}(\pi_1,S_3)/\text{conjugation}$ rather than $H^1$. On $T^2$, this means
 pairs of commuting elements $(a,b)$ up to simultaneous conjugation. Enumerate them.
 \emph{This is the configuration sum for finite \emph{non-abelian} gauge theory
-(Dijkgraaf--Witten).}
+(Dijkgraaf--Witten).}\footnote{Dijkgraaf \& Witten, \emph{Topological gauge theories and
+group cohomology}, \emph{Comm.\ Math.\ Phys.} \textbf{129} (1990)---finite gauge theory
+and the origin of the discrete theta term as a class in $H^d(BG;\Uone)$.}
 \end{xca}
 
 \begin{nnote}[``$\mu$ is a $\Ztwo$ gauge field'' --- decoded]
@@ -882,6 +1163,25 @@ degrees of freedom; you are interrogating the ones you have. The current $j^\mu$
 linear response: $\langle j^\mu(x)\rangle = -i\,\delta \log Z[A]/\delta A_\mu(x)$.
 \end{iintuition}
 
+\begin{eexample}[The simplest background gauge field: a particle on a ring]
+Nothing illustrates ``background field $=$ knob'' better than a free particle of unit
+charge on a circle of circumference $2\pi$, threaded by Aharonov--Bohm flux $\theta$.
+The flux is a flat background $\Uone$ gauge field $A=\frac{\theta}{2\pi}\dd x$: locally
+pure gauge ($F=0$), but with physical holonomy $\oint A=\theta$. Minimal coupling shifts
+the momentum, giving the spectrum
+\[
+E_n = \tfrac12\Big(n-\tfrac{\theta}{2\pi}\Big)^2,\qquad n\in\ints .
+\]
+Three lessons in one formula: (i) the spectrum depends \emph{only} on the holonomy
+$\theta$, not on the pointwise $A$---the background's physical content is its holonomy;
+(ii) $\theta\sim\theta+2\pi$ (relabel $n$), so the knob is $\Uone$-valued, as a flat
+$\Uone$ background should be; (iii) at $\theta=\pi$ two levels cross---the first hint of
+the kind of degeneracy that a mixed 't Hooft anomaly at $\theta=\pi$ enforces (\S8). This
+toy model is the entire idea of $Z[A]$ stripped to one degree of freedom.\footnote{This
+particle-on-a-ring / $\theta$-angle picture, and the $\theta=\pi$ level crossing, are
+developed in Tong, \emph{Lectures on Gauge Theory}~\S1.2,~\S2.2.3.}
+\end{eexample}
+
 \begin{eequation}[Currents and Ward identities for free]
 Differentiating $Z[A]$ in the background generates correlators of the current:
 \[
@@ -927,6 +1227,22 @@ an axial background gauge transformation $Z$ picks up the famous phase
 $\propto \int \lambda\, F\wedge F$. That is the chiral (ABJ) anomaly, our first example
 of an 't Hooft anomaly, and it is why $\pi^0\to\gamma\gamma$.
 \end{eexample}
+
+\begin{iintuition}[Why the chiral anomaly is unavoidable: spectral flow]
+You can \emph{see} the chiral anomaly without a single Feynman diagram. Put a $2$d
+massless Dirac fermion in a box and fill the Dirac sea; left-movers and right-movers have
+separate Fermi seas. Now adiabatically turn on a background electric field
+$E=\partial_t A_x$ (a time-dependent holonomy of $A$). Each single-particle level's
+momentum shifts as $\dot p = E$, so states flow \emph{up} through the right-moving sea
+and \emph{down} through the left-moving sea: the number of right-movers and left-movers
+each change, even though total charge is conserved. The axial charge
+$Q_5=N_R-N_L$ is therefore \emph{not} conserved, at a rate fixed purely by how many
+levels crossed---i.e.\ by $\int E$. That counting is rigid (an integer flow), which is
+exactly why the anomaly coefficient cannot be tuned away by any local counterterm.\footnote{The
+spectral-flow / level-crossing derivation is in Tong, \emph{Lectures on Gauge
+Theory}~\S3.1; the relation to the Atiyah--Singer index and instanton zero modes is
+\S3.3.} This is the microscopic face of ``the anomaly is a quantized obstruction.''
+\end{iintuition}
 
 \begin{eexample}[Background metric is a background gauge field for spacetime symmetry]
 The stress tensor $T^{\mu\nu}$ is the current for translations; coupling it to a
@@ -1015,13 +1331,20 @@ fixed to dynamical: sum/integrate over $A$ in the path integral. Schematically,
 Z_{\text{gauged}} = \int \mathcal D A \; Z[A]
 \quad(\text{continuous}),
 \qquad
-Z_{\text{gauged}}[M] = \frac{1}{|G|^{\,?}}\sum_{a\in H^1(M;G)} Z[a]
+Z_{\text{gauged}}[M] = \frac{1}{|G|^{\,N_0}}\sum_{\{g_e\}} Z[\{g_e\}]
 \quad(\text{finite}).
 \]
-The result is a \emph{new theory} in which $G$ is a redundancy. (For continuous $G$ one
-also adds a dynamical kinetic term $\frac1{2g^2}\int\tr F^2$; for finite $G$ the sum is
-over flat backgrounds and the normalization $|G|^{?}$ is fixed by requiring sensible
-gluing---roughly a factor of $1/|G|$ per gauge redundancy.)
+For continuous $G$ one also adds a dynamical kinetic term $\frac1{2g^2}\int\tr F^2$. For
+finite $G$ the sum runs over \emph{all} link configurations $\{g_e\}$ and is divided by
+the number of gauge transformations $|G|^{N_0}$ ($N_0=$ number of vertices)---the volume
+of the gauge group, i.e.\ exactly one factor of $1/|G|$ per redundancy. Restricted to
+\emph{flat} fields this collapses to a sum over $\mathrm{Hom}(\pi_1(M),G)/\text{conj.}$
+(equivalently $H^1(M;G)$ for abelian $G$, the configurations of \S5). The result is a
+\emph{new theory} in which $G$ is a redundancy.\footnote{Precise lattice prescription
+(and its higher-form version): Kapustin--Seiberg \texttt{1401.0740}~\S8. Equivalently
+one writes the gauged partition function as a weighted sum over twisted sectors
+$Z_{\text{gauged}}=\sum_a h_a\,Z_a$ (GKSW \texttt{1412.5148}, eq.~2.5); the freedom in
+the weights $h_a$ is the discrete theta angle / discrete torsion of the next exercise.}
 \end{ddefinition}
 
 \begin{iintuition}[Gauging in one breath]
@@ -1149,7 +1472,11 @@ Z_{d}[A] \;=\; (\text{boundary of})\;\exp\!\Big(i\!\int_{X_{d+1}}\!\omega(A)\Big
 The bulk term $\omega(A)$ is gauge invariant in the closed bulk; its variation localizes
 to the boundary and produces exactly the anomalous phase $\alpha$. The anomaly is
 \emph{classified} by which bulk SPT you need: an element of group cohomology
-$H^{d+1}(BG;\Uone)$ (or, more completely, of a cobordism group $\Omega^{d+1}_G$).
+$H^{d+1}(BG;\Uone)$ (or, more completely, of a cobordism group
+$\Omega^{d+1}_G$).\footnote{Anomalies as boundary modes of invertible/SPT phases, and
+their cobordism classification, are developed in Tachikawa's TASI~2019 lectures
+\emph{Anomalies and topological phases} and his \emph{Lectures on topological phases for
+mathematicians}.}
 \end{eequation}
 
 \begin{eexample}[The $2$d chiral fermion's anomaly inflow]
@@ -1160,14 +1487,24 @@ anomalous phase. This is the field-theoretic skeleton of the integer quantum Hal
 a $(2{+}1)$d bulk with a chiral edge that cannot exist on its own.
 \end{eexample}
 
-\begin{eexample}[Mixed anomaly: a $\Ztwo\times\Ztwo$ in $2$d]
-Two $\Ztwo$ symmetries can have a \vocab{mixed anomaly}: $Z[a_1,a_2]$ cannot be made
-invariant under both background gauge transformations at once; the obstruction is
-$\frac{1}{2}\int a_1\cup a_2$, the boundary of the $3$d SPT $\pi\int a_1\cup a_2$.
-Consequence: you cannot gauge $a_1$ while preserving $a_2$. The $2$d Ising CFT realizes
-such a structure (spin-flip vs.\ Kramers--Wannier duality lines). \emph{Mixed anomalies
-are the most common kind in practice and the most useful for constraining phase
-diagrams.}
+\begin{eexample}[Mixed anomaly: momentum vs.\ winding of the $2$d compact boson]
+The free compact boson $\phi\sim\phi+2\pi$ in $2$d has two $\Uone$ symmetries: a
+\vocab{momentum} symmetry ($\phi\to\phi+c$, current $\propto\star\dd\phi$) and a
+\vocab{winding} symmetry (current $\frac{1}{2\pi}\dd\phi$, charge $=$ winding number).
+Couple backgrounds $A_m,A_w$ for both. No local counterterm makes $Z[A_m,A_w]$ invariant
+under both at once; the leftover is a \vocab{mixed anomaly} with bulk inflow
+\[
+\textstyle Z[A_m^{\lambda},A_w] = Z[A_m,A_w]\,
+\exp\!\big(\tfrac{i}{2\pi}\!\int_{M_2}\lambda\,\dd A_w\big),
+\qquad \text{$3$d SPT}\ \ \tfrac{1}{2\pi}\!\int_{X_3} A_m\wedge \dd A_w .
+\]
+(Note the bulk term is a genuine $3$-form integrated over a $3$-manifold---contrast a
+mass-dimension slip like ``$\int_{X_3} a_1\cup a_2$,'' which is only a $2$-form.)
+\textbf{Consequence:} you cannot gauge momentum and winding simultaneously. Gauging the
+momentum $\Uone$ \emph{is} T-duality, which exchanges the two symmetries (and inverts the
+radius); the anomaly is precisely why the theory cannot be trivially gapped while
+preserving both---consistent with the free boson being a CFT. \emph{This is the cleanest
+mixed anomaly in physics, and it secretly powers a duality you already know.}
 \end{eexample}
 
 % ----------------------------------------------------------------------
@@ -1184,14 +1521,19 @@ spontaneously break the symmetry, or be a nontrivial TQFT.
 
 \begin{iintuition}[Why this is the workhorse of hep-th]
 Anomaly matching is one of the very few \emph{exact, nonperturbative} constraints we
-have on strongly-coupled QFT. 't Hooft's original use: the anomalies of QCD's chiral
+have on strongly-coupled QFT.\footnote{The matching principle originates in 't Hooft's
+1980 Carg\`ese lecture \emph{Naturalness, chiral symmetry, and spontaneous chiral
+symmetry breaking}.} 't Hooft's original use: the anomalies of QCD's chiral
 $\mathrm{SU}(N_f)\times\mathrm{SU}(N_f)$ symmetry, computed on free quarks in the UV,
 must be matched in the confined IR---either by massless baryons (hard) or by chiral
 symmetry breaking with Goldstones (what nature does). Modern uses: ruling out trivial
 gapped phases, deriving the existence of edge modes, constraining the IR of
 $\theta=\pi$ gauge theories (Gaiotto--Kapustin--Komargodski--Seiberg), and constructing
-deconfined criticality. This is precisely the ``Seiberg-style'' reasoning you are
-heading toward.
+deconfined criticality.\footnote{The $\theta=\pi$ mixed anomaly between time-reversal and
+the center one-form symmetry, and its IR consequences, are worked out in
+Gaiotto--Kapustin--Komargodski--Seiberg, \emph{Theta, Time-Reversal, and Temperature},
+\texttt{arXiv:1703.00501}---the template for end-of-chapter Exercise~10.6.} This is
+precisely the ``Seiberg-style'' reasoning you are heading toward.
 \end{iintuition}
 
 \begin{xca}[\textbf{(classic)} anomaly forbids a trivial gap]
@@ -1241,6 +1583,21 @@ A charged local operator $\op(x)$ is detected because moving $U_g$ \emph{through
 multiplies $\op$ by its charge: the symmetry operator and the charged operator
 \vocab{link}. Background gauge field $A$ $=$ an inserted network of these $U_g$'s.
 \end{iidea}
+
+\begin{reemark}[The unification: transition functions \emph{are} the defect network]
+This closes a loop opened in \S4. There, a $G$-bundle was specified by patches glued
+with transition functions $g_{ij}$ on overlaps (satisfying the cocycle condition on
+triple overlaps). Here, a background flat connection is a network of defects $U_g$ on
+codimension-$1$ sheets, joined at junctions (satisfying a consistency condition where
+sheets meet). \emph{These are the same data:} put a defect $U_{g_{ij}}$ on the wall dual
+to each overlap $U_i\cap U_j$, and the cocycle condition $g_{ij}g_{jk}=g_{ik}$ becomes
+the requirement that the defects fuse consistently at the triple-overlap junction. So
+``$\Ztwo$ gauge field'' (\S5), ``transition functions of a bundle'' (\S4), and ``network
+of $\Ztwo$ symmetry defects'' (\S6.3) are three names for one object. An 't Hooft anomaly
+is then the statement that no consistent set of junction phases exists.\footnote{This
+defect/transition-function dictionary, and anomalies as missing topological junctions,
+are GKSW \texttt{1412.5148}~\S2.}
+\end{reemark}
 
 \begin{iintuition}[Why ``topological operator'' is the right notion]
 This definition needs no Lagrangian, no Noether current, no continuity of $G$. It
@@ -1307,6 +1664,26 @@ bookkeeping generalized-symmetry papers do constantly.}
 % ----------------------------------------------------------------------
 \subsection{The bridge to Seiberg-style QFT}
 % ----------------------------------------------------------------------
+
+\begin{eequation}[The core dictionary, and the ``five moves'']
+Keep this one table and these five verbs and you can read most of the modern literature.
+\[
+\begin{array}{l|l}
+\text{object} & \text{is} \\\hline
+\text{$G$-gauge field} & \text{a connection on a principal $G$-bundle (finite $G$: a }G\text{-cochain)}\\
+\text{curvature }F & \text{holonomy per unit area; }F=0\text{ }\Leftrightarrow\text{ transport is topological}\\
+\text{background field }A & \text{a fixed probe; the data is the functional }Z[A]\\
+\text{symmetry} & \text{a topological operator that links its charged objects}\\
+\text{'t Hooft anomaly} & \text{the phase }Z[A^\lambda]/Z[A]\text{; a bulk SPT; obstructs gauging}
+\end{array}
+\]
+\textbf{The five moves:} \;(1) \emph{couple} a symmetry to a background $A$;
+\;(2) read off currents/Ward identities as derivatives of $Z[A]$;
+\;(3) detect the \emph{anomaly} as the non-removable phase of $Z[A^\lambda]$;
+\;(4) \emph{gauge} (sum over $A$) when the anomaly vanishes, producing a dual symmetry
+and often a duality;
+\;(5) \emph{match} anomalies across RG to constrain the IR.
+\end{eequation}
 
 \begin{ppreview}[Where to go next]
 You now have the working vocabulary for current hep-th: gauge fields are connections;
@@ -1409,6 +1786,10 @@ which for the \emph{modern POV} (Part III).
 \item \textbf{D.\ Tong}, \emph{Lectures on Gauge Theory} and \emph{Lectures on Quantum
 Field Theory} (\url{damtp.cam.ac.uk/user/tong/teaching.html}). The friendliest modern
 entry to Parts I and III; superb on instantons, $\theta$, and anomalies.
+\item \textbf{D.\ Harlow}, \emph{8.325: Quantum Field Theory III} lecture notes (MIT). The
+cleanest physicist's account of the Lie-algebra-valued connection (\S3, the basis for the
+expanded \S3.1 here) and of Hamiltonian lattice gauge theory (\S8, ``what is a gauge
+field?'').
 \item \textbf{Y.\ Tachikawa}, TASI 2019 lectures (topological phases and anomalies) and
 his lecture notes on symmetries and gauging
 (\url{member.ipmu.jp/yuji.tachikawa/lectures}). The cleanest treatment of

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  6 JUN 2026 11:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.3.22)  7 JUN 2026 00:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1656,9 +1656,10 @@ l.339 T
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 348.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 371
+[8]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 410
 .
-(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
+ (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/microtype/mt-euf.cfg
@@ -1667,831 +1668,886 @@ File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 )
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 381.
+(mdframed)              on input line 441.
 
-pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
-een already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.382 S
-       et $G=\Uone$, $g=e^{i\alpha}$. Show the boxed law collapses to
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 386.
+l.442 T
+       he connection $A_\mu=A_\mu^a T^a$ lives in the abstract Lie algebra $...
 
-pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.387 S
-       how that if $A_\mu$ and $A'_\mu$ are two connections then their diffe...
-[8]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 412.
+Package microtype Warning: I cannot find a spacing list for font
+(microtype)                `TS1/cmr/m/n/9' (context: `nonfrench'). Switching of
+f
+(microtype)                spacing for this font on input line 451.
 
-pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.413 T
-       he $-i[A_\mu,A_\nu]$ term in $F$ means $\tr F^2$ contains cubic and q...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 420.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.421 T
-       he SM gauge group is $G = \mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\time...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 446.
-LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 446.
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{xca.3}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.447 S
-       how that the holonomy of $A$ around an infinitesimal square loop of s...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
 (mdframed)              on input line 454.
 
-pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
- been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
+een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.455 P
-       hysicists use Hermitian generators and $D=\partial - iA$, giving $F=\...
+l.455 W
+       e claimed $i\,g\,\partial_\mu g^{-1}\in\lie g$. Prove it: differentiate
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 463.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.464 S
+       how that if $A_\mu$ and $A'_\mu$ are two connections then their diffe...
+Package mdframed Info: Not enough space on this page on input line 470.
 [9]
+Package mdframed Info: Not enough space on this page on input line 470.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 478.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.480 A
-        magnetic monopole at the origin has $\magn = \dfrac{g_m}{2}\dfrac{\h...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 504.
-Package hyperref Info: bookmark level for unknown ddefinition defaults to 0 on 
-input line 504.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 517.
+(mdframed)              on input line 507.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.518 T
-       he fiber over $x\in M$ is a copy of $G$: it is the space of all possi...
+l.508 T
+       he $-i[A_\mu,A_\nu]$ term in $F$ means $\tr F^2$ contains cubic and q...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 515.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.516 T
+       he SM gauge group is $G = \mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\time...
 [10]
-Package mdframed Info: Not enough space on this page on input line 526.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 550.
+(mdframed)              on input line 541.
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 541.
 
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.551 \textbf{(a)}
-                   Trivial bundle $P=M\times G$: a global gauge exists; this...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 565.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 578.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.579 \[
-        
-Package mdframed Info: Not enough space on this page on input line 586.
- [11]
-Package mdframed Info: Not enough space on this page on input line 586.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 588.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 598.
-
-pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.599 S
-       tarting from the gluing law for $A$, verify directly that $F=\dd A + ...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 614.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 629.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.630 O
-       n $\reals^4$ with finite action, $A$ must approach pure gauge at infi...
-[12]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 638.
-
-pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.639 S
-       how that $\frac{\theta}{8\pi^2}\int_X \tr(F\wedge F)$ adds $\theta k$...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 647.
-
-pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.648 Y
-       ou rarely manipulate $\omega$ on the total space $P$. In practice: (1...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 657.
-Package hyperref Info: bookmark level for unknown ppreview defaults to 0 on inp
-ut line 657.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 680.
-
-pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.681 F
-       orget $A_\mu$. A connection is, at heart, a recipe that assigns to ea...
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 688.
-
-[13]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 698.
-
-pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.699 T
-       riangulate (or put a lattice on) spacetime, with vertices, edges, and...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 735.
-
-pdfTeX warning (ext4): destination with the same identifier (name{iintuition.2}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.736 E
-       dge variable $g_e$ $\leftrightarrow$ Wilson line $\Pexp\,i\!\int_e A$...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 744.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.746 T
-       ake $G=\Ztwo=\{+1,-1\}$ (multiplicatively) or $\{0,1\}$ with addition...
-Package mdframed Info: Not enough space on this page on input line 754.
-[14]
-Package mdframed Info: Not enough space on this page on input line 754.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 756.
-
-pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.757 O
-       n a single square (4 edges, 4 vertices, 1 plaquette), count: (a) the ...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 774.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.775 \[
-        
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 787.
-
-pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.2
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.788 A
-        \vocab{flat} $G$-gauge field ($g_p=\mathbf 1$ for all $p$) up to gau...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 795.
-[15]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 804.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.805 O
-       n $S^1$: $\pi_1=\ints$, so $\mathrm{Hom}(\ints,\Ztwo)=\Ztwo$. There a...
-
-Package microtype Warning: I cannot find a spacing list for font
-(microtype)                `TS1/cmr/m/it/10.95' (context: `nonfrench'). Switchi
-ng off
-(microtype)                spacing for this font on input line 810.
-
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 813.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
-has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.814 A
-        choice of periodic vs.\ antiperiodic boundary conditions for a fermi...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 822.
-
-pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.823 C
-       ompute the number of gauge-inequivalent flat $\ZN$ gauge fields on (a...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 828.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.3}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.829 F
-       or $G=S_3$ (non-abelian), explain why ``flat connections up to gauge'...
+l.542 S
+       how that the holonomy of $A$ around an infinitesimal square loop of s...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 836.
-
-pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.837 W
-       hen a paper introduces ``a $\Ztwo$ gauge field $\mu$,'' it means: a $...
-[16]
+(mdframed)              on input line 549.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 862.
-
-pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.863 T
-       o \vocab{couple the symmetry $G$ to a background gauge field} is to i...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 876.
-
-pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.877 S
-       etting $A=0$ recovers the original theory. Turning on $A\neq 0$ lets ...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 885.
-
-pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
- has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.886 D
-       ifferentiating $Z[A]$ in the background generates correlators of the ...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 899.
-
-pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.2
-}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.900 A
-        theory \vocab{has} the global symmetry $G$ (non-anomalously) if its ...
-[17]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 911.
-
-pdfTeX warning (ext4): destination with the same identifier (name{iintuition.2}
-) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.912 T
-       his definition is robust in ways the Noetherian ``there is a conserve...
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 921.
+(mdframed)              on input line 574.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.922 T
-       ake a free massless Dirac fermion in $4$d with its vector $\Uone_V$ s...
+l.576 A
+        magnetic monopole at the origin has $\magn = \dfrac{g_m}{2}\dfrac{\h...
+[11]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 931.
+(mdframed)              on input line 624.
+Package hyperref Info: bookmark level for unknown ddefinition defaults to 0 on 
+input line 624.
+ [12]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 654.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 695.
+
+pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.696 T
+       he fiber over $x\in M$ is a copy of $G$: it is the space of all possi...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 706.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.932 T
-       he stress tensor $T^{\mu\nu}$ is the current for translations; coupli...
+l.707 T
+       ake $M=S^1$ and let $G=\Ztwo=\{\pm1\}$ act on a line fiber by sign. C...
+
+Package microtype Warning: I cannot find a spacing list for font
+(microtype)                `TS1/cmr/m/it/10.95' (context: `nonfrench'). Switchi
+ng off
+(microtype)                spacing for this font on input line 715.
+
+Package mdframed Info: Not enough space on this page on input line 716.
+[13]
+Package mdframed Info: Not enough space on this page on input line 716.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 941.
+(mdframed)              on input line 740.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.741 \textbf{(a)}
+                   Trivial bundle $P=M\times G$: a global gauge exists; this...
+[14]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 789.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 824.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.825 \[
+         [15]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 840.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 856.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.942 F
-       or the complex scalar of \S2 coupled to background $A_\mu$, compute
+l.857 S
+       tarting from the gluing law for $A$, verify directly that $F=\dd A - ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 956.
+(mdframed)              on input line 875.
+[16]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 903.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 912.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.913 S
+       how that $\frac{\theta}{8\pi^2}\int_X \tr(F\wedge F)$ adds $\theta k$...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 921.
+
+pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.922 Y
+       ou rarely manipulate $\omega$ on the total space $P$. In practice: (1...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 931.
+Package hyperref Info: bookmark level for unknown ppreview defaults to 0 on inp
+ut line 931.
+[17]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 954.
+
+pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.955 F
+       orget $A_\mu$. A connection is, at heart, a recipe that assigns to ea...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 972.
+
+pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.973 T
+       riangulate (or put a lattice on) spacetime, with vertices, edges, and...
+[18]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1009.
+
+pdfTeX warning (ext4): destination with the same identifier (name{iintuition.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1010 E
+        dge variable $g_e$ $\leftrightarrow$ Wilson line $\Pexp\,i\!\int_e A...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1018.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1020 T
+        ake $G=\Ztwo=\{+1,-1\}$ (multiplicatively) or $\{0,1\}$ with additio...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1035.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1036 O
+        n a single square (4 edges, 4 vertices, 1 plaquette), count: (a) the...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1053.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1054 \[
+          [19]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1066.
+
+pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1067 A
+         \vocab{flat} $G$-gauge field ($g_p=\mathbf 1$ for all $p$) up to ga...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1074.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1083.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1084 O
+        n $S^1$: $\pi_1=\ints$, so $\mathrm{Hom}(\ints,\Ztwo)=\Ztwo$. There ...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1092.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1093 A
+         choice of periodic vs.\ antiperiodic boundary conditions for a ferm...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1101.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1102 C
+        ompute the number of gauge-inequivalent flat $\ZN$ gauge fields on (...
+Package mdframed Info: Not enough space on this page on input line 1105.
+[20]
+Package mdframed Info: Not enough space on this page on input line 1105.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1107.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.3}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1108 F
+        or $G=S_3$ (non-abelian), explain why ``flat connections up to gauge...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1117.
+
+pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1118 W
+        hen a paper introduces ``a $\Ztwo$ gauge field $\mu$,'' it means: a ...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1143.
+
+pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1144 T
+        o \vocab{couple the symmetry $G$ to a background gauge field} is to ...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1157.
+
+pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1158 S
+        etting $A=0$ recovers the original theory. Turning on $A\neq 0$ lets...
+[21]
+Package mdframed Info: Not enough space on this page on input line 1164.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1166.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1167 N
+        othing illustrates ``background field $=$ knob'' better than a free ...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1185.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1186 D
+        ifferentiating $Z[A]$ in the background generates correlators of the...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1199.
+
+pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1200 A
+         theory \vocab{has} the global symmetry $G$ (non-anomalously) if its...
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1209.
+[22]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1211.
+
+pdfTeX warning (ext4): destination with the same identifier (name{iintuition.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1212 T
+        his definition is robust in ways the Noetherian ``there is a conserv...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1221.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1222 T
+        ake a free massless Dirac fermion in $4$d with its vector $\Uone_V$ ...
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1231.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.3}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.957 A
-        $G$ symmetry operator $U_g$ is supported on a codimension-$1$ surfac...
-[18]
+l.1232 Y
+        ou can \emph{see} the chiral anomaly without a single Feynman diagra...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 966.
+(mdframed)              on input line 1247.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.967 T
-       he $2$d Ising CFT has a $\Ztwo$ spin-flip symmetry. Its torus partiti...
+l.1248 T
+        he stress tensor $T^{\mu\nu}$ is the current for translations; coupl...
 
-Underfull \hbox (badness 1248) in paragraph at lines 984--984
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 1255.
+
+[23]
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1257.
+
+pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1258 F
+        or the complex scalar of \S2 coupled to background $A_\mu$, compute
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1272.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1282.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eexample.4}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1283 T
+        he $2$d Ising CFT has a $\Ztwo$ spin-flip symmetry. Its torus partit...
+
+Underfull \hbox (badness 1248) in paragraph at lines 1300--1300
 []\OT1/cmr/m/n/10.95 (+10) fixed ex-ter-nal data; \OT1/cmr/m/it/10.95 (+10) not
  \OT1/cmr/m/n/10.95 (+10) in-te-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 987--988
+Underfull \hbox (badness 10000) in paragraph at lines 1303--1304
 []\OT1/cmr/m/n/10.95 (+10) a new the-ory's $\OML/cmm/m/it/10.95 Z$\OT1/cmr/m/n/
 10.95 (+10) ; gauge-
  []
 
+[24]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 993.
+(mdframed)              on input line 1309.
 
 pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.995 get a new theory.}
-                         The very same connection $A$ can be either, dependi...
+l.1311 get a new theory.}
+                          The very same connection $A$ can be either, depend...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1000.
+(mdframed)              on input line 1316.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1001 C
+l.1317 C
         lassify each as background or dynamical, and name the (global or gau...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1011.
+(mdframed)              on input line 1327.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1012 T
+l.1328 T
         o \vocab{gauge} a global symmetry $G$ is to promote its background g...
-[19]
-Package mdframed Info: Not enough space on this page on input line 1025.
+[25]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1027.
+(mdframed)              on input line 1350.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1028 `
+l.1351 `
         `Gauging'' literally means ``declaring the symmetry to be a local re...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1052.
+(mdframed)              on input line 1375.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1053 G
+l.1376 G
         auging the global $\Uone$ of the complex scalar (\S2) by making $A_\...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1062.
+(mdframed)              on input line 1385.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1064 G
+l.1387 G
         auge the $\Ztwo$ symmetry of the $2$d Ising model by summing $Z[a]$ ...
-Package mdframed Info: Not enough space on this page on input line 1072.
-[20]
-Package mdframed Info: Not enough space on this page on input line 1072.
+[26]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1074.
+(mdframed)              on input line 1397.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1075 A
+l.1398 A
         rgue that gauging a finite abelian $G$ produces a theory with dual s...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1081.
+(mdframed)              on input line 1404.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1082 W
+l.1405 W
         hen you gauge $G$ you may add a phase weight to each background: a \...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1093.
+(mdframed)              on input line 1416.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.3}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1094 G
+l.1417 G
         auging translations \& rotations (making the metric dynamical) gives...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1101.
+(mdframed)              on input line 1424.
 
 pdfTeX warning (ext4): destination with the same identifier (name{nnote.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1102 Y
+l.1425 Y
         ou cannot gauge a symmetry with an 't Hooft anomaly: the sum $\sum_a...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1117.
+(mdframed)              on input line 1440.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1118 A
+l.1441 A
          global symmetry $G$ has an \vocab{'t Hooft anomaly} if, after coupl...
-[21]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1129.
+(mdframed)              on input line 1452.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1130 A
+l.1453 A
          would-be symmetry violated by a local, removable term is no anomaly...
+[27]
+Package mdframed Info: Not enough space on this page on input line 1459.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1142.
+(mdframed)              on input line 1465.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1143 A
+l.1466 A
         n anomalous $d$-dimensional theory is the boundary of a $(d{+}1)$-di...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1155.
+(mdframed)              on input line 1482.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1156 A
+l.1483 A
          single right-moving complex fermion in $2$d has a $\Uone$ anomaly; ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1163.
+(mdframed)              on input line 1490.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1164 T
-        wo $\Ztwo$ symmetries can have a \vocab{mixed anomaly}: $Z[a_1,a_2]$...
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 1171.
-
-[22]
+l.1491 T
+        he free compact boson $\phi\sim\phi+2\pi$ in $2$d has two $\Uone$ sy...
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 1508.
+[28]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1177.
+(mdframed)              on input line 1514.
 Package hyperref Info: bookmark level for unknown ttheorem defaults to 0 on inp
-ut line 1177.
+ut line 1514.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1185.
+(mdframed)              on input line 1522.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.2}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1186 A
+l.1523 A
         nomaly matching is one of the very few \emph{exact, nonperturbative}...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1197.
+(mdframed)              on input line 1539.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1198 S
+l.1540 S
         uppose a theory has a $G$ symmetry with a nonzero 't Hooft anomaly. ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1204.
+(mdframed)              on input line 1546.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1205 E
+l.1547 E
         xplain, using $Z[A^\lambda]=Z[A]e^{i\int\alpha}$, why an 't Hooft an...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1219.
+(mdframed)              on input line 1561.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eequation.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1220 A
+l.1562 A
          QFT is characterized by its \textbf{symmetries}; a symmetry is char...
-[23]
+Package mdframed Info: Not enough space on this page on input line 1570.
+[29]
+Package mdframed Info: Not enough space on this page on input line 1570.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1234.
+(mdframed)              on input line 1576.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iidea.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1235 A
+l.1577 A
          global symmetry is a \vocab{topological operator}. For an ordinary ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1245.
+(mdframed)              on input line 1587.
+Package hyperref Info: bookmark level for unknown reemark defaults to 0 on inpu
+t line 1587.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1602.
 
 pdfTeX warning (ext4): destination with the same identifier (name{iintuition.1}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1246 T
+l.1603 T
         his definition needs no Lagrangian, no Noether current, no continuit...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1258.
+(mdframed)              on input line 1615.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ddefinition.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1259 A
+l.1616 A
          \vocab{$p$-form global symmetry} has symmetry operators $U_g(\Sigma...
+[30]
+Package mdframed Info: Not enough space on this page on input line 1621.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1266.
+(mdframed)              on input line 1623.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.1}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1267 S
+l.1624 S
         ource-free Maxwell in $4$d obeys $\dd F=0$ and $\dd\star F=0$. Each ...
-
-Package mdframed Warning: You got a bad break
-(mdframed)                because the last box will be empty
-(mdframed)                you have to change it manually
-(mdframed)                by changing the text, the space
-(mdframed)                or something else on input line 1278.
-
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 1278.
-[24]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1280.
+(mdframed)              on input line 1637.
 
 pdfTeX warning (ext4): destination with the same identifier (name{eexample.2}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1281 P
+l.1638 P
         ure $\SUN$ Yang--Mills has a $\ZN^{(1)}$ \vocab{center} $1$-form sym...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1293.
+(mdframed)              on input line 1650.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1294 C
+l.1651 C
         onvince yourself that a $\ZN$ $1$-form symmetry's background is a $2...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1300.
+(mdframed)              on input line 1657.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1301 U
+l.1658 U
         sing $H^2(T^4;\Uone)$, count the sectors/fluxes that the electric an...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1311.
+(mdframed)              on input line 1668.
+
+pdfTeX warning (ext4): destination with the same identifier (name{eequation.2})
+ has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1669 K
+        eep this one table and these five verbs and you can read most of the...
+Package mdframed Info: Not enough space on this page on input line 1686.
+[31]
+Package mdframed Info: Not enough space on this page on input line 1686.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 1688.
 
 pdfTeX warning (ext4): destination with the same identifier (name{ppreview.1}) 
 has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1312 Y
+l.1689 Y
         ou now have the working vocabulary for current hep-th: gauge fields ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1333.
+(mdframed)              on input line 1710.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.1}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1334 S
+l.1711 S
         tart from a free massless Dirac fermion in $4$d with global $\Uone_V...
-[25]
-Package mdframed Info: Not enough space on this page on input line 1339.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1341.
+(mdframed)              on input line 1718.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.2}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1342 F
+l.1719 F
         or a charge-$n$ Dirac monopole, construct $A_N,A_S$ on the two hemis...
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 1723.
+
+[32]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1348.
+(mdframed)              on input line 1725.
 
 pdfTeX warning (ext4): destination with the same identifier (name{xca.3}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1349 A
+l.1726 A
          paper writes ``let $a$ be a $\Ztwo$ one-form gauge field and $b$ a ...
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1355.
+(mdframed)              on input line 1732.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1363.
+(mdframed)              on input line 1740.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1370.
+(mdframed)              on input line 1747.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1379.
+(mdframed)              on input line 1756.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 1388.
-Package mdframed Info: Not enough space on this page on input line 1393.
-[26]
-Package mdframed Info: Not enough space on this page on input line 1393.
- [27] [28] (./gauge_fields.aux)
+(mdframed)              on input line 1765.
+[33] [34] [35] (./gauge_fields.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `gauge_fields.out' has not changed.
-(rerunfilecheck)             Checksum: 64CCD18EFCDDBC536B703DE082F32FF7;11175.
+(rerunfilecheck)             Checksum: 5FA347ACA8E2885EAC190493055657F2;11722.
  ) 
 Here is how much of TeX's memory you used:
- 37684 strings out of 467525
- 724373 string characters out of 5418982
- 1224950 words of memory out of 5000000
- 65517 multiletter control sequences out of 15000+600000
- 657824 words of font info for 240 fonts, out of 8000000 for 9000
+ 37903 strings out of 467525
+ 727653 string characters out of 5418982
+ 1224466 words of memory out of 5000000
+ 65614 multiletter control sequences out of 15000+600000
+ 666781 words of font info for 300 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,14n,122p,1009b,1113s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,14n,122p,1009b,1115s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
-usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
-/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
-></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
-usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></us
-r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb>
-</usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
-r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local
-/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/
-texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/te
-xlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/t
-exlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/t
-exlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
-ive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
-ve/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texliv
-e/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive
-/2026/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texli
-ve/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/t
-exlive/2026/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/tex
-live/2026/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on gauge_fields.pdf (28 pages, 474308 bytes).
+usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></us
+r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></u
+sr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><
+/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pf
+b></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
+/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr
+/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><
+/usr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/local/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/te
+xlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/tex
+live/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texl
+ive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texliv
+e/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texli
+ve/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texli
+ve/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
+2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+26/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/202
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2026/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2026/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2026/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2026/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2026/texmf-di
+st/fonts/type1/public/amsfonts/euler/eufb10.pfb></usr/local/texlive/2026/texmf-
+dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2026/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2026/
+texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2026/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2026/texm
+f-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on gauge_fields.pdf (35 pages, 628015 bytes).
 PDF statistics:
- 640 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
- 184 named destinations out of 1000 (max. 500000)
- 64837 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 782 PDF objects out of 1000 (max. 8388607)
+ 656 compressed objects within 7 object streams
+ 218 named destinations out of 1000 (max. 500000)
+ 79701 words of extra memory for PDF output out of 89155 (max. 10000000)
 

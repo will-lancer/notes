@@ -1,0 +1,1323 @@
+\documentclass[11pt]{article}
+
+% basic packages
+\usepackage[margin=1in]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{william}
+
+% page formatting
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{\textsf{\arabic{section}. #1}}}
+\renewcommand{\subsectionmark}[1]{}
+\lhead{\textbf{\thepage} \ \ \nouppercase{\rightmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\setlength{\headheight}{14pt}
+
+\linespread{1.03}
+\setlength{\parindent}{0.2in}
+\setlength{\emergencystretch}{3em} % last-resort stretch: avoid overfull boxes from long inline math
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% ---- local macros for this explainer ----
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Nil}{Nil}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Ass}{Ass}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\gr}{gr}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfq}{\mathfrak{q}}
+\newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\dirlim}{\varinjlim}
+\newcommand{\invlim}{\varprojlim}
+% green "Exercise" box, reusing the green-box style from william.sty
+\declaretheorem[style=thmgreenbox,name=Exercise,numberwithin=section]{xca}
+
+% a small helper for the per-section reading pointers
+\newcommand{\sources}[1]{\smallskip\noin{\small\emph{Read alongside:} #1}\par\medskip}
+
+\begin{document}
+
+\thispagestyle{empty}
+\bigskip
+\vspace{0.1cm}
+
+\begin{center}
+{\fontsize{20}{20} \selectfont An Explainer on}
+\vskip 14pt
+{\fontsize{34}{34} \selectfont \bf \sffamily Commutative Algebra}
+\vskip 10pt
+{\fontsize{16}{16}\selectfont \sffamily A learning path from the modern, categorical point of view}
+\vskip 22pt
+{\fontsize{16}{16} \selectfont \rmfamily \href{https://will-lancer.github.io}{Will Lancer}}
+\vskip 6pt
+{\fontsize{12}{12} \selectfont \ttfamily will.m.lancer@gmail.com}
+\vskip 18pt
+\end{center}
+
+{\parindent0pt \baselineskip=15.5pt}
+\noin
+Commutative algebra is two subjects wearing one coat. It is the \emph{local algebra of
+geometry}---the thing that tells you what a variety looks like near a point---and it is
+the \emph{arithmetic of numbers}---the thing that tells you how primes factor in a ring of
+integers. The modern, Grothendieck-era insight is that these are the \emph{same} subject,
+because a commutative ring \emph{is} a space: its points are prime ideals, its functions
+are its elements, and a map of rings is a map of spaces running the other way. These notes
+are a guided path to that point of view. We learn the subject the way it is actually
+organized today: \vocab{$\Spec$} (the spectrum) as the central object, \vocab{modules} and
+\vocab{localization} as the two everyday tools, and the language of \vocab{categories,
+universal properties, and adjoint functors} as the connective tissue that makes the whole
+thing hang together.
+
+\medskip
+\noin
+\emph{What this document is.} It is the \textbf{recommended learning path}---an annotated
+table of contents. Each section says \emph{what} it covers, \emph{why} it sits where it
+does in the modern arc, and \emph{what to read} for it in the three primary sources (see
+the reference list). Read it as a syllabus and a map; the full worked notes are built out
+section by section on top of this skeleton.
+
+\medskip
+\noin
+\emph{Prerequisites.} A first course in abstract algebra (groups, rings, fields), linear
+algebra, and a little point-set topology. \emph{No} category theory is assumed---we build
+it from scratch in \S2, exactly where it is first needed.
+
+\medskip
+\noin
+\emph{How to read.} Boxes labelled \textsf{Definition}/\textsf{Theorem} are the
+load-bearing statements; \textsf{Intuition} and \textsf{Note} boxes are the ``how a working
+algebraist pictures it'' commentary; yellow \textsf{Equation} boxes hold a ``carry this in
+your head'' slogan. Green \textsf{Exercise} boxes are scattered throughout, tagged
+\textbf{(easy)}, \textbf{(classic)}, \textbf{(medium)}, or \textbf{(thinker)}---do them as
+you go. An end-of-path exercise set and an annotated ``books to own'' list close the notes.
+
+\newpage
+\microtoc
+\newpage
+
+% ======================================================================
+\section{The big picture: commutative algebra as geometry and arithmetic}
+% ======================================================================
+
+\noindent
+Before a single definition, we answer the only question that matters at the start: why does
+this subject exist, and what is it secretly about? The answer is a dictionary. To every
+commutative ring $R$ we attach a space $\Spec R$ whose points are the prime ideals of $R$;
+the elements of $R$ become functions on that space, and a homomorphism $R\to S$ becomes a
+continuous map $\Spec S \to \Spec R$. Geometry (varieties, their singularities, families)
+and arithmetic (factorization, ramification, class groups) turn out to be two readings of
+this one dictionary. This opening section sets up the dictionary, names the three tools we
+will lean on the whole way through, and lays out the route.
+
+\subsection{Two faces of one subject: the local algebra of geometry, the arithmetic of numbers}
+
+Start with two questions you can already feel the weight of, one from geometry and one from
+arithmetic.
+
+\emph{The geometric question.} Take a plane curve, say
+$C\colon y^2 = x^3 - x$. How do you study it \emph{algebraically}? The natural move is to
+look at the polynomial functions on the plane and see which two agree on $C$: two
+polynomials restrict to the same function on $C$ exactly when their difference is a multiple
+of $y^2 - x^3 + x$. So the functions on $C$ form the quotient ring
+$k[x,y]/(y^2-x^3+x)$. Every geometric feature of $C$---where it is smooth, where it crosses
+itself, how many pieces it has---turns out to be readable off this ring. Geometry has become
+algebra.
+
+\emph{The arithmetic question.} In $\ints$ every integer factors uniquely into primes. Now
+enlarge $\ints$ to $\ints[\sqrt{-5}] = \{a + b\sqrt{-5} : a,b\in\ints\}$. There,
+\[
+6 = 2\cdot 3 = (1+\sqrt{-5})(1-\sqrt{-5}),
+\]
+and all four factors are irreducible: unique factorization \emph{fails}. Dedekind's
+resolution---one of the births of the subject---was to stop factoring \emph{elements} and
+start factoring \emph{ideals}, in which language $(6)$ does factor uniquely, and to measure
+the failure by an invariant of the ring (the class group). Arithmetic has become algebra
+about ideals.
+
+The point is that both questions are about a \vocab{commutative ring}: in the first it is a
+ring of \emph{functions on a space}, in the second a ring of \emph{numbers}. Commutative
+algebra is the claim that these are not two subjects but one.
+
+\begin{iidea}[The thesis of commutative algebra]
+A commutative ring is, simultaneously, the ``local algebra of geometry'' (the functions on a
+space) and the ``arithmetic of a number system.'' The two readings are unified because both
+are commutative rings, and the \emph{same} tools---ideals, modules, localization---resolve
+both the geometric and the arithmetic questions. Learning to read a ring in both dialects at
+once is the whole skill.
+\end{iidea}
+
+The unification is not vague analogy; it is a precise dictionary, and the cleanest place to
+see it is the parallel between the integers $\ints$ and the polynomial ring $k[x]$ in one
+variable over a field $k$.\footnote{This $\ints \leftrightarrow k[x]$ parallel is the
+backbone of the whole modern viewpoint; A--M open their book by announcing that the
+``central notion in commutative algebra is that of a prime ideal'' and that, following the
+modern trend, they emphasize modules and localization (A--M, Introduction). We take that
+emphasis as our organizing principle.} Both are \vocab{principal ideal domains}: every ideal
+is generated by one element. In $\ints$ the ``irreducible'' objects are the prime numbers
+$p$; in $k[x]$ (take $k$ algebraically closed for a clean statement) they are the linear
+polynomials $x-a$, one for each point $a$ of the line. Read the table across, and the
+arithmetic column and the geometry column are the same story told twice.
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+ & \textbf{Arithmetic: } $\ints$ & \textbf{Geometry: } $k[x]$ \\
+\hline
+the ring & integers $\ints$ & polynomials $k[x]$ \\
+an irreducible & prime number $p$ & linear factor $x-a$ \\
+a ``point'' & prime ideal $(p)$ & prime ideal $(x-a)$ \\
+residue field there & $\ints/(p)=\mathbb{F}_p$ & $k[x]/(x-a)=k$ \\
+``value'' of an element & $n \bmod p$ & $f(a)$ \\
+the generic point & $(0)$, with field $\mathbb{Q}$ & $(0)$, with field $k(x)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\noindent
+The last two rows are the punchline, and they are worth pausing on. Reducing an integer $n$
+modulo a prime $p$ and evaluating a polynomial $f$ at a point $a$ \emph{are the same
+operation}: in each case you take an element of the ring and pass to the quotient by the
+``point'' to read off its value there. An integer is, in this precise sense, a function on
+the prime numbers, whose value at $p$ is $n \bmod p$. That single realization---numbers are
+functions, primes are points---is the seed from which the entire modern subject grows. The
+next subsection makes it a definition.
+
+A good analogy earns its keep by showing you exactly where it frays, so before we lean on
+this one we should say where it does.
+
+\begin{reemark}[Where the analogy frays---and the deeper analogy underneath]
+The $\ints\leftrightarrow k[x]$ dictionary is a guide, not an identity, and its seams are
+themselves famous. Two honest disanalogies. \emph{First}, the residue fields of $k[x]$ are
+all the same field $k$, whereas those of $\ints$ are the \emph{varying} finite fields
+$\mathbb{F}_p$---so $k[x]$ is really the \emph{geometric} (``equal characteristic'') analogue
+of $\ints$. The closer \emph{arithmetic} analogue is the polynomial ring $\mathbb{F}_q[t]$
+over a finite field, whose residue fields $\mathbb{F}_q[t]/(\pi)$ are again finite. \emph{Second},
+$\ints$ secretly carries one extra ``point'': the ordinary absolute value on $\mathbb{Q}$ is
+a further, \vocab{archimedean} place with no algebraic counterpart, so $\Spec\ints$ behaves
+like an \emph{affine} curve that is missing its point at infinity---supplying it is the
+starting gun of Arakelov geometry. Far from being a defect, the full analogy
+\[
+\{\text{number fields}\}\ \longleftrightarrow\ \{\text{function fields of curves over a finite field } \mathbb{F}_q\},
+\]
+with a ring of integers $\mathcal{O}_K$ playing the role of (the affine part of) a curve, is
+the backbone of modern number theory: it is the setting of Weil's proof of the Riemann
+hypothesis for curves and of the function-field Langlands program of Drinfeld and L.\
+Lafforgue. We will keep meeting it.
+\end{reemark}
+
+\subsection{The central dogma: rings are spaces, primes are points, functions are elements}
+
+Here is the dictionary in full. The precise definitions and proofs come in \S3; right now we
+want the shape of the idea so that everything afterward has a place to land.
+
+\begin{ppreview}[The ring--space dictionary (to be made precise in \S3)]
+To a commutative ring $R$ we attach a space, the \vocab{spectrum} $\Spec R$, whose
+\emph{points} are the \vocab{prime ideals} of $R$.
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item An element $f\in R$ is a \emph{function} on $\Spec R$. Its \emph{value} at a point
+$\mfp$ is the image of $f$ in the \vocab{residue field}
+$\kappa(\mfp)\defeq \Frac(R/\mfp)$---the fraction field of the (integral domain) quotient
+$R/\mfp$.\footnote{$R/\mfp$ is a domain precisely because $\mfp$ is prime; that is the whole
+reason primes, not arbitrary ideals, are the points. See \S3.} In particular, $f$
+\vocab{vanishes at} $\mfp$ (its value there is $0$) exactly when $f\in\mfp$, so the points
+where $f$ is zero are precisely the primes that contain it---this is what will turn
+``solving $f=0$'' into the theory of ideals.
+\item A ring homomorphism $\varphi\colon R\to S$ induces a map of spaces in the
+\emph{opposite} direction, $\Spec S\to\Spec R$, sending a prime $\mfq\subseteq S$ to its
+preimage $\varphi^{-1}(\mfq)\subseteq R$.
+\end{itemize}
+\end{ppreview}
+
+Two design decisions in that box deserve their motivation, because each is a place where a
+beginner's first guess is wrong.
+
+\emph{Why prime ideals, and not just maximal ones?} The classical points of a space---a
+single number $a$, a single point of the plane---correspond to \emph{maximal} ideals (this
+is the Nullstellensatz, \S10). So why widen ``point'' to all primes? Two reasons, one formal
+and one geometric. Formally: the preimage of a prime ideal under a ring map is always
+prime, but the preimage of a \emph{maximal} ideal need not be maximal.\footnote{Example:
+$\ints\hookrightarrow\mathbb{Q}$. The ideal $(0)$ is maximal in the field $\mathbb{Q}$, but
+its preimage $(0)\subseteq\ints$ is prime and not maximal. So ``maximal ideals'' do not form
+a functorial notion of point, while primes do. This is exactly why $\Spec$ uses primes.} If
+we want $\Spec$ to be a \emph{functor}---so that algebra translates to geometry
+automatically---we are forced to use primes. There is also a vivid reason the \emph{prime}
+condition is the right one. The defining property $fg\in\mfp\Rightarrow f\in\mfp$ or
+$g\in\mfp$ says, in the language of values, that a product of functions can vanish at $\mfp$
+only if one of the factors already does; the vanishing at $\mfp$ cannot be split into two
+independent pieces, so $\mfp$ behaves like an \emph{irreducible} locus---and, dually, its
+ring of functions $R/\mfp$ has no zero-divisors. ``Prime ideal'' is the algebra of
+``irreducible piece of the space.'' Geometrically: a non-maximal prime is the
+\vocab{generic point} of an irreducible subspace. In $k[x,y]$ the prime $(y-x^2)$ is not a
+single point of the plane; it is the entire parabola $y=x^2$, packaged as one point of
+$\Spec k[x,y]$. Allowing irreducible subvarieties to \emph{be} points is one of the most
+useful moves in all of geometry, and it is free once you take primes seriously.
+
+\emph{Why does the map of spaces go backwards?} Because functions pull back. If
+$\varphi\colon R\to S$ presents $\Spec S$ as a space mapping to $\Spec R$, then a function on
+the target ($f\in R$) becomes a function on the source ($\varphi(f)\in S$) by composition.
+Pulling functions back is contravariant, so the spaces map the opposite way to the rings.
+This is the same variance you already know from topology: a continuous map $X\to Y$ induces
+$C(Y)\to C(X)$ on rings of continuous functions.
+
+\begin{eequation}[The slogan to carry in your head]
+\[
+\underbrace{\text{value of } f \text{ at the point } \mfp}_{\text{image of } f \text{ in } \kappa(\mfp)}
+\qquad\rightsquigarrow\qquad
+\underbrace{n \bmod p}_{\text{in } \ints}
+\;\;=\;\;
+\underbrace{f(a)}_{\text{in } k[x]}.
+\]
+Elements are functions; primes are points; reduction modulo a prime is evaluation.
+\end{eequation}
+
+\begin{eexample}[The two spectra to know by heart]
+\textbf{(a) $\Spec\ints$.} The primes of $\ints$ are $(0)$ and $(p)$ for each prime number
+$p$. The points $(p)$ are ``closed'' (ordinary points), with residue field
+$\kappa\big((p)\big)=\mathbb{F}_p$; the value of $n$ there is $n\bmod p$. The point $(0)$ is
+the \emph{generic point}: its residue field is $\kappa\big((0)\big)=\mathbb{Q}$, and the
+value of $n$ there is $n$ itself. So $\Spec\ints$ is the prime numbers together with one
+extra ``smeared-out'' point sitting over all of them.
+
+\textbf{(b) $\Spec k[x]$, $k=\bar k$.} The primes are $(0)$ and $(x-a)$ for $a\in k$. The
+closed points $(x-a)$ \emph{are} the line $k$; the residue field is $k$ and the value of $f$
+at $(x-a)$ is $f(a)$---honest evaluation. Again there is one generic point $(0)$, with
+residue field $k(x)$, the field of rational functions.
+\end{eexample}
+
+\begin{iintuition}[Elements are functions, but stranger]
+An element behaves like a function on $\Spec R$, with two twists that ordinary functions
+lack. First, its values live in \emph{different fields at different points} (the residue
+field $\kappa(\mfp)$ changes with $\mfp$), so ``$f$'' is a function whose codomain varies.
+Second, an element can be nonzero yet vanish at points, and---most strikingly---a nonzero
+\vocab{nilpotent} can vanish at \emph{every} point: in $k[x]/(x^2)$ the element $x$ is not
+$0$, but its value in every residue field is $0$. Classical functions cannot do this; the
+ring remembers an ``infinitesimal'' direction that the naive set of points forgets. We keep
+nilpotents (rather than quotient them away) precisely because they record this
+infinitesimal data---the ring $k[\varepsilon]/(\varepsilon^2)$ is a point carrying a tangent
+vector. This is the first hint of why \emph{scheme} theory works with rings, not just point
+sets.
+\end{iintuition}
+
+The contravariant map of spectra is not a technicality; it is where arithmetic turns into the
+geometry of covering maps.
+
+\begin{eexample}[{A ring map as a branched cover: $\ints\hookrightarrow\ints[i]$}]
+The inclusion $\ints\hookrightarrow\ints[i]$ of the integers into the Gaussian integers
+induces $\Spec\ints[i]\to\Spec\ints$. Over a point $(p)$ of $\Spec\ints$ sits the
+\emph{fiber}: the primes of $\ints[i]$ lying above $p$, i.e.\ the way $p$ factors in
+$\ints[i]$. And the classical trichotomy of number theory is exactly a statement about this
+map:
+\[
+(5)=(2+i)(2-i)\ \text{\small(splits: two points)},\quad
+(3)\ \text{\small(inert: one point)},\quad
+(2)=-i(1+i)^2\ \text{\small(ramifies)}.
+\]
+So $\Spec\ints[i]\to\Spec\ints$ is a (branched) double cover\footnote{The cover is branched
+over only finitely many primes: $2$ is the sole \emph{ramified} prime here, and it is exactly
+the one dividing the discriminant $-4$ of $\ints[i]$. Ramification is where the two sheets of
+the cover collide, and it is detected algebraically by the discriminant---the same
+discriminant you met under the square root in the quadratic formula.} of $\Spec\ints$, and
+``how $p$ splits'' is the same data as ``what the fiber looks like.'' The arithmetic of the
+Gaussian integers \emph{is} the geometry of this covering map---the prototype of everything
+in algebraic number theory.
+\end{eexample}
+
+\begin{xca}[\textbf{(easy)} preimages of primes]
+Let $\varphi\colon R\to S$ be a ring homomorphism and $\mfq\subseteq S$ a prime ideal. Show
+$\varphi^{-1}(\mfq)$ is a prime ideal of $R$. \emph{(Hint: $R/\varphi^{-1}(\mfq)$ injects
+into $S/\mfq$.)} Then give an example showing the preimage of a \emph{maximal} ideal need
+not be maximal.
+\end{xca}
+
+\subsection{The three pillars of the modern view: modules, localization, categories}
+
+What separates the modern treatment of this subject from its classical ancestor is which
+tools it treats as fundamental. Three of them carry almost all the weight, and naming them
+now---with their motivation---turns the rest of these notes into a guided tour rather than a
+list of theorems.
+
+\textbf{Pillar 1: modules---linear algebra over a ring.} You understand a group by its
+representations; you understand a ring by the things it acts on, its \vocab{modules}. A
+module is ``a vector space whose scalars come from a ring instead of a field,'' and almost
+every object we have met is one: ideals, quotient rings, and the ring itself are all
+$R$-modules; abelian groups are exactly $\ints$-modules; vector spaces are exactly modules
+over a field. The modern slogan is that commutative algebra is the study of the category of
+$R$-modules. The single phenomenon that makes the theory deep is that, unlike vector spaces,
+\emph{a module need not have a basis}---and measuring how badly bases fail (via free
+resolutions, $\Tor$, $\Ext$) is a large part of the subject. A vivid case to keep in mind: a
+module over $k[x]$ is a vector space equipped with a single linear operator (the action of
+$x$), so the classification of $k[x]$-modules \emph{is} the theory of Jordan and rational
+canonical forms.\footnote{The same slogan reaches much further: a module over a group ring
+$k[G]$ is precisely a representation of $G$, so representation theory is ``the module theory
+of $k[G]$.'' That is one of the doorways from commutative algebra toward the Langlands
+program, where representations are the central objects.} Linear algebra is already
+commutative algebra, in disguise.
+
+\textbf{Pillar 2: localization---geometry is local.} To understand a space you look near each
+point; the algebraic counterpart is \vocab{localization}, the operation of inverting
+elements. Inverting everything outside a prime $\mfp$ produces the \vocab{local ring}
+$R_\mfp$, which sees only the behavior of $R$ near the point $\mfp$---it is the ring of
+germs of functions there, exactly as in the theory of manifolds. The reward is the
+\vocab{local--global principle}: a great many properties hold for $R$ if and only if they
+hold at every prime, so global theorems can be proved one point at a time. Localization is
+the technique that makes ``study the space near a point'' into algebra.
+
+\textbf{Pillar 3: categories---the connective language.} We will constantly build new rings
+and modules out of old (quotients, products, tensor products, localizations, completions,
+free objects) and will want to say that each construction is \emph{canonical}, pin it down
+\emph{up to unique isomorphism}, and track how it interacts with maps. The precise language
+for all of this is category theory: \vocab{universal properties}, \vocab{functors}, and
+above all \vocab{adjoint functors}. It is not decoration. The fact that the tensor product
+is the left adjoint of $\Hom$, and that ``left adjoints are right exact,'' organizes
+\S\S5--8 in a single stroke.\footnote{This is the explicit thesis of Altman--Kleiman, who
+redo A--M with the categorical machinery in front: ``Tensor Product is the left adjoint of
+Hom \dots\ any left adjoint preserves arbitrary direct limits'' (A--K, Preface). We develop
+exactly this language, from scratch, in \S2.} Section 2 builds this language from nothing.
+
+\begin{eequation}[The three pillars]
+\[
+\boxed{\ \textbf{modules}\ }\qquad \boxed{\ \textbf{localization}\ }\qquad \boxed{\ \textbf{categories}\ }
+\]
+Study a ring through what it acts on (modules); study it one point at a time (localization);
+and keep track of every construction by the maps it represents (categories).
+\end{eequation}
+
+\subsection{If you remember one thing; and a map of the route ahead}
+
+\begin{iidea}[If you remember one thing]
+A commutative ring is the ring of functions on a space, its spectrum $\Spec R$, whose points
+are the prime ideals. Doing algebra to the ring \emph{is} doing geometry to the space:
+ideals cut out subspaces, quotients restrict to them, localization zooms in, and a ring map
+is a map of spaces running the other way. Every definition that follows is a tool for making
+this correspondence precise and computable---and, read in the other dialect, for turning
+arithmetic into the geometry of $\Spec\ints$.
+\end{iidea}
+
+With the thesis in hand, here is the shape of the journey, so you can see where each section
+fits in the arc.
+
+\begin{ppreview}[A map of the route ahead]
+We first learn the \emph{language} (\S2: categories, universal properties, adjoints), then
+build the central \emph{objects and the dictionary} (\S3: $\Spec R$; \S4: modules; \S5:
+exact sequences). Next come the two everyday \emph{tools}: localization (\S6) and tensor
+products with flatness (\S7), with their homological shadow $\Tor$/$\Ext$ (\S8). We then do
+the \emph{geometry of maps}---integral extensions and the Nullstellensatz (\S\S9--10)---and
+the \emph{finiteness and decomposition} theory of Noetherian rings (\S11). The climax is
+\emph{dimension} (\S12), refined locally by \emph{completion} (\S13). We cash out in
+dimension one---\emph{DVRs and Dedekind domains}, the arithmetic payoff (\S14)---and close
+by pointing to the \emph{horizons}: schemes, sheaves, and the Langlands programs (\S15).
+\end{ppreview}
+
+\begin{nnote}[Why a number theorist or a geometer should keep reading]
+Every object in these notes is load-bearing in modern research. Completions give the
+$p$-adic numbers $\ints_p$ and $\mathbb{Q}_p$; the \emph{local fields} of the
+\vocab{local Langlands} correspondence are exactly these completions, and the \emph{adeles}
+of \vocab{global Langlands} bundle all of them over $\Spec\ints$ at once. Dedekind domains
+and their class groups are the start of class field theory; regular local rings and
+dimension theory are the start of the geometry of singularities and \vocab{geometric
+Langlands}. We will flag these connections as the relevant tools come online---the present
+notes are, among other things, the commutative-algebra prerequisite for all of it.
+\end{nnote}
+
+\sources{A--M, Introduction and Ch.~1 (prime and maximal ideals, the nilradical, local
+rings); A--K, Preface (the categorical/adjoint thesis) and \S\S1--3; Aluffi, the prefaces to
+Ch.~III for the ``rings as the ground of geometry'' framing. Skim these for orientation, not
+detail---the careful versions are \S\S3--4 below.}
+
+% ======================================================================
+\section{The categorical language, from scratch}
+% ======================================================================
+
+\noindent
+The modern subject is written in the language of categories, so we learn just enough of it
+right away---introduced gently, with rings and modules as the running examples, and assuming
+no prior exposure. The payoff is enormous: a \vocab{universal property} lets us pin an
+object down by how it maps to everything else (no formulas), and \vocab{adjoint functors}
+organize half of what follows (tensor, localization, completion, free constructions) under
+a single slogan. We are not doing category theory for its own sake; we are learning the
+three or four ideas that the rest of the notes literally cannot be stated without.
+
+\subsection{Categories, functors, and natural transformations}
+
+We keep promising that a construction is ``natural,'' ``canonical,'' or that two objects are
+``the same kind of thing.'' Category theory is the language that makes these words mean
+something. A word of reassurance before we start: we are not studying category theory for
+its own sake, and we need only its first few definitions. They earn their keep immediately,
+because the central constructions of commutative algebra---tensor products, localization,
+free modules---are cleanest, and are pinned down uniquely, by the categorical notions of
+\emph{universal property} and \emph{adjoint functor} introduced over the next pages.
+
+\begin{ddefinition}[Category]
+A \vocab{category} $\cat{C}$ consists of: a collection of \vocab{objects}; for each pair of
+objects $A,B$ a set of \vocab{morphisms} (or \vocab{arrows}) $\Hom_{\cat{C}}(A,B)$, written
+$f\colon A\to B$; a \vocab{composition} law $\Hom(B,C)\times\Hom(A,B)\to\Hom(A,C)$,
+$(g,f)\mapsto g\circ f$; and for each object $A$ an \vocab{identity} $\id_A\in\Hom(A,A)$.
+These must satisfy two axioms: composition is associative, $h\circ(g\circ f)=(h\circ g)\circ
+f$; and identities are neutral, $\id_B\circ f = f = f\circ\id_A$.
+\end{ddefinition}
+
+The definition is short because almost everything is an example. What it captures is
+``objects and the allowed transformations between them, with a sensible notion of doing one
+after another.''
+
+\begin{eexample}[The categories we will live in]
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item $\cat{Set}$: sets and functions.
+\item $\cat{Grp}$, $\cat{Ab}$: groups (resp.\ abelian groups) and homomorphisms.
+\item $\cat{Ring}$: commutative rings and ring homomorphisms (preserving $1$). \emph{This and
+the next are the homes of this course.}
+\item $R\text{-}\cat{Mod}$: modules over a fixed ring $R$ and $R$-linear maps. The central
+category of these notes; when $R=k$ is a field this is $k$-vector spaces, and when
+$R=\ints$ it is $\cat{Ab}$.
+\item $\cat{Top}$: topological spaces and continuous maps---the target of $\Spec$.
+\item \emph{A poset as a category.} Given a partially ordered set $(P,\le)$, let the objects
+be the elements and put a single arrow $a\to b$ exactly when $a\le b$. Composition is
+transitivity. For instance, the ideals of a ring $R$ ordered by inclusion form a category.
+This example matters because it shows a ``morphism'' need not be a function at all---a
+category is more flexible than ``sets with structure.''
+\end{itemize}
+\end{eexample}
+
+\begin{iintuition}[It is all about the arrows]
+The mental shift category theory asks for is this: stop looking \emph{inside} an object (its
+elements, its construction) and look instead at the \emph{arrows} into and out of it. We
+will see that an object is determined---up to unique isomorphism---by how it maps to and from
+everything else. That is the engine behind ``universal properties'' below, and it is why we
+can define the tensor product without ever choosing a basis.
+\end{iintuition}
+
+Categories are related by functors, which are ``maps of categories.''
+
+\begin{ddefinition}[Functor]
+A \vocab{functor} $F\colon\cat{C}\to\cat{D}$ assigns to each object $A$ of $\cat{C}$ an
+object $F(A)$ of $\cat{D}$, and to each morphism $f\colon A\to B$ a morphism
+$F(f)\colon F(A)\to F(B)$, preserving identities ($F(\id_A)=\id_{F(A)}$) and composition
+($F(g\circ f)=F(g)\circ F(f)$). It is \vocab{covariant} as stated; a \vocab{contravariant}
+functor instead reverses arrows, $F(f)\colon F(B)\to F(A)$, with $F(g\circ f)=F(f)\circ
+F(g)$.\footnote{Equivalently, a contravariant functor on $\cat{C}$ is a covariant functor on
+the \emph{opposite category} $\cat{C}^{\mathrm{op}}$, which has the same objects but all
+arrows reversed.}
+\end{ddefinition}
+
+Functors are not exotic; the operations you already perform on rings and modules are mostly
+functors, and recognizing them as such is what lets us reason about them uniformly.
+
+\begin{eexample}[The operations of commutative algebra are functors]
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item \emph{Forgetful functors}, e.g.\ $\cat{Ring}\to\cat{Set}$ (forget the ring structure)
+or $R\text{-}\cat{Mod}\to\cat{Ab}$ (forget scalar multiplication).
+\item \emph{Free functors}, e.g.\ $\cat{Set}\to R\text{-}\cat{Mod}$ sending a set $S$ to the
+free module $R^{(S)}$. (Soon: left adjoint to the forgetful functor.)
+\item \emph{The spectrum} $\Spec\colon\cat{Ring}\to\cat{Top}$, \emph{contravariant}---a ring
+map $R\to S$ yields $\Spec S\to\Spec R$, as in \S1.
+\item \emph{The $\Hom$ functors.} For a fixed $R$-module $N$, $\Hom_R(N,-)$ is a covariant
+functor $R\text{-}\cat{Mod}\to R\text{-}\cat{Mod}$, while $\Hom_R(-,N)$ is contravariant.
+\item \emph{Tensoring} $-\otimes_R N$ is a covariant functor (\S7), and \emph{localization}
+$S^{-1}(-)$ is a covariant functor $R\text{-}\cat{Mod}\to S^{-1}R\text{-}\cat{Mod}$ (\S6).
+\end{itemize}
+The whole later drama---left versus right exactness, $\Tor$ and $\Ext$---is about how these
+last functors fail to preserve exact sequences. That is why we set them up as functors now.
+\end{eexample}
+
+Finally, functors themselves can be compared, and the comparison is where the word
+``natural'' acquires its technical meaning.
+
+\begin{ddefinition}[Natural transformation]
+Given two functors $F,G\colon\cat{C}\to\cat{D}$, a \vocab{natural transformation}
+$\eta\colon F\Rightarrow G$ is a choice, for every object $A$, of a morphism
+$\eta_A\colon F(A)\to G(A)$, such that for every morphism $f\colon A\to B$ the square
+\[
+\begin{array}{ccc}
+F(A) & \xrightarrow{\ \eta_A\ } & G(A)\\[2pt]
+{\scriptstyle F(f)}\big\downarrow & & \big\downarrow{\scriptstyle G(f)}\\[2pt]
+F(B) & \xrightarrow{\ \eta_B\ } & G(B)
+\end{array}
+\]
+commutes. If every $\eta_A$ is an isomorphism, $\eta$ is a \vocab{natural isomorphism} and we
+write $F\cong G$.
+\end{ddefinition}
+
+\begin{iintuition}[``Natural'' means ``uniformly, without choices'']
+A natural transformation is the same construction carried out at every object, compatibly
+with all morphisms. This is the rigorous meaning of ``canonical.'' The textbook contrast is
+from linear algebra: for finite-dimensional vector spaces the map $V\to V^{**}$ into the
+double dual is natural (it needs no basis and commutes with every linear map), whereas the
+map $V\to V^{*}$ to the dual is \emph{not} natural---you can only build one by choosing a
+basis, and different choices give incompatible maps. ``Canonical'' was always trying to mean
+``natural''; now it does. A purely algebraic instance, which you will meet in \S6: for a
+multiplicative set $S\subseteq R$ the localization maps $M\to S^{-1}M$, $m\mapsto m/1$, are
+natural in $M$---the same construction at every module, compatible with every $R$-linear
+map---so localization comes packaged with a canonical natural transformation
+$\id\Rightarrow S^{-1}(-)$ from the identity functor.
+\end{iintuition}
+
+\begin{xca}[\textbf{(easy)} $\Hom$ is a functor]
+Fix an $R$-module $N$. Check that $\Hom_R(N,-)$ is a covariant functor: describe what it does
+to a morphism $g\colon M\to M'$, and verify it preserves identities and composition. Then do
+the same for the contravariant $\Hom_R(-,N)$.
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} natural versus chosen]
+On finite-dimensional $k$-vector spaces, show $V\mapsto V^{*}=\Hom_k(V,k)$ is a contravariant
+functor and $V\mapsto V^{**}$ is a covariant functor, and that the evaluation maps
+$\mathrm{ev}_V\colon V\to V^{**}$ assemble into a natural isomorphism. Explain in one
+sentence why there is no natural isomorphism $V\cong V^{*}$. \emph{(This is the cleanest
+possible illustration of the definition.)}
+\end{xca}
+
+\subsection{Universal properties: characterizing an object by its maps}
+
+Here is the single most useful technique category theory gives us. A \vocab{universal
+property} characterizes an object by the morphisms into or out of it---never by its internal
+construction. The reason to care is twofold: a universal property defines a construction
+\emph{without arbitrary choices}, and it automatically proves the construction is
+\emph{unique up to a unique isomorphism}. After we state a universal property we will always
+also give an explicit model (a concrete construction) and check the two describe the same
+object; the universal property tells us \emph{what} the thing is, the model proves it
+\emph{exists}.
+
+The simplest universal properties name an object by a single mapping condition.
+
+\begin{ddefinition}[Initial and terminal objects]
+An object $I$ of $\cat{C}$ is \vocab{initial} if for every object $A$ there is exactly one
+morphism $I\to A$. It is \vocab{terminal} (or \vocab{final}) if for every $A$ there is
+exactly one morphism $A\to I$. An object that is both is a \vocab{zero object}.
+\end{ddefinition}
+
+\begin{eexample}[Initial and terminal, in our categories]
+In $\cat{Set}$: the empty set $\varnothing$ is initial, any one-point set is terminal. In
+$R\text{-}\cat{Mod}$: the zero module is both---a zero object. In $\cat{Ring}$: the
+\emph{zero ring} is terminal (every ring maps onto it), and---crucially---$\ints$ is
+\emph{initial}, because every ring $R$ receives exactly one ring homomorphism from $\ints$
+(it must send $1\mapsto 1$, hence $n\mapsto n\cdot 1_R$, and this is forced). We return to
+how special this makes $\ints$ in \S2.3.
+\end{eexample}
+
+The reason universal properties are trustworthy is the following two-line theorem, which we
+prove because it is the engine that makes ``\emph{the} tensor product,'' ``\emph{the}
+localization,'' etc.\ well-defined.
+
+\begin{ttheorem}[Universal properties pin objects down]
+Any two initial objects of a category are isomorphic, by a \emph{unique} isomorphism. (Dually
+for terminal objects.)
+\end{ttheorem}
+
+\begin{proof}
+Let $I,I'$ be initial. Initiality of $I$ gives a unique map $u\colon I\to I'$; initiality of
+$I'$ gives a unique $v\colon I'\to I$. Then $v\circ u\colon I\to I$ is a map from $I$ to
+itself, but initiality of $I$ says there is only \emph{one} such map, and $\id_I$ is one, so
+$v\circ u=\id_I$. Symmetrically $u\circ v=\id_{I'}$. Hence $u$ is an isomorphism, and it was
+the unique map $I\to I'$ to begin with.
+\end{proof}
+
+\begin{ttechnique}[How to read and use a universal property]
+Every universal property in this book is secretly the statement ``\emph{this object is
+initial (or terminal) in an auxiliary category of solutions to a mapping problem}.'' So it
+always buys you the same three things: (i) a recipe---``a map out of $X$ is the same as the
+following data''; (ii) uniqueness up to unique isomorphism, for free, by the theorem above;
+and (iii) a way to \emph{construct} maps out of (or into) $X$ without touching its internals.
+Don't ask what the object \emph{is}; ask what maps to and from it \emph{do}.
+\end{ttechnique}
+
+We now meet the workhorse universal properties. In each, notice the rhythm: \emph{universal
+property}, then \emph{concrete model}, then \emph{why they agree}.
+
+\begin{eexample}[Quotient ring $R/I$: the universal way to kill $I$]
+\emph{Universal property.} The quotient map $\pi\colon R\to R/I$ is the universal ring
+homomorphism out of $R$ that sends $I$ to $0$: for every ring map $\varphi\colon R\to S$ with
+$\varphi(I)=0$ there is a \emph{unique} $\bar\varphi\colon R/I\to S$ with
+$\bar\varphi\circ\pi=\varphi$. \emph{Concrete model.} Cosets $r+I$, with the inherited
+operations. \emph{Why they agree.} The map $\bar\varphi(r+I)\defeq\varphi(r)$ is
+well-defined exactly because $\varphi(I)=0$, and it is the only possible value---this is the
+first isomorphism theorem, read as a universal property.\footnote{Aluffi, Ch.~III \S3,
+develops quotient rings precisely this way; the same pattern (a quotient as a universal
+``map that kills a subobject'') recurs for modules in \S4 below.}
+\end{eexample}
+
+\begin{eexample}[Free module $R^{(S)}$: maps out of it are just functions on $S$]
+\emph{Universal property.} For a set $S$ there is a module $R^{(S)}$ with an inclusion
+$S\hookrightarrow R^{(S)}$ such that every set-function $S\to M$ into an $R$-module $M$
+extends \emph{uniquely} to an $R$-linear map $R^{(S)}\to M$. \emph{Concrete model.} Finite
+formal combinations $\sum_{s} r_s\, e_s$ ($r_s\in R$, almost all $0$). \emph{Why they agree.}
+``Define a linear map by saying where the generators go, then extend linearly'' is exactly
+the unique extension---this is the basis-free phrasing of the most familiar move in linear
+algebra.
+\end{eexample}
+
+\begin{eexample}[{Polynomial ring $R[x]$: ``plugging in'' is a universal property}]
+\emph{Universal property.} $R[x]$ is the free commutative $R$-algebra on one generator: for
+any $R$-algebra $S$, an $R$-algebra map $R[x]\to S$ is the \emph{same data} as a choice of
+one element of $S$ (the image of $x$). \emph{Concrete model.} Polynomials $\sum a_i x^i$.
+\emph{Why they agree.} Sending $x\mapsto s$ and extending by the algebra laws is the
+substitution (``evaluation'') homomorphism, and it is the unique extension---this is precisely
+\emph{why} you are allowed to plug anything you like into a polynomial.\footnote{Aluffi,
+Ch.~III \S2.2, ``Universal property of polynomial rings.'' This example is the prototype for
+the \emph{functor of points} we mention in the note below.}
+\end{eexample}
+
+\begin{nnote}[A first glimpse of the functor of points]
+The polynomial example says $\Hom_{\cat{Ring}}(R[x],S)\cong S$ \emph{naturally in $S$}: the
+ring $R[x]$ ``is'' the rule that assigns to each ring $S$ its underlying set of elements---the
+\emph{affine line}. This is Grothendieck's \vocab{functor of points} idea: an affine scheme
+$\Spec R$ is encoded by the functor $S\mapsto\Hom_{\cat{Ring}}(R,S)$ of its ``$S$-valued
+points.'' We are not using this yet, but it is the reason the categorical language is not
+optional in modern algebraic geometry (\S15).
+\end{nnote}
+
+\begin{xca}[\textbf{(easy)} the two ends of $\cat{Ring}$]
+Prove carefully that $\ints$ is initial and the zero ring is terminal in $\cat{Ring}$. Where
+exactly does ``ring homomorphisms preserve $1$'' get used?
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} the quotient as a universal property]
+State the universal property of $R/I$ precisely and prove it from the coset construction.
+Then deduce the first isomorphism theorem (any $\varphi\colon R\to S$ factors as
+$R\twoheadrightarrow R/\ker\varphi\xrightarrow{\sim}\im\varphi\hookrightarrow S$) from it.
+\end{xca}
+
+\subsection{Limits, colimits, and the initial/terminal objects (why \texorpdfstring{$\ints$}{Z} is special)}
+
+Initial and terminal objects are the smallest universal properties; products, quotients,
+intersections, and unions are all instances of two general patterns called \vocab{limits} and
+\vocab{colimits}. We introduce them lightly---enough to recognize the constructions of
+commutative algebra as members of these two families, because that recognition is what makes
+the adjoint-functor theorems of \S2.4 so powerful.
+
+\begin{ddefinition}[Limit and colimit, informally]
+A \vocab{diagram} in $\cat{C}$ is a collection of objects and morphisms (a picture of arrows).
+A \vocab{limit} of the diagram is a universal object mapping \emph{to} all of it: an object
+$L$ with compatible maps to every object of the diagram, through which any other such
+``compatible family of maps'' factors uniquely. A \vocab{colimit} is the dual: a universal
+object receiving maps \emph{from} all of it. (Limits generalize ``intersection/product''; colimits
+generalize ``union/glue.'')
+\end{ddefinition}
+
+\begin{eexample}[The (co)limits you already use]
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item \emph{Products and coproducts.} The \vocab{product} $\prod A_i$ is the limit of a
+diagram with no arrows (it has projections to each $A_i$); the \vocab{coproduct} is the
+colimit (it has inclusions from each $A_i$). In $R\text{-}\cat{Mod}$ a finite product is the
+direct sum $\bigoplus A_i$, which is \emph{also} the coproduct---a biproduct. In $\cat{Ring}$
+the product is the usual $R\times S$, while the coproduct is the tensor product
+$R\otimes_\ints S$ (\S7).
+\item \emph{Kernels and cokernels.} In $R\text{-}\cat{Mod}$, $\ker f$ is a limit and
+$\coker f$ is a colimit; quotient modules are colimits.
+\item \emph{Direct limits} $\dirlim$, colimits over a directed system, are pervasive in
+commutative algebra: every module is the direct limit of its finitely generated submodules,
+and (\S6) the localization $R_\mfp=\dirlim_{f\notin\mfp}R_f$ is a direct limit.
+\item \emph{Inverse limits} $\invlim$ are the limits we complete with: the $p$-adic integers
+are $\ints_p=\invlim_n \ints/p^n\ints$, and more generally $\widehat{R}=\invlim_n R/I^n$
+(\S13).
+\end{itemize}
+\end{eexample}
+
+\noindent
+Not every category has all such (co)limits on hand---the category of fields, for instance, has
+no products, since a product $k\times k'$ of two fields is not a field (it has zero-divisors).
+What makes $R\text{-}\cat{Mod}$ and $\cat{Ring}$ so pleasant to work in is precisely that they
+\emph{are} complete and cocomplete: every diagram in them has both a limit and a colimit. We
+will use this silently and often.
+
+Now we can say precisely why $\ints$ deserved a starring role in \S1, and why number theory
+is, structurally, ``geometry over a single base point.''
+
+\begin{iidea}[Why $\ints$ is special, and why everything lives over $\Spec\ints$]
+$\ints$ is the \emph{initial} object of $\cat{Ring}$: every ring receives a unique ring map
+from $\ints$. Translating through the contravariant dictionary of \S1, this says
+$\Spec\ints$ is the \emph{terminal} object among affine schemes---\emph{every} commutative
+ring, hence every affine scheme, has a unique map to $\Spec\ints$. So all of commutative
+algebra and algebraic geometry takes place ``over $\Spec\ints$,'' and the special case of
+rings that happen to be algebras over a field $k$ is the case of geometry over the point
+$\Spec k$. Number theory is then exactly the geometry of $\Spec\ints$ and its covers (\S1's
+$\ints[i]$ example); this ``arithmetic = geometry over the terminal base $\Spec\ints$'' is
+the conceptual seed of Arakelov theory and much of modern arithmetic geometry.
+\end{iidea}
+
+\begin{xca}[\textbf{(easy)} products and coproducts by hand]
+Identify the product and the coproduct of two objects in each of $\cat{Set}$, $\cat{Ab}$, and
+$\cat{Ring}$. (You should find disjoint union vs.\ cartesian product in $\cat{Set}$; direct
+sum $=$ direct product for two objects in $\cat{Ab}$; and $R\times S$ vs.\
+$R\otimes_\ints S$ in $\cat{Ring}$.)
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} completion and localization as (co)limits]
+Exhibit the structure maps making $\ints_p=\invlim_n\ints/p^n\ints$ an inverse limit, and
+(looking ahead to \S6) describe the directed system whose direct limit is $R_\mfp$. In each
+case, what is the universal property doing for you?
+\end{xca}
+
+\subsection{Adjoint functors: the single most important idea in the book}
+
+Everything so far converges here. \vocab{Adjoint functors} are the organizing principle of
+the subject: tensor products, localization, free modules, base change, and completion are all
+one half of an adjunction, and two short theorems about adjunctions will let us predict their
+behavior toward exact sequences before we compute anything. We motivate the definition with
+the example you have already seen twice.
+
+Recall the free module: a set-function $S\to U(M)$ (where $U$ forgets the module structure)
+is the same data as an $R$-linear map $R^{(S)}\to M$. Spelled out, there is a bijection,
+natural in both $S$ and $M$,
+\[
+\Hom_{R\text{-}\cat{Mod}}\!\big(R^{(S)},\,M\big)\;\cong\;\Hom_{\cat{Set}}\!\big(S,\,U(M)\big).
+\]
+This bijection \emph{is} an adjunction between the free functor $F\colon S\mapsto R^{(S)}$ and
+the forgetful functor $U$.
+
+\begin{ddefinition}[Adjoint functors]
+Functors $F\colon\cat{C}\to\cat{D}$ and $G\colon\cat{D}\to\cat{C}$ form an \vocab{adjunction},
+with $F$ \vocab{left adjoint} to $G$ (and $G$ \vocab{right adjoint} to $F$), written
+$F\dashv G$, if there is a bijection
+\[
+\Hom_{\cat{D}}\!\big(F(c),\,d\big)\;\cong\;\Hom_{\cat{C}}\!\big(c,\,G(d)\big)
+\]
+natural in $c\in\cat{C}$ and $d\in\cat{D}$.
+\end{ddefinition}
+
+\begin{iintuition}[Left adjoints build, right adjoints forget]
+Picture $G$ as ``forgetting'' some structure and $F$ as ``freely building it back.'' The
+adjunction says: to map a freely-built object $F(c)$ into $d$ is no more and no less than to
+map the raw material $c$ into the forgotten shadow $G(d)$---you specify the map on generators
+and the structure forces the rest. Left adjoints are the \emph{constructive, generators-and-
+relations} functors (free modules, tensor, localization, base change); right adjoints are the
+\emph{forgetful, limit-like} functors (the forgetful functor, $\Hom$). Keeping this picture
+straight tells you which side of every construction you are on.
+\end{iintuition}
+
+The reason this single definition reorganizes the subject is the following list, every entry
+of which we will use.
+
+\begin{eexample}[The adjunctions that run commutative algebra]
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \emph{Free $\dashv$ forgetful} (the model): $R^{(-)}\dashv U$ for modules, and
+$\ints[-]\dashv U$ for rings (the polynomial ring $\ints[S]$ is the free commutative ring on a
+set $S$).
+\item \emph{Tensor $\dashv$ Hom} (``adjoint associativity''), the most-used adjunction in the
+book:
+\[
+\Hom_R\!\big(M\otimes_R N,\,P\big)\;\cong\;\Hom_R\!\big(M,\,\Hom_R(N,P)\big),
+\]
+i.e.\ $-\otimes_R N\ \dashv\ \Hom_R(N,-)$ (\S7).
+\item \emph{Base change $\dashv$ restriction of scalars}: for a ring map $R\to S$, the
+functor $S\otimes_R-$ is left adjoint to restricting an $S$-module to an $R$-module. (\S7.)
+\item \emph{Localization $\dashv$ restriction}: $S^{-1}(-)$ is left adjoint to restriction
+along $R\to S^{-1}R$---localization is the special case of base change with $S^{-1}R$ (\S6).
+\end{itemize}
+\end{eexample}
+
+What makes these worth naming all at once is that adjointness, by itself, predicts how each
+functor treats limits and colimits---and hence exact sequences.
+
+\begin{ttheorem}[The slogan that organizes \S\S5--8]
+Left adjoints preserve colimits (in particular cokernels, direct sums, and direct
+limits);\footnote{The proof is a one-line calculation in the spirit of the ``it is all about
+the arrows'' box. If $F\dashv G$ and $c=\dirlim c_i$, then for every object $d$ we have
+$\Hom(F(\dirlim c_i),d)\cong\Hom(\dirlim c_i, Gd)\cong\invlim\Hom(c_i,Gd)\cong
+\invlim\Hom(Fc_i,d)\cong\Hom(\dirlim Fc_i,d)$, naturally in $d$ (the middle step is that
+$\Hom(-,Gd)$ turns colimits into limits). Since an object is pinned down by the maps out of
+it---the \vocab{Yoneda lemma}---this forces $F(\dirlim c_i)\cong\dirlim Fc_i$. The statement
+for right adjoints is the dual.}
+right adjoints preserve limits (in particular kernels, products, and inverse limits).
+Consequently $-\otimes_R N$ is right exact and $\Hom_R(N,-)$, $\Hom_R(-,N)$ are left
+exact.\footnote{This is exactly the structural observation A--K put at the center of their
+treatment: from ``Tensor is the left adjoint of Hom'' and ``a left adjoint preserves direct
+limits/colimits'' they deduce right-exactness of tensor and much else (A--K, Preface and
+\S\S6--9). A--M prove the same isomorphism (their ``adjoint associativity'') but, writing
+before this language was standard, do not name it an adjunction; we do.} Moreover adjoints,
+when they exist, are unique up to natural isomorphism---so ``\emph{the}'' tensor product and
+``\emph{the}'' localization are well-defined.
+\end{ttheorem}
+
+\begin{eequation}[Carry this for the next four sections]
+\[
+\textbf{left adjoint}\ \Rightarrow\ \text{right exact (preserves colimits)},
+\]
+\[
+\textbf{right adjoint}\ \Rightarrow\ \text{left exact (preserves limits)}.
+\]
+Tensor and localization are left adjoints; $\Hom$ is a right adjoint. The \emph{failure} of
+the missing half---how far $\otimes$ is from left exact, how far $\Hom$ is from right
+exact---is measured by the derived functors $\Tor$ and $\Ext$ (\S8). Half of homological
+algebra is bookkeeping for this one slogan.
+\end{eequation}
+
+\begin{nnote}[The same idea, all the way up to Langlands]
+Adjunctions are not special to commutative algebra; they are how mathematics expresses
+``free/forgetful'' and ``induction/restriction'' everywhere. In representation theory,
+induction and restriction of representations are adjoint (Frobenius reciprocity); in the
+\vocab{Langlands} program their analogues---parabolic induction and Jacquet
+restriction---are adjoint functors, and the geometric Langlands correspondence is, at bottom,
+an equivalence between two (derived) categories implemented by functors of exactly this kind.
+The language you are learning here is the same language those theories are written in.
+\end{nnote}
+
+\begin{xca}[\textbf{(easy)} the free module adjunction]
+Write out the natural bijection
+\[
+\Hom_{R\text{-}\cat{Mod}}\big(R^{(S)},M\big)\;\cong\;\Hom_{\cat{Set}}\big(S,U(M)\big)
+\]
+explicitly in both directions, and check it is natural in $M$. Conclude $R^{(-)}\dashv U$.
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} adjoint associativity]
+Construct natural maps in both directions between $\Hom_R(M\otimes_R N,P)$ and
+$\Hom_R(M,\Hom_R(N,P))$ and show they are mutually inverse. \emph{(You may take the
+generators-and-relations construction of $\otimes$ as known from \S7; the point is to see the
+adjunction concretely.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} right-exactness for free]
+Granting the theorem that left adjoints preserve cokernels, deduce that $-\otimes_R N$ is
+right exact: applying it to $M'\to M\to M''\to 0$ gives an exact
+$M'\otimes N\to M\otimes N\to M''\otimes N\to 0$. Where, precisely, did ``left adjoint'' do
+the work?
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} adjoints are essentially unique]
+Show that if $F$ has two right adjoints $G,G'$ then $G\cong G'$ naturally. \emph{(Hint: both
+represent the same functor $d\mapsto\Hom_{\cat{D}}(F(-),d)$; use the uniqueness theorem of
+\S2.2.)} Conclude that ``the'' tensor product and ``the'' localization are well-defined.
+\end{xca}
+
+\sources{Aluffi Ch.~I \S\S3--5 (categories, morphisms, universal properties; initial/final
+objects, products, coproducts) is the gentle, example-rich source for \S\S2.1--2.3; Ch.~VIII
+\S1 covers functors and natural transformations, and \S2 the tensor/$\Tor$ adjunction. A--K
+threads adjoints through the whole book---its Preface and \S\S6--9 are the place to watch
+``left adjoint $\Rightarrow$ right exact'' do real work. For category theory in its own
+right, S.\ Mac Lane, \emph{Categories for the Working Mathematician}, is the standard
+reference.}
+
+% ======================================================================
+\section{Rings, ideals, and the spectrum}
+% ======================================================================
+
+\noindent
+Now the geometry begins. We review rings, ideals, and quotients quickly---but with a modern
+slant---and then build the central object: the \vocab{prime spectrum} $\Spec R$, topologized
+by the \vocab{Zariski topology}. The conceptual leap, and the one worth slowing down for,
+is \emph{why the points are the prime ideals} (not just the maximal ones) and how the
+elements of $R$ act as functions on $\Spec R$. We make $\Spec$ into a contravariant functor
+so that algebra and geometry translate automatically, and we draw the first pictures.
+
+\subsection{Rings, homomorphisms, ideals, and quotients: a fast modern review}
+
+\subsection{Prime and maximal ideals, and why the primes are the points}
+
+\subsection{The Zariski spectrum and its topology}
+
+\subsection{Nilradical, Jacobson radical, and the radical of an ideal}
+
+\subsection{\texorpdfstring{$\Spec$}{Spec} as a contravariant functor: ring maps are space maps}
+
+\subsection{First pictures: the spectra of \texorpdfstring{$\ints$, $k[x]$, $k[x,y]$}{Z, k[x], k[x,y]}, and a fat point}
+
+\sources{A--M Ch.~1; A--K \S\S1--3 (Rings, Prime Ideals, Radicals); Aluffi Ch.~III \S\S1--4.}
+
+% ======================================================================
+\section{Modules: linear algebra over a ring}
+% ======================================================================
+
+\noindent
+A ring is best understood through the things it acts on, and those are its \vocab{modules}.
+Modules are ``vector spaces over a ring,'' and the slogan of the modern subject is that
+commutative algebra is the study of the category $R\text{-}\mathbf{Mod}$. Almost everything
+we already know is a module: ideals, quotients, abelian groups (= $\ints$-modules), vector
+spaces (= modules over a field). The one new phenomenon---and the source of the whole
+subject's richness---is that \emph{not every module is free}; measuring that failure is
+what occupies us for the rest of the notes. We introduce annihilators and support to begin
+seeing modules as objects spread out over $\Spec R$.
+
+\subsection{Modules and the category \texorpdfstring{$R\text{-}\mathbf{Mod}$}{R-Mod}: why everything is a module}
+
+\subsection{Submodules, quotients, \texorpdfstring{$\Hom$}{Hom}, and the operations on submodules}
+
+\subsection{Generators and relations; finitely generated and finitely presented modules}
+
+\subsection{Free modules, and the productive failure of ``every module is free''}
+
+\subsection{Annihilators and support: a first glimpse of modules as sheaves on \texorpdfstring{$\Spec R$}{Spec R}}
+
+\sources{A--M Ch.~2; A--K \S4 (Modules); Aluffi Ch.~III \S5 and Ch.~VI.}
+
+% ======================================================================
+\section{Exact sequences and the homological reflex}
+% ======================================================================
+
+\noindent
+Exact sequences are how modern algebra bookkeeps relationships between modules, and learning
+to read them fluently is half the battle. We cover short and long exact sequences, the
+\vocab{snake lemma} (the workhorse of every diagram chase), and---crucially---the idea that
+a functor's \emph{failure} to preserve exactness is information, not a nuisance. That single
+reframing is what turns $\Hom$ and $\otimes$ into the derived functors $\Ext$ and $\Tor$
+later, and it is the reflex that distinguishes the modern treatment from the classical one.
+
+\subsection{Kernels, cokernels, images; short and long exact sequences}
+
+\subsection{The snake lemma and the art of the diagram chase}
+
+\subsection{Extensions and splitting: what an exact sequence remembers}
+
+\subsection{Additive, left-exact, and right-exact functors as a measuring stick}
+
+\sources{A--M Ch.~2 (exact sequences); A--K \S5; Aluffi Ch.~VI \S7 and Ch.~VIII--IX.}
+
+% ======================================================================
+\section{Localization: zooming in on the spectrum}
+% ======================================================================
+
+\noindent
+Localization is the most important \emph{technique} in the subject, and intuition is the
+whole battle, so it gets room to breathe. Geometrically, inverting a set of elements means
+\emph{zooming in} on part of $\Spec R$; in particular, localizing at a prime $\mfp$ produces
+the \vocab{local ring} $R_\mfp$, which records exactly the behavior of $R$ near the point
+$\mfp$. We give both the universal property and the explicit fractions construction, say why
+they describe the same object, and then state the \vocab{local--global principle}: a great
+many properties hold for $R$ if and only if they hold at every prime. That principle is the
+engine that lets us prove global facts one point at a time.
+
+\subsection{The problem: studying a ring near a point, or inverting a set of elements}
+
+\subsection{The construction \texorpdfstring{$S^{-1}R$ and $S^{-1}M$}{S\^{}-1 R}, and its universal property}
+
+\subsection{The two cases that matter: a basic open \texorpdfstring{$R_f$}{R\_f} and a local ring \texorpdfstring{$R_\mfp$}{R\_p}}
+
+\subsection{Local rings, residue fields, and why ``local'' is the right word}
+
+\subsection{Localization is exact; the order-preserving correspondence of primes}
+
+\subsection{The local--global principle: prove it at every prime}
+
+\sources{A--M Ch.~3 (this is the heart of the book---read it twice); A--K \S\S11--13
+(Localization of Rings, of Modules, and Support).}
+
+% ======================================================================
+\section{Tensor products, base change, and flatness}
+% ======================================================================
+
+\noindent
+The tensor product is where the categorical language earns its keep. We give the universal
+property (the clean definition) \emph{and} the generators-and-relations construction (the
+one you compute with), and we say precisely why they are the same object. The key structural
+fact is \vocab{adjoint associativity}: $-\otimes_R N$ is left adjoint to $\Hom_R(N,-)$, from
+which right-exactness falls out for free. \vocab{Flatness}---the modules for which tensoring
+preserves exactness---is the algebraic shadow of ``continuously varying family,'' and it is
+one of the deepest geometric ideas in the subject. We close with Lazard's theorem, the
+modern characterization of flat as a filtered colimit of finite free modules.
+
+\subsection{Bilinear maps, the universal property, and the explicit construction (why they agree)}
+
+\subsection{Tensor as a functor; right-exactness from adjoint associativity}
+
+\subsection{Extension of scalars and base change; localization \emph{is} base change}
+
+\subsection{Flatness: the modules that preserve exactness, i.e.\ ``continuous families''}
+
+\subsection{Lazard's theorem: flat \texorpdfstring{$=$}{=} filtered colimit of finite free modules}
+
+\sources{A--M Ch.~2--3; A--K \S\S6--9 (Direct Limits, Filtered Direct Limits, Tensor
+Products, Flatness)---the most thoroughly modern treatment of the three; Aluffi Ch.~VIII \S2.}
+
+% ======================================================================
+\section{Derived functors: Tor and Ext}
+% ======================================================================
+
+\noindent
+Once we accept that $\otimes$ and $\Hom$ fail to be exact, the natural question is: by how
+much, and what does the failure measure? The answer is \vocab{homological algebra}. We build
+projective and injective resolutions, define \vocab{$\Tor$} (the derived functor of $\otimes$)
+and \vocab{$\Ext$} (the derived functor of $\Hom$), and read their meaning: $\Tor$ detects
+flatness and controls how subvarieties intersect, while $\Ext^1$ classifies extensions and
+is the home of obstructions. This is the toolkit behind depth, regular sequences, and the
+homological characterization of smoothness that reappears in the dimension theory below.
+
+\subsection{Projective and injective modules, and resolutions}
+
+\subsection{\texorpdfstring{$\Tor$}{Tor}: the homology of \texorpdfstring{$\otimes$}{tensor}, and what its vanishing means}
+
+\subsection{\texorpdfstring{$\Ext$}{Ext}: extensions, obstructions, and \texorpdfstring{$\Ext^1$}{Ext\^{}1} as a classifying group}
+
+\subsection{Homological algebra as the modern measure of ``how far from exact''}
+
+\sources{A--K (the flatness and Tor threads in \S9 and beyond); Aluffi Ch.~VIII \S\S2--6 and
+Ch.~IX (Homological algebra). For depth and the Auslander--Buchsbaum circle, see Eisenbud
+later.}
+
+% ======================================================================
+\section{Integral extensions and the geometry of finite maps}
+% ======================================================================
+
+\noindent
+Integral extensions are the algebraic side of \emph{finite maps} of spaces---think of a
+branched cover of curves. We develop integral elements, integral closure, and \vocab{normal}
+rings, then the three transfer theorems---\vocab{lying over}, \vocab{going up}, and
+\vocab{going down}---which say how primes (points) move under a finite map. \vocab{Noether
+normalization}, the statement that every finitely generated algebra over a field is finite
+over a polynomial subring, is both a structural cornerstone and the lever we use to prove the
+Nullstellensatz in the next section.
+
+\subsection{Integral elements, integral extensions, integral closure, and normal rings}
+
+\subsection{Lying over, going up, going down: how points move under a finite map}
+
+\subsection{Noether normalization: every affine algebra is finite over a polynomial ring}
+
+\subsection{Geometric meaning: finite surjections, branching, and normalization}
+
+\sources{A--M Ch.~5; A--K \S10 (Cayley--Hamilton---the slick route to integrality), \S14
+(Cohen--Seidenberg, i.e.\ going up/down), \S15 (Noether Normalization).}
+
+% ======================================================================
+\section{The Nullstellensatz: the dictionary made precise}
+% ======================================================================
+
+\noindent
+Here the algebra--geometry dictionary becomes a theorem. \vocab{Hilbert's
+Nullstellensatz} identifies the maximal ideals of $k[x_1,\dots,x_n]$ (for $k$ algebraically
+closed) with the points of affine space, and upgrades the loose correspondence ``ideals
+$\leftrightarrow$ vanishing sets'' into the precise statement $I(V(\mfa))=\sqrt{\mfa}$. The
+upshot is an honest equivalence between affine varieties and reduced finitely generated
+$k$-algebras---the prototype of the ring/space duality and the doorway to scheme theory.
+
+\subsection{Hilbert's Nullstellensatz, weak and strong}
+
+\subsection{The radical--variety correspondence \texorpdfstring{$\sqrt{\mfa}=I(V(\mfa))$}{sqrt(a)=I(V(a))}}
+
+\subsection{Coordinate rings and the equivalence varieties \texorpdfstring{$\simeq$}{\textasciitilde} reduced f.g.\ algebras}
+
+\subsection{Why this is the gateway from varieties to schemes}
+
+\sources{A--M Ch.~5 and Ch.~7; A--K \S15 (Noether Normalization gives the cleanest proof);
+field-theory background in Aluffi Ch.~VII.}
+
+% ======================================================================
+\section{Chain conditions: Noetherian rings and primary decomposition}
+% ======================================================================
+
+\noindent
+Almost every ring that arises in geometry or number theory satisfies the \vocab{ascending
+chain condition}---it is \vocab{Noetherian}---and \vocab{Hilbert's basis theorem} guarantees
+this is preserved by the constructions we care about. The structural payoff is
+\vocab{primary decomposition}, the ring-theoretic analogue of factoring an integer, which we
+present \emph{the modern way}: \vocab{associated primes} of a module from the very start
+(not, as in older books, extracted afterward from a decomposition). The associated primes,
+together with the support, encode the irreducible components and the embedded points of a
+scheme---geometry read straight off the algebra.
+
+\subsection{Noetherian and Artinian modules; the ascending chain condition}
+
+\subsection{Hilbert's basis theorem: why everything in sight is Noetherian}
+
+\subsection{Associated primes, defined from the start (the modern definition)}
+
+\subsection{Primary decomposition of modules and the uniqueness theorems}
+
+\subsection{\texorpdfstring{$\Ass$}{Ass}, \texorpdfstring{$\Supp$}{Supp}, and the geometry of components and embedded points}
+
+\sources{A--M Ch.~4 (primary decomposition), Ch.~6--7 (chain conditions, Noetherian rings);
+A--K \S\S16--18 (Chain Conditions, Associated Primes, Primary Decomposition)---note A--K puts
+associated primes \emph{first}, as is now standard.}
+
+% ======================================================================
+\section{Krull dimension: counting the directions a space can go}
+% ======================================================================
+
+\noindent
+How many independent directions does a space have? The algebraic answer is \vocab{Krull
+dimension}: the longest chain of prime ideals. The deep and satisfying theorem is that three
+\emph{a priori} different notions of dimension---chains of primes, the growth rate of the
+\vocab{Hilbert function}, and the minimal number of parameters cutting out a point---all
+agree for Noetherian local rings. \vocab{Krull's principal ideal theorem} pins down
+codimension one, and \vocab{regular local rings} give the first clean algebraic criterion for
+\emph{smoothness} versus singularity.
+
+\subsection{Krull dimension via chains of primes; height and codimension}
+
+\subsection{Hilbert functions, Hilbert polynomials, and dimension by growth}
+
+\subsection{Systems of parameters and the dimension theorem (the three notions agree)}
+
+\subsection{Krull's principal ideal theorem and codimension one}
+
+\subsection{Regular local rings: a first algebraic criterion for smoothness}
+
+\sources{A--M Ch.~11 (Dimension Theory); A--K \S\S19--21 (Length, Hilbert Functions,
+Dimension).}
+
+% ======================================================================
+\section{Completion: the local-analytic picture}
+% ======================================================================
+
+\noindent
+Localization zooms in to a point; \vocab{completion} goes one step further and records the
+\emph{infinitesimal, analytic} neighborhood of that point. Built as an inverse limit
+$\widehat{R}=\invlim R/I^{n}$, completion produces objects like the $p$-adic integers
+$\ints_p$ and the formal power series $k[[x]]$, where convergence is free and
+\vocab{Hensel's lemma} lets us lift approximate solutions to exact ones. Completion is a flat
+base change, so it imports the homological machinery intact, and the associated graded ring
+links it back to the Hilbert-function dimension theory just developed.
+
+\subsection{Filtrations, the \texorpdfstring{$I$}{I}-adic topology, and inverse limits}
+
+\subsection{Examples: \texorpdfstring{$\ints_p$, $k[[x]]$}{Z\_p, k[[x]]}, and formal neighborhoods}
+
+\subsection{Hensel's lemma and lifting solutions; why complete local rings are ``analytic''}
+
+\subsection{Completion as a flat base change; the associated graded ring}
+
+\sources{A--M Ch.~10 (Completions; graded rings and the Artin--Rees lemma); A--K \S22.}
+
+% ======================================================================
+\section{Dimension one: DVRs, Dedekind domains, fractional ideals}
+% ======================================================================
+
+\noindent
+The one-dimensional case is where commutative algebra pays its great debt to number theory.
+A \vocab{discrete valuation ring} is the algebra of a single smooth point or a single prime,
+and a \vocab{Dedekind domain} is a ring---like the ring of integers of a number field---in
+which \emph{ideals} factor uniquely even when \emph{elements} do not. \vocab{Fractional
+ideals} and the \vocab{ideal class group} measure precisely how badly unique factorization
+fails, turning the classical headache of $\ints[\sqrt{-5}]$ into a clean invariant. This is
+the concrete arithmetic payoff of the whole machine.
+
+\subsection{Discrete valuation rings: the algebra of one smooth prime}
+
+\subsection{Dedekind domains: unique factorization of ideals, not elements}
+
+\subsection{Fractional ideals and the ideal class group}
+
+\subsection{Rings of integers, \texorpdfstring{$\ints[\sqrt{-5}]$}{Z[sqrt(-5)]}, and the arithmetic payoff}
+
+\sources{A--M Ch.~9 (DVRs and Dedekind Domains); A--K \S\S23--26 (Discrete Valuation Rings,
+Dedekind Domains, Fractional Ideals, Arbitrary Valuation Rings).}
+
+% ======================================================================
+\section{Where this goes: schemes, sheaves, and the Langlands programs}
+% ======================================================================
+
+\noindent
+A short outlook on what the path opens onto, with no claim to completeness. Gluing the affine
+pieces $\Spec R$ along their localizations gives \vocab{schemes}; promoting modules to
+$\Spec R$ globally gives \vocab{quasi-coherent sheaves} and their cohomology---this is the
+launchpad for algebraic geometry proper. On the arithmetic side, viewing $\Spec\ints$ as a
+``curve'' and a ring of integers as a branched cover of it is the geometric heart of class
+field theory and, beyond it, the global, local, and geometric \vocab{Langlands programs},
+where every tool we built (localization, completion, Dedekind domains, $\Spec$) is load-bearing.
+
+\subsection{From \texorpdfstring{$\Spec$}{Spec} to schemes: gluing affines and the structure sheaf}
+
+\subsection{Quasi-coherent sheaves: modules globalized, and their cohomology}
+
+\subsection{The arithmetic horizon: number fields and \texorpdfstring{$\Spec\ints$}{Spec Z} as a curve}
+
+\subsection{A word on the Langlands programs (global, local, geometric) and where CA sits}
+
+\sources{Outlook only---see the ``what to read next'' list: Hartshorne and Vakil for schemes,
+Neukirch for the arithmetic, and the survey literature for Langlands.}
+
+% ======================================================================
+\section{End-of-path exercises}
+% ======================================================================
+
+\noindent
+A short, path-spanning set, meant to be attempted after a full read of the notes built on
+this skeleton. Difficulty tags as above; the ``thinkers'' deliberately push toward the
+references.
+
+\begin{xca}[\textbf{(easy)} reading the dictionary]
+For $R=k[x,y]/(xy)$, describe $\Spec R$ as a topological space, list its minimal primes, and
+explain---using only the radical---why $R$ is reduced but not a domain. Then say, in one
+sentence each, what ``reduced'' and ``not a domain'' mean \emph{geometrically}.
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} localization is base change]
+Let $S\subseteq R$ be multiplicative and $M$ an $R$-module. Construct a natural isomorphism
+$S^{-1}M \cong S^{-1}R \otimes_R M$ and use it, together with right-exactness of $\otimes$, to
+re-prove that localization is exact. Where, exactly, does flatness of $S^{-1}R$ enter?
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} the local--global reflex]
+Show that an $R$-module homomorphism $f\colon M\to N$ is injective (resp.\ surjective, resp.\
+an isomorphism) if and only if $f_\mfp\colon M_\mfp\to N_\mfp$ is for every prime $\mfp$. State
+carefully which direction needs $M$ or $N$ finitely generated, and give a one-line geometric
+gloss of what the statement says about sections over $\Spec R$.
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} dimension three ways, on one example]
+For the local ring $R=k[x,y]_{(x,y)}$, compute the Krull dimension by chains of primes, by
+the degree of the Hilbert--Samuel polynomial, and by exhibiting a system of parameters. Verify
+all three give $2$, and identify the maximal ideal's minimal number of generators to check
+that $R$ is regular.
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} where unique factorization goes]
+In $R=\ints[\sqrt{-5}]$, exhibit the failure of unique factorization on $6$, then \emph{repair}
+it: factor the ideal $(6)$ into prime ideals and identify the relevant ideal classes. Explain
+how the class group converts a defect of \emph{elements} into an invariant of the \emph{ring},
+and point to where Dedekind domains made this work. \emph{This is the gateway to algebraic
+number theory; aim to internalize the mechanism, not just the computation.}
+\end{xca}
+
+% ======================================================================
+\section*{References and a reading plan}
+\addcontentsline{toc}{section}{References and a reading plan}
+% ======================================================================
+
+\noindent
+These notes are written against three primary sources, listed here in the order I would reach
+for them. Together they \emph{are} a reading plan: A--M for the lean classical spine, A--K for
+the same material redone in fully modern categorical language, and Aluffi for the gentle,
+example-rich on-ramp to the categorical and module-theoretic ideas.
+\sloppy
+
+\medskip
+\noindent\textbf{Primary sources (the three this path is built on).}
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \textbf{M.\ F.\ Atiyah \& I.\ G.\ Macdonald}, \emph{Introduction to Commutative
+Algebra}. The standard concise reference; the entire subject in $130$ pages, with the famous
+exercises. Terse but never wrong---read it with pen in hand and fill the gaps yourself. Best
+for the lean logical spine (\S\S3--14 of this path).
+\item \textbf{A.\ Altman \& S.\ Kleiman}, \emph{A Term of Commutative Algebra} (freely
+available). A--M rewritten for the modern era: associated primes from the start, direct limits
+and adjoints front and center, every result tied to a universal property, and complete
+solutions to every exercise. The best single match for the ``modern, categorical'' framing of
+these notes (especially \S\S2, 6--8).
+\item \textbf{P.\ Aluffi}, \emph{Algebra: Chapter 0}. Categorical and unusually readable; the
+right place to learn universal properties, the module/linear-algebra perspective, and
+$\Tor$/$\Ext$ without prior homological algebra. Best for \S\S2, 4--5, 8.
+\end{itemize}
+
+\medskip
+\noindent\textbf{What to read next / books to own.}
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \textbf{D.\ Eisenbud}, \emph{Commutative Algebra with a View Toward Algebraic Geometry}.
+The big modern book: everything here, plus homological depth, regular sequences, and the
+geometry made explicit. The one to grow into.
+\item \textbf{H.\ Matsumura}, \emph{Commutative Ring Theory}. The standard advanced reference
+for dimension theory, completion, and excellent rings.
+\item \textbf{M.\ Reid}, \emph{Undergraduate Commutative Algebra}. A short, friendly,
+geometry-forward companion to read in parallel with A--M.
+\item \textbf{R.\ Hartshorne}, \emph{Algebraic Geometry} (Ch.~II) and \textbf{R.\ Vakil},
+\emph{The Rising Sea: Foundations of Algebraic Geometry} (\url{math.stanford.edu/~vakil/216blog/}).
+Where \S15 actually goes: schemes and quasi-coherent sheaves.
+\item \textbf{J.\ Neukirch}, \emph{Algebraic Number Theory}. The arithmetic continuation of
+\S14---Dedekind domains, ramification, and $\Spec\ints$ as a curve.
+\item \textbf{The Stacks Project} (\url{stacks.math.columbia.edu}). A complete, hyperlinked,
+ground-up development of commutative algebra and algebraic geometry; the modern reference of
+record.
+\end{itemize}
+
+\end{document}

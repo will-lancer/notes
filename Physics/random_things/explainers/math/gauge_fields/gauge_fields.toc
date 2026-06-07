@@ -9,32 +9,34 @@
 \contentsline {subsection}{\numberline {2.4}The Wilson line: transport made finite}{7}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Non-abelian gauge fields: Yang--Mills}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Fields in representations; the connection is Lie-algebra valued}{8}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Curvature and the Yang--Mills action}{9}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Wilson lines, holonomy, and path ordering}{9}{subsection.3.3}%
-\contentsline {section}{\numberline {4}The geometric definition: connections on principal bundles}{10}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Why the local picture is not enough: the Dirac monopole}{10}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Principal $G$-bundles}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Connections: the gauge field as a global object}{11}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Topology: characteristic classes, monopoles, instantons}{12}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Finite-group gauge fields: what is a $\mathbb {Z}_2$-gauge field?}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}A connection is a rule for parallel transport along paths}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The lattice definition: link variables}{14}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}The cohomological repackaging (why people say ``cocycle'')}{15}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Background gauge fields: probing a global symmetry}{16}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Coupling a global symmetry to a background}{17}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}The defining property: background gauge invariance}{17}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Backgrounds for finite symmetries: defect networks}{18}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Background vs.\ dynamical: the clean contrast}{19}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Gauging: making a symmetry local}{19}{section.7}%
-\contentsline {subsection}{\numberline {7.1}What gauging produces: new operators, new symmetries}{20}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Gauging a spacetime symmetry; subtleties}{21}{subsection.7.2}%
-\contentsline {section}{\numberline {8}'t Hooft anomalies and anomaly inflow}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Definition and the meaning of the phase}{21}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Anomaly inflow: the bulk SPT}{22}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}'t Hooft anomaly matching: the payoff}{23}{subsection.8.3}%
-\contentsline {section}{\numberline {9}The modern point of view, and a preview of generalized symmetries}{23}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Symmetries as topological operators}{24}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Higher-form symmetries}{24}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}The bridge to Seiberg-style QFT}{25}{subsection.9.3}%
-\contentsline {section}{\numberline {10}End-of-chapter exercises}{25}{section.10}%
-\contentsline {section}{References and a reading plan}{27}{section*.2}%
+\contentsline {subsection}{\numberline {3.2}Curvature and the Yang--Mills action}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Wilson lines, holonomy, and path ordering}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {4}The geometric definition: connections on principal bundles}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Why the local picture is not enough: the Dirac monopole}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Notation interlude: Lie-algebra-valued forms}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Principal $G$-bundles}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Associated bundles: where matter lives}{14}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Connections: the gauge field as a global object}{15}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Topology: characteristic classes, monopoles, instantons}{16}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Finite-group gauge fields: what is a $\mathbb {Z}_2$-gauge field?}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}A connection is a rule for parallel transport along paths}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The lattice definition: link variables}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}The cohomological repackaging (why people say ``cocycle'')}{19}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Background gauge fields: probing a global symmetry}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Coupling a global symmetry to a background}{21}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The defining property: background gauge invariance}{22}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Backgrounds for finite symmetries: defect networks}{24}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Background vs.\ dynamical: the clean contrast}{25}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Gauging: making a symmetry local}{25}{section.7}%
+\contentsline {subsection}{\numberline {7.1}What gauging produces: new operators, new symmetries}{26}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Gauging a spacetime symmetry; subtleties}{27}{subsection.7.2}%
+\contentsline {section}{\numberline {8}'t Hooft anomalies and anomaly inflow}{27}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Definition and the meaning of the phase}{27}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Anomaly inflow: the bulk SPT}{28}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}'t Hooft anomaly matching: the payoff}{29}{subsection.8.3}%
+\contentsline {section}{\numberline {9}The modern point of view, and a preview of generalized symmetries}{29}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Symmetries as topological operators}{30}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Higher-form symmetries}{30}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}The bridge to Seiberg-style QFT}{31}{subsection.9.3}%
+\contentsline {section}{\numberline {10}End-of-chapter exercises}{32}{section.10}%
+\contentsline {section}{References and a reading plan}{33}{section*.2}%
