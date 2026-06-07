@@ -53,8 +53,10 @@ Mirror the gauge-fields notes:
 2. **Main development**, in sections that build. Precise definitions, generous intuition,
    many examples, the "why this is the right definition" discussion, and connections.
 3. **Intra-text exercises** sprinkled throughout at a steady pace (see below).
-4. **End-of-chapter exercises** as a dedicated final section.
-5. **Annotated references** (see Sourcing).
+4. **Every section ends with two closing subsections** (see "Per-section closers"):
+   first **"Connections to further mathematics and physics,"** then **"Exercises."**
+5. **A short final "Capstone" section** of cross-cutting synthesis problems, followed by
+   **annotated references** (see Sourcing).
 
 ---
 
@@ -110,14 +112,49 @@ then computation.
 
 ---
 
+## Per-section closers (end *every* section with these two, in this order)
+
+Every section closes with two subsections, immediately before the next `\section`:
+
+**1. `\subsection{Connections to further mathematics and physics}`.** Forward-looking: tell
+the reader *how what they just learned will help them understand something later*. Hit three
+threads, briefly and concretely:
+
+- **Within these notes.** Which later sections build on this one, and how (e.g. "localization
+  in §6 reads this as zooming into an open set").
+- **In mathematics.** Where the idea leads in the wider subject — algebraic geometry (schemes,
+  sheaves), number theory (rings of integers, class field theory), the **Langlands programs**,
+  arithmetic geometry, etc.
+- **In physics.** The reader is a hep-th student — make this real, not decorative. Recurring
+  landings: $\Spec$ of the chiral ring $=$ the **moduli space of vacua** (branches $=$
+  irreducible components, singularities $=$ enhanced gauge symmetry); category theory $=$
+  **TQFT as a functor** and generalized/fusion-category symmetries; derived categories $=$
+  **D-branes** and homological mirror symmetry; **geometric Langlands** $=$ S-duality of
+  $\mathcal N=4$ super Yang–Mills; Gelfand duality and Connes's **noncommutative geometry**.
+
+Promote the single best connection (often the physics one) to a landmark box (`iidea`/`nnote`).
+Keep it honest and specific, cite real sources in footnotes, and keep it short — a few tight
+paragraphs plus one box. It is motivation, not a survey.
+
+**2. `\subsection{Exercises}`.** The curated end-of-section problem set (see below).
+
 ## Exercises
 
 - **Intra-text exercises**, steady pace, each tagged with difficulty:
   **(easy)**, **(classic)**, **(medium)**, **(thinker)**. Mix routine checks, the standard
   must-do problems, and a few that genuinely make the reader think. Offload "verify this is
   well-defined"-type gaps into exercises rather than skipping them silently.
-- **End-of-chapter exercises** in a dedicated final section; a few open-ended ones that
-  push toward the references are good.
+- **A per-section "Exercises" subsection** ends every section (after "Connections"). Stock it
+  with the **best, most interesting, and most instructive problems from Atiyah–Macdonald and
+  Altman–Kleiman** for that topic (and Aluffi Ch. I for the categorical sections). State each
+  cleanly in your own words, **grade it** with the tags, and **attribute it** inline — e.g.
+  *(A–M Ch. 1, Ex. 2)*, *(A–K 2.23)*. A one-line parenthetical tying the problem to a later
+  section is a plus. Favor the famous gems (units/nilpotents in $A[x]$, the zero-divisor
+  primes, Boolean rings / Stone duality, prime avoidance, Artin's algebraic closure, …) over
+  routine drills.
+- **One short final "Capstone" section** (`\section{Capstone: problems that cross sections}`)
+  holds a handful of *cross-cutting synthesis* problems spanning several sections — not a dump
+  of everything. A few open-ended "thinkers" pushing toward the references belong here.
 - Use the green `xca` environment (see LaTeX setup) so exercises stand out and are easy to
   find.
 
@@ -187,10 +224,13 @@ way the gauge-fields notes do.
 ## Quick workflow checklist
 
 1. Read `../gauge_fields/gauge_fields.tex` (the exemplar) and skim the `assets/` sources.
-2. Outline the sections (motivation → development → exercises → references).
+2. Outline the sections (motivation → development → connections → exercises; a short
+   cross-cutting capstone + references at the very end).
 3. Draft, obeying the non-negotiables: motivation, intuition, **many** examples, defined
    notation, no skipped steps, prose between boxes.
-4. Add graded intra-text exercises throughout + an end-of-chapter set.
+4. End **every** section with a **Connections to further mathematics and physics** subsection
+   and an **Exercises** subsection (curated and attributed from A–M/A–K); add graded intra-text
+   exercises throughout; keep a short cross-cutting **Capstone** set at the very end.
 5. Add inline footnote citations to the `assets/` sources; write the reference list.
 6. Compile to a clean PDF (0 errors / 0 overfull / no undefined refs); spot-check pages.
 7. **Second pass**: hunt for skipped steps, undefined notation, unmotivated definitions,

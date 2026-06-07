@@ -4,83 +4,113 @@
 \contentsline {subsection}{\numberline {1.2}The central dogma: rings are spaces, primes are points, functions are elements}{6}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}The three pillars of the modern view: modules, localization, categories}{8}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}If you remember one thing; and a map of the route ahead}{9}{subsection.1.4}%
-\contentsline {section}{\numberline {2}The categorical language, from scratch}{10}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Categories, functors, and natural transformations}{10}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Universal properties: characterizing an object by its maps}{13}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Limits, colimits, and the initial/terminal objects (why $\mathbb {Z}$ is special)}{15}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Adjoint functors: the single most important idea in the book}{16}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Rings, ideals, and the spectrum}{19}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Rings, homomorphisms, ideals, and quotients: a fast modern review}{19}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Prime and maximal ideals, and why the primes are the points}{19}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}The Zariski spectrum and its topology}{19}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Nilradical, Jacobson radical, and the radical of an ideal}{19}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}$\Spec $ as a contravariant functor: ring maps are space maps}{19}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}First pictures: the spectra of $\mathbb {Z}$, $k[x]$, $k[x,y]$, and a fat point}{19}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Modules: linear algebra over a ring}{19}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Modules and the category $R\text {-}\mathbf {Mod}$: why everything is a module}{20}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Submodules, quotients, $\Hom $, and the operations on submodules}{20}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Generators and relations; finitely generated and finitely presented modules}{20}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Free modules, and the productive failure of ``every module is free''}{20}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Annihilators and support: a first glimpse of modules as sheaves on $\Spec R$}{20}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Exact sequences and the homological reflex}{20}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Kernels, cokernels, images; short and long exact sequences}{20}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The snake lemma and the art of the diagram chase}{20}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Extensions and splitting: what an exact sequence remembers}{20}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Additive, left-exact, and right-exact functors as a measuring stick}{20}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Localization: zooming in on the spectrum}{20}{section.6}%
-\contentsline {subsection}{\numberline {6.1}The problem: studying a ring near a point, or inverting a set of elements}{21}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}The construction $S^{-1}R$ and $S^{-1}M$, and its universal property}{21}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}The two cases that matter: a basic open $R_f$ and a local ring $R_\mathfrak {p}$}{21}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Local rings, residue fields, and why ``local'' is the right word}{21}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Localization is exact; the order-preserving correspondence of primes}{21}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}The local--global principle: prove it at every prime}{21}{subsection.6.6}%
-\contentsline {section}{\numberline {7}Tensor products, base change, and flatness}{21}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Bilinear maps, the universal property, and the explicit construction (why they agree)}{21}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Tensor as a functor; right-exactness from adjoint associativity}{21}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Extension of scalars and base change; localization \emph {is} base change}{21}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Flatness: the modules that preserve exactness, i.e.\ ``continuous families''}{21}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Lazard's theorem: flat $=$ filtered colimit of finite free modules}{21}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Derived functors: Tor and Ext}{21}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Projective and injective modules, and resolutions}{22}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}$\Tor $: the homology of $\otimes $, and what its vanishing means}{22}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}$\Ext $: extensions, obstructions, and $\Ext ^1$ as a classifying group}{22}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Homological algebra as the modern measure of ``how far from exact''}{22}{subsection.8.4}%
-\contentsline {section}{\numberline {9}Integral extensions and the geometry of finite maps}{22}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Integral elements, integral extensions, integral closure, and normal rings}{22}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Lying over, going up, going down: how points move under a finite map}{22}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Noether normalization: every affine algebra is finite over a polynomial ring}{22}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Geometric meaning: finite surjections, branching, and normalization}{22}{subsection.9.4}%
-\contentsline {section}{\numberline {10}The Nullstellensatz: the dictionary made precise}{22}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Hilbert's Nullstellensatz, weak and strong}{22}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}The radical--variety correspondence $\sqrt {\mathfrak {a}}=I(V(\mathfrak {a}))$}{22}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Coordinate rings and the equivalence varieties $\simeq $ reduced f.g.\ algebras}{22}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}Why this is the gateway from varieties to schemes}{22}{subsection.10.4}%
-\contentsline {section}{\numberline {11}Chain conditions: Noetherian rings and primary decomposition}{23}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Noetherian and Artinian modules; the ascending chain condition}{23}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Hilbert's basis theorem: why everything in sight is Noetherian}{23}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Associated primes, defined from the start (the modern definition)}{23}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Primary decomposition of modules and the uniqueness theorems}{23}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}$\Ass $, $\Supp $, and the geometry of components and embedded points}{23}{subsection.11.5}%
-\contentsline {section}{\numberline {12}Krull dimension: counting the directions a space can go}{23}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Krull dimension via chains of primes; height and codimension}{23}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Hilbert functions, Hilbert polynomials, and dimension by growth}{23}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Systems of parameters and the dimension theorem (the three notions agree)}{23}{subsection.12.3}%
-\contentsline {subsection}{\numberline {12.4}Krull's principal ideal theorem and codimension one}{23}{subsection.12.4}%
-\contentsline {subsection}{\numberline {12.5}Regular local rings: a first algebraic criterion for smoothness}{23}{subsection.12.5}%
-\contentsline {section}{\numberline {13}Completion: the local-analytic picture}{23}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Filtrations, the $I$-adic topology, and inverse limits}{24}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Examples: $\mathbb {Z}_p$, $k[[x]]$, and formal neighborhoods}{24}{subsection.13.2}%
-\contentsline {subsection}{\numberline {13.3}Hensel's lemma and lifting solutions; why complete local rings are ``analytic''}{24}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}Completion as a flat base change; the associated graded ring}{24}{subsection.13.4}%
-\contentsline {section}{\numberline {14}Dimension one: DVRs, Dedekind domains, fractional ideals}{24}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Discrete valuation rings: the algebra of one smooth prime}{24}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Dedekind domains: unique factorization of ideals, not elements}{24}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Fractional ideals and the ideal class group}{24}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}Rings of integers, $\mathbb {Z}[\sqrt {-5}]$, and the arithmetic payoff}{24}{subsection.14.4}%
-\contentsline {section}{\numberline {15}Where this goes: schemes, sheaves, and the Langlands programs}{24}{section.15}%
-\contentsline {subsection}{\numberline {15.1}From $\Spec $ to schemes: gluing affines and the structure sheaf}{25}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Quasi-coherent sheaves: modules globalized, and their cohomology}{25}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}The arithmetic horizon: number fields and $\Spec \mathbb {Z}$ as a curve}{25}{subsection.15.3}%
-\contentsline {subsection}{\numberline {15.4}A word on the Langlands programs (global, local, geometric) and where CA sits}{25}{subsection.15.4}%
-\contentsline {section}{\numberline {16}End-of-path exercises}{25}{section.16}%
-\contentsline {section}{References and a reading plan}{26}{section*.2}%
+\contentsline {subsection}{\numberline {1.5}Connections to further mathematics and physics}{10}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Exercises}{11}{subsection.1.6}%
+\contentsline {section}{\numberline {2}The categorical language, from scratch}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Categories, functors, and natural transformations}{12}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Universal properties: characterizing an object by its maps}{14}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Limits, colimits, and the initial/terminal objects (why $\mathbb {Z}$ is special)}{17}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Adjoint functors: the single most important idea in the book}{18}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Connections to further mathematics and physics}{20}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Exercises}{21}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Rings, ideals, and the spectrum}{22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Rings, homomorphisms, ideals, and quotients: a fast modern review}{22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Prime and maximal ideals, and why the primes are the points}{23}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}The Zariski spectrum and its topology}{26}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Nilradical, Jacobson radical, and the radical of an ideal}{27}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}$\Spec $ as a contravariant functor: ring maps are space maps}{29}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}First pictures: the spectra of $\mathbb {Z}$, $k[x]$, $k[x,y]$, and a fat point}{30}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Connections to further mathematics and physics}{32}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Exercises}{33}{subsection.3.8}%
+\contentsline {section}{\numberline {4}Modules: linear algebra over a ring}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Modules and the category $R\text {-}\mathbf {Mod}$: why everything is a module}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Submodules, quotients, $\Hom $, and the operations on submodules}{34}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Generators and relations; finitely generated and finitely presented modules}{34}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Free modules, and the productive failure of ``every module is free''}{34}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Annihilators and support: a first glimpse of modules as sheaves on $\Spec R$}{34}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Connections to further mathematics and physics}{34}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Exercises}{34}{subsection.4.7}%
+\contentsline {section}{\numberline {5}Exact sequences and the homological reflex}{34}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Kernels, cokernels, images; short and long exact sequences}{35}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}The snake lemma and the art of the diagram chase}{35}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Extensions and splitting: what an exact sequence remembers}{35}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Additive, left-exact, and right-exact functors as a measuring stick}{35}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Connections to further mathematics and physics}{35}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Exercises}{35}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Localization: zooming in on the spectrum}{35}{section.6}%
+\contentsline {subsection}{\numberline {6.1}The problem: studying a ring near a point, or inverting a set of elements}{35}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The construction $S^{-1}R$ and $S^{-1}M$, and its universal property}{35}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}The two cases that matter: a basic open $R_f$ and a local ring $R_\mathfrak {p}$}{35}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Local rings, residue fields, and why ``local'' is the right word}{35}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Localization is exact; the order-preserving correspondence of primes}{35}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}The local--global principle: prove it at every prime}{35}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Connections to further mathematics and physics}{35}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Exercises}{35}{subsection.6.8}%
+\contentsline {section}{\numberline {7}Tensor products, base change, and flatness}{35}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Bilinear maps, the universal property, and the explicit construction (why they agree)}{36}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Tensor as a functor; right-exactness from adjoint associativity}{36}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Extension of scalars and base change; localization \emph {is} base change}{36}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Flatness: the modules that preserve exactness, i.e.\ ``continuous families''}{36}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Lazard's theorem: flat $=$ filtered colimit of finite free modules}{36}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Connections to further mathematics and physics}{36}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Exercises}{36}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Derived functors: Tor and Ext}{36}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Projective and injective modules, and resolutions}{36}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}$\Tor $: the homology of $\otimes $, and what its vanishing means}{36}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}$\Ext $: extensions, obstructions, and $\Ext ^1$ as a classifying group}{36}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Homological algebra as the modern measure of ``how far from exact''}{36}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Connections to further mathematics and physics}{36}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Exercises}{36}{subsection.8.6}%
+\contentsline {section}{\numberline {9}Integral extensions and the geometry of finite maps}{36}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Integral elements, integral extensions, integral closure, and normal rings}{37}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Lying over, going up, going down: how points move under a finite map}{37}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Noether normalization: every affine algebra is finite over a polynomial ring}{37}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Geometric meaning: finite surjections, branching, and normalization}{37}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Connections to further mathematics and physics}{37}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Exercises}{37}{subsection.9.6}%
+\contentsline {section}{\numberline {10}The Nullstellensatz: the dictionary made precise}{37}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Hilbert's Nullstellensatz, weak and strong}{37}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}The radical--variety correspondence $\sqrt {\mathfrak {a}}=I(V(\mathfrak {a}))$}{37}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Coordinate rings and the equivalence varieties $\simeq $ reduced f.g.\ algebras}{37}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Why this is the gateway from varieties to schemes}{37}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Connections to further mathematics and physics}{37}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Exercises}{37}{subsection.10.6}%
+\contentsline {section}{\numberline {11}Chain conditions: Noetherian rings and primary decomposition}{37}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Noetherian and Artinian modules; the ascending chain condition}{38}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Hilbert's basis theorem: why everything in sight is Noetherian}{38}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Associated primes, defined from the start (the modern definition)}{38}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Primary decomposition of modules and the uniqueness theorems}{38}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}$\Ass $, $\Supp $, and the geometry of components and embedded points}{38}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Connections to further mathematics and physics}{38}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}Exercises}{38}{subsection.11.7}%
+\contentsline {section}{\numberline {12}Krull dimension: counting the directions a space can go}{38}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Krull dimension via chains of primes; height and codimension}{38}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Hilbert functions, Hilbert polynomials, and dimension by growth}{38}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Systems of parameters and the dimension theorem (the three notions agree)}{38}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Krull's principal ideal theorem and codimension one}{38}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Regular local rings: a first algebraic criterion for smoothness}{38}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Connections to further mathematics and physics}{38}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}Exercises}{38}{subsection.12.7}%
+\contentsline {section}{\numberline {13}Completion: the local-analytic picture}{38}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Filtrations, the $I$-adic topology, and inverse limits}{39}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Examples: $\mathbb {Z}_p$, $k[[x]]$, and formal neighborhoods}{39}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Hensel's lemma and lifting solutions; why complete local rings are ``analytic''}{39}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Completion as a flat base change; the associated graded ring}{39}{subsection.13.4}%
+\contentsline {subsection}{\numberline {13.5}Connections to further mathematics and physics}{39}{subsection.13.5}%
+\contentsline {subsection}{\numberline {13.6}Exercises}{39}{subsection.13.6}%
+\contentsline {section}{\numberline {14}Dimension one: DVRs, Dedekind domains, fractional ideals}{39}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Discrete valuation rings: the algebra of one smooth prime}{39}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Dedekind domains: unique factorization of ideals, not elements}{39}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Fractional ideals and the ideal class group}{39}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Rings of integers, $\mathbb {Z}[\sqrt {-5}]$, and the arithmetic payoff}{39}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}Connections to further mathematics and physics}{39}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Exercises}{39}{subsection.14.6}%
+\contentsline {section}{\numberline {15}Where this goes: schemes, sheaves, and the Langlands programs}{39}{section.15}%
+\contentsline {subsection}{\numberline {15.1}From $\Spec $ to schemes: gluing affines and the structure sheaf}{40}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Quasi-coherent sheaves: modules globalized, and their cohomology}{40}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}The arithmetic horizon: number fields and $\Spec \mathbb {Z}$ as a curve}{40}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}A word on the Langlands programs (global, local, geometric) and where CA sits}{40}{subsection.15.4}%
+\contentsline {subsection}{\numberline {15.5}Connections to further mathematics and physics}{40}{subsection.15.5}%
+\contentsline {subsection}{\numberline {15.6}Exercises}{40}{subsection.15.6}%
+\contentsline {section}{\numberline {16}Capstone: problems that cross sections}{40}{section.16}%
+\contentsline {section}{References and a reading plan}{41}{section*.2}%

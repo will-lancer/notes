@@ -5,6 +5,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{william}
+\usepackage{tikz}
 
 % page formatting
 \usepackage{fancyhdr}
@@ -41,6 +42,7 @@
 \newcommand{\mfm}{\mathfrak{m}}
 \newcommand{\mfq}{\mathfrak{q}}
 \newcommand{\mfa}{\mathfrak{a}}
+\newcommand{\mfb}{\mathfrak{b}}
 \newcommand{\mfn}{\mathfrak{n}}
 \newcommand{\dirlim}{\varinjlim}
 \newcommand{\invlim}{\varprojlim}
@@ -433,6 +435,89 @@ dimension theory are the start of the geometry of singularities and \vocab{geome
 Langlands}. We will flag these connections as the relevant tools come online---the present
 notes are, among other things, the commutative-algebra prerequisite for all of it.
 \end{nnote}
+
+\subsection{Connections to further mathematics and physics}
+
+What you take from this section---\emph{a ring is the functions on a space, and primes are its
+points}---is not a slogan you will outgrow; it is the organizing principle of several entire
+fields. Here is where it goes.
+
+\emph{Within these notes.} Every later section sharpens one corner of the dictionary: \S3 makes
+$\Spec R$ and its topology precise; \S4 reinterprets modules as ``vector bundles'' over
+$\Spec R$; \S6 reads localization as zooming into an open set; \S\S9--10 turn ring extensions
+into maps of spaces and prove the Nullstellensatz; \S12 measures the dimension we already
+glimpsed in the chains of primes. Keep the picture of \S1 in view and the rest is commentary.
+
+\emph{In mathematics.} Gluing affine pieces $\Spec R$ produces \vocab{schemes} (Grothendieck),
+the objects of modern algebraic geometry (\S15). On the arithmetic side, the \S1.1
+function-field analogy---number fields behaving like curves over $\mathbb{F}_q$---is an engine
+of the Weil conjectures and the Langlands program; $\Spec\ints$ resembles a curve so closely
+that there is a developed dictionary, \vocab{arithmetic topology}, in which prime ideals play
+the role of \emph{knots} and $\Spec\ints$ the role of a $3$-manifold.\footnote{B.~Mazur,
+\emph{Remarks on the Alexander polynomial}; M.~Morishita, \emph{Knots and Primes}. Splitting of
+a prime mirrors the linking of knots.}
+
+\emph{In physics.} The same duality---``a space is its commutative algebra of functions''---is
+exactly \vocab{Gelfand duality} (commutative $C^\ast$-algebras $\leftrightarrow$ compact
+Hausdorff spaces), which lets you recover a classical phase space from its algebra of
+observables; dropping commutativity is the starting point of Connes's \vocab{noncommutative
+geometry}. Most strikingly for a field theorist:
+
+\begin{iidea}[$\Spec$ of the chiral ring $=$ the moduli space of vacua]
+In a supersymmetric gauge theory the \vocab{chiral operators} form a \emph{commutative} ring
+(the chiral ring), and the space of supersymmetric vacua is precisely its spectrum: the
+$F$-term equations cut out an ideal, gauge invariance imposes the quotient, and what remains is
+$\Spec$ of the resulting ring. The geometry you are learning is then physics---
+\emph{irreducible components} are the distinct \emph{branches} of vacua (Coulomb, Higgs,
+\dots), the \emph{singular points} where they meet are where extra states become massless, and
+the crossing lines $\Spec k[x,y]/(xy)$ are the cartoon of two branches touching.\footnote{See
+e.g.\ P.~Argyres's lectures on the moduli space of vacua; for D-branes probing $\Spec R$ and
+the emergence of (noncommutative) geometry from gauge theory, Douglas--Moore and the
+quiver-gauge-theory literature.}
+\end{iidea}
+
+\noindent
+D-branes make this literal: a brane probing spacetime sees the transverse geometry as the
+spectrum of its worldvolume chiral ring, and a stack of $N$ branes promotes that ring to
+\emph{matrices}, commutative geometry deforming into the noncommutative geometry of coincident
+branes. The one idea of \S1 thus reaches from prime numbers to the vacua of quantum field
+theories.
+
+\subsection{Exercises}
+
+\noindent
+A first set, from the classic lists of Atiyah--Macdonald and Altman--Kleiman. These reward the
+big-picture viewpoint; do them with the dictionary of \S1 in mind.
+
+\begin{xca}[\textbf{(easy)} nilpotents and units \textnormal{(A--M Ch.~1, Ex.~1)}]
+Let $x$ be nilpotent in a ring $R$. Show $1+x$ is a unit (sum a finite geometric series), and
+deduce that \emph{unit $+$ nilpotent $=$ unit}. \emph{(Geometrically, a function nonzero
+everywhere stays nonzero under an infinitesimal nudge; this fact powers Nakayama's lemma in
+\S4.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} the one-point spectrum \textnormal{(A--M Ch.~1, Ex.~10)}]
+Prove the equivalence, for a ring $R$, of: (i) $R$ has exactly one prime ideal; (ii) every
+element is a unit or nilpotent; (iii) $R$ modulo its nilpotent elements is a field. \emph{(These
+are the rings whose $\Spec$ is a single fat point---e.g.\ $k[x]/(x^n)$.)}
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} the function-field analogy by hand]
+Show $\ints$ and $k[x]$ are PIDs in which every nonzero element lies in only finitely many
+maximal ideals. For $k=\mathbb{F}_q$, compute $|k[x]/(f)|$ for $f$ irreducible of degree $d$ and
+compare with $|\ints/(p)|=p$. Conclude that $\mathbb{F}_q[x]$, not $\mathbb{C}[x]$, is the true
+arithmetic twin of $\ints$---the residue fields are finite on both sides---as promised in
+\S1.1.
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} Artin builds an algebraic closure \textnormal{(A--M Ch.~1, Ex.~13)}]
+Let $K$ be a field and form $A=K[\,x_f : f \text{ monic irreducible over } K\,]$, one variable
+per $f$. Let $\mfa=(\,f(x_f)\,)_f$. Show $\mfa\neq(1)$, so (by the existence theorem of \S3.2) it
+lies in a maximal ideal $\mfm$; then $K_1=A/\mfm$ is an extension of $K$ in which \emph{every}
+$f$ acquires a root. Iterate and take a union to build $\bar K$. \emph{(Marvel at what happened:
+a single maximal ideal manufactured roots for all polynomials at once---the abstract viewpoint
+doing thoroughly concrete work.)}
+\end{xca}
 
 \sources{A--M, Introduction and Ch.~1 (prime and maximal ideals, the nilradical, local
 rings); A--K, Preface (the categorical/adjoint thesis) and \S\S1--3; Aluffi, the prefaces to
@@ -893,6 +978,88 @@ represent the same functor $d\mapsto\Hom_{\cat{D}}(F(-),d)$; use the uniqueness 
 \S2.2.)} Conclude that ``the'' tensor product and ``the'' localization are well-defined.
 \end{xca}
 
+\subsection{Connections to further mathematics and physics}
+
+The categorical vocabulary of this section is the lingua franca of modern mathematics and of a
+surprising amount of modern physics; here is a map of where it carries you.
+
+\emph{Within these notes and mathematics.} Universal properties will \emph{define} every
+construction we build---tensor products, localizations, completions---and adjointness will
+predict their exactness for free (\S\S5--8). One level up, repairing the failure of functors to
+be exact is \vocab{homological algebra}, which lives most naturally in \vocab{derived} and
+\vocab{triangulated categories}; the functor-of-points idea (\S2.2) is the gateway to
+\vocab{moduli spaces} and \vocab{stacks}; and sheaves and topoi rebuild geometry on categorical
+foundations. Learning to think in arrows now pays compound interest.
+
+\emph{In physics.} Category theory is not ornamental in modern theoretical physics---in several
+places it \emph{is} the definition.
+
+\begin{iidea}[A TQFT is a functor]
+The Atiyah--Segal axioms \emph{define} a topological quantum field theory as a symmetric
+monoidal functor $Z\colon\cat{Bord}_n\to\cat{Vect}$ from a cobordism category (manifolds as
+objects, the spacetimes between them as morphisms) to vector spaces: gluing spacetimes is
+composing morphisms, and the partition function is what the functor does to a closed manifold.
+The whole modern theory of \vocab{generalized symmetries}---symmetry operators as topological
+defects that \emph{fuse}, forming a (higher) \vocab{fusion category}---is this categorical
+language taken seriously, and it is exactly where your gauge-theory notes were
+heading.\footnote{M.~Atiyah, \emph{Topological quantum field theories} (1988); J.~Lurie's
+cobordism-hypothesis classification of fully extended TQFTs via higher categories; and the
+generalized-symmetries literature following Gaiotto--Kapustin--Seiberg--Willett.}
+\end{iidea}
+
+\noindent
+\emph{Adjunctions and equivalences are dualities.} Many physical dualities are, precisely,
+equivalences of categories. The \vocab{derived category} of coherent sheaves
+$D^b(\mathrm{Coh}\,X)$ is the category of B-type D-branes, and Kontsevich's \vocab{homological
+mirror symmetry} posits an equivalence between it and the Fukaya category of the mirror---mirror
+symmetry \emph{is} a categorical equivalence. And Kapustin--Witten realize the \vocab{geometric
+Langlands} correspondence as the statement that two categories attached to a Riemann surface,
+built from $S$-dual $\mathcal{N}=4$ super Yang--Mills theories, are equivalent. The functors and
+adjoints of \S2 are the grammar in which these dualities are written.
+
+\subsection{Exercises}
+
+\noindent
+In Atiyah--Macdonald and Altman--Kleiman the categorical exercises live inside the later
+chapters where the constructions appear (tensor, localization, limits)---we mine those in
+\S\S4--7. For the pure categorical content here we follow Aluffi's Chapter~I; the last two
+problems preview the adjunctions A--K builds on.
+
+\begin{xca}[\textbf{(easy)} initial and terminal, everywhere]
+Identify the initial and terminal objects (when they exist) in $\cat{Set}$, $\cat{Grp}$,
+$\cat{Ring}$, $R\text{-}\cat{Mod}$, and the category of a poset $P$. Where is there a zero
+object? \emph{(Recall $\ints$ is initial in $\cat{Ring}$; what does that say about
+$\Spec\ints$?)}
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} an epimorphism that is not surjective \textnormal{(Aluffi Ch.~I)}]
+Show the inclusion $\ints\hookrightarrow\mathbb{Q}$ is an \emph{epimorphism} in $\cat{Ring}$:
+any two ring maps $\mathbb{Q}\to S$ that agree on $\ints$ are equal. Conclude that
+``epimorphism'' and ``surjection'' genuinely diverge---an early lesson that categories see
+arrows, not elements.
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} the coproduct of rings is the tensor product]
+Granting the construction of $R\otimes_\ints S$ (\S7), show that with the maps
+$r\mapsto r\otimes 1$ and $s\mapsto 1\otimes s$ it satisfies the universal property of the
+\emph{coproduct} in $\cat{Ring}$: a pair of maps $R\to T$, $S\to T$ corresponds to a unique map
+$R\otimes_\ints S\to T$. \emph{(Geometrically this is the product of spaces
+$\Spec R\times_{\Spec\ints}\Spec S$---product of spaces $=$ tensor product of rings.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} free $\dashv$ forgetful for rings]
+Let $U\colon\cat{Ring}\to\cat{Set}$ be the forgetful functor. Show its left adjoint sends a set
+$S$ to the polynomial ring $\ints[S]$: that is, $\Hom_{\cat{Ring}}(\ints[S],T)\cong
+\Hom_{\cat{Set}}(S,U(T))$ naturally. Which universal property of \S2.2 is this?
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} Yoneda in miniature]
+Show that if two objects $X,Y$ of a category represent the same functor---$\Hom(X,-)\cong
+\Hom(Y,-)$ naturally---then $X\cong Y$ by a canonical isomorphism. \emph{(This is the precise
+sense in which an object is determined by the maps out of it: the principle behind every
+universal property, and behind the proof in \S2.4 that left adjoints preserve colimits.)}
+\end{xca}
+
 \sources{Aluffi Ch.~I \S\S3--5 (categories, morphisms, universal properties; initial/final
 objects, products, coproducts) is the gentle, example-rich source for \S\S2.1--2.3; Ch.~VIII
 \S1 covers functors and natural transformations, and \S2 the tensor/$\Tor$ adjunction. A--K
@@ -915,17 +1082,654 @@ so that algebra and geometry translate automatically, and we draw the first pict
 
 \subsection{Rings, homomorphisms, ideals, and quotients: a fast modern review}
 
+This material you have met before, so we move quickly---but with the geometric reading turned
+on, because that reading is the point. Throughout, \vocab{ring} means \emph{commutative ring
+with $1$}, and a \vocab{ring homomorphism} preserves $1$ (so that $\ints$ stays initial, \S2).
+
+\begin{ddefinition}[Ideal, quotient ring]
+An \vocab{ideal} $I\subseteq R$ is an additive subgroup that absorbs multiplication:
+$r\in R,\ a\in I \Rightarrow ra\in I$. The \vocab{quotient ring} $R/I$ has elements the cosets
+$r+I$ with the inherited operations, and comes with the quotient map $\pi\colon R\to R/I$.
+\end{ddefinition}
+
+Why single out ideals among all subsets? Because \emph{ideals are exactly the kernels of ring
+homomorphisms}---the subsets you can quotient by. If $\varphi\colon R\to S$ is a homomorphism
+then $\ker\varphi=\varphi^{-1}(0)$ is an ideal, and conversely every ideal $I$ is
+$\ker(\pi\colon R\to R/I)$. So the slogan ``ideal $=$ kernel $=$ quotient'' is a chain of
+synonyms, and geometrically (recall \S1) a quotient $R\to R/I$ will be the restriction of
+functions to the closed subspace cut out by ``$I=0$.'' Ideals are how we impose equations.
+
+There are a handful of standard \emph{operations} on ideals, each with a geometric meaning
+expressed through the \vocab{vanishing locus} $V(I)\defeq\{\mfp\in\Spec R: I\subseteq\mfp\}$---the
+set of points where every element of $I$ vanishes (we topologize it in \S3.3). Given ideals
+$I,J$:
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item the \vocab{sum} $I+J=\{a+b: a\in I,\ b\in J\}$, the smallest ideal containing both
+(geometrically: imposing \emph{both} sets of equations, so $V(I+J)=V(I)\cap V(J)$);
+\item the \vocab{product} $IJ=\big(\{ab:a\in I,\ b\in J\}\big)$, the ideal generated by products;
+\item the \vocab{intersection} $I\cap J$;
+\item the ideal $(E)$ \vocab{generated} by a subset $E\subseteq R$, the smallest ideal
+containing $E$ (all finite $R$-combinations of elements of $E$).
+\end{itemize}
+We always have $IJ\subseteq I\cap J$. The single most useful structural fact is the
+correspondence between a quotient and the part of $R$ above $I$.
+
+\begin{pproposition}[Correspondence theorem]
+The map $\bar J\mapsto \pi^{-1}(\bar J)$ is an inclusion-preserving bijection
+\[
+\{\text{ideals of } R/I\}\ \xrightarrow{\ \sim\ }\ \{\text{ideals of } R \text{ that contain } I\},
+\]
+and it respects sums, intersections, products, primeness, and maximality.
+\end{pproposition}
+
+\begin{proof}
+The quotient map $\pi$ is surjective, so $\bar J\mapsto\pi^{-1}(\bar J)$ and
+$K\mapsto \pi(K)=K/I$ are mutually inverse on the displayed sets (an ideal of $R$ pulls back
+from $R/I$ iff it contains $I=\ker\pi$). Both maps preserve inclusions, and the listed
+operations are preserved because $\pi$ is a surjective homomorphism. The clauses about prime
+and maximal ideals (defined in \S3.2) follow from the third isomorphism theorem: for
+$J\supseteq I$ one has $R/J\cong (R/I)\big/(J/I)$, so $J$ is prime (resp.\ maximal) in $R$
+exactly when $J/I$ is prime (resp.\ maximal) in $R/I$.
+\end{proof}
+
+Read geometrically, the correspondence theorem says: \emph{the closed subspace $V(I)$ has its
+own geometry, and that geometry is the part of $R$'s geometry lying over $I$.} Passing to
+$R/I$ throws away everything off $V(I)$ and keeps exactly what sits on it.
+
+\begin{eexample}[The ideals you already know]
+In $\ints$ every ideal is $(n)$ for a unique $n\ge 0$ (it is a \vocab{principal ideal
+domain}, PID). In $k[x]$ every ideal is $(f)$ (also a PID, by division with remainder). In
+$k[x,y]$ \emph{not} every ideal is principal: $(x,y)$---polynomials with zero constant
+term---needs two generators, which is the algebra of the fact that a point of the plane is
+cut out by two equations. In the zero ring $0$ (where $1=0$) the only ideal is everything;
+its $\Spec$ will be empty.
+\end{eexample}
+
+\begin{xca}[\textbf{(easy)} the correspondence in action]
+List all ideals of $\ints/12\ints$ using the correspondence theorem, and match each to an
+ideal of $\ints$ containing $(12)$. Which are prime? (You will be able to answer the last
+part after \S3.2; guess now and check later.)
+\end{xca}
+
 \subsection{Prime and maximal ideals, and why the primes are the points}
+
+This is the conceptual hinge of the whole subject, so we go slowly. We already decided in \S1
+that the points of $\Spec R$ should be the prime ideals; now we define them carefully, gather
+many examples, and earn the slogan.
+
+\begin{ddefinition}[Prime and maximal ideals]
+An ideal $\mfp\subsetneq R$ is \vocab{prime} if $ab\in\mfp\Rightarrow a\in\mfp$ or $b\in\mfp$.
+An ideal $\mfm\subsetneq R$ is \vocab{maximal} if no ideal lies strictly between $\mfm$ and
+$R$. (In both, the condition $\subsetneq R$, i.e.\ $1\notin\mfp$, excludes the whole ring.)
+\end{ddefinition}
+
+The definitions look unrelated until you pass to quotients, where they become transparent.
+
+\begin{pproposition}[Primes and maximals via quotients]
+For an ideal $I\subsetneq R$:
+\[
+I \text{ is prime}\iff R/I \text{ is an integral domain};\qquad
+I \text{ is maximal}\iff R/I \text{ is a field}.
+\]
+In particular every maximal ideal is prime (a field is a domain).
+\end{pproposition}
+
+\begin{proof}
+$R/I$ has no zero-divisors $\iff$ ($\bar a\bar b=0\Rightarrow\bar a=0$ or $\bar b=0$) $\iff$
+($ab\in I\Rightarrow a\in I$ or $b\in I$), which is primeness. For the second: by the
+correspondence theorem $R/I$ has \emph{no} ideals other than $0$ and itself $\iff$ $I$ is
+maximal, and a nonzero commutative ring is a field $\iff$ its only ideals are $0$ and the
+whole ring (if $x\neq 0$ then $(x)=R$, so $x$ is a unit).\footnote{A--M Ch.~1, Props.\ 1.2--1.4; A--K \S2. The quotient characterization is
+the one to internalize---it converts every question about primes/maximals into a question
+about domains/fields.} Since fields are domains, maximal $\Rightarrow$ prime.
+\end{proof}
+
+\begin{iintuition}[Domain $=$ irreducible, field $=$ point]
+Recall the reading of \S1: $R/I$ is the ring of functions on the subspace $V(I)$. A
+\emph{domain} has no zero-divisors, i.e.\ no two nonzero functions whose product vanishes
+identically---so $V(\mfp)$ cannot be broken into two pieces; it is \vocab{irreducible}. A
+\emph{field} is the ring of functions on a single reduced point (you can divide by anything
+nonzero, because nothing nonzero vanishes). So:
+\[
+\text{prime} \ \longleftrightarrow\ \text{irreducible closed piece},\qquad
+\text{maximal} \ \longleftrightarrow\ \text{a (classical) point}.
+\]
+A maximal ideal is the smallest, most ``point-like'' kind of prime; a non-maximal prime is a
+larger irreducible piece (a curve, a surface) seen as a single \vocab{generic point}.
+\end{iintuition}
+
+\begin{eexample}[Primes and maximals across our running rings]
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \textbf{$\ints$:} primes are $(0)$ and $(p)$ for $p$ a prime number; the maximal ones
+are exactly the $(p)$ (since $\ints/(p)=\mathbb{F}_p$ is a field, while $\ints/(0)=\ints$ is a
+domain but not a field). So $(0)$ is prime-but-not-maximal: the generic point.
+\item \textbf{$k[x]$:} primes are $(0)$ and $(f)$ with $f$ irreducible; maximal are the
+$(f)$. For $k=\bar k$ these are $(x-a)$, the points $a\in k$.
+\item \textbf{$k[x,y]$:} three tiers---$(0)$ (prime, the whole plane); $(f)$ with $f$
+irreducible (prime, a curve); and (for $k=\bar k$) $(x-a,y-b)$ (maximal, a point). The chain
+$(0)\subsetneq (f)\subsetneq (x-a,y-b)$ has length two---a preview of $\dim=2$ (\S12).
+\item \textbf{A field $k$:} the only ideal $\subsetneq k$ is $(0)$, which is maximal; $\Spec k$
+is a single point.
+\item \textbf{Non-examples:} $(4)\subseteq\ints$ is not prime ($2\cdot2\in(4)$ but
+$2\notin(4)$); $(xy)\subseteq k[x,y]$ is not prime ($x\cdot y\in (xy)$, neither factor in).
+Each ``factors,'' which is exactly reducibility: $V(xy)$ is the union of the two axes.
+\end{itemize}
+\end{eexample}
+
+Two facts make primes and maximals usable. First, maximal ideals always exist---so $\Spec R$
+is never empty for $R\neq 0$.
+
+\begin{ttheorem}[Existence of maximal ideals]
+Every ring $R\neq 0$ has a maximal ideal, and more generally every proper ideal $I\subsetneq R$
+is contained in a maximal ideal.
+\end{ttheorem}
+
+\begin{proof}
+Apply Zorn's lemma to the set of proper ideals containing $I$, ordered by inclusion: the union
+of a chain of proper ideals is a proper ideal (it still omits $1$), so chains have upper
+bounds, and a maximal element is a maximal ideal.\footnote{A--M Ch.~1, Thm.\ 1.3 and Cor.\
+1.4. The only subtle point is that the union of a chain misses $1$ because each member does;
+this is where ``proper'' ($1\notin I$) does the work.}
+\end{proof}
+
+Second, some rings have just \emph{one} maximal ideal, and these turn out to be the natural
+``local'' objects of geometry.
+
+\begin{ddefinition}[Local ring]
+A \vocab{local ring} is a ring with exactly one maximal ideal $\mfm$. Its \vocab{residue
+field} is $\kappa=R/\mfm$.
+\end{ddefinition}
+
+\begin{eexample}[Local rings to keep in mind]
+A field is local ($\mfm=(0)$). The formal power series ring $k[[x]]$ is local, with maximal
+ideal $(x)$ and residue field $k$: a power series is a unit iff its constant term is nonzero,
+so the non-units are exactly $(x)$.\footnote{In any ring, if the non-units form an ideal
+$\mfm$ then $R$ is local with maximal ideal $\mfm$ (A--M Ch.~1, Prop.\ 1.6). ``Local'' is the
+algebraic form of ``germ at a point.''} A number-theoretic cousin is
+$\ints_{(p)}=\{a/b\in\mathbb{Q}: p\nmid b\}$, local with maximal ideal $(p)$ and residue field
+$\mathbb{F}_p$---the arithmetic ``germ'' of $\ints$ at the prime $p$. We will manufacture local
+rings at will by \vocab{localization} in \S6---indeed $R_\mfp$, the ring $R$ ``seen near the
+point $\mfp$,'' is local with maximal ideal $\mfp R_\mfp$, which is the entire reason the
+construction exists.
+\end{eexample}
+
+\begin{nnote}[The two meanings of ``prime,'' reconciled]
+In a ring of integers $\mathcal{O}_K$ the nonzero prime ideals are the genuine ``primes'' of
+number theory---and in $\ints$ itself the prime ideal $(p)$ is literally the prime number $p$.
+The extra point $(0)$ (present whenever $R$ is a domain) is the generic point, the home of the
+fraction field $\Frac(R)$. So ``prime ideal'' simultaneously generalizes ``prime number'' (the
+maximal ones) and ``irreducible subvariety'' (all of them); this double life is precisely why
+the same theorems serve number theory and geometry.
+\end{nnote}
+
+\begin{xca}[\textbf{(easy)} domains and fields by quotient]
+Verify directly that $(x)\subseteq k[x,y]$ is prime but not maximal by computing
+$k[x,y]/(x)$, and that $(x,y)$ is maximal by computing $k[x,y]/(x,y)$.
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} every ring has a prime]
+Deduce from the existence theorem that $\Spec R\neq\varnothing$ for $R\neq 0$. Then show the
+set of prime ideals has \emph{minimal} elements under inclusion (the \vocab{minimal primes}).
+\emph{(Hint: Zorn, downward, using that an intersection of a chain of primes is prime.)}
+\end{xca}
 
 \subsection{The Zariski spectrum and its topology}
 
+We have a set of points, $\Spec R=\{\text{prime ideals of }R\}$. To do geometry we need a
+\emph{topology}, and there is exactly one natural choice: the closed sets should be the places
+where collections of functions vanish. Recall from \S3.2/\S1 that $f$ vanishes at $\mfp$ iff
+$f\in\mfp$.
+
+\begin{ddefinition}[Vanishing locus and the Zariski topology]
+For an ideal $I\subseteq R$ set
+\[
+V(I)\ \defeq\ \{\,\mfp\in\Spec R: I\subseteq\mfp\,\}\ =\ \{\text{points where every } f\in I \text{ vanishes}\}.
+\]
+The sets $V(I)$ are the \vocab{closed sets} of the \vocab{Zariski topology} on $\Spec R$. Its
+basic open sets are the \vocab{distinguished opens}
+$D(f)\defeq \Spec R\setminus V(f)=\{\mfp: f\notin\mfp\}$, the locus where $f$ is nonzero.
+\end{ddefinition}
+
+That this is a topology is a short computation, and it is worth doing because each identity is
+a geometric statement.
+
+\begin{pproposition}[The Zariski axioms]
+$V(0)=\Spec R$ and $V(R)=\varnothing$; for any family of ideals
+$\bigcap_\alpha V(I_\alpha)=V\big(\sum_\alpha I_\alpha\big)$; and for two ideals
+$V(I)\cup V(J)=V(I\cap J)=V(IJ)$. Hence the $V(I)$ are closed under arbitrary intersection and
+finite union, so they are the closed sets of a topology. The $D(f)$ form a basis, with
+$D(f)\cap D(g)=D(fg)$.
+\end{pproposition}
+
+\begin{proof}
+The first two are immediate ($0$ lies in every prime; no prime contains $1$). For
+intersections, $\mfp\supseteq I_\alpha$ for all $\alpha$ iff $\mfp\supseteq\sum_\alpha
+I_\alpha$. For unions: $IJ\subseteq I\cap J$ gives $V(I\cap J)\subseteq V(IJ)$, and
+$V(I)\cup V(J)\subseteq V(I\cap J)$ is clear; conversely if $\mfp\supseteq IJ$ but
+$\mfp\not\supseteq I$, pick $a\in I\setminus\mfp$; then for every $b\in J$, $ab\in IJ\subseteq
+\mfp$ forces $b\in\mfp$ (primeness!), so $\mfp\supseteq J$. Thus $V(IJ)\subseteq
+V(I)\cup V(J)$, and the three sets coincide. Finally $f\notin\mfp$ and $g\notin\mfp$ iff
+$fg\notin\mfp$ (primeness again), giving $D(f)\cap D(g)=D(fg)$; that the $D(f)$ are a basis is
+because $V(I)=\bigcap_{f\in I}V(f)$, so its complement is $\bigcup_{f\in I}D(f)$.\footnote{A--M
+Ch.~1, Ex.\ 15--17, where this is developed as the celebrated sequence of exercises that
+quietly introduces the language of schemes; A--K \S\S13, 16 (Support and Noetherian Spaces).}
+\end{proof}
+
+Notice where primeness was used: \emph{exactly} in making $V(IJ)=V(I)\cup V(J)$ and
+$D(fg)=D(f)\cap D(g)$. The point-set geometry of $\Spec R$ works \emph{because} the points are
+primes---further evidence that this, not the maximal ideals, is the right notion of point.
+
+\begin{iintuition}[The Zariski topology is coarse on purpose]
+Do not picture the metric topology. The Zariski topology is extremely \emph{coarse}: closed
+sets are just common zero-loci of polynomials, so there are very few of them, and points are
+enormous. On $\Spec\ints$ or $\Spec k[x]$ the proper closed sets are the \emph{finite} sets of
+closed points, so every two nonempty opens meet---the space is far from Hausdorff. The
+coarseness is a feature: it is the finest topology in which ``polynomial'' makes sense, and it
+is what lets a single \emph{generic point} be dense.
+\end{iintuition}
+
+Two structural features deserve names, because they recur constantly.
+
+\textbf{Generic points and irreducibility.} The closure of a point is
+$\overline{\{\mfp\}}=V(\mfp)$: indeed $\mfq\in\overline{\{\mfp\}}$ iff every closed set
+containing $\mfp$ contains $\mfq$, i.e.\ iff $\mfp\subseteq\mfq$. So $\mfp$ is dense in the
+irreducible closed set $V(\mfp)$, of which it is the \vocab{generic point}. When $R$ is a
+domain, $(0)$ is a generic point for \emph{all} of $\Spec R$: the domain's spectrum has a
+single dense point, the visible sign of irreducibility. Dually, a point $\{\mfp\}$ is
+\emph{closed} exactly when $V(\mfp)=\{\mfp\}$, i.e.\ when $\mfp$ is maximal---so the closed
+points are precisely the classical points, while a non-maximal prime is never closed. Distinct
+primes have distinct closures, so $\Spec R$ is always a $T_0$ space, even though it is almost
+never $T_1$ or Hausdorff. In general the irreducible components
+of $\Spec R$ are the $V(\mfp)$ for $\mfp$ a minimal prime.\footnote{A--M Ch.~1, Ex.\ 19--20;
+$\Spec R$ is irreducible iff the nilradical (\S3.4) is prime.}
+
+\textbf{Quasi-compactness.} Unlike the metric topology, $\Spec R$ is always
+\vocab{quasi-compact}: every open cover has a finite subcover.
+
+\begin{xca}[\textbf{(classic)} $\Spec R$ is quasi-compact]
+Show $\Spec R$ is quasi-compact. \emph{(Hint: it suffices to consider covers by basic opens
+$D(f_\alpha)$; $\bigcup_\alpha D(f_\alpha)=\Spec R$ means the $f_\alpha$ lie in no common
+prime, i.e.\ generate the unit ideal, so $1=\sum_{i=1}^n r_i f_{\alpha_i}$ is a finite
+relation---now finish.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} when is a function invisible or everywhere nonzero?]
+Show $D(f)=\varnothing$ iff $f$ is nilpotent, and $D(f)=\Spec R$ iff $f$ is a unit. Interpret
+both geometrically. (These are the extreme cases of ``the locus where $f\neq 0$.'')
+\end{xca}
+
 \subsection{Nilradical, Jacobson radical, and the radical of an ideal}
+
+The topology $V(I)$ cannot distinguish $I$ from larger ideals with the same zero-locus, so we
+need to know \emph{which} algebraic data the geometry remembers. The answer is governed by
+radicals, and the story begins with the functions that vanish \emph{everywhere}.
+
+\begin{ddefinition}[Nilradical; reduced rings]
+The \vocab{nilradical} $\Nil(R)$ is the set of \vocab{nilpotent} elements
+$\{f: f^n=0 \text{ for some } n\ge1\}$. A ring with $\Nil(R)=0$ is \vocab{reduced}.
+\end{ddefinition}
+
+\begin{ttheorem}[The nilradical is the intersection of all primes]
+$\Nil(R)=\bigcap_{\mfp\in\Spec R}\mfp$. Equivalently, the nilpotents are exactly the
+``functions'' whose value is $0$ at every point of $\Spec R$.
+\end{ttheorem}
+
+\begin{proof}
+($\subseteq$) If $f^n=0$ then $f^n\in\mfp$ for every prime $\mfp$, and primeness gives
+$f\in\mfp$. ($\supseteq$) Suppose $f$ is \emph{not} nilpotent; we find a prime missing $f$.
+The set $\Sigma=\{1,f,f^2,\dots\}$ avoids $0$, so by Zorn there is an ideal $\mfp$ maximal
+among ideals disjoint from $\Sigma$. This $\mfp$ is prime: if $a,b\notin\mfp$ then
+$\mfp+(a)$ and $\mfp+(b)$ each meet $\Sigma$ (by maximality), so some $f^m\in\mfp+(a)$ and
+$f^n\in\mfp+(b)$; multiplying, $f^{m+n}\in\mfp+(ab)$, so $\mfp+(ab)$ meets $\Sigma$ and hence
+$ab\notin\mfp$. Thus $f\notin\mfp\supseteq$ the intersection.\footnote{A--M Ch.~1, Prop.\ 1.8;
+A--K \S3. A slicker proof via localization ($f$ not nilpotent $\Rightarrow R_f\neq 0
+\Rightarrow R_f$ has a prime) waits for \S6.}
+\end{proof}
+
+This is the precise form of the \S1 slogan ``a nonzero nilpotent vanishes at every point''---and
+it shows in passing that $\Nil(R)$ really is an ideal, being an intersection of primes.
+The nilradical is the gap between $R$ and the functions $\Spec R$ can actually see;
+$R_{\mathrm{red}}\defeq R/\Nil(R)$ is the reduced ring with the same spectrum (as a space).
+
+Applying the theorem inside a quotient gives the general radical.
+
+\begin{ddefinition}[Radical of an ideal]
+The \vocab{radical} of an ideal $I$ is $\sqrt{I}\defeq\{f: f^n\in I \text{ for some } n\ge1\}$.
+An ideal with $\sqrt{I}=I$ is a \vocab{radical ideal}.
+\end{ddefinition}
+
+\begin{pproposition}[Radical $=$ intersection of the primes above $I$]
+$\sqrt{I}=\bigcap_{\mfp\supseteq I}\mfp$, and consequently $V(I)=V(\sqrt I)$. Thus radical
+ideals are exactly the ones recoverable from their vanishing locus, and
+$I\mapsto V(I)$ restricts to a bijection between radical ideals and Zariski-closed sets that
+``come from ideals.''
+\end{pproposition}
+
+\begin{proof}
+$\sqrt I/I=\Nil(R/I)=\bigcap\{\text{primes of }R/I\}$, which under the correspondence theorem
+is $\big(\bigcap_{\mfp\supseteq I}\mfp\big)/I$. Intersecting the same primes gives the same
+$V$, so $V(I)=V(\sqrt I)$.\footnote{A--M Ch.~1, Prop.\ 1.14. This is the engine of the
+Nullstellensatz (\S10), which for finitely generated algebras over $k=\bar k$ upgrades
+``$\sqrt I=\bigcap \mfp$'' to ``$\sqrt I=I(V(I))$,'' a perfect dictionary between radical
+ideals and varieties.}
+\end{proof}
+
+\begin{eexample}[Computing radicals]
+In $\ints$, $\sqrt{(12)}=(6)$ because $12=2^2\cdot 3$ and the primes above $(12)$ are
+$(2),(3)$, with $(2)\cap(3)=(6)$. In $k[x,y]$, $\sqrt{(x^2y^3)}=(xy)$, with vanishing locus
+the union of the two axes. In $k[x]/(x^2)$, $\Nil=(x)$ and the reduced ring is $k$: the fat
+point's underlying space is a single reduced point.
+\end{eexample}
+
+Finally, a sibling of the nilradical built from the \emph{maximal} ideals instead of all
+primes.
+
+\begin{ddefinition}[Jacobson radical]
+The \vocab{Jacobson radical} $\Jac(R)=\bigcap_{\mfm \text{ maximal}}\mfm$.
+\end{ddefinition}
+
+It has a clean elementary characterization, the one that makes it useful in Nakayama's lemma
+(\S4): $x\in\Jac(R)\iff 1-xy$ is a unit for every $y\in R$.\footnote{A--M Ch.~1, Prop.\ 1.9.
+Always $\Nil(R)\subseteq\Jac(R)$; they are equal for rings finitely generated over a field
+(\vocab{Jacobson rings}), where the maximal ideals are already dense enough to detect
+nilpotents---a foretaste of the Nullstellensatz.} In a local ring $\Jac(R)$ is the unique
+maximal ideal $\mfm$ itself; in $\ints$, $\Jac(\ints)=\bigcap_p (p)=0$, since no integer is
+divisible by every prime.
+
+\begin{xca}[\textbf{(easy)} radicals and reducedness]
+Compute $\sqrt{I}$ for $I=(9)$ and $I=(72)$ in $\ints$, and for $I=(x^3)$ in $k[x]$. Which of
+$\ints/72\ints$, $k[x]/(x^3)$ are reduced?
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} nilpotents are invisible to the topology]
+Show that $\Spec R$ and $\Spec R_{\mathrm{red}}$ are homeomorphic, naturally. Conclude that the
+Zariski topology alone cannot detect nilpotents---this is precisely why \emph{schemes} carry
+the whole ring $R$ (a structure sheaf), not just the space (\S15).
+\end{xca}
 
 \subsection{\texorpdfstring{$\Spec$}{Spec} as a contravariant functor: ring maps are space maps}
 
+We promised in \S1 that algebra would translate to geometry automatically. Now we deliver: a
+ring map induces a continuous map of spectra, in the opposite direction, compatibly with
+composition. This makes $\Spec$ a \emph{functor}, and turns the two most basic algebraic
+operations---quotient and localization---into the two most basic geometric ones, closed and
+open embeddings.
+
+\begin{ttheorem}[$\Spec$ is a contravariant functor]
+A ring homomorphism $\varphi\colon R\to S$ induces a map
+\[
+\varphi^\ast=\Spec(\varphi)\colon \Spec S\longrightarrow \Spec R,\qquad \mfq\longmapsto
+\varphi^{-1}(\mfq),
+\]
+which is well defined (preimages of primes are prime, \S1) and \emph{continuous}, because
+$(\varphi^\ast)^{-1}\big(V(I)\big)=V\big(\varphi(I)S\big)$ for every ideal $I\subseteq R$.
+Moreover $(\psi\circ\varphi)^\ast=\varphi^\ast\circ\psi^\ast$ and $\id^\ast=\id$. Thus
+$\Spec\colon\cat{Ring}\to\cat{Top}$ is a contravariant functor.
+\end{ttheorem}
+
+\begin{proof}
+Continuity: $\mfq\in(\varphi^\ast)^{-1}(V(I))$ iff $\varphi^{-1}(\mfq)\supseteq I$ iff
+$\mfq\supseteq\varphi(I)$ iff $\mfq\supseteq\varphi(I)S$ (as $\mfq$ is an ideal of $S$), i.e.\
+$\mfq\in V(\varphi(I)S)$. Functoriality is immediate from
+$(\psi\varphi)^{-1}=\varphi^{-1}\psi^{-1}$.\footnote{A--M Ch.~1, Ex.\ 21; A--K \S13. The
+operation $I\mapsto\varphi(I)S$ is the \vocab{extension} of $I$, written $I^e$; pulling back is
+\vocab{contraction}, $\mfq\mapsto\varphi^{-1}(\mfq)=\mfq^c$.}
+\end{proof}
+
+The two cases to know are the ones that give geometry its closed and open pieces.
+
+\begin{eequation}[Quotient $=$ closed; localization $=$ open]
+\[
+\Spec(R/I)\ \cong\ V(I)\ \subseteq\ \Spec R \quad(\text{closed});\qquad
+\Spec(R_f)\ \cong\ D(f)\ \subseteq\ \Spec R \quad(\text{open}).
+\]
+Imposing equations ($R\to R/I$) restricts to a closed subspace; inverting a function
+($R\to R_f$) restricts to its open nonvanishing locus.
+\end{eequation}
+
+\noindent
+The closed case is the correspondence theorem of \S3.1 in disguise: primes of $R/I$ are
+primes of $R$ containing $I$, i.e.\ the points of $V(I)$, and the subspace topology matches.
+The open case is the content of localization and is proved in \S6; we state it here so the
+symmetry is visible now. One more general fact ties a map's reach to its kernel: the closure
+of the image of $\varphi^\ast$ is exactly $V(\ker\varphi)$. Indeed that closure is the smallest
+$V(I)$ containing the image, namely $V\big(\bigcap_{\mfq}\varphi^{-1}(\mfq)\big)$, and
+$\bigcap_{\mfq}\varphi^{-1}(\mfq)=\varphi^{-1}(\Nil S)=\sqrt{\ker\varphi}$ has the same vanishing
+locus as $\ker\varphi$. So $\varphi^\ast$ has dense image precisely when
+$\ker\varphi\subseteq\Nil(R)$---in particular whenever $\varphi$ is injective, though injectivity
+is not necessary.\footnote{A--M Ch.~1, Ex.\ 21(v). The quotient $R\to R_{\mathrm{red}}$ is the
+extreme case: not injective, yet a homeomorphism on spectra.}
+
+\begin{eexample}[Ring maps as geometry]
+\begin{itemize}\setlength{\itemsep}{3pt}
+\item \textbf{Structure map $k\to k[x]$.} Induces $\mathbb{A}^1=\Spec k[x]\to\Spec k=\text{pt}$:
+the affine line sits over the point, as \emph{every} $k$-algebra sits over $\Spec k$ (and every
+ring over $\Spec\ints$, \S2).
+\item \textbf{Inclusion $k[x]\hookrightarrow k[x,y]$.} Induces the projection
+$\mathbb{A}^2\to\mathbb{A}^1$, $(a,b)\mapsto a$; the fiber over a point of the line is a
+vertical line, exactly the primes of $k[x,y]$ contracting to $(x-a)$.
+\item \textbf{$\ints\hookrightarrow\ints[i]$.} Induces the branched double cover
+$\Spec\ints[i]\to\Spec\ints$ of \S1; the fiber over $(p)$ encodes how $p$ splits, ramifies, or
+stays inert. This is the geometry of $\mathcal{O}_K\to\mathcal{O}_K$ over $\Spec\ints$ that
+runs algebraic number theory.
+\end{itemize}
+\end{eexample}
+
+\begin{nnote}[The anti-equivalence at the heart of algebraic geometry]
+Everything in this subsection is the shadow of one clean statement: $\Spec$ is (the object
+part of) an \emph{anti-equivalence} between commutative rings and affine schemes,
+$\cat{Ring}^{\mathrm{op}}\simeq\cat{AffSch}$. Reversing arrows is not a quirk---it is the same
+contravariance as ``functions pull back'' (\S1). Gluing these affine pieces along
+distinguished opens produces general \vocab{schemes} (\S15), and the terminal object
+$\Spec\ints$ (\S2) is the base over which all of arithmetic geometry lives.
+\end{nnote}
+
+\begin{xca}[\textbf{(classic)} functoriality and the quotient]
+Prove $(\psi\circ\varphi)^\ast=\varphi^\ast\circ\psi^\ast$ in detail. Then show directly that
+for the quotient $\pi\colon R\to R/I$, the map $\pi^\ast$ is a homeomorphism of $\Spec(R/I)$
+onto the closed set $V(I)$.
+\end{xca}
+
 \subsection{First pictures: the spectra of \texorpdfstring{$\ints$, $k[x]$, $k[x,y]$}{Z, k[x], k[x,y]}, and a fat point}
 
-\sources{A--M Ch.~1; A--K \S\S1--3 (Rings, Prime Ideals, Radicals); Aluffi Ch.~III \S\S1--4.}
+Time to draw. The pictures below are the ones every algebraic geometer carries in their head;
+sketching them yourself is the fastest way to make the dictionary automatic.
+
+\textbf{$\Spec\ints$: the arithmetic line.} One closed point $(p)$ for each prime number, with
+residue field $\mathbb{F}_p$, plus a single generic point $(0)$ (residue field $\mathbb{Q}$)
+whose closure is everything. It looks like a discrete line of dots---except for the omnipresent
+generic point smeared over all of them.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[->,gray] (-0.6,0) -- (8.7,0);
+\foreach \x/\p in {0/2,1.3/3,2.6/5,3.9/7,5.2/11,6.5/13}{%
+  \fill (\x,0) circle (1.7pt);
+  \node[below=2pt] at (\x,0) {\small $(\p)$};
+}
+\node[right] at (7.4,0) {\small $\cdots$};
+\node[above=1pt] at (3.25,0.18) {\small generic point $(0)$: dense, in the closure of no other point};
+\end{tikzpicture}
+\end{center}
+
+\textbf{$\Spec k[x]$: the affine line $\mathbb{A}^1$.} For $k=\bar k$ the closed points $(x-a)$
+\emph{are} the field $k$, with residue field $k$ and value $f\mapsto f(a)$, plus the generic
+point $(0)$. The structural twin of $\Spec\ints$ is exact---one generic point over a line of
+closed points---which is the $\ints\leftrightarrow k[x]$ analogy of \S1 made visible.
+
+\begin{reemark}[Closed points over a non-closed field are Galois orbits]
+If $k\neq\bar k$ the closed points of $\Spec k[x]$ are the \emph{irreducible} monic
+polynomials, not the elements of $k$. Over $\mathbb{R}$, the point $(x^2+1)$ has residue field
+$\mathbb{R}[x]/(x^2+1)=\mathbb{C}$ and corresponds to the conjugate pair $\{i,-i\}$: a single
+Zariski point that is a \emph{Galois orbit} $\{a,\bar a\}$ of geometric points. Thus
+$\Spec\mathbb{R}[x]$ already encodes the action of $\mathrm{Gal}(\mathbb{C}/\mathbb{R})$---the
+first whisper of how Galois theory and geometry merge in arithmetic, and of the Galois side of
+the Langlands correspondence.
+\end{reemark}
+
+\textbf{$\Spec k[x,y]$: the affine plane $\mathbb{A}^2$.} Now there are three tiers of points,
+nested by the chain of primes $(0)\subsetneq(f)\subsetneq(x-a,y-b)$: the generic point $(0)$
+(the whole plane), the curve-points $(f)$ for $f$ irreducible (each the generic point of its
+curve $V(f)$), and (taking $k=\bar k$) the closed points $(x-a,y-b)$, the honest points of the
+plane. A maximal ideal $(x-a,y-b)$ contains $(f)$ exactly when the point $(a,b)$ lies on the
+curve $f=0$---so inclusion of primes is incidence of geometry.
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\draw[rounded corners,gray] (0,0) rectangle (8,3.2);
+\node[gray] at (6.7,2.85) {\small $\mathbb{A}^2=\Spec k[x,y]$, generic point $(0)$};
+\draw[thick,domain=0.4:7.6,smooth,samples=80,variable=\x] plot ({\x},{1.6+0.85*sin(\x r)});
+\node at (2.1,2.55) {\small curve $V(f)$: the prime $(f)$};
+\fill (3,1.72) circle (2.1pt);
+\node[below right=-1pt] at (3,1.68) {\small closed point $(x-a,\,y-b)\in V(f)$};
+\end{tikzpicture}
+\end{center}
+
+This picture is also your first sight of \vocab{dimension}: the longest chain of primes has
+length two, and $\dim k[x,y]=2$ (\S12). Counting how many times you can nest irreducible closed
+sets is counting dimensions.\footnote{The arithmetic analogue is $\Spec\ints[x]$, a
+two-dimensional ``arithmetic surface'' fibered over $\Spec\ints$ (A--M Ch.~1, Ex.~16). Its
+hand-drawn portrait---Mumford's famous picture---mixes vertical primes $(p)$ with horizontal
+curves and is the iconic image of arithmetic geometry; we return to it in \S15.}
+
+\textbf{A fat point: $\Spec k[x]/(x^2)$.} The ring $k[x]/(x^2)$ has the single prime $(x)$, so
+its spectrum is \emph{one point}---the same space as $\Spec k$. But the rings differ: $k[x]/(x^2)$
+carries the nonzero nilpotent $x$. Geometrically this is a point with an infinitesimal arrow
+attached, the \vocab{dual numbers} $k[\varepsilon]/(\varepsilon^2)$, whose maps to it are
+exactly tangent vectors.\footnote{A map of $k$-algebras $k[\varepsilon]/(\varepsilon^2)\to A$
+is a point of $\Spec A$ together with a tangent vector there; this is how schemes do
+calculus. See \S15 and, e.g., Eisenbud--Harris, \emph{The Geometry of Schemes}.} This is the
+payoff of the \S1 nilpotent discussion: two schemes can share a topological space yet differ as
+rings, which is why the space alone is not enough and the ring must be remembered.
+
+\begin{eexample}[A reducible spectrum: two lines crossing]
+$\Spec k[x,y]/(xy)$ is the union of the two coordinate axes $V(x)\cup V(y)$. Its minimal primes
+are $(x)$ and $(y)$---the two irreducible components---and they meet at the closed point
+$(x,y)$, the origin. The ring is reduced ($\sqrt{(xy)}=(xy)$) but not a domain, the algebraic
+signature of a space that is a union of irreducible pieces.
+\end{eexample}
+
+\begin{xca}[\textbf{(medium)} draw a cover]
+Sketch $\Spec\ints[i]\to\Spec\ints$ over the primes $2,3,5,7,11,13$, marking which are split
+(two points in the fiber), inert (one point), or ramified. Relate your picture to
+$p\equiv 1,3\pmod 4$.
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} disconnected spectra and idempotents]
+Show $\Spec(R\times S)\cong\Spec R\sqcup\Spec S$ (a disjoint union of spaces), so a product
+ring has a disconnected spectrum. Conversely, show $\Spec R$ is disconnected iff $R$ has a
+nontrivial idempotent $e=e^2\notin\{0,1\}$, which then splits $R\cong Re\times R(1-e)$.
+\emph{(This is the algebra of a space falling into two clopen pieces.)}
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} the spectrum remembers more than the space]
+Exhibit two rings with homeomorphic spectra that are not isomorphic, and two non-isomorphic
+rings whose spectra differ only by a nilpotent ``thickening.'' Explain what extra data a
+scheme records beyond $\Spec R$ as a topological space.
+\end{xca}
+
+\subsection{Connections to further mathematics and physics}
+
+You now hold the central object of the subject, $\Spec R$, with its topology, its radicals, and
+its functoriality. This is the launchpad for a great deal of mathematics and physics.
+
+\emph{Within these notes and mathematics.} Modules become \vocab{quasi-coherent sheaves} on
+$\Spec R$ (\S4, \S15); localization carves out the open sets that let us \emph{glue} affine
+spectra into \vocab{schemes} (\S6, \S15); the chains of primes you saw in $k[x,y]$ become
+\vocab{Krull dimension} (\S12); and the maximal-ideal/point correspondence becomes the
+\vocab{Nullstellensatz} (\S10). In number theory $\Spec\mathcal{O}_K$ is the basic object of
+arithmetic geometry, and the arithmetic surface $\Spec\ints[x]$ is where Diophantine geometry
+lives---so close to a complex surface that one studies it with the same intersection theory
+(Arakelov geometry).
+
+\emph{In physics.} The Zariski geometry of $\Spec R$ is, concretely, the geometry of vacua.
+
+\begin{iidea}[Branches, singularities, and nilpotents are physical]
+For a supersymmetric field theory whose chiral ring is $R$, the moduli space of vacua is
+$\Spec R$ (the \S1 connection), and the structures of this section are its physics:
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item \emph{irreducible components} ($=V(\text{minimal primes})$, \S3.3) are the distinct
+\vocab{branches} of vacua---the Coulomb, Higgs, and mixed branches of a gauge theory;
+\item the \emph{singular points} where branches meet---like the origin of $\Spec k[x,y]/(xy)$---are
+loci of \emph{enhanced gauge symmetry} or extra massless states, the conifold being the famous
+example;
+\item \emph{nilpotents} in $R$ record infinitesimal directions and obstructions the naive
+vacuum manifold forgets, exactly the data a scheme keeps and a topological space loses (\S3.4).
+\end{itemize}
+Reading branches and singularities off primes and radicals is a daily tool in the study of
+gauge theories.\footnote{For branches of moduli space and prime decomposition, see Argyres's
+lectures; for D-branes at singularities, where the \emph{noncommutative} coordinate ring's
+$\Spec$ resolves the singularity into a \vocab{quiver} gauge theory, see Douglas--Moore.}
+\end{iidea}
+
+\noindent
+The same picture drives the AdS/CFT correspondence---the geometry probed by branes is the
+$\Spec$ (or $\mathrm{Proj}$) of a ring built from gauge-invariant operators---and string
+compactification, where Calabi--Yau singularities and their resolutions are studied through the
+commutative algebra of their coordinate rings. The arithmetic line and the moduli space of a
+gauge theory are two faces of the single construction $\Spec$.
+
+\subsection{Exercises}
+
+\noindent
+The richest classical problem set in the subject is Chapter~1 of Atiyah--Macdonald, mirrored in
+Altman--Kleiman \S\S1--3. The following are among the most instructive; each drills a reflex you
+will use constantly.
+
+\begin{xca}[\textbf{(classic)} units and nilpotents in a polynomial ring \textnormal{(A--M Ch.~1, Ex.~2)}]
+Let $f=a_0+a_1x+\dots+a_nx^n\in R[x]$. Prove: (i) $f$ is a unit $\iff$ $a_0$ is a unit and
+$a_1,\dots,a_n$ are nilpotent; (ii) $f$ is nilpotent $\iff$ every $a_i$ is nilpotent; (iii) $f$
+is a zero-divisor $\iff$ $cf=0$ for a single $c\neq0$ in $R$. \emph{(Part (i) is a genuine
+surprise: units in $R[x]$ exceed the constants exactly when $R$ has nilpotents.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} rings of dimension zero \textnormal{(A--M Ch.~1, Ex.~7; A--K 2.38)}]
+Suppose every $x\in R$ satisfies $x^n=x$ for some $n>1$ (depending on $x$). Show every prime of
+$R$ is maximal---so every point of $\Spec R$ is closed and $\dim R=0$. \emph{(Boolean rings are
+the case $n=2$.)}
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} Boolean rings and Stone duality \textnormal{(A--M Ch.~1, Ex.~11; A--K 2.37)}]
+A ring is \vocab{Boolean} if $x^2=x$ for all $x$. Show (i) $2x=0$ for all $x$; (ii) every prime
+is maximal with residue field $\mathbb{F}_2$; (iii) every finitely generated ideal is principal.
+\emph{(Then $\Spec R$ is compact and totally disconnected, and $R\mapsto\Spec R$ is
+\vocab{Stone duality} between Boolean algebras and such spaces---the bridge from logic to
+topology, and a baby case of the $\Spec$ anti-equivalence.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} zero-divisors are a union of primes \textnormal{(A--M Ch.~1, Ex.~14; A--K 2.26)}]
+Let $\Sigma$ be the set of ideals all of whose elements are zero-divisors. Show $\Sigma$ has
+maximal elements (Zorn) and that each is prime. Conclude the set of zero-divisors of $R$ is a
+union of primes. \emph{(These are the \vocab{associated primes} of \S11---your first sighting.)}
+\end{xca}
+
+\begin{xca}[\textbf{(classic)} prime avoidance, the core case \textnormal{(A--K 2.23)}]
+For ideals $\mfa,\mfb$ and a prime $\mfp$, prove the equivalence of: (1) $\mfa\subseteq\mfp$ or
+$\mfb\subseteq\mfp$; (2) $\mfa\cap\mfb\subseteq\mfp$; (3) $\mfa\mfb\subseteq\mfp$. \emph{(The
+reflex ``a prime swallowing a product/intersection swallows a factor''---used everywhere, and
+the seed of the general prime-avoidance lemma.)}
+\end{xca}
+
+\begin{xca}[\textbf{(medium)} when is the spectrum irreducible? \textnormal{(A--M Ch.~1, Ex.~19--20)}]
+Show $\Spec R$ is irreducible (every two nonempty opens meet) iff $\Nil(R)$ is prime, and that
+the irreducible components of $\Spec R$ are the $V(\mfp)$ for $\mfp$ a minimal prime.
+\emph{(``How many pieces the space has'' $=$ ``how many minimal primes $R$ has.'')}
+\end{xca}
+
+\begin{xca}[\textbf{(thinker)} a domain bounds its roots; a non-domain need not \textnormal{(A--K 2.35)}]
+Show a degree-$d$ polynomial over a \emph{domain} has at most $d$ roots. Then check that
+$X^2+X$ has \emph{four} roots in $\ints/6\ints$. Explain, using $\ints/6\cong\mathbb{F}_2\times
+\mathbb{F}_3$ (CRT) and the two-point space $\Spec(\ints/6)$, why the bound fails off a domain.
+\emph{(Zero-divisors break factor-counting; the disconnected spectrum is the reason.)}
+\end{xca}
+
+\sources{A--M Ch.~1 is the spine of this section: the body for ideals, primes, maximals, and
+the two radicals (Props.\ 1.8, 1.9, 1.14), and the remarkable Exercises 15--21 for the Zariski
+spectrum, its topology, quasi-compactness, irreducible components, and functoriality. A--K
+\S\S1--3 redo this with the modern emphasis, and \S13 (Support) and the Appendix to \S16
+(Noetherian Spaces) carry the topology further. Aluffi Ch.~III \S\S3--4 is the gentlest source
+for ideals and quotient rings. For the geometric reading, Eisenbud--Harris,
+\emph{The Geometry of Schemes}, Ch.~I, is the ideal companion.}
 
 % ======================================================================
 \section{Modules: linear algebra over a ring}
@@ -951,6 +1755,10 @@ seeing modules as objects spread out over $\Spec R$.
 
 \subsection{Annihilators and support: a first glimpse of modules as sheaves on \texorpdfstring{$\Spec R$}{Spec R}}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~2; A--K \S4 (Modules); Aluffi Ch.~III \S5 and Ch.~VI.}
 
 % ======================================================================
@@ -972,6 +1780,10 @@ later, and it is the reflex that distinguishes the modern treatment from the cla
 \subsection{Extensions and splitting: what an exact sequence remembers}
 
 \subsection{Additive, left-exact, and right-exact functors as a measuring stick}
+
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
 
 \sources{A--M Ch.~2 (exact sequences); A--K \S5; Aluffi Ch.~VI \S7 and Ch.~VIII--IX.}
 
@@ -1001,6 +1813,10 @@ engine that lets us prove global facts one point at a time.
 
 \subsection{The local--global principle: prove it at every prime}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~3 (this is the heart of the book---read it twice); A--K \S\S11--13
 (Localization of Rings, of Modules, and Support).}
 
@@ -1028,6 +1844,10 @@ modern characterization of flat as a filtered colimit of finite free modules.
 
 \subsection{Lazard's theorem: flat \texorpdfstring{$=$}{=} filtered colimit of finite free modules}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~2--3; A--K \S\S6--9 (Direct Limits, Filtered Direct Limits, Tensor
 Products, Flatness)---the most thoroughly modern treatment of the three; Aluffi Ch.~VIII \S2.}
 
@@ -1051,6 +1871,10 @@ homological characterization of smoothness that reappears in the dimension theor
 \subsection{\texorpdfstring{$\Ext$}{Ext}: extensions, obstructions, and \texorpdfstring{$\Ext^1$}{Ext\^{}1} as a classifying group}
 
 \subsection{Homological algebra as the modern measure of ``how far from exact''}
+
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
 
 \sources{A--K (the flatness and Tor threads in \S9 and beyond); Aluffi Ch.~VIII \S\S2--6 and
 Ch.~IX (Homological algebra). For depth and the Auslander--Buchsbaum circle, see Eisenbud
@@ -1077,6 +1901,10 @@ Nullstellensatz in the next section.
 
 \subsection{Geometric meaning: finite surjections, branching, and normalization}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~5; A--K \S10 (Cayley--Hamilton---the slick route to integrality), \S14
 (Cohen--Seidenberg, i.e.\ going up/down), \S15 (Noether Normalization).}
 
@@ -1099,6 +1927,10 @@ $k$-algebras---the prototype of the ring/space duality and the doorway to scheme
 \subsection{Coordinate rings and the equivalence varieties \texorpdfstring{$\simeq$}{\textasciitilde} reduced f.g.\ algebras}
 
 \subsection{Why this is the gateway from varieties to schemes}
+
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
 
 \sources{A--M Ch.~5 and Ch.~7; A--K \S15 (Noether Normalization gives the cleanest proof);
 field-theory background in Aluffi Ch.~VII.}
@@ -1127,6 +1959,10 @@ scheme---geometry read straight off the algebra.
 
 \subsection{\texorpdfstring{$\Ass$}{Ass}, \texorpdfstring{$\Supp$}{Supp}, and the geometry of components and embedded points}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~4 (primary decomposition), Ch.~6--7 (chain conditions, Noetherian rings);
 A--K \S\S16--18 (Chain Conditions, Associated Primes, Primary Decomposition)---note A--K puts
 associated primes \emph{first}, as is now standard.}
@@ -1154,6 +1990,10 @@ codimension one, and \vocab{regular local rings} give the first clean algebraic 
 
 \subsection{Regular local rings: a first algebraic criterion for smoothness}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~11 (Dimension Theory); A--K \S\S19--21 (Length, Hilbert Functions,
 Dimension).}
 
@@ -1178,6 +2018,10 @@ links it back to the Hilbert-function dimension theory just developed.
 
 \subsection{Completion as a flat base change; the associated graded ring}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{A--M Ch.~10 (Completions; graded rings and the Artin--Rees lemma); A--K \S22.}
 
 % ======================================================================
@@ -1200,6 +2044,10 @@ the concrete arithmetic payoff of the whole machine.
 \subsection{Fractional ideals and the ideal class group}
 
 \subsection{Rings of integers, \texorpdfstring{$\ints[\sqrt{-5}]$}{Z[sqrt(-5)]}, and the arithmetic payoff}
+
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
 
 \sources{A--M Ch.~9 (DVRs and Dedekind Domains); A--K \S\S23--26 (Discrete Valuation Rings,
 Dedekind Domains, Fractional Ideals, Arbitrary Valuation Rings).}
@@ -1225,17 +2073,23 @@ where every tool we built (localization, completion, Dedekind domains, $\Spec$) 
 
 \subsection{A word on the Langlands programs (global, local, geometric) and where CA sits}
 
+\subsection{Connections to further mathematics and physics}
+
+\subsection{Exercises}
+
 \sources{Outlook only---see the ``what to read next'' list: Hartshorne and Vakil for schemes,
 Neukirch for the arithmetic, and the survey literature for Langlands.}
 
 % ======================================================================
-\section{End-of-path exercises}
+\section{Capstone: problems that cross sections}
 % ======================================================================
 
 \noindent
-A short, path-spanning set, meant to be attempted after a full read of the notes built on
-this skeleton. Difficulty tags as above; the ``thinkers'' deliberately push toward the
-references.
+Each section above ends with its own graded exercises drawn from Atiyah--Macdonald and
+Altman--Kleiman; do those as you go. This final set is different in kind---a handful of
+\emph{synthesis} problems that deliberately span several sections at once, the sort that test
+whether the pieces have fused into a single picture. Attempt them after a full read; the
+``thinkers'' push toward the references.
 
 \begin{xca}[\textbf{(easy)} reading the dictionary]
 For $R=k[x,y]/(xy)$, describe $\Spec R$ as a topological space, list its minimal primes, and
