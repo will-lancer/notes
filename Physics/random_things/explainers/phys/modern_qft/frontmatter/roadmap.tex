@@ -1,0 +1,484 @@
+% =====================================================================
+% The annotated table of contents ("the roadmap").
+% Headings here use \roadpart / \roadchapter (defined in modern_qft.tex)
+% so they do not consume the section counters used by the actual chapters.
+% =====================================================================
+
+\phantomsection
+\addcontentsline{toc}{section}{The premise}
+\section*{The premise}
+\markright{\textsf{The premise}}
+
+Every generation's textbook teaches quantum field theory as that generation understood it. The canon of the 1990s--2000s (Peskin--Schroeder, Weinberg) presents QFT as a procedure: start from a classical Lagrangian, quantize, renormalize, expand around free fields. This is how one \emph{computes} in a QFT that happens to be weakly coupled somewhere --- but twenty years of work have made it untenable as a statement of what a QFT \emph{is}. There are interacting theories with no known Lagrangian (the $(2,0)$ theory, most of class $\mathcal{S}$); single theories with several inequivalent Lagrangians (the 2+1d duality web); symmetries invisible in any Lagrangian (non-invertible defects); and lattice models whose continuum limits violate the lore the Lagrangian paradigm is built on (fractons). Meanwhile the most precise determination of the 3d Ising exponents comes not from any Lagrangian manipulation but from unitarity and crossing alone.
+
+\noin The premise of these notes: imagine the standard graduate text of c.~2046, written after this reorganization is complete. What follows is its table of contents --- twelve parts, fifty-five chapters --- with annotations explaining what each chapter contains, why it sits where it sits, and where to learn the material \emph{today}. It is, deliberately, a reading map of the 2012--2026 formal-QFT literature disguised as front matter. For the prehistory and spirit of this point of view, see Seiberg's essay \href{https://www.ias.edu/sites/default/files/sns/files/QFT.pdf}{\emph{Thoughts About Quantum Field Theory}} and Rychkov's recent history of the bootstrap, \arxiv{2509.02779}.
+
+\noin A note on references: hyperlinked arXiv numbers like \arxiv{2308.00747} refer to papers downloaded into \texttt{assets/}; plain typewriter numbers like \texttt{2307.07547} are further reading left on the arXiv.
+
+\subsection*{Ten organizing principles}
+
+The book is organized around ten lessons, each of which would have read as heterodox in 2000 and reads as obvious in 2046:
+
+\begin{enumerate}
+\item \textbf{A theory is its observables, not its Lagrangian.} Lagrangians, lattices, bootstrap data, holographic duals are \emph{presentations}; the theory is the abstract structure they present. Some theories have many presentations (dualities), some have none we know.
+\item \textbf{Defects are part of the definition.} The operator content of a QFT includes extended operators of every codimension --- lines, surfaces, interfaces, boundaries --- and theories with identical local correlators can differ in their extended sectors.
+\item \textbf{The arena is theory space.} The renormalization group is its dynamics, conformal field theories are its landmarks, and effective field theory is the statement that physics is locally well-approximated by coordinates around a fixed point.
+\item \textbf{Symmetry = topological operators.} This single shift unifies ordinary symmetries, higher-form symmetries, higher groups, and non-invertible symmetries, and makes symmetry a property of the theory rather than of its presentation. Symmetries form (higher) categories; gauging is an operation on theory space.
+\item \textbf{Anomalies are the most robust observables in physics.} 't~Hooft anomalies are exactly RG-invariant, are classified by topological field theories in one higher dimension, and constrain dynamics at any coupling.
+\item \textbf{Consistency alone computes.} Unitarity, crossing, and symmetry carve out the possible: the conformal bootstrap solves strongly-coupled CFTs to high precision, and dispersive positivity bounds delineate which EFTs can ever be UV-completed.
+\item \textbf{Duality is the rule, not the exception.} The same point of theory space typically admits several weakly-coupled descriptions valid in different regimes, related by gauging operations.
+\item \textbf{Quantization is not fundamental.} Since there are QFTs that are not quantizations of anything classical, any acceptable definition of the subject must not start from a classical theory.
+\item \textbf{The continuum is subtle.} Lattice symmetries \emph{emanate} into internal continuum symmetries; Lieb--Schultz--Mattis theorems are lattice 't~Hooft anomalies; fracton models have continuum limits with UV/IR mixing; $\phi^4$ in $d=4$ is rigorously trivial. ``Take a continuum limit'' is a theorem in some cases, a conjecture in most, and false in interesting ones.
+\item \textbf{QFT is quantum information organized by geometry.} Local algebras are Type III, entanglement proves monotonicity theorems and energy conditions, and gravity --- QFT's largest customer via holography --- repays the debt by reorganizing its algebras.
+\end{enumerate}
+
+\subsection*{How the parts fit together}
+
+Parts I--IV are the spine: the arena (I), the exact structures on it (II), its landmarks (III), and its dynamics (IV). Parts V--VIII are dynamics in the flesh: gauge theories (V), the exactly solvable corners that anchor everything (VI), duality (VII), and the lattice--continuum dictionary where the definition of the subject is stress-tested (VIII). Parts IX--XI are interfaces with quantum information and gravity. Part XII is the frontier. A reader of 2026 wanting one path: I $\to$ II $\to$ III.1--III.2 $\to$ IV.1 $\to$ V $\to$ VIII, with VI and IX read in parallel.
+
+\noin Three one-semester courses are embedded in the book: \emph{symmetry-first QFT} (Parts I, II, V, VIII --- the Seiberg school); \emph{the bootstrap} (Parts I, III, IV, X --- the Polyakov program executed); \emph{fields, information, and gravity} (Parts I, IX, XI). Three lighthouse theories recur in every part and should be solved completely, once, early: the 2d Ising model with its Majorana chain (symmetry, duality, the lattice), the 3d Ising CFT (bootstrap, defects, fuzzy sphere), and Maxwell/Yang--Mills in 4d (higher-form symmetry, $\theta$, lines). When these notes graduate from table of contents to text, the writing should start where today's textbooks are thinnest: Parts II and VIII exist only as lecture notes and research papers.
+
+\newpage
+
+% =====================================================================
+\roadpart{I}{The Arena: Quantum Field Theory Without Lagrangians}
+
+\noin \emph{What is being defined before any method of computing it: observables, states, and the space of theories.}
+
+\roadchapter{I.1}{What is a quantum field theory?}
+The question, taken seriously. Why the textbook answer of 2000 (``quantize a Lagrangian'') fails to cover the known examples; the inventory of things a QFT assigns (correlators, Hilbert spaces, defects, partition functions); QFT as the universal description of many degrees of freedom with locality. A first look at the picture that organizes the whole book: theories as points, RG as flow, fixed points as landmarks.
+\chsections{the standard model of textbooks and its discontents; what we must assign and to what; locality as the one non-negotiable; theory space as the picture to keep.}
+\chreading{Dedushenko \arxiv{2203.08053} (survey of every known definition-attempt); Rychkov \arxiv{2509.02779} (how we got here); Seiberg, \emph{Thoughts About QFT} (IAS essay).}
+
+\roadchapter{I.2}{Observables I: local operators}
+The local operator content as primary data. Correlation functions, the operator product expansion as an exact (convergent, in CFT) structure rather than an asymptotic trick; Euclidean vs.\ Lorentzian, Wightman functions vs.\ Schwinger functions, reflection positivity; the stress tensor and currents as the operators every local QFT shares.
+\chsections{correlators and their analytic structure; OPE; reconstruction theorems; the stress tensor; conserved currents and their products.}
+\chreading{Rychkov \arxiv{1601.05000} (chs.\ 1--2); Kontsevich--Segal \arxiv{2105.10161} (\S2, for which Euclidean backgrounds are allowed).}
+
+\roadchapter{I.3}{Observables II: defects and extended operators}
+The lesson of 2014--2026: the definition of a theory includes its extended operators. Order vs.\ disorder operators; Wilson and 't~Hooft lines; surface operators; interfaces and boundaries; defects as probes (one-point functions of bulk operators, defect-localized degrees of freedom) and as charged objects for the symmetries of Part II.
+\chsections{codimension as organizing principle; genuine vs.\ non-genuine (attached) operators; defect Hilbert spaces; line operators as phase diagnostics; boundaries as the richest defects.}
+\chreading{Northe \arxiv{2411.03381} (pedagogical BCFT/DCFT); Aharony--Seiberg--Tachikawa \arxiv{1305.0318} (why the line spectrum is part of the definition).}
+
+\roadchapter{I.4}{States, geometry, and cutting-and-gluing}
+The Hilbert space is assigned to a spatial slice, and the path integral is the gluing rule: the functorial (Atiyah--Segal) skeleton of QFT, stated physically. Radial quantization and the state--operator map as the CFT incarnation. Which complex metrics are allowed (Kontsevich--Segal--Witten) --- the modern answer to ``what does Wick rotation mean?''
+\chsections{Hilbert spaces from slices; cutting and gluing; the cylinder vs.\ the sphere; state--operator correspondence; allowable complex backgrounds; thermal states and KMS.}
+\chreading{Kontsevich--Segal \arxiv{2105.10161}; Dedushenko \arxiv{2203.08053} (\S\S on functorial QFT).}
+
+\roadchapter{I.5}{Presentations, not definitions}
+One theory, many descriptions. The same point in theory space presented as: a Lagrangian flowed from a free fixed point; a lattice model at criticality; abstract CFT data $\{\Delta_i, c_{ijk}\}$; an integrable S-matrix; a holographic bulk. Worked example threaded through the book: the 3d Ising CFT as $\phi^4$, as the lattice model, as a bootstrap island, as the fuzzy-sphere spectrum.
+\chsections{Lagrangians as charts; lattice presentations; CFT data; S-matrices; holographic presentations; when presentations disagree about what is elementary.}
+\chreading{Poland--Rychkov--Vichi \arxiv{1805.04405} (\S1, the data-centric view); Zhu et al.\ \arxiv{2210.13482} (the same CFT from a Landau level).}
+
+\roadchapter{I.6}{Theory space and the renormalization group}
+Wilson's picture promoted to the book's geography. RG flow on the space of theories; fixed points, relevant/irrelevant/marginal directions as the tangent space; universality as the statement that flows converge; effective field theory as local coordinates; conformal manifolds; lines of fixed points; the questions the rest of the book answers (what is exactly transported along flows? --- Part II; what are the fixed points? --- Part III; which flows are allowed? --- Part IV).
+\chsections{Wilsonian RG without a cutoff fetish; scheme-independence and what is physical; EFT; universality classes; conformal manifolds and exactly marginal deformations.}
+\chreading{Rychkov \arxiv{1601.05000} (ch.\ 1); Casini--Huerta \arxiv{2201.13310} (\S1 for the entropic restatement, used in Part IX).}
+
+% =====================================================================
+\roadpart{II}{Symmetry}
+
+\noin \emph{The single largest reorganization since 2000: symmetry as topology, anomalies as exact data. This part is the technology the rest of the book runs on.}
+
+\roadchapter{II.1}{Symmetries are topological operators}
+Noether's theorem, run backwards: a symmetry \emph{is} a topological codimension-one operator $U_g(\Sigma)$, defined with no reference to a Lagrangian. Ward identities from deforming surfaces; action on local and extended operators; spontaneous breaking restated operatorially; coupling to background gauge fields as the universal bookkeeping device.
+\chsections{from currents to topological surfaces; Ward identities topologically; symmetry defects and twisted sectors; SSB without order parameters; background fields.}
+\chreading{Gaiotto--Kapustin--Seiberg--Willett \arxiv{1412.5148} (\S1--2); Shao \arxiv{2308.00747} (ch.\ 1); Iqbal \arxiv{2407.20815} (gentlest entry).}
+
+\roadchapter{II.2}{Gauging and 't Hooft anomalies}
+Gauging as summing over backgrounds; 't~Hooft anomalies as the obstructions to doing so, and anomaly \emph{matching} as the resulting exact RG invariant --- the sharpest nonperturbative tool in the subject. Anomaly inflow: anomalies of a $d$-dimensional theory are classified by invertible/SPT phases in $d+1$ dimensions. Perturbative (chiral) and global (parity, time-reversal, discrete) anomalies in one framework.
+\chsections{gauging finite and continuous symmetries; 't Hooft's argument; inflow and the bulk-boundary picture; SPT phases and the cobordism classification (sketch); discrete anomalies; examples from QCD to the honeycomb lattice.}
+\chreading{Shao \arxiv{2308.00747}; Sch\"afer-Nameki \arxiv{2305.18296}; C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545} (panorama with full bibliography).}
+\chfurther{Witten--Yonekura (\texttt{1909.08775}) for $\eta$-invariants and the deepest version of inflow.}
+
+\roadchapter{II.3}{Higher-form symmetries and the global structure of gauge theories}
+Symmetries whose charged objects are extended: one-form symmetries acting on lines, etc. Maxwell theory's electric and magnetic one-form symmetries; the center symmetry of Yang--Mills, with confinement reborn as unbroken one-form symmetry (the Landau paradigm regained for gauge theories); $SU(N)$ vs.\ $SU(N)/\mathbb{Z}_N$ and discrete $\theta$-parameters --- the global structure that correlators of local operators cannot see; two-groups and symmetry fusion across dimensions.
+\chsections{$q$-form symmetries; charged defects; selection rules for extended operators; the center of Yang--Mills; reading between the lines; 2-group symmetry.}
+\chreading{Gaiotto--Kapustin--Seiberg--Willett \arxiv{1412.5148}; Aharony--Seiberg--Tachikawa \arxiv{1305.0318}; Iqbal \arxiv{2407.20815} (applications incl.\ magnetohydrodynamics).}
+
+\roadchapter{II.4}{Non-invertible symmetries}
+Topological operators without inverses: fusion replaces composition, categories replace groups. The Kramers--Wannier defect of the 2d Ising model as the founding example; topological defect lines in 2d CFT; duality defects in 3+1d gauge theories at self-dual couplings; the chiral symmetry of massless QED resurrected as a non-invertible symmetry (the ABJ anomaly tamed); selection rules and the meaning of ``symmetry'' once unitarity of the action is abandoned.
+\chsections{fusion categories in physics; Kramers--Wannier; Verlinde lines; half-gauging and duality defects in 4d; non-invertible chiral symmetry; what non-invertible symmetries forbid.}
+\chreading{Shao \arxiv{2308.00747} (the standard course); Choi--C\'ordova--Hsin--Lam--Shao \arxiv{2111.01139} (4d duality defects).}
+\chfurther{Kaidi--Ohmori--Zheng (\texttt{2111.01141}); C\'ordova--Ohmori (\texttt{2205.06243}) and Choi et al.\ (\texttt{2205.05086}) for the Standard Model; Bhardwaj et al.\ (\texttt{2307.07547}) and Brennan--Hong (\texttt{2306.00912}) as alternative lecture notes.}
+
+\roadchapter{II.5}{The Symmetry Topological Field Theory}
+The organizing gadget of the 2020s: the symmetry content of a $d$-dimensional theory encoded in a $(d{+}1)$-dimensional topological theory with two boundaries --- one topological (the symmetry and its realization), one dynamical (the physics). Gauging, discrete torsion, and duality webs as changes of topological boundary condition; anomalies as obstructions visible in the bulk; the kinematics/dynamics separation made into a picture.
+\chsections{the sandwich; topological boundary conditions; gauging as boundary change; anomalies in the bulk; reading phase diagrams from the SymTFT.}
+\chreading{Sch\"afer-Nameki \arxiv{2305.18296} (\S SymTFT); Kapustin--Seiberg \arxiv{1401.0740} (the seed: coupling a QFT to a TQFT).}
+\chfurther{Freed--Moore--Teleman (\texttt{2209.07471}) for the mathematical formulation.}
+
+\roadchapter{II.6}{Anomalies in parameter space}
+Anomalies generalized from symmetries to families: topological terms for \emph{background} scalars --- coupling constants --- and the exact statements they yield. The $\theta$-angle as a circle-valued coupling with an anomaly in its periodicity; consequences: level crossings that cannot be avoided, walls that must carry degrees of freedom, constraints on axion physics.
+\chsections{families of theories as one theory with background scalars; anomalies valued in one higher dimension of parameter space; $\theta$-periodicity; axions; defects from winding couplings.}
+\chreading{C\'ordova--Freed--Lam--Seiberg \arxiv{1905.09315}.}
+
+\roadchapter{II.7}{The generalized Landau paradigm}
+Phases of matter re-founded on the full symmetry category. Gapped phases as (symmetry-enriched) TQFTs; spontaneous breaking of higher-form and non-invertible symmetries; topological order as ordinary SSB of one-form symmetry; anomalies forbidding trivially gapped phases (symmetry-protected criticality); the condensed-matter dictionary.
+\chsections{what replaces the order parameter; gapped phases with categorical symmetry; deconfined criticality (preview); symmetric mass generation; the dictionary with condensed matter.}
+\chreading{McGreevy \arxiv{2204.03045}; C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545}.}
+
+% =====================================================================
+\roadpart{III}{Fixed Points: Conformal Field Theory}
+
+\noin \emph{The landmarks of theory space, studied as theories-in-themselves with no microscopic crutch. Polyakov's 1974 program, finally executed.}
+
+\roadchapter{III.1}{Conformal kinematics in $d \ge 3$}
+The conformal algebra and its unitary representations; primaries and descendants; radial quantization and the state--operator map (the cleanest argument for the OPE's convergence); unitarity bounds; correlators fixed by symmetry up to functions of cross-ratios; embedding space.
+\chsections{conformal algebra and representations; radial quantization; unitarity bounds; two- and three-point functions; conformal blocks; the convergent OPE.}
+\chreading{Rychkov \arxiv{1601.05000}; Simmons-Duffin \arxiv{1602.07982} (the standard modern courses).}
+
+\roadchapter{III.2}{The conformal bootstrap}
+Crossing symmetry plus unitarity as a computational engine. The numerical method (positivity, linear/semidefinite programming) and its conceptual meaning: rigorous exclusion bounds on theory space, no Lagrangian anywhere. The 3d Ising island as the flagship: critical exponents to six digits from consistency alone. The frontier: navigator methods, larger systems of correlators, the stress tensor.
+\chsections{crossing equations; the positivity trick; islands and kinks; 3d Ising and $O(N)$; rigor of numerics; current frontiers.}
+\chreading{Simmons-Duffin \arxiv{1602.07982}; Poland--Rychkov--Vichi \arxiv{1805.04405}; Rychkov--Su \arxiv{2311.15844} (state of the art); Rychkov \arxiv{2509.02779} (the story).}
+\chfurther{El-Showk et al.\ (\texttt{1203.6064}), the paper that started the modern era.}
+
+\roadchapter{III.3}{The analytic bootstrap}
+Crossing solved in expansions: large spin, lightcone limits, and the Lorentzian inversion formula --- the theorem that CFT data is analytic in spin, with the Regge trajectory as the fundamental object. Dispersive sum rules; what analyticity buys that numerics cannot, and conversely.
+\chsections{lightcone bootstrap and large spin; the inversion formula; Regge behavior in CFT; dispersive sum rules; interplay with numerics.}
+\chreading{Caron-Huot \arxiv{1703.00278}; Hartman et al.\ \arxiv{2202.11012} (Snowmass survey of the whole program).}
+\chfurther{Caron-Huot--Maz\'a\v{c}--Rastelli--Simmons-Duffin (\texttt{2008.04931}) for dispersive sum rules.}
+
+\roadchapter{III.4}{Two dimensions}
+The exactly solvable floor of the subject, taught as a modern topic rather than folklore: Virasoro symmetry, minimal models, modular invariance and the Cardy formula; the modular bootstrap; Liouville theory; topological defect lines as the original non-invertible symmetries (closing the loop with Part II); the irrational frontier.
+\chsections{Virasoro representation theory; minimal models; modular invariance and modular bootstrap; Liouville; defect lines in 2d; what 2d does and does not teach us about $d>2$.}
+\chreading{Yin, \emph{Aspects of 2d CFTs} (TASI, in \texttt{assets/}); Kusuki \arxiv{2412.18307} (a genuinely modern course).}
+\chfurther{Ribault (\texttt{1406.4290}) for the systematic treatment.}
+
+\roadchapter{III.5}{Boundaries, defects, and interfaces in CFT}
+Conformal defects as CFTs' richest substructure: BCFT and the Cardy condition; defect operator expansions and bulk-to-defect data; line defects as quantum mechanics coupled to a CFT (the Wilson line as a renormalization problem); the defect bootstrap; defect RG flows and the $g$-theorem (proved entropically in Part IX).
+\chsections{BCFT; Cardy states; defect CFT data and crossing; magnetic lines in the 3d Ising model; defect RG.}
+\chreading{Northe \arxiv{2411.03381}; Billò--Gon\c{c}alves--Lauria--Meineri (\texttt{1601.02883}).}
+
+\roadchapter{III.6}{New ways to solve a CFT}
+The methods invented after the textbooks were written. Fuzzy-sphere regularization: 3d CFTs from a single Landau level, with the state--operator map realized in a quantum simulator's Hilbert space. The large-charge expansion: strongly-coupled CFTs made semiclassical sector by sector. Hamiltonian truncation. What ``solving'' means when there was never a coupling to expand in.
+\chsections{fuzzy sphere: setup, spectrum, defects; large charge as controlled semiclassics; Hamiltonian truncation; cross-validation among methods and with the bootstrap.}
+\chreading{Zhu et al.\ \arxiv{2210.13482}; \'Alvarez-Gaum\'e--Orlando--Reffert \arxiv{2008.03308}.}
+\chfurther{Hellerman et al.\ (\texttt{1505.01537}), the large-charge original.}
+
+% =====================================================================
+\roadpart{IV}{Flows: The Renormalization Group as Dynamics}
+
+\noin \emph{What can be said exactly about the flow between landmarks: monotonicity, matching, and the strange solvable deformations.}
+
+\roadchapter{IV.1}{Monotonicity theorems}
+Irreversibility of the RG made precise: Zamolodchikov's $c$-theorem in 2d; the $a$-theorem in 4d via the dilaton effective action (anomaly matching weaponized); the $F$-theorem in 3d, where no anomaly exists and quantum information takes over; defect analogues ($g$- and $b$-theorems). What these theorems say about theory space (no cycles; a partial order) and what they do not.
+\chsections{$c$; $a$ via dilatons; $F$ and sphere partition functions; entropic unification (preview of Part IX); defect monotonicity; uses: ruling out IR scenarios.}
+\chreading{Komargodski--Schwimmer \arxiv{1107.3987}; Casini--Huerta \arxiv{2201.13310}; Klebanov--Pufu--Safdi (\texttt{1105.4598}).}
+
+\roadchapter{IV.2}{Constraining the deep infrared}
+The modern toolkit applied to the question ``what happens at long distances?'': anomaly matching forcing massless modes or symmetry breaking or TQFTs; the possible IR endpoints classified (gapped/TQFT, CFT, SSB with Goldstones, free); emergent symmetries in the IR and their anomalies; worked examples where the answer is known and where it is genuinely open.
+\chsections{the list of possible IR fates; matching as a sieve; emergent symmetry; examples: QCD chiral symmetry breaking; adjoint QCD$_2$; open cases.}
+\chreading{Gaiotto--Kapustin--Komargodski--Seiberg \arxiv{1703.00501}; C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545} (\S applications).}
+\chfurther{Komargodski--Ohmori--Roumpedakis--Seifnashri (\texttt{2008.07567}) for adjoint QCD$_2$ done with full modern machinery.}
+
+\roadchapter{IV.3}{The edge of criticality}
+Fixed points are born, collide, and annihilate: merger of fixed points and the loss of conformality; complex CFTs and walking behavior; weakly first-order transitions masquerading as second-order; conformal windows of gauge theories. The RG as a dynamical system, with theory space's bifurcations as physics.
+\chsections{fixed-point annihilation; complex CFTs; walking; conformal windows; dangerously irrelevant operators; diagnostics in practice.}
+\chreading{Rychkov--Su \arxiv{2311.15844} (\S on conformal windows); Gorbenko--Rychkov--Zan (complex CFTs; see references in the above).}
+
+\roadchapter{IV.4}{Solvable deformations and the integrable corner}
+Flows we can follow exactly. Integrable deformations of 2d theories; the $T\bar{T}$ deformation: irrelevant yet solvable, with a universal energy-level flow and a UV that is not a fixed point --- the cleanest known counterexample to ``irrelevant means uncontrollable,'' and a glimpse of physics beyond Wilsonian QFT (resumed in Part XII).
+\chsections{integrable flows; $T\bar T$: definition, Burgers equation for spectra, interpretations; what replaces the UV fixed point; cousins ($J\bar T$ etc.).}
+\chreading{Smirnov--Zamolodchikov (\texttt{1608.05499}); Jiang \arxiv{1904.13376} (pedagogical).}
+
+% =====================================================================
+\roadpart{V}{Gauge Dynamics}
+
+\noin \emph{Gauge theory with the new tools: global structure, extended order parameters, anomalies at $\theta=\pi$. The questions of the 1970s, finally answerable in part.}
+
+\roadchapter{V.1}{What is a gauge theory?}
+Gauge ``symmetry'' as redundancy of presentation, not symmetry --- and gauging as an operation that maps one global-symmetry-bearing theory to another. The choices hidden in ``gauge it'': the global form of the group, discrete $\theta$-angles, the spectrum of lines. Emergent gauge fields in condensed matter as proof that gauge structure is descriptive, not fundamental.
+\chsections{gauging as an operation (finite groups first); choices and discrete data; line spectra again; emergent gauge fields; why ``gauge symmetry breaking'' is a category error stated carefully.}
+\chreading{Kapustin--Seiberg \arxiv{1401.0740}; Aharony--Seiberg--Tachikawa \arxiv{1305.0318}.}
+
+\roadchapter{V.2}{Phases of gauge theories}
+The phase diagram problem organized by extended operators and one-form symmetry: Wilson loops, area vs.\ perimeter law, confinement as unbroken center symmetry; Higgs--confinement complementarity and where it fails; oblique phases; 't~Hooft's classification revisited with modern eyes.
+\chsections{order parameters that work; one-form SSB = deconfinement; Higgs vs.\ confining; dyonic condensation and oblique phases; finite temperature.}
+\chreading{Gaiotto--Kapustin--Seiberg--Willett \arxiv{1412.5148} (\S4); McGreevy \arxiv{2204.03045} (condensed-matter side).}
+
+\roadchapter{V.3}{Theta}
+The $\theta$-angle as the laboratory for everything in Parts II and IV: Yang--Mills at $\theta=\pi$ and its mixed time-reversal/center anomaly --- an exact statement about a famously intractable theory; domain walls forced to be nontrivial; large-$N$ $\theta$-dependence; the strong CP problem restated with anomalies in parameter space.
+\chsections{$\theta$-dependence generalities; the $\theta=\pi$ anomaly; walls and interfaces; large $N$; axions and Part II.6 revisited.}
+\chreading{Gaiotto--Kapustin--Komargodski--Seiberg \arxiv{1703.00501}; C\'ordova--Freed--Lam--Seiberg \arxiv{1905.09315}.}
+
+\roadchapter{V.4}{Low-dimensional laboratories}
+Where strong coupling is tame enough to dissect: the Schwinger model as the exactly solvable confining theory; adjoint QCD$_2$, where non-invertible symmetries control screening vs.\ confinement; $\mathbb{CP}^{N-1}$ and instantons; 3d Chern--Simons-matter; deconfined quantum criticality. Each laboratory keyed to which 4d lesson it teaches.
+\chsections{Schwinger model; adjoint QCD$_2$; sigma models with theta terms; CS-matter; deconfined criticality; the laboratory-to-4d dictionary.}
+\chreading{Komargodski--Ohmori--Roumpedakis--Seifnashri (\texttt{2008.07567}); Seiberg--Senthil--Wang--Witten \arxiv{1606.01989} (3d).}
+
+\roadchapter{V.5}{The Standard Model through modern eyes}
+The SM as a case study in everything above: the global form of its gauge group and the line operators that distinguish the candidates; its higher-form and non-invertible symmetries ($B-L$, the axial $U(1)$); anomaly-based exact statements relevant to phenomenology; naturalness questions restated symmetry-first.
+\chsections{which SM? (global structures); magnetic lines and completeness; non-invertible symmetries of the SM; pions from anomaly matching; what is and is not explained.}
+\chreading{C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545} (\S SM); Choi et al.\ (\texttt{2205.05086}); C\'ordova--Ohmori (\texttt{2205.06243}).}
+
+% =====================================================================
+\roadpart{VI}{Exactly Solvable Corners: Supersymmetry and Friends}
+
+\noin \emph{Solvable islands are not the point of the subject; they are its lighthouses --- the places where proposed general principles get checked exactly.}
+
+\roadchapter{VI.1}{Holomorphy and Seiberg duality}
+$\mathcal{N}=1$ theories as the minimal setting where strong-coupling questions have exact answers: holomorphy as the supersymmetric replacement for perturbation theory; moduli spaces of vacua; Seiberg duality as the prototype of IR duality --- and the historical seed of the entire duality-centric worldview.
+\chsections{holomorphy arguments; exact superpotentials; moduli spaces; Seiberg duality and its checks; SUSY breaking in brief.}
+\chreading{Tachikawa \arxiv{1312.2684} (companion volume); Intriligator--Seiberg lectures (classic, see references therein).}
+
+\roadchapter{VI.2}{Seiberg--Witten theory}
+The first complete solution of the IR of a strongly-coupled 4d gauge theory: the Coulomb branch as a fibered geometry, monodromies, monopole condensation as the mechanism of confinement made exact. Presented as the template for ``solving'' a QFT: identify protected data, find the geometry that encodes it.
+\chsections{the Coulomb branch; the SW curve; monopole condensation and confinement; breaking to $\mathcal{N}=1$; the template abstracted.}
+\chreading{Seiberg--Witten \arxiv{hep-th/9407087}; Tachikawa \arxiv{1312.2684}.}
+
+\roadchapter{VI.3}{Localization and exact partition functions}
+Path integrals computed exactly: supersymmetric localization on spheres, indices, and the precision-duality era they enabled. What localization computes (protected data), what it cannot, and how its outputs feed monotonicity theorems ($F$) and bootstrap baselines.
+\chsections{the localization argument; sphere partition functions; superconformal indices; precision tests of duality; limits of the method.}
+\chreading{Pestun (\texttt{0712.2824}); the review volume \emph{Localization Techniques in QFT} (\texttt{1608.02952}).}
+
+\roadchapter{VI.4}{Theories without Lagrangians}
+The existence proof that broke the old definition: the 6d $(2,0)$ theory; class $\mathcal{S}$ --- 4d $\mathcal{N}=2$ theories from punctured surfaces, with duality frames as pair-of-pants decompositions; Argyres--Douglas points. Why ``the space of QFTs'' is strictly larger than ``the space of Lagrangians,'' and how one works with a theory that has no path integral.
+\chsections{the $(2,0)$ theory; compactification as theory factory; class $\mathcal{S}$ and duality made geometric; Argyres--Douglas; how to compute without a Lagrangian.}
+\chreading{Gaiotto \arxiv{0904.2715}; Tachikawa \arxiv{1312.2684}.}
+
+\roadchapter{VI.5}{Protected subsectors and integrability}
+Exact substructures inside non-integrable theories: the chiral algebra (2d VOA) inside every 4d $\mathcal{N}=2$ SCFT --- Rastelli school --- feeding exact CFT data into the bootstrap; topological sectors; integrability of planar $\mathcal{N}=4$ as the maximal solvable corner; 2d factorized S-matrices (used again in Part X).
+\chsections{the 4d/2d chiral-algebra map; protected operator algebras as bootstrap input; planar integrability in one chapter; factorized scattering.}
+\chreading{Beem--Lemos--Liendo--Peelaers--Rastelli--van~Rees \arxiv{1312.5344}.}
+
+% =====================================================================
+\roadpart{VII}{Duality}
+
+\noin \emph{If a theory is not its presentation, different presentations of one theory must be expected. They are.}
+
+\roadchapter{VII.1}{What duality means}
+Duality as equality of all observables under a dictionary; exact dualities (Kramers--Wannier, T-duality, $\mathcal{N}=4$ S-duality) vs.\ IR dualities (Seiberg, the 3d web); what must match (anomalies, symmetry categories, line spectra) and how proposed dualities are stress-tested with the Part II toolkit.
+\chsections{definitions and gradations of duality; the matching checklist; anomalies as duality invariants; historical exemplars.}
+\chreading{Seiberg--Senthil--Wang--Witten \arxiv{1606.01989} (\S1--2).}
+
+\roadchapter{VII.2}{The 2+1d duality web}
+Bosonization in three dimensions: particle--vortex duality old and new, fermion--boson dualities, and the web generated from a seed duality by gauging --- with condensed-matter incarnations (quantum Hall transitions, surface states of topological insulators) as both motivation and evidence.
+\chsections{particle--vortex; the seed duality and the web; flux attachment; condensed-matter applications; status of the evidence.}
+\chreading{Seiberg--Senthil--Wang--Witten \arxiv{1606.01989}; Senthil--Son--Wang--Xu (review; see references therein).}
+
+\roadchapter{VII.3}{Duality from gauging}
+The mechanism beneath the webs: dualities generated by gauging discrete symmetries (orbifolding), with Kramers--Wannier as the original example; self-duality producing non-invertible symmetry (Part II.4 closed into a loop); the SymTFT as the bookkeeping that makes whole duality webs one picture.
+\chsections{gauging $\mathbb{Z}_2$ in 2d done three ways; orbifolds; self-duality $\Rightarrow$ duality defects; webs from the SymTFT sandwich.}
+\chreading{Kapustin--Seiberg \arxiv{1401.0740}; Choi--C\'ordova--Hsin--Lam--Shao \arxiv{2111.01139}; Shao \arxiv{2308.00747} (\S KW).}
+
+% =====================================================================
+\roadpart{VIII}{The Lattice and the Continuum}
+
+\noin \emph{If QFTs are defined by continuum limits of lattice models, the dictionary between lattice and continuum had better be understood exactly. It is subtler than anyone assumed.}
+
+\roadchapter{VIII.1}{Continuum limits, reexamined}
+What ``taking the continuum limit'' asserts; universality as the (usually unproven) theorem behind it; which structures pass to the limit (symmetries? anomalies? Hilbert spaces?) and which arise only there. The program: treat the lattice not as a regulator but as a definition, and audit everything.
+\chsections{lattice models as definitions; universality audited; symmetries of the lattice vs.\ of the limit; emergent symmetry and its breaking by irrelevant operators.}
+\chreading{Cheng--Seiberg \arxiv{2211.12543} (\S1); Dedushenko \arxiv{2203.08053} (\S lattice).}
+
+\roadchapter{VIII.2}{Emanant symmetries}
+Seiberg--Shao: continuum internal symmetries that \emph{emanate} from lattice translations --- not emergent (violated at finite spacing) but exact consequences of lattice symmetry acting differently in the limit. The Majorana chain and Ising model worked completely; anomalies of the emanant symmetry predicted from the lattice; non-invertible translation symmetry at criticality.
+\chsections{emergent vs.\ emanant; the Majorana chain in detail; Ising and its KW operator from lattice translation; anomaly inheritance; consequences for numerics.}
+\chreading{Seiberg--Shao \arxiv{2307.02534}.}
+
+\roadchapter{VIII.3}{Lieb--Schultz--Mattis theorems as anomalies}
+LSM-type theorems --- lattice systems forbidden from having trivially gapped ground states --- understood as 't~Hooft anomaly matching between lattice translation and internal symmetry; Luttinger's theorem in the same frame; the non-invertible refinement on tensor-product Hilbert spaces. Condensed matter and formal QFT collapsing into one subject.
+\chsections{LSM classically; the anomaly interpretation; filling constraints and Luttinger; non-invertible LSM; applications to spin chains and beyond.}
+\chreading{Cheng--Seiberg \arxiv{2211.12543}; Seiberg--Seifnashri--Shao \arxiv{2401.12281}.}
+
+\roadchapter{VIII.4}{Exotica: fractons and UV/IR mixing}
+The systems that break the continuum lore: fracton models with subsystem symmetries, restricted mobility, and ground-state degeneracies that depend on the lattice size --- continuum limits in which discontinuous field configurations dominate and rotation invariance never returns. What, exactly, must be relaxed in the axioms; the modified Villain construction as the bridge.
+\chsections{the X-cube and friends; subsystem symmetry; UV/IR mixing; continuum descriptions with discontinuous fields; modified Villain lattices; what fractons teach about ``QFT''.}
+\chreading{Seiberg--Shao (\texttt{2003.10466}); Gorantla--Lam--Seiberg--Shao (\texttt{2103.01257}); both summarized in C\'ordova et al.\ \arxiv{2205.09545}.}
+
+\roadchapter{VIII.5}{Rigor: constructive QFT and triviality}
+What mathematics actually knows: constructive successes in $d=2,3$; the Aizenman--Duminil-Copin theorem that $\phi^4_4$ and 4d Ising have (marginally) trivial scaling limits --- a rigorous statement about the Standard Model's scalar sector; Yang--Mills existence as a Millennium problem; chiral fermions on the lattice as the deepest unsolved regulator problem.
+\chsections{what has been constructed; triviality in $d=4$ and its meaning; the YM problem stated honestly; Nielsen--Ninomiya and chiral lattice fermions; rigorous bootstrap bounds as a new kind of rigor.}
+\chreading{Aizenman--Duminil-Copin \arxiv{1912.07973}; Dedushenko \arxiv{2203.08053}.}
+
+% =====================================================================
+\roadpart{IX}{Quantum Fields and Quantum Information}
+
+\noin \emph{The Hilbert space of a QFT is not a big collection of qubits: its entanglement structure is the theory.}
+
+\roadchapter{IX.1}{Entanglement in quantum field theory}
+Entanglement entropy of regions: UV divergences and what is universal; replica trick; exact results in 2d and for free fields; mutual information and relative entropy as the cutoff-free quantities; entanglement as the modern order parameter (topological entanglement entropy, anomalies detected by entanglement).
+\chsections{regions and reduced states; the replica trick; universal terms; relative entropy and its monotonicity; entanglement diagnostics of phases.}
+\chreading{Casini--Huerta \arxiv{2201.13310}; Witten \arxiv{1803.04993}.}
+
+\roadchapter{IX.2}{The algebraic viewpoint}
+Why regions of a QFT have no density matrices: local algebras, Type III, and the failure of factorization --- stated as physics, not pathology; Tomita--Takesaki modular theory and what modular flow means (Bisognano--Wichmann: it is a boost); the type classification as a physical classification of how systems entangle.
+\chsections{algebras instead of tensor factors; Types I/II/III with physical fingerprints; modular flow; Bisognano--Wichmann; half-sided modular inclusions (a glimpse).}
+\chreading{Witten \arxiv{1803.04993}; Sorce \arxiv{2302.01958}; Liu \arxiv{2510.07017} (lectures, with the gravity payoff).}
+
+\roadchapter{IX.3}{Information-theoretic theorems}
+The harvest: entropic proofs of the $c$- and $F$-theorems (strong subadditivity doing the work anomalies cannot in odd $d$); the averaged null energy condition proved from causality and from modular theory; QNEC; Bekenstein-type bounds from relative entropy. Energy conditions --- once assumptions --- now theorems of quantum information.
+\chsections{entropic $c$ and $F$; ANEC two ways; QNEC; Bekenstein from relative entropy; what remains conjectural.}
+\chreading{Casini--Huerta \arxiv{2201.13310} (incl.\ \texttt{hep-th/0405111}); Hartman--Kundu--Tajdini (\texttt{1610.05308}); Faulkner et al.\ (\texttt{1605.08072}).}
+
+\roadchapter{IX.4}{Coupling to gravity: the crossed product}
+What happens to the algebras when gravity is turned on, however weakly: Witten's question ``why does QFT in curved spacetime make sense?''; the crossed-product construction rendering Type III into Type II, giving finite (renormalized) entropies; observers as part of the algebra. The bridge into Part XI.
+\chsections{QFT in curved spacetime as an algebra problem; the crossed product; finite generalized entropies; observers; de Sitter remarks.}
+\chreading{Witten \arxiv{2112.11614}; Liu \arxiv{2510.07017}.}
+
+% =====================================================================
+\roadpart{X}{Scattering, the UV, and the Space of Consistent Theories}
+
+\noin \emph{The S-matrix program, reborn as a bootstrap: carve out the space of consistent theories from unitarity, analyticity, and crossing --- in flat space this time.}
+
+\roadchapter{X.1}{The S-matrix bootstrap}
+The 1960s program with 2020s technology: nonperturbative two-to-two amplitudes constrained by unitarity + analyticity + crossing, explored numerically (primal and dual); pion physics as a target; QFT in AdS as the regulator connecting the S-matrix bootstrap to the conformal bootstrap of Part III.
+\chsections{axioms for amplitudes; numerical primal/dual methods; the pion bootstrap; QFT in AdS; relation to the conformal bootstrap.}
+\chreading{Kruczenski--Penedones--van~Rees \arxiv{2203.02421}; Paulos et al.\ (\texttt{1607.06109}).}
+
+\roadchapter{X.2}{Positivity and the UV--IR connection}
+Which low-energy EFTs admit any UV completion at all: dispersion relations, positivity of forward amplitudes, the classic IR obstruction (Adams et al.), and the modern sharpening into two-sided bounds and the EFT-hedron geometry of Wilson coefficients --- the ``swampland program'' of pure QFT, with experimental teeth.
+\chsections{dispersion relations; forward positivity; two-sided bounds; the EFT-hedron; causality constraints; applications from gravity to particle physics.}
+\chreading{Adams--Arkani-Hamed--Dubovsky--Nicolis--Rattazzi \arxiv{hep-th/0602178}; de Rham et al.\ (\texttt{2203.06805}); Arkani-Hamed--Huang--Huang (\texttt{2012.15849}).}
+
+\roadchapter{X.3}{Toward flat-space holography}
+The frontier chapter: soft theorems reorganized as symmetries of the S-matrix; celestial and Carrollian proposals for a holographic description of flat space; what is established, what is aspirational, and what the S-matrix bootstrap says either way.
+\chsections{soft theorems as Ward identities; celestial sphere kinematics; status report, written skeptically.}
+\chreading{Kruczenski--Penedones--van~Rees \arxiv{2203.02421} (\S outlook); Strominger's lectures (see references therein).}
+
+% =====================================================================
+\roadpart{XI}{Large $N$, Holography, and Gravity}
+
+\noin \emph{Large $N$ is a classical limit no Lagrangian advertises, and holography is its destiny: QFT as the definition of quantum gravity.}
+
+\roadchapter{XI.1}{Large $N$ as a classical limit}
+Factorization of correlators at large $N$ as the emergence of a classical theory --- whose phase space is nothing like the classical limit $\hbar \to 0$; vector vs.\ matrix models; planarity; the master field; $1/N$ as the loop-counting parameter of an emergent weakly-coupled description (the bulk, in waiting).
+\chsections{vector models solved; planar counting; factorization = classicality; large-$N$ phase transitions; what $1/N$ organizes.}
+\chreading{Penedones \arxiv{1608.04948} (\S large $N$); 't~Hooft's original logic as retold there.}
+
+\roadchapter{XI.2}{Holography from the CFT side}
+AdS/CFT presented as a statement \emph{within} QFT: which CFTs have local bulk duals (large $N$ + large gap); Heemskerk--Penedones--Polchinski--Sully; the holographic dictionary derived from CFT axioms; Mellin amplitudes; bootstrap bounds becoming statements about gravity (graviton couplings, higher-derivative corrections).
+\chsections{the HPPS criterion; the dictionary from the CFT side; Mellin space; bulk locality from crossing; gravity constrained by CFT consistency.}
+\chreading{Heemskerk--Penedones--Polchinski--Sully \arxiv{0907.0151}; Penedones \arxiv{1608.04948}.}
+\chfurther{the holographic correlators program (Rastelli--Zhou and successors; see Penedones's lectures and references therein).}
+
+\roadchapter{XI.3}{Quantum field theory as quantum gravity}
+The strongest claim in the book: in AdS, quantum gravity is \emph{defined} by a QFT, making everything in Parts I--IX a statement about quantum gravity. What gravity has paid back: the chaos bound, energy conditions, the algebraic reorganization of Part IX.4; black-hole information as a theorem about unitary QFT.
+\chsections{AdS/CFT as definition; information-paradox dividends; the chaos bound as a QFT theorem; gravity's feedback into pure QFT; limits of the definition (dS, cosmology) as segue to Part XII.}
+\chreading{Penedones \arxiv{1608.04948}; Maldacena--Shenker--Stanford (\texttt{1503.01409}).}
+
+% =====================================================================
+\roadpart{XII}{Epilogue: The Next Twenty Years}
+
+\noin \emph{What the 2046 book admits it does not know --- the chapters that will be rewritten by 2066.}
+
+\roadchapter{XII.1}{The definitional frontier}
+The axiomatizations compared honestly: Wightman/Osterwalder--Schrader; Haag--Kastler nets; Atiyah--Segal functorial QFT and Kontsevich--Segal allowability; factorization algebras. Each captures a fragment; none captures class $\mathcal{S}$, large $N$, \emph{and} fractons at once. The definition of QFT as an open research problem, not an embarrassment.
+\chsections{the contenders; what each proves; the counterexample stress-tests; is one definition even desirable?}
+\chreading{Dedushenko \arxiv{2203.08053}; Kontsevich--Segal \arxiv{2105.10161}.}
+
+\roadchapter{XII.2}{Computational frontiers}
+Where new answers will come from: quantum simulation of QFTs (the Jordan--Lee--Preskill program) and the regulator questions it forces (Part VIII reappears as engineering); tensor networks; bootstrap numerics at scale; machine-learned exclusion plots. Computation as experiment for formal QFT.
+\chsections{quantum simulation of scattering; lattice regularizations for hardware; tensor networks and criticality; the numerical bootstrap's next decade.}
+\chreading{Jordan--Lee--Preskill (\texttt{1111.3633}); Rychkov--Su \arxiv{2311.15844} (\S outlook).}
+
+\roadchapter{XII.3}{Beyond quantum field theory}
+The boundary of the subject mapped from inside: little string theories (local energy density without local fields); $T\bar T$-deformed theories as UV-complete non-QFTs; QFT in de Sitter and the cosmological bootstrap --- correlators at the end of inflation as the next ``S-matrix''; gravity as the deformation that finally leaves theory space.
+\chsections{symptoms of non-QFT UV behavior; little strings; $T\bar T$ revisited as a beyond-QFT laboratory; dS and cosmological observables; what replaces theory space.}
+\chreading{Jiang \arxiv{1904.13376}; Arkani-Hamed et al.\ (\texttt{1811.00024}); Seiberg's talks on what lies beyond QFT.}
+
+\roadchapter{XII.4}{Open problems}
+A concrete list, stated so that progress is checkable: (1)~Yang--Mills existence and mass gap --- now with anomaly-matching constraints any solution must obey; (2)~a nonperturbative definition of the full Standard Model, i.e.\ chiral fermions on the lattice; (3)~classify 3d and 4d CFTs, or even all theories with $c$ (or $a$) below a given value; (4)~prove the $a$-theorem's gradient-flow refinement, and monotonicity in $d=6$; (5)~solve the 3d Ising model analytically; (6)~determine whether the space of QFTs is connected; (7)~complete the classification of symmetry categories and their gapped/gapless realizations in $d \ge 4$; (8)~glueball masses from the S-matrix bootstrap; (9)~a sharp nonperturbative formulation of observables in de Sitter; (10)~a definition of QFT wide enough for class $\mathcal{S}$ and fractons simultaneously --- or a proof that none exists.
+\chreading{every entry above, and the next twenty years of \texttt{arXiv:hep-th}.}
+
+\newpage
+
+% =====================================================================
+\phantomsection
+\addcontentsline{toc}{section}{The library}
+\section*{The library}
+\markright{\textsf{The library}}
+
+\noin All papers below are in \texttt{assets/}, with filenames beginning with the arXiv number; \texttt{assets/README.md} maps them to the parts above. Lecture notes and reviews are marked $\bullet$; foundational research papers $\circ$.
+
+\subsection*{Framing and history}
+\begin{itemize}
+\item[$\bullet$] Dedushenko, \emph{Snowmass: The Quest to Define QFT}, \arxiv{2203.08053}
+\item[$\circ$] Kontsevich--Segal, \emph{Wick Rotation and the Positivity of Energy in QFT}, \arxiv{2105.10161}
+\item[$\circ$] Aizenman--Duminil-Copin, \emph{Marginal Triviality of $\phi^4_4$}, \arxiv{1912.07973}
+\item[$\bullet$] Rychkov, \emph{Conformal Bootstrap: from Polyakov to Our Times}, \arxiv{2509.02779}
+\end{itemize}
+
+\subsection*{Symmetry (Part II)}
+\begin{itemize}
+\item[$\circ$] Gaiotto--Kapustin--Seiberg--Willett, \emph{Generalized Global Symmetries}, \arxiv{1412.5148}
+\item[$\bullet$] C\'ordova--Dumitrescu--Intriligator--Shao, \emph{Snowmass: Generalized Symmetries}, \arxiv{2205.09545}
+\item[$\bullet$] Shao, \emph{TASI Lectures on Non-Invertible Symmetries}, \arxiv{2308.00747}
+\item[$\bullet$] Sch\"afer-Nameki, \emph{ICTP Lectures on (Non-)Invertible Generalized Symmetries}, \arxiv{2305.18296}
+\item[$\bullet$] Iqbal, \emph{Jena Lectures on Generalized Global Symmetries}, \arxiv{2407.20815}
+\item[$\bullet$] McGreevy, \emph{Generalized Symmetries in Condensed Matter}, \arxiv{2204.03045}
+\item[$\circ$] Aharony--Seiberg--Tachikawa, \emph{Reading Between the Lines of 4d Gauge Theories}, \arxiv{1305.0318}
+\item[$\circ$] Kapustin--Seiberg, \emph{Coupling a QFT to a TQFT and Duality}, \arxiv{1401.0740}
+\item[$\circ$] Choi--C\'ordova--Hsin--Lam--Shao, \emph{Non-Invertible Duality Defects in 3+1d}, \arxiv{2111.01139}
+\item[$\circ$] C\'ordova--Freed--Lam--Seiberg, \emph{Anomalies in the Space of Coupling Constants I}, \arxiv{1905.09315}
+\end{itemize}
+
+\subsection*{Lattice $\leftrightarrow$ continuum (Part VIII)}
+\begin{itemize}
+\item[$\circ$] Seiberg--Shao, \emph{Majorana Chain and Ising Model: Emanant Symmetries}, \arxiv{2307.02534}
+\item[$\circ$] Cheng--Seiberg, \emph{LSM, Luttinger, and 't~Hooft}, \arxiv{2211.12543}
+\item[$\circ$] Seiberg--Seifnashri--Shao, \emph{Non-Invertible Symmetries and LSM-Type Constraints}, \arxiv{2401.12281}
+\end{itemize}
+
+\subsection*{CFT and bootstrap (Part III)}
+\begin{itemize}
+\item[$\bullet$] Rychkov, \emph{EPFL Lectures on CFT in $D\ge 3$}, \arxiv{1601.05000}
+\item[$\bullet$] Simmons-Duffin, \emph{TASI Lectures on the Conformal Bootstrap}, \arxiv{1602.07982}
+\item[$\bullet$] Poland--Rychkov--Vichi, \emph{The Conformal Bootstrap} (RMP), \arxiv{1805.04405}
+\item[$\bullet$] Rychkov--Su, \emph{New Developments in the Numerical Bootstrap}, \arxiv{2311.15844}
+\item[$\bullet$] Hartman et al., \emph{Snowmass: The Analytic Conformal Bootstrap}, \arxiv{2202.11012}
+\item[$\circ$] Caron-Huot, \emph{Analyticity in Spin in Conformal Theories}, \arxiv{1703.00278}
+\item[$\bullet$] Northe, \emph{Maynooth Lectures on CFT, BCFT and DCFT}, \arxiv{2411.03381}
+\item[$\circ$] Zhu et al., \emph{Uncovering Conformal Symmetry: the Fuzzy Sphere}, \arxiv{2210.13482}
+\item[$\bullet$] Kusuki, \emph{Modern Approach to 2D Conformal Field Theory}, \arxiv{2412.18307}
+\item[$\bullet$] Yin, \emph{Aspects of Two-Dimensional CFTs} (PoS TASI2017)
+\end{itemize}
+
+\subsection*{RG flows (Part IV)}
+\begin{itemize}
+\item[$\circ$] Komargodski--Schwimmer, \emph{On RG Flows in Four Dimensions}, \arxiv{1107.3987}
+\item[$\bullet$] Casini--Huerta, \emph{Lectures on Entanglement in QFT}, \arxiv{2201.13310}
+\item[$\bullet$] Jiang, \emph{Pedagogical Review of Solvable Irrelevant Deformations}, \arxiv{1904.13376}
+\end{itemize}
+
+\subsection*{Gauge dynamics and duality (Parts V, VII)}
+\begin{itemize}
+\item[$\circ$] Gaiotto--Kapustin--Komargodski--Seiberg, \emph{Theta, Time Reversal, and Temperature}, \arxiv{1703.00501}
+\item[$\circ$] Seiberg--Witten, \emph{Monopole Condensation and Confinement}, \arxiv{hep-th/9407087}
+\item[$\circ$] Seiberg--Senthil--Wang--Witten, \emph{A Duality Web in 2+1d}, \arxiv{1606.01989}
+\end{itemize}
+
+\subsection*{Exact corners (Part VI)}
+\begin{itemize}
+\item[$\bullet$] Tachikawa, \emph{$\mathcal{N}=2$ Supersymmetric Dynamics for Pedestrians}, \arxiv{1312.2684}
+\item[$\circ$] Gaiotto, \emph{$\mathcal{N}=2$ Dualities}, \arxiv{0904.2715}
+\item[$\circ$] Beem et al., \emph{Infinite Chiral Symmetry in Four Dimensions}, \arxiv{1312.5344}
+\end{itemize}
+
+\subsection*{Quantum information (Part IX)}
+\begin{itemize}
+\item[$\bullet$] Witten, \emph{Notes on Some Entanglement Properties of QFT}, \arxiv{1803.04993}
+\item[$\bullet$] Sorce, \emph{Notes on the Type Classification of von Neumann Algebras}, \arxiv{2302.01958}
+\item[$\circ$] Witten, \emph{Why Does QFT in Curved Spacetime Make Sense?}, \arxiv{2112.11614}
+\item[$\bullet$] Liu, \emph{Lectures on Entanglement, von Neumann Algebras, and Spacetime}, \arxiv{2510.07017}
+\end{itemize}
+
+\subsection*{Scattering and the UV (Part X)}
+\begin{itemize}
+\item[$\bullet$] Kruczenski--Penedones--van~Rees, \emph{Snowmass: S-matrix Bootstrap}, \arxiv{2203.02421}
+\item[$\circ$] Adams et al., \emph{Causality, Analyticity and an IR Obstruction}, \arxiv{hep-th/0602178}
+\end{itemize}
+
+\subsection*{Large $N$ and holography (Part XI)}
+\begin{itemize}
+\item[$\bullet$] Penedones, \emph{TASI Lectures on AdS/CFT}, \arxiv{1608.04948}
+\item[$\circ$] Heemskerk--Penedones--Polchinski--Sully, \emph{Holography from CFT}, \arxiv{0907.0151}
+\end{itemize}
+
+\subsection*{Methods (Parts III.6, IV.4, and beyond)}
+\begin{itemize}
+\item[$\bullet$] \'Alvarez-Gaum\'e--Orlando--Reffert, \emph{The Large Quantum Number Expansion}, \arxiv{2008.03308}
+\item[$\bullet$] Aniceto--Ba\c{s}ar--Schiappa, \emph{A Primer on Resurgent Transseries}, \arxiv{1802.10441}
+\end{itemize}

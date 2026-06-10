@@ -1,0 +1,32 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{The premise}{3}{section*.2}%
+\contentsline {section}{Part I.\ \ The Arena: Quantum Field Theory Without Lagrangians}{5}{section*.6}%
+\contentsline {section}{Part II.\ \ Symmetry}{6}{section*.14}%
+\contentsline {section}{Part III.\ \ Fixed Points: Conformal Field Theory}{8}{section*.23}%
+\contentsline {section}{Part IV.\ \ Flows: The Renormalization Group as Dynamics}{10}{section*.31}%
+\contentsline {section}{Part V.\ \ Gauge Dynamics}{11}{section*.37}%
+\contentsline {section}{Part VI.\ \ Exactly Solvable Corners: Supersymmetry and Friends}{12}{section*.44}%
+\contentsline {section}{Part VII.\ \ Duality}{13}{section*.51}%
+\contentsline {section}{Part VIII.\ \ The Lattice and the Continuum}{14}{section*.56}%
+\contentsline {section}{Part IX.\ \ Quantum Fields and Quantum Information}{15}{section*.63}%
+\contentsline {section}{Part X.\ \ Scattering, the UV, and the Space of Consistent Theories}{16}{section*.69}%
+\contentsline {section}{Part XI.\ \ Large $N$, Holography, and Gravity}{17}{section*.74}%
+\contentsline {section}{Part XII.\ \ Epilogue: The Next Twenty Years}{18}{section*.79}%
+\contentsline {section}{The library}{20}{section*.85}%
+\contentsline {part}{I\hspace {1em}The Arena: Quantum Field Theory Without Lagrangians}{23}{part.1}%
+\contentsline {section}{\numberline {I.1}What is a quantum field theory?}{23}{section.1}%
+\contentsline {subsection}{\numberline {I.1.1}The standard paradigm}{23}{subsection.1.1}%
+\contentsline {subsection}{\numberline {I.1.2}Four cracks}{26}{subsection.1.2}%
+\contentsline {paragraph}{Crack 1: a theory with no Lagrangian.}{27}{section*.98}%
+\contentsline {paragraph}{Crack 2: one theory, several Lagrangians.}{27}{section*.99}%
+\contentsline {paragraph}{Crack 3: computation without a Lagrangian.}{27}{section*.100}%
+\contentsline {paragraph}{Crack 4: the Lagrangian that defines nothing.}{28}{section*.101}%
+\contentsline {subsection}{\numberline {I.1.3}What a quantum field theory assigns}{29}{subsection.1.3}%
+\contentsline {subsection}{\numberline {I.1.4}Locality, the one non-negotiable}{34}{subsection.1.4}%
+\contentsline {subsection}{\numberline {I.1.5}Theory space: the picture to keep}{36}{subsection.1.5}%
+\contentsline {subsection}{\numberline {I.1.6}What would count as an answer?}{39}{subsection.1.6}%
+\contentsline {section}{\numberline {A}Conventions}{43}{appendix.A}%
+\contentsline {paragraph}{Units and signature.}{43}{section*.104}%
+\contentsline {paragraph}{Wick rotation.}{43}{section*.105}%
+\contentsline {paragraph}{Topological terms stay imaginary.}{43}{section*.106}%
+\contentsline {paragraph}{Symmetry and CFT conventions.}{43}{section*.107}%

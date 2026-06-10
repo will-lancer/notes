@@ -1,0 +1,28 @@
+% =====================================================================
+% Appendix: conventions
+% Grows as chapters need it. Started with chapter I.1 (Wick rotation,
+% topological terms in Euclidean signature).
+% =====================================================================
+\section{Conventions}
+\label{app:conventions}
+
+\paragraph{Units and signature.} We set $\hbar = c = 1$ throughout. The Lorentzian metric signature is \textbf{mostly-plus}, $\eta_{\mu\nu} = \mathrm{diag}(-,+,+,+)$ (and its obvious truncations in other dimensions). Consequently a free scalar has
+\begin{equation}
+\el = -\tfrac{1}{2}\,\partial_\mu \phi\, \partial^\mu \phi - \tfrac{1}{2} m^2 \phi^2 ,
+\qquad p^2 = p_\mu p^\mu = -m^2 \ \text{on shell}.
+\end{equation}
+Srednicki and Weinberg use this signature; Peskin--Schroeder does not. Much of the symmetry and CFT literature works directly in Euclidean signature, where the issue is moot.
+
+\paragraph{Wick rotation.} Euclidean time is $t = -i\tau$ with $\tau$ real, so that $e^{iS_{\rm L}} = e^{-S_{\rm E}}$ and a standard kinetic term rotates as
+\begin{equation}
+i \int dt\, \tfrac{1}{2} \dot q^2 \;\longrightarrow\; - \int d\tau\, \tfrac{1}{2} \left(\frac{dq}{d\tau}\right)^{\!2},
+\end{equation}
+i.e.\ $S_{\rm E}$ is positive for a standard kinetic term. Thermal physics at temperature $T = 1/\beta$ lives on a Euclidean time circle of circumference $\beta$: $Z(\beta) = \tr e^{-\beta H}$.
+
+\paragraph{Topological terms stay imaginary.} A term in the action with no dependence on the metric acquires no factor of $i$ under Wick rotation: it enters the Euclidean weight as a pure phase. For the $\theta$-term of quantum mechanics on a circle (chapter~I.1),
+\begin{equation}
+i \,\frac{\theta}{2\pi} \int dt\, \dot q \;\longrightarrow\; i\, \frac{\theta}{2\pi} \oint dq = i\theta w, \qquad w \in \ints,
+\end{equation}
+and the Euclidean weight is $e^{-S_{\rm E} + i\theta w}$. Forgetting this $i$ (i.e.\ writing $e^{-\theta w}$) is a classic error; the same rule governs $\theta F\tilde F$ in 4d and Chern--Simons terms in 3d.
+
+\paragraph{Symmetry and CFT conventions.} When the chapters reach the symmetry material (Part II) we follow the conventions of Shao's TASI lectures \arxiv{2308.00747}; for CFT material (Part III), Simmons-Duffin \arxiv{1602.07982}. Conventions for $p$-form gauge fields, flux normalization, and Dirac matrices will be pinned here when first needed.
