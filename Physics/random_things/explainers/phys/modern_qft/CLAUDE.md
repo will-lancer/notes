@@ -53,10 +53,19 @@ box *environments* are the right ones to use — it's the prose between boxes th
 failed.) This is also why Will restricted directory access during the TOC task:
 he did not want those files contaminating the style.
 
-Aspire instead to the best human lecture notes in theoretical physics — the
-register of Tong's lecture notes, Witten's expository essays, the strongest TASI
-write-ups: prose with narrative momentum and a visible author who makes choices
-and explains why. Concretely:
+**The model is Witten** (Will's directive, 2026-06-11: "the main person you
+should strive to emulate is witten... the main key to his writing is that he
+just gives reasons for everything, i think. he basically never leaves
+something unsaid"). Write physics lecture notes, not an expository news
+article. Two of Witten's expository papers are in `assets/` (1803.04993,
+2112.11614) — **read a few pages before drafting each chapter to calibrate
+the register.** What that register looks like: complete, unhurried sentences;
+every claim accompanied by the reason it is true; every step explained as it
+is taken ("Because H is bounded below by 0, the operator exp(iHu) is
+holomorphic for u in the upper half plane. Thus the function g(u) is
+holomorphic..."); explanatory parentheticals; "In other words, ..."; no
+drama. Not dry does not mean punchy — look at literally any good physics
+lecture notes. Concretely:
 
 - Vary paragraph rhythm and length; let arguments breathe.
 - Have a point of view: say what is important, what is a sideshow, what is
@@ -68,6 +77,34 @@ and explains why. Concretely:
   all close on the same beat — "strength, then caveat"), bullet lists where a
   paragraph belongs, empty summary paragraphs that re-say what was just said,
   hedging.
+
+### Banned constructions (Will's I.2 notes, 2026-06-11 — do not reintroduce)
+
+Will flagged ~15 sentences of the I.2 draft as the failure mode: "way too
+punchy and motivational... stop writing a motivational pep talk and write a
+set of physics notes." The construction classes, with flagged examples:
+
+- **Dramatic sentence fragments:** "One analytic function; two orderings; two
+  sides of a cut." / "Now for the third debt: structure."
+- **Cute metaphor in place of statement:** "a single condition with a mirror
+  in it", "a family every QFT bookkeeper must admit", "replaced by a blob",
+  "discovery engine", "membership card", "load-bearing wall", "the OPE,
+  derived and domesticated", "touch the world where path integrals converge".
+- **Self-narrating asides:** "We flag it once, here, and trust it silently
+  hereafter." / "an interlude on a question the reconstruction theorem begs."
+- **Countdown/listicle sentences:** "Two facts elevate this from bookkeeping
+  to a discovery engine.", "Three exhibits, in ascending order of
+  consequence.", "Two reflections, one structural, one physical."
+- **Quips standing in for content:** "a usable definition rather than a
+  shrug", "as long as the other insertions keep their distance", "the growth
+  condition is not decoration".
+
+Plain declarative sentences carry the same content better. The deeper
+failure behind the tics (Will): "you have the habit of referencing something
+at an intuitive or shallow level and then confusing the reader." If a
+sentence asserts a relation ("differences of orderings are commutators"),
+display the equation that makes it precise, immediately; say *how* things
+are related, not merely *that* they are.
 
 ### Anti-LLM-speak: lexical tics to ration (Will's directive, 2026-06-11)
 
@@ -99,6 +136,46 @@ failure mode to pre-empt, not repeat.
   (`grep -oc 'deserve\|honest\|genuine\|it is worth' chXX.tex`) and vary or cut
   the clusters. The target is variety, not a banned-word list — prose that does
   not read like it was generated.
+
+## Emphasis, derivations, exercises (Will's I.2 notes, 2026-06-11)
+
+- **Emphasize what is important.** Key definitions ("local operator",
+  "primary", ...) go in `ddefinition` boxes, *with motivation*: say why this
+  is the right definition and not some other. Don't bury a definition in
+  mid-paragraph prose — Will flagged exactly this twice in one chapter.
+- **Derive standard results.** Källén–Lehmann-level derivations are
+  mandatory, not citable ("You obviously have to derive Kallen-Lehmann!
+  What are you doing?!"). If the standard derivation is half a page, include
+  it. This strengthens the never-hand-wave rule below.
+- **Relate modern formulations to the standard textbook ones.** Examples
+  from the I.2 round: point-splitting must be connected to mode normal
+  ordering; the metric stress tensor to the canonical/Noether tensor; the
+  K-annihilation definition of a primary to the transformation-law
+  definition. The reader knows the textbook version; show explicitly how the
+  modern version contains it.
+- **Recall before use.** Recall what a Killing vector is before building
+  charges from it; recall what a model is inside any exercise that uses it
+  ("in the 2d free Dirac CFT" → give the action/propagator in the exercise).
+  Exercises must be self-contained.
+- **Never cite later sections to answer an exercise** — Will: "that's bad
+  taste." Hints may point forward for context, never for the answer.
+- **Explain why a tool is wanted before deriving it** (e.g. Ward identities:
+  say what they are for — defining symmetry at correlator level, fixing
+  dimensions, building charges — before the derivation).
+- **Be concrete about the lattice/RG.** "Linearize the RG" requires an
+  explicit blocking transformation, the eigenvalue equation displayed, and a
+  measurable consequence (corrections to scaling) worked out. "Just not
+  concrete enough" was the complaint.
+- **Citation balance.** Do not lean repeatedly on one survey (Will: "stop
+  citing Dedushenko so much... there is nothing really there"). Cite primary
+  and classic sources (Streater–Wightman, Osterwalder–Schrader, Glimm–Jaffe,
+  Wilson, Schwinger originals); keep survey citations to the reading list.
+- **Standard notation.** OPE coefficients are $C_{ijk}$ / $\lambda_{ij\mathcal{O}}$
+  with $i,j,k$ indices — never "$C_{12k}$"-style mixed number/letter indices.
+- **Figures get the same scrutiny as prose.** Check rendered output for
+  label collisions, and check the *physics* of the figure (the crossing
+  figure showed two different configurations where one configuration with
+  two spheres was meant).
 
 ## Voice and altitude
 
@@ -251,7 +328,7 @@ Other useful macros: `\vocab{term}` for first use of every technical term;
 |---|---|---|
 | TOC | Annotated table of contents (12 parts, 58 ch.) | done 2026-06-09; reorganized 2026-06-10 (duality↔SUSY and scattering↔QI part swaps; new chapters II.2 TQFT, IV.5 resurgence, IV.6 hydrodynamics) |
 | I.1 | What is a quantum field theory? | merged and compiled 2026-06-10 |
-| I.2 | Observables I: local operators | drafted, revised after Will's thesis-framing feedback, compiled clean 2026-06-10 (39 pp.) |
+| I.2 | Observables I: local operators | rewritten per Will's style notes (Witten register, derivations, definitions, figures) 2026-06-11; I.1 swept for same issues; compiled clean (~44 pp.) |
 | I.3 | Observables II: defects and extended operators | not started |
 | I.4 | States, geometry, and cutting-and-gluing | not started |
 | I.5 | Presentations, not definitions | not started |

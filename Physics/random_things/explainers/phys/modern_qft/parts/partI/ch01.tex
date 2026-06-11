@@ -120,7 +120,8 @@ a_n = \frac{(-1)^n}{(4!)^n\, n!} \cdot \frac{(4n)!}{2^{2n}\,(2n)!}.
 \end{equation}
 The first few terms, $Z_{\rm pert} = 1 - \frac{\lambda}{8} +
 \frac{35\lambda^2}{384} - \cdots$, are exactly the sums of vacuum Feynman
-diagrams with the usual symmetry factors. So far, so textbook. But apply
+diagrams with the usual symmetry factors. Up to this point, everything
+matches the textbook treatment. But apply
 Stirling's formula to \eqref{eq:an}:
 \begin{equation}
 |a_n| \;\sim\; \frac{1}{\pi n \sqrt{2}} \; n! \left(\frac{2}{3}\right)^{\!n}
@@ -166,7 +167,8 @@ theory, tied to a particular saddle point. Second, the theory exists anyway ---
 here, trivially, as a convergent integral. Third, the gap between the two is
 quantitative and structured: effects of order $e^{-3/2\lambda}$, the germ of
 everything ``nonperturbative.'' In zero dimensions these statements are almost
-embarrassing in their simplicity. Their force comes from dimensional promotion:
+embarrassing in their simplicity. Their force comes from the fact that they
+persist in higher dimensions:
 in $d > 0$ the same factorial growth afflicts the loop expansion of essentially
 every interacting QFT, while the analogue of ``the integral exists anyway'' ---
 some construction of the theory that does not lean on the expansion --- becomes
@@ -194,8 +196,9 @@ regularization defines $Z$ nonperturbatively at finite cutoff, and constructive
 field theory has \emph{proven} that interacting continuum limits exist in low
 dimensions --- the $P(\phi)_2$ theories, $\phi^4_3$, Gross--Neveu$_2$,
 Yukawa$_{2,3}$ all rigorously satisfy the Wightman axioms.\footnote{The
-constructive literature is reviewed in Dedushenko \arxiv{2203.08053}, \S2.1,
-which is also the source for the axiom systems quoted later in this chapter.}
+standard reference for the constructive program is Glimm--Jaffe,
+\emph{Quantum Physics: A Functional Integral Point of View}; see also the
+reading list at the end of this chapter.}
 Instanton calculus patches in the leading $e^{-S_\ast}$ effects. The working
 physicist's position circa 2000 --- ``the path integral means: lattice +
 continuum limit, and perturbation theory is its asymptotic expansion'' --- is
@@ -380,7 +383,7 @@ I.6.)
 
 \medskip
 
-\noin Four cracks, one diagnosis. In each case the failure is not of quantum
+\noin The four cracks share a single diagnosis. In each case the failure is not of quantum
 field theory but of the identification of a theory with its presentation.
 The $(2,0)$ theory has no presentation of Lagrangian type; the $O(2)$
 fixed point has several; the 3d Ising CFT is best accessed with no
@@ -450,9 +453,8 @@ the same theory exactly when all of that data agrees. The modern consensus on
 the inventory --- assembled from the axiomatic tradition and sharpened by the
 functorial viewpoint --- is the following.\footnote{This is a physicist's
 distillation of structures formalized, in different fragments, by the Wightman,
-Osterwalder--Schrader, Haag--Kastler, and Atiyah--Segal axiom systems; see
-Dedushenko \arxiv{2203.08053}, \S2, for all of them with full references, and
-Section~\ref{sec:answer} below for how they compare. The geometric (``assign
+Osterwalder--Schrader, Haag--Kastler, and Atiyah--Segal axiom systems;
+Section~\ref{sec:answer} below compares them. The geometric (``assign
 data to manifolds'') formulation follows Segal, recently extended by
 Kontsevich--Segal \arxiv{2105.10161}.}
 
@@ -502,7 +504,7 @@ The right way to internalize the inventory is to watch all of it materialize in
 a system so small that nothing can hide. Quantum mechanics is a quantum field
 theory in $d = 1$ --- the ``fields'' are functions of time only --- and one
 particular quantum mechanics is, for reasons that will keep paying off through
-Part V, the perfect specimen.
+Part V, an ideal specimen for the purpose.
 
 \begin{eexample}[The inventory in $d=1$: a particle on a circle]
 \label{ex:particle-circle}
@@ -584,9 +586,10 @@ the Gaussian (Exercise~\ref{exr:poisson}). They are two presentations of one
 theory, and they are useful in opposite regimes: at low temperature ($\beta \to
 \infty$) the Hamiltonian sum is dominated by its first term or two while the
 winding sum converges slowly, and at high temperature ($\beta \to 0$) the roles
-reverse. Keep this little duality in mind as a template: \emph{the same
-observable, two expansions, each weakly coupled where the other is not}. That
-sentence, suitably inflated, is Part VI.
+reverse. This small duality is worth remembering as a template: the same
+observable admits two expansions, each accurate in the regime where the
+other fails. Part VII is devoted to this phenomenon in quantum field theory
+proper.
 \end{eexample}
 
 The example is humble, but every theme of this chapter is present in it: data
@@ -717,7 +720,7 @@ single spin in a transverse field --- Hilbert space $\complex^2$, gap $2\Gamma$,
 physical correlation length $\xi_{\rm phys} = a\,\xi \to 1/2\Gamma$. Every
 microscopic detail (the lattice, the specific nearest-neighbor form, corrections
 to the exponentiation) has washed out into one parameter. This is
-\vocab{universality} in its smallest habitat, and it is the engine that makes
+\vocab{universality} in its simplest instance, and it is the mechanism that makes
 ``QFT from a lattice'' meaningful at all: the continuum theory remembers only
 the data that survives the limit.
 \end{eexample}
@@ -857,7 +860,8 @@ and the boundary of QFT as a subject traces exactly where locality starts to
 fail.
 \end{iidea}
 
-The final clause earns its keep: the failure modes are sharp and instructive. A
+The final clause matters because the failure modes of locality are themselves
+instructive. A
 quantum system with all-to-all couplings --- mean-field models, or the SYK model
 beloved of holographers --- has no notion of spatial distance and is quantum
 mechanics, not field theory (often a useful caricature of one, which is its
@@ -1056,8 +1060,8 @@ degrees of freedom: an enormous, floppy parametrization, in which the natural
 questions are about the possible long-distance \emph{phases} and the walls
 between them. The two charts overlap where both converge, and translating
 between them --- which lattice models flow to which continuum landmarks, and
-what data survives the trip --- is a running concern of these notes, climaxing
-in Part VIII.
+what data survives the trip --- is a running concern of these notes,
+culminating in Part VIII.
 
 \begin{reemark}[How much structure does theory space have?]
 \label{rem:deformation-class}
@@ -1085,8 +1089,8 @@ landmarks are possible, and is the flow irreversible? (Monotonicity theorems and
 infrared constraints: Part IV.) How do gauge theories, the duality webs, and
 the solvable supersymmetric corners populate the map? (Parts V--VII.)
 When does a lattice presentation actually converge to a point of this space?
-(Part VIII.) The picture is simple; its load-bearing capacity is the discovery
-of the last twenty years.
+(Part VIII.) The picture is simple; what the last twenty years discovered is
+how much of the subject it organizes.
 
 \begin{exercise}[easy]
 \label{exr:power-counting}
@@ -1297,9 +1301,9 @@ Definition~\ref{def:inventory}.
 
 \begin{description}
 \item[Dedushenko, \emph{The Quest to Define QFT}, \arxiv{2203.08053}.] The
-survey behind Section~\ref{sec:answer}: every axiom system, with its successes
-and its stress fractures, in 30 readable pages plus a heroic bibliography. Read
-\S\S1, 3 now and \S2 as reference.
+survey behind Section~\ref{sec:answer}: a short overview of every axiom
+system, with its successes and limitations, and a bibliography that leads to
+the original literature. Read \S\S1, 3 now and \S2 as reference.
 \item[Rychkov \arxiv{2509.02779}.] \emph{Conformal bootstrap: from Polyakov to
 our times}. The history that makes the modern viewpoint feel inevitable rather
 than fashionable: the 1970 Kyiv exchange, Polyakov's 1974 manifesto, and the

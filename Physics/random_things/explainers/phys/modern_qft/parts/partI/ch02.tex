@@ -14,21 +14,23 @@ Idea~\ref{idea:observables}: data from which the rest of the theory's life on
 $\reals^d$ --- states, dynamics, symmetries, the response to geometry --- can
 be rebuilt, and whose precise limits, charted at the chapter's end, are what
 the rest of Part I exists to cross. A claim like that has content only if
-three debts are paid. One must say what a correlation function actually
-\emph{is} --- in particular how the Euclidean correlators that lattices and
-path integrals produce are related to the Lorentzian amplitudes that quantum
-mechanics demands. One must show that correlators \emph{contain} the theory
---- that the Hilbert space, the Hamiltonian, and the operators themselves are
-hiding inside $\langle \op_1 \cdots \op_n\rangle$, so that whoever specifies
-consistent correlators has specified everything. And one must find structure
-in the list: the set of all $n$-point functions of all operators is an
-absurdly overdetermined, infinitely redundant presentation of anything, and
-primary data is usable data only if the redundancy is organized by something
-sharp. This chapter pays the three debts for pointlike operators --- and
-discovers along the way that the three answers are one answer.
+three questions can be answered. One must say what a correlation function
+actually \emph{is} --- in particular how the Euclidean correlators that
+lattices and path integrals produce are related to the Lorentzian amplitudes
+that quantum mechanics demands. One must show that correlators \emph{contain}
+the theory --- that the Hilbert space, the Hamiltonian, and the operators
+themselves can be recovered from $\langle \op_1 \cdots \op_n\rangle$, so that
+whoever specifies consistent correlators has specified everything. And one
+must find structure in the list: the set of all $n$-point functions of all
+operators is enormously redundant, and the claim that it is primary data is
+useful only if the redundancy is organized by some definite structure. This
+chapter settles these three questions for pointlike operators. It will turn
+out that the three answers are closely related: all three rest on a single
+analytic and Hilbert-space structure that positivity of the energy builds
+into the correlation functions.
 
 \begin{qquestion}
-Are the local operators of a quantum field theory genuinely its
+Are the local operators of a quantum field theory in fact its
 \emph{observables} --- primary data that determines the theory --- rather
 than bookkeeping attached to a presentation? Concretely: in what sense do
 correlators \emph{contain} states, operators, and a Hamiltonian; what
@@ -37,145 +39,252 @@ which operators must every local theory contain?
 \end{qquestion}
 
 \noin The chapter's centerpiece is the operator product expansion. In the
-quantum field theory you already know, the OPE is an asymptotic statement about
-short distances, one further entry in the perturbative toolbox. In a conformal
-field theory it is something else entirely: a \emph{convergent} expansion, valid
-at finite separation, with a radius of convergence you can draw with a compass
---- and therefore an exact multiplication law on the space of local operators.
-The modern subject leans on this fact constantly; the bootstrap of Part III is
-nothing but this fact taken seriously. We will prove it, by a quantum-mechanical
-argument (radial quantization) whose punchline deserves advance billing: the
-reconstruction theorems, which build a Hilbert space out of Euclidean
-correlators by cutting spacetime along planes, can be run just as well cutting
-along \emph{spheres} --- and the OPE is then revealed as an ordinary expansion
-of a state in a complete basis, convergent for the same reason Fourier series
-are. The chapter closes with the two operators that locality forces on every
-QFT --- the stress tensor and the conserved currents --- and with a worked
-counterexample, the generalized free field, showing exactly what goes missing
-when they are absent.
+quantum field theory the reader already knows, the OPE is an asymptotic
+statement about short distances, one further entry in the perturbative
+toolbox. In a conformal field theory it is something stronger: a
+\emph{convergent} expansion, valid at finite separation, with an explicitly
+known radius of convergence --- and therefore an exact multiplication law on
+the space of local operators. The modern subject depends on this fact; the
+bootstrap of Part III is built on it. We will prove it by a
+quantum-mechanical argument, radial quantization, whose central point can be
+stated in advance: the reconstruction theorems, which build a Hilbert space
+out of Euclidean correlators by cutting spacetime along planes, can be run
+just as well cutting along \emph{spheres} --- and the OPE then becomes an
+ordinary expansion of a state in a complete basis, convergent for the same
+reason Fourier series are. The chapter closes with the two operators that
+locality forces on every QFT --- the stress tensor and the conserved currents
+--- and with a worked counterexample, the generalized free field, showing
+exactly what goes missing when they are absent.
 
 Throughout, ``the theory'' is presented however convenient --- lattice, path
 integral, canonical --- in the spirit of chapter I.1: presentations are
 scaffolding, and everything we establish is a statement about the correlators
-themselves. But there is a question prior even to the three debts, one that
-textbooks answer so implicitly that most readers never notice it being
-answered: what, exactly, \emph{is} a local operator? Since this chapter
-proposes to build theories out of these objects, we owe them a section first.
+themselves. There is also a question prior to the three above, one that
+textbooks answer so implicitly that the reader may never notice it being
+answered: what, exactly, \emph{is} a local operator? Since the chapter is
+about to build theories out of these objects, we begin there.
 
 % =====================================================================
 \subsection{First: what is a local operator?}
 \label{sec:what-is-operator}
 
-The inventory of chapter I.1 spoke of ``labels $\op_i$ drawn from a set of
-local operators,'' and the phrase passed without comment. In a Lagrangian
-presentation the implicit answer seems obvious: the local operators are the
-field $\phi$, its derivatives, and local polynomials in them --- $\phi^2$,
-$\phi^4$, $\phi\,\partial^2\phi$, and so on. The obvious answer is wrong twice
-over, in instructive ways, and repairing it produces the concept this chapter
-actually runs on.
+The inventory of chapter I.1 refers to ``labels $\op_i$ drawn from a set of
+local operators,'' and we should begin by asking what this set actually
+contains. In a Lagrangian presentation the natural guess is: the elementary
+field $\phi$, its derivatives, and local polynomials built from them ---
+$\phi^2$, $\phi^4$, $\phi\,\partial^2\phi$, and so on. This guess fails in
+two instructive ways, once in the continuum and once on the lattice, and
+examining the two failures will lead us to the correct definition.
 
-\emph{It is wrong, first, because products at a point do not exist.} Take the
-free massless scalar in $d = 4$ and try to define $\phi(x)^2$. Its expectation
-value is $\langle \phi(x)\phi(x)\rangle = \lim_{\varepsilon\to0}
-\frac{1}{4\pi^2 \varepsilon^2} = \infty$: the would-be operator has infinite
-overlap with the identity. The repair is as old as the subject ---
-\vocab{normal ordering}, better viewed as \emph{point-splitting}:
+The first failure is that products of fields at coincident points do not
+exist. Consider the free massless scalar in $d = 4$ and try to define
+$\phi(x)^2$. Its expectation value would be $\langle \phi(x)\phi(x)\rangle =
+\lim_{\varepsilon\to0} \frac{1}{4\pi^2 \varepsilon^2} = \infty$: the would-be
+operator has a divergent overlap with the identity, and its correlators with
+everything else are contaminated in the same way. The standard repair,
+familiar from canonical quantization, is \vocab{normal ordering}: split the
+free field into its annihilation and creation parts, $\phi = \phi^+ +
+\phi^-$ with $\phi^+\ket{0} = 0$, and define
 \begin{equation}
-:\!\phi^2\!:(x) \;\equiv\; \lim_{\varepsilon \to 0}\,
+:\!\phi^2\!:(x) \;\equiv\; \phi^-\phi^-(x) \;+\; 2\,\phi^-\phi^+(x)
+\;+\; \phi^+\phi^+(x),
+\label{eq:normal-ordering}
+\end{equation}
+so that every annihilation operator stands to the right of every creation
+operator and $\langle\,:\!\phi^2\!:\,\rangle = 0$. This prescription works,
+but as stated it is tied to the mode expansion of a free field, and mode
+expansions are scaffolding: nothing like $\phi^\pm$ exists on a lattice or at
+an interacting fixed point. To extract the presentation-independent content
+of normal ordering, we rewrite it without reference to modes. Since the
+commutator $[\phi^+(x), \phi^-(y)] = \langle\phi(x)\phi(y)\rangle$ is a
+c-number, reordering the modes in a product of two fields produces exactly
+one contraction,
+\begin{equation}
+\phi(x + \varepsilon)\,\phi(x) \;=\;
+\,:\!\phi(x+\varepsilon)\,\phi(x)\!:\; +\;
+\big\langle \phi(x+\varepsilon)\,\phi(x)\big\rangle ,
+\label{eq:wick-split}
+\end{equation}
+which is Wick's theorem for two fields. The normal-ordered product on the
+right-hand side is regular as $\varepsilon \to 0$ --- the singularity of the
+product lives entirely in the c-number term --- so \eqref{eq:wick-split} can
+be solved for it and the limit taken:
+\begin{equation}
+:\!\phi^2\!:(x) \;=\; \lim_{\varepsilon \to 0}\,
 \Big[\, \phi(x + \varepsilon)\,\phi(x) \;-\;
-\big\langle \phi(x+\varepsilon)\,\phi(x)\big\rangle \,\Big],
+\big\langle \phi(x+\varepsilon)\,\phi(x)\big\rangle \,\Big].
 \label{eq:point-splitting}
 \end{equation}
-subtract the singular part of the product, then collide the points. Notice
-the shape of the repair: the singularity of a product of local operators was
-itself proportional to a local operator (here, the identity), and a finite
-operator emerged once that piece was removed. In an interacting theory the
-same procedure needs more terms --- the product $\phi(x+\varepsilon)\phi(x)$
-contains, alongside the identity, singular multiples of \emph{other} local
-operators, all of which must be subtracted, and the surviving finite operators
-\emph{mix} under changes of the splitting scale, which is how anomalous
-dimensions enter. The reader should recognize what this is: the operator
-product expansion, encountered backwards, as a renormalization procedure ---
-Section~\ref{sec:ope} will run the same structure forwards, as an exact
-expansion. The
-``set of local operators'' of an interacting theory is not the classical
-polynomial algebra; it is what survives this organizing of coincident-point
-singularities --- smaller in some ways (in the free theory $\partial^2\phi =
-0$: equations of motion are operator identities, and null operators must be
-quotiented away), larger in others, and with its dimensions shifted away from
-naive counting.
+This \vocab{point-splitting} form of normal ordering defines the same
+operator as \eqref{eq:normal-ordering} (Exercise~\ref{exr:point-splitting}
+checks this), but it is the better definition, because it refers only to a
+product of operators and to a correlation function: it makes sense in any
+theory and in any presentation. Note the structure of the repair: the
+singular part of the product of two local operators was itself proportional
+to a local operator --- here the identity, with coefficient
+$\langle\phi\phi\rangle$ --- and subtracting it left a finite local operator.
+In an interacting theory the same procedure requires more terms. The product
+$\phi(x+\varepsilon)\,\phi(x)$ then contains, besides the identity, singular
+multiples of other local operators, all of which must be subtracted; and the
+finite operators that survive mix among themselves as the splitting scale
+$\varepsilon$ is varied, which is one way anomalous dimensions enter. The
+reader should recognize the pattern: this is the operator product expansion,
+encountered backwards, in its historical role as a renormalization
+procedure. (Section~\ref{sec:ope} runs the same structure forwards, as an
+exact expansion.) The ``set of local operators'' of an interacting theory is
+therefore not the classical polynomial algebra. It is what survives the
+organization of coincident-point singularities --- smaller in some respects,
+because equations of motion such as $\partial^2 \phi = 0$ in the free theory
+hold as operator identities and remove combinations from the list; larger in
+others; and with dimensions shifted away from naive counting.
 
-\emph{It is wrong, second, because the lattice knows nothing of $\phi$.} Take
-instead the critical 2d Ising model, the lattice presentation of a CFT. What
-is the local operator content there? The natural candidates are local
-functions of nearby spins: $s_i$, or $s_i s_{i+1}$, or any finite cluster.
-But these are not the operators with clean transformation properties ---
-none of them scales homogeneously under coarse-graining. Wilson's
-renormalization group supplies the right notion: linearize the RG around the
-fixed point, and define the \vocab{scaling operators} $\op_\Delta$ as its
-eigenvectors --- the special combinations that reproduce themselves, times
-$\lambda^{-\Delta}$, under a zoom by $\lambda$. Expressed in lattice
-variables, a scaling operator is an infinite sum with contributions of every
-size,
+The second failure appears on the lattice, where there is no field $\phi$
+from which to build polynomials in the first place. Consider the
+two-dimensional Ising model at its critical temperature --- the spins of
+chapter I.1's Example~\ref{ex:ising-chain}, now placed on a square lattice of
+spacing $a$, where (unlike in $d = 1$) the model has a critical
+point. The candidate local operators are functions of the spins in a bounded
+neighborhood of a point: the spin $s_x$ itself, the product $s_x\, s_{x +
+\hat e}$ of two adjacent spins, three-spin clusters, and so on. The problem
+with these candidates is that none of them, taken individually, has a good
+continuum limit: their correlation functions are homogeneous under rescaling
+only asymptotically, and different candidates mix with one another under
+coarse-graining.
+
+The renormalization group converts this difficulty into a definition. First
+make the coarse-graining concrete: partition the lattice into $3\times3$
+blocks and assign to each block the majority value of its nine spins. This
+produces an Ising-like system on a lattice of spacing $3a$, and at the
+critical point the statistics of the blocked spins reproduce the statistics
+of the original spins --- this self-reproduction is what ``fixed point''
+means, as in chapter I.1's theory-space picture. The same blocking acts on
+operators: summing over the fine-grained spins at fixed block spins converts
+any operator $\op$ supported near a point $x$ into an operator $R[\op]$
+supported near $x$ on the coarser lattice, and the map $R$ is linear, because
+expectation values are linear in the inserted operator. A linear map can be
+diagonalized. Its eigenvectors are called \vocab{scaling operators},
 \begin{equation}
-\sigma(x_i) \;\sim\; s_i \,+\, (\text{three-spin terms}) \,+\,
-(\text{five-spin terms}) + \cdots,
+R\big[\op_k\big] \;=\; b^{-\Delta_k}\, \op_k ,
+\qquad b = 3 \;\;\text{(the blocking factor)},
+\label{eq:rg-eigenvector}
 \end{equation}
-while, read in the opposite direction, any decent lattice operator is a
-superposition of scaling operators with coefficients weighted by the lattice
-spacing $a$ to the power of the dimension:
+and the eigenvalue defines the \vocab{scaling dimension} $\Delta_k$. The
+reason this is the right notion is that eigenoperators, and only they, have
+homogeneous correlation functions. Applying the blocking $n$ times inside a
+two-point function multiplies each insertion by $b^{-n\Delta_k}$ and reduces
+the separation, measured in lattice units, by $b^n$:
 \begin{equation}
-s_i \;=\; c_\sigma\, a^{\Delta_\sigma}\, \sigma(x_i)
-\;+\; c_{\sigma'}\, a^{\Delta_{\sigma'}}\, \sigma'(x_i) \;+\; \cdots .
+\big\langle \op_k(0)\,\op_k(r) \big\rangle
+\;=\; b^{-2n\Delta_k}\,\big\langle \op_k(0)\,\op_k(r/b^n) \big\rangle
+\qquad\Longrightarrow\qquad
+\big\langle \op_k(0)\,\op_k(r) \big\rangle \;\propto\;
+\frac{1}{r^{2\Delta_k}}\,,
+\label{eq:rg-power-law}
+\end{equation}
+where the implication follows by choosing $b^n \sim r$: a pure power law,
+with the exponent given by the RG eigenvalue.
+
+A generic lattice operator is not an eigenvector, but it can be expanded in
+eigenvectors, and the expansion is the working dictionary between the lattice
+and the continuum. The spin $s_x$ is odd under the global flip $s \to -s$, so
+only $\mathbb{Z}_2$-odd scaling operators can appear in its expansion:
+\begin{equation}
+s_x \;=\; c_\sigma\, a^{\Delta_\sigma}\, \sigma(x)
+\;+\; c_{\sigma'}\, a^{\Delta_{\sigma'}}\, \sigma'(x) \;+\; \cdots ,
 \label{eq:operator-matching}
 \end{equation}
-This \vocab{operator matching} is the working dictionary between every
-microscopic presentation and the continuum: correlators of $s_i$ reproduce
-correlators of $\sigma$ up to corrections suppressed by powers of $a$
-(``corrections to scaling,'' measured routinely in Monte Carlo and accounted
-for by the subleading terms of \eqref{eq:operator-matching}), and the
-\emph{same} continuum operators $\sigma, \epsilon, \dots$ are reached from
-\emph{any} lattice model in the universality class --- only the
-non-universal coefficients $c_k$ change. Note also what the matching is not:
-\eqref{eq:operator-matching} is an asymptotic statement about the $a \to 0$
-limit, one of the many lattice-to-continuum assertions that Part VIII audits
---- including the surprise that some symmetries of the limit act on the
-lattice not as internal symmetries at all but as translations
-(\emph{emanant} symmetries, chapter VIII.2).\footnote{The ERG eigenvector
-picture, with Wilson's numerical implementation of it for the 2d Ising model,
-is sketched in Rychkov \arxiv{1601.05000}, \S1.2, from which the displayed
-schematic is taken. The honest version of ``linearize the RG'' requires the
-fixed-point Hamiltonian and is presentation-dependent scaffolding; the
-presentation-independent core is the next paragraph's.}
-
-Both repairs --- point-splitting in the continuum, RG eigenvectors on the
-lattice --- are scaffolding around the same intrinsic object, and at a fixed
-point the scaffolding can be discarded entirely. There, the dilatation
-generator $D$ exists as a genuine symmetry, and one may \emph{define}: a
-local operator of dimension $\Delta$ is an eigenvector of $D$ --- an object
-whose correlators rescale homogeneously,
+where $\sigma$ is the lowest-dimension odd operator ($\Delta_\sigma =
+\tfrac18$ for the 2d Ising model), $\sigma'$ is the next-lowest, and the
+powers of the lattice spacing are fixed by dimensional analysis: $s_x$ is a
+dimensionless number, while the normalization
+$\langle\sigma(x)\sigma(0)\rangle = |x|^{-2\Delta_\sigma}$ assigns $\sigma$
+the dimension $(\text{length})^{-\Delta_\sigma}$. The constants $c_\sigma,
+c_{\sigma'}, \dots$ are non-universal --- they depend on the microscopic
+model --- but the operators and their dimensions are properties of the fixed
+point alone. Taking the expectation value of two copies of
+\eqref{eq:operator-matching} makes the dictionary quantitative:
 \begin{equation}
-\big\langle \op(\lambda x_1)\cdots\big\rangle
-= \lambda^{-\Delta}\big\langle \op(x_1)\cdots\big\rangle\cdot(\dots),
+\langle s_0\, s_r\rangle \;=\;
+c_\sigma^2 \left(\frac{a}{r}\right)^{2\Delta_\sigma}
+\Big[\, 1 \,+\, O\big((a/r)^{\Delta_{\sigma'} - \Delta_\sigma}\big) \Big],
+\label{eq:corrections-to-scaling}
 \end{equation}
-with no reference to fields, spins, or any microscopic variable. (Section
-\ref{sec:ope} upgrades this to a complete and rigorous definition --- ``a
-local operator is a state in the radial Hilbert space'' --- once the
-machinery exists.) The general-QFT case rides along: by chapter I.1's
-picture, a generic theory is a flow leaving a fixed point, and its operator
-content matches onto the fixed point's, deformed analytically along the flow.
+a power law with subleading \vocab{corrections to scaling} controlled by the
+higher operators in the expansion. This, corrections included, is precisely
+the form against which Monte Carlo data for critical systems is fit in
+practice. Read in the opposite direction, the scaling operator $\sigma$
+expressed in lattice variables is an infinite sum, $s_x + (\text{three-spin
+terms}) + \cdots$, with contributions of every size; Wilson constructed such
+eigenvectors numerically for the 2d Ising model already in
+1975.\footnote{Wilson's calculation, and the eigenvector picture of operators
+sketched here, are described in Rychkov \arxiv{1601.05000}, \S1.2. Two
+caveats. The blocking map $R$ and its eigenvectors depend on the chosen
+blocking scheme; what is scheme-independent is the spectrum $\{\Delta_k\}$
+and the continuum correlators --- one more instance of the distinction
+between presentation and physics. And \eqref{eq:operator-matching} is an
+asymptotic statement about the $a \to 0$ limit, of the kind Part VIII
+scrutinizes; in some models, symmetries of the continuum limit descend from
+lattice \emph{translations} rather than from any internal lattice symmetry
+(the emanant symmetries of chapter VIII.2).}
+
+The two constructions --- point-splitting in the continuum, RG eigenvectors
+on the lattice --- are different scaffoldings around the same object, and the
+object itself can now be defined with no scaffolding at all. What both
+constructions produced were operators whose correlation functions scale
+homogeneously, labeled by a scaling dimension. At a fixed point, where
+dilatations are a symmetry, this property can be taken as the definition.
+Because everything in these notes is built on this notion, we state it
+formally and then explain why it is the right choice.
+
+\begin{ddefinition}[Local operators of a scale-invariant theory]
+\label{def:local-operator}
+In a scale-invariant theory, a \vocab{local operator} of scaling dimension
+$\Delta$ is an object $\op(x)$, labeled by a point of space(time), whose
+correlation functions with other such operators are defined at non-coincident
+points and transform homogeneously under dilatations,
+\begin{equation}
+\big\langle \op_1(\lambda x_1)\, \op_2(\lambda x_2) \cdots
+\op_n(\lambda x_n)\big\rangle
+\;=\; \lambda^{-(\Delta_1 + \Delta_2 + \cdots + \Delta_n)}\,
+\big\langle \op_1(x_1)\, \op_2(x_2)\cdots \op_n(x_n)\big\rangle ,
+\label{eq:scaling-operator-def}
+\end{equation}
+and covariantly under rotations, according to the operator's spin.
+Equivalently, it is an eigenvector of the dilatation generator with
+eigenvalue $\Delta$. The \vocab{operator content} of the theory is the list
+of all pairs $(\Delta, \text{spin})$ that occur, with their multiplicities.
+\end{ddefinition}
+
+\noin Three remarks explain why this definition, rather than some other, is
+the correct one. First, it is exhaustive: as the lattice discussion showed,
+every reasonable local observable of every presentation is a linear
+combination of scaling operators, so nothing is lost by working in this
+basis. It is the basis that diagonalizes the renormalization group, in the
+same sense in which energy eigenstates diagonalize time evolution. Second,
+it is presentation-independent: \eqref{eq:scaling-operator-def} mentions only
+correlation functions, which are the data all presentations share. Third, it
+is intrinsic exactly where it needs to be: at a fixed point, dilatation is a
+symmetry, so the eigenvector condition refers to nothing outside the theory.
+For a theory that is not scale invariant the definition is inherited rather
+than intrinsic: by chapter I.1's picture, a generic theory is an RG flow
+leaving a fixed point, and its operators match onto the fixed point's
+operator content, with corrections analytic in the couplings along the flow.
+(Section~\ref{sec:ope} will sharpen the definition once more --- in a
+conformal theory, a local operator is the same thing as a state in the radial
+Hilbert space --- but the present form is what makes that sharpening
+possible.)
 
 \begin{iidea}[The operator content is data, not bookkeeping]
 \label{idea:operator-content}
 The set of local operators of a theory --- which dimensions occur, with which
 spins and multiplicities --- is intrinsic, presentation-independent data, on
-the same footing as the correlators themselves. It is \emph{constructed}, not
-read off: from products of fields by organizing coincident-point
-singularities, from lattice variables by diagonalizing the RG. Two facts make
-it powerful: it can be \emph{smaller} than any presentation suggests (null
-operators, equations of motion) and its gaps are as physical as its entries
---- this chapter ends with a ``theory'' disqualified by a single missing
-operator.
+the same footing as the correlators themselves. It is constructed, not read
+off: from products of fields by organizing their coincident-point
+singularities, from lattice variables by diagonalizing the renormalization
+group. It can be smaller than a presentation suggests, because equations of
+motion remove operators from the list; and its gaps carry physics, as the
+chapter's closing example --- a candidate ``theory'' disqualified by a single
+missing operator --- will show.
 \end{iidea}
 
 \begin{exercise}[classic]
@@ -189,44 +298,30 @@ computing, via Wick's theorem,
 = \frac{2}{(4\pi^2)^2\, x^4},
 \end{equation*}
 and conclude $\Delta_{:\phi^2:} = 2 = 2\Delta_\phi$: free-field composites
-have additive dimensions. (b) Show that the subtraction in
-\eqref{eq:point-splitting} is forced: without it, the limit has divergent
-overlap with $\mathbf 1$ but the \emph{connected} correlators already agree.
-(c) At the interacting 3d Wilson--Fisher fixed point, the operator surviving
-in this slot is $\epsilon$, with $\Delta_\epsilon = 1.412625(10)$ --- compare
-the free 3d value $2\Delta_\phi = 1$. The operator persisted; additivity did
-not. What replaces additivity? (Answer in Section~\ref{sec:ope}: nothing ---
-dimensions of composites are independent dynamical data, organized by the
-OPE.)
-\end{exercise}
-
-\begin{exercise}[medium]
-\label{exr:null-operators}
-(Null operators are physical.) In the free massless scalar theory, show that
-the state $\partial^2\phi(0)\ket 0$ constructed by the methods of
-Section~\ref{sec:ope} has zero norm, so $\partial^2 \phi = 0$ holds as an
-operator equation --- the equation of motion survives quantization as a
-statement about the operator content. Then explain why, at the
-Wilson--Fisher point, $\partial^2\phi$ is \emph{not} null and the would-be
-equation of motion instead relates it to $\phi^3$ --- whence the interacting
-theory has \emph{fewer} primaries than the free one at the same field
-content (the multiplet of $\phi$ ``recombines''). This mechanism --- null
-states and multiplet shortening --- returns as the engine of unitarity
-bounds in Part III.1.
-\hint{For the norm: $\|\partial^2\phi(0)\ket0\|^2 \propto \partial_x^2
-\partial_y^2 \frac{1}{(x-y)^{d-2}}$ evaluated suitably --- or use the radial
-algebra: $P^2\ket\phi$ has norm $\propto \Delta - \frac{d-2}{2}$, vanishing
-exactly at the free dimension.}
+have additive dimensions. (b) Verify that the mode definition
+\eqref{eq:normal-ordering} and the point-split definition
+\eqref{eq:point-splitting} give the same operator, by checking that their
+correlators with $\phi(y_1)\,\phi(y_2)$ agree. (c) At the interacting 3d
+Wilson--Fisher fixed point, the operator occupying this slot is $\epsilon$,
+with $\Delta_\epsilon = 1.412625(10)$, while $2\Delta_\phi \simeq 1.036$:
+the operator survives the interaction, but additivity of dimensions does
+not. Convince yourself that nothing in the point-splitting construction
+required additivity --- the dimension of a composite operator is independent
+dynamical data, fixed by the theory and not by arithmetic.
+\hint{For (a) and (b): Wick's theorem; the only correlators needed are
+products of two-point functions. For (b), note that both definitions differ
+from $\phi(x+\varepsilon)\phi(x)$ by the same c-number.}
 \end{exercise}
 
 % =====================================================================
 \subsection{Correlators and their analytic structure}
 \label{sec:analytic-structure}
 
-Start with what a correlation function is operationally, because the subject's
-split personality --- statistical mechanics on one side, quantum mechanics on
-the other --- is visible already here, and reconciling the two personalities is
-this section's job.
+We turn to the correlation functions themselves. Two inequivalent-looking
+definitions of a correlation function are in circulation, corresponding to
+the two kinds of presentation met in chapter I.1, and the first task is to
+state both precisely. The main result of this section is the exact relation
+between them.
 
 In a Euclidean presentation, a correlator is an average. On the lattice,
 $\langle s_{i_1} \cdots s_{i_n} \rangle$ is a weighted sum over configurations,
@@ -254,20 +349,38 @@ W(x_1, \dots, x_n) = \bra{0} \op_1(x_1)\, \op_2(x_2) \cdots \op_n(x_n) \ket{0},
 \label{eq:wightman-def}
 \end{equation}
 the \vocab{Wightman functions}. The ordering is physical: $\op_1$ acts last.
-Different orderings are genuinely different functions --- their differences are
-commutators --- and the familiar time-ordered correlators of perturbation
-theory are yet another combination, assembled from Wightman functions with step
-functions.
+Because the operators need not commute, different orderings define
+different functions. For two operators, the difference of the two orderings
+is the expectation value of a commutator,
+\begin{equation}
+W(x_1, x_2) - W(x_2, x_1)
+= \bra{0}\,[\op_1(x_1),\, \op_2(x_2)]\,\ket{0},
+\label{eq:ordering-difference}
+\end{equation}
+which microcausality requires to vanish at spacelike separation but not
+elsewhere. The time-ordered correlators of perturbation theory are yet
+another object, assembled from the Wightman functions by step functions in
+the times:
+\begin{equation}
+\bra{0}\, T\{\op_1(x_1)\,\op_2(x_2)\}\,\ket{0}
+= \theta(t_1 - t_2)\, W(x_1, x_2) + \theta(t_2 - t_1)\, W(x_2, x_1),
+\label{eq:time-ordering}
+\end{equation}
+with $n!$ such terms for $n$ points. The Wightman functions are thus the
+primitive objects: every ordering --- time-ordered, retarded, or otherwise
+--- is a linear combination of them, while the step functions cannot be
+undone to recover Wightman functions from time-ordered ones alone.
 
-So the two personalities do not even agree on what kind of object a correlator
-is: a moment of a measure, or an ordered matrix element. The claim that
-reconciles them --- the engine of this whole section --- is that the Wightman
-functions of a healthy theory are boundary values of a single analytic
-function, that the Schwinger functions are the values of that \emph{same}
-function at Euclidean points, and that the analyticity responsible for all of
-this is nothing but the positivity of the energy. None of this requires
-conformal symmetry, weak coupling, or even a Lagrangian; it needs only a
-Hamiltonian bounded below. Let us see it happen.
+We therefore have two definitions in hand. In Euclidean presentations a
+correlator is a moment of a statistical measure, symmetric under permutations
+of its arguments; in Hamiltonian presentations it is a matrix element of
+ordered, noncommuting operators. The remainder of this section establishes
+the exact relation between them: the Wightman functions of a theory with
+energy bounded below are boundary values of a single analytic function of
+complexified times, and the Schwinger functions are the values of that same
+function at purely imaginary times. The analyticity follows from positivity
+of the energy alone; no conformal symmetry, weak coupling, or Lagrangian is
+required.
 
 \subsubsection{Positive energy means analyticity}
 \label{sec:positive-energy-analyticity}
@@ -291,11 +404,15 @@ is the boundary value of this function as $\sigma \to 0^+$:
 \bra{0}\op(t,\mathbf{x})\op(0)\ket{0} = \lim_{\sigma \to 0^+} W(t - i\sigma, \mathbf{x}).
 \label{eq:boundary-value}
 \end{equation}
-The opposite ordering, $\bra{0}\op(0)\op(t,\mathbf{x})\ket{0}$, is by the identical
-argument the boundary value from the \emph{upper} half-plane. One analytic
-function; two orderings; two sides of a cut.
+The opposite ordering, $\bra{0}\op(0)\op(t,\mathbf{x})\ket{0}$, is by the
+identical argument the boundary value from the \emph{upper} half-plane. The
+two orderings are therefore boundary values of one analytic function,
+approached from opposite sides of the real axis; their difference, the
+commutator \eqref{eq:ordering-difference}, is the discontinuity across the
+axis.
 
-And the Euclidean section is sitting in plain view. Put $t = -i\tau$ with
+The Euclidean correlator can now be located inside this structure. Put $t =
+-i\tau$ with
 $\tau > 0$: this is a point deep inside the lower half-plane, where the sum
 \eqref{eq:spectral-sum} converges absolutely,
 \begin{equation}
@@ -303,20 +420,25 @@ W(-i\tau, \mathbf{x}) = \sum_n \big|\bra{0}\op\ket{n}\big|^2\,
    e^{-E_n \tau + i \mathbf{p}_n\cdot\mathbf{x}}
 = \bra{0}\op(0,\mathbf{x})\, e^{-H\tau}\, \op(0)\ket{0},
 \end{equation}
-which is exactly what a Euclidean path integral with two insertions separated
-by Euclidean time $\tau$ computes. The Schwinger function is the Wightman
-function evaluated at imaginary time --- not analogous to it, not formally
-related to it: \emph{equal} to it, at interior points of a common domain of
-analyticity. Note also what happened to ordering: at Euclidean separation the
-operator order is slaved to the Euclidean time order ($e^{-H\tau}$ only makes
-sense as a damping factor for $\tau > 0$), which is why the Euclidean
-correlator \eqref{eq:euclidean-correlator} could afford to look like a moment
-of a measure, with no memory of orderings at all. The $n$-point version of the
+which is precisely the quantity a Euclidean path integral computes with two
+insertions separated by Euclidean time $\tau$. The Schwinger function is
+therefore the Wightman function evaluated at imaginary time: equal to it at
+interior points of a common domain of analyticity, not merely related to it
+by a formal substitution. Notice also what has happened to the question of
+operator ordering. Continuing the \emph{opposite} ordering
+$\bra{0}\op(0)\op(t,\mathbf{x})\ket{0}$ to imaginary time requires $\tau < 0$
+for convergence, since its damping region is the upper half-plane. A given
+Euclidean configuration therefore corresponds to exactly one operator
+ordering --- the one in which Euclidean times decrease from left to right ---
+and this is why the Euclidean correlator
+\eqref{eq:euclidean-correlator} can be symmetric in its arguments without
+contradiction: the orderings are not lost, but each is recovered from a
+different boundary of the same function. The $n$-point version of the
 argument runs the same way --- positivity of $H$ gives analyticity in each
 successive time difference, in the tube $\mathrm{Im}(t_{k+1} - t_k) < 0$ ---
-and a classic theorem of the axiomatic tradition --- spelled out, with the
-$n$-point bookkeeping, in Section~\ref{sec:npoint-dictionary} below ---
-upgrades this to the statement we will use as a slogan:\footnote{%
+and a classic theorem of the axiomatic tradition, spelled out with the
+$n$-point bookkeeping in Section~\ref{sec:npoint-dictionary} below, upgrades
+this to the following general statement.\footnote{%
 Kontsevich--Segal \arxiv{2105.10161}, \S2, opens with precisely this
 boundary-value picture before generalizing it; we meet their generalization
 in Section~\ref{sec:ks-interlude}.}
@@ -331,7 +453,7 @@ a substitution $t \to i\tau$ performed on formulas; it is analytic continuation
 through a domain whose existence is equivalent to the positivity of the energy.
 \end{iidea}
 
-This is worth internalizing as the modern division of labor: \emph{compute
+This is the modern division of labor: \emph{compute
 where the function is nice} (the Euclidean section, where correlators are
 permutation-symmetric, single-valued, and often given by convergent statistical
 sums), \emph{then continue to where the physics asks the question} (the
@@ -389,7 +511,8 @@ W(t, \mathbf{x}) = \frac{1}{4\pi^2}\,
 \frac{1}{r^2 - (t - i\sigma)^2}\bigg|_{\sigma \to 0^+}.
 \label{eq:free-wightman}
 \end{equation}
-Now read the physics off the analytic structure, clause by clause.
+We now examine the analytic structure of this function and verify each
+clause of the definition above.
 
 \emph{The Euclidean section.} Set $t = -i\tau$: $W = \frac{1}{4\pi^2}(r^2 +
 \tau^2)^{-1} = \frac{1}{4\pi^2 x_{\rm E}^2}$, the Euclidean propagator ---
@@ -431,45 +554,51 @@ which the same algebra assembles into
 \end{equation}
 the Feynman propagator in mostly-plus signature: a \emph{single} $i\epsilon$
 attached to the invariant $x^2$, approaching the cut from one fixed side
-regardless of the sign of $t$. Wightman, time-ordered, retarded, Euclidean: one
-function, four ways of standing next to its cut.
+regardless of the sign of $t$. Each of the standard two-point functions ---
+Wightman, time-ordered, retarded, Euclidean --- is thus a boundary value or
+section of the same analytic function, distinguished only by the direction
+from which the real axis is approached.
 \end{eexample}
 
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[scale=1.0, >=stealth]
   % axes
-  \draw[->, gray!70] (-4.4,0) -- (4.6,0) node[below right, black!70] {\footnotesize $\mathrm{Re}\,t$};
-  \draw[->, gray!70] (0,-2.5) -- (0,2.6) node[right, black!70] {\footnotesize $\mathrm{Im}\,t$};
+  \draw[->, gray!70] (-4.6,0) -- (4.8,0) node[below right, black!70] {\footnotesize $\mathrm{Re}\,t$};
+  \draw[->, gray!70] (0,-2.7) -- (0,1.9) node[right, black!70] {\footnotesize $\mathrm{Im}\,t$};
   % cuts
   \draw[line width=1.6pt, decorate, decoration={zigzag, segment length=5pt, amplitude=1pt}]
-    (1.5,0) -- (4.3,0);
+    (1.5,0) -- (4.5,0);
   \draw[line width=1.6pt, decorate, decoration={zigzag, segment length=5pt, amplitude=1pt}]
-    (-4.3,0) -- (-1.5,0);
-  \node at (2.9,0.35) {\footnotesize cut: $t > r$};
-  \node at (-2.9,0.35) {\footnotesize cut: $t < -r$};
+    (-4.5,0) -- (-1.5,0);
+  \node at (3.1,0.38) {\footnotesize cut ($t > r$)};
+  \node at (-3.1,-0.42) {\footnotesize cut ($t < -r$)};
   % light cone points
-  \filldraw (1.5,0) circle (1.6pt) node[below=2pt] {\footnotesize $t = r$};
-  \filldraw (-1.5,0) circle (1.6pt) node[below=2pt] {\footnotesize $t = -r$};
+  \filldraw (1.5,0) circle (1.6pt) node[above=3pt] {\footnotesize $t = r$};
+  \filldraw (-1.5,0) circle (1.6pt) node[above=3pt] {\footnotesize $t = -r$};
   % Euclidean axis
-  \draw[->, very thick, blue!60!black] (0,0) -- (0,-2.1);
-  \node[blue!60!black, anchor=west] at (0.08,-1.9) {\footnotesize Euclidean: $t = -i\tau$, $\tau > 0$};
-  % Wick rotation path
-  \draw[->, thick, dashed] (0,-1.5) arc (-90:-8:1.5);
-  \node at (1.95,-1.05) {\footnotesize Wick rotation};
+  \draw[->, very thick, blue!60!black] (0,0) -- (0,-2.3);
+  \node[blue!60!black, anchor=east] at (-0.12,-2.0)
+    {\footnotesize Euclidean: $t = -i\tau$,\ \ $\tau > 0$};
+  % Wick rotation path (from Euclidean axis up to Lorentzian boundary)
+  \draw[->, thick, dashed] (0,-1.3) arc (-90:-10:1.3);
+  \node[anchor=west] at (1.32,-0.95) {\footnotesize $t = e^{-i\theta}|t|$};
   % boundary values
-  \draw[->, thick] (2.6,-0.55) -- (2.6,-0.12);
-  \node[anchor=north] at (2.6,-0.6) {\footnotesize $\bra{0}\op(t)\op(0)\ket{0}$};
-  \draw[->, thick] (-2.6,0.95) -- (-2.6,0.14);
-  \node[anchor=south] at (-2.6,0.95) {\footnotesize $\bra{0}\op(0)\op(t)\ket{0}$};
+  \draw[->, thick] (3.6,-0.75) -- (3.6,-0.12);
+  \node[anchor=north] at (3.6,-0.8) {\footnotesize $\bra{0}\op(t)\op(0)\ket{0}$};
+  \draw[->, thick] (-3.6,0.75) -- (-3.6,0.12);
+  \node[anchor=south] at (-3.6,0.8) {\footnotesize $\bra{0}\op(0)\op(t)\ket{0}$};
 \end{tikzpicture}
 \caption{The complex time plane of the two-point function at fixed spatial
   separation $r$. Positivity of the energy makes the function holomorphic off
-  the real axis; singularities reach the real axis only at timelike separation
-  $|t| \ge r$. Operator orderings are boundary values from below ($\op(t)$
-  acting last) or above; their mismatch across the cuts is the commutator
-  \eqref{eq:pauli-jordan}; the Euclidean correlator is the section along the
-  negative imaginary axis, reached by Wick rotation $t = e^{-i\theta}|t|$.}
+  the real axis, and its singularities reach the real axis only at timelike
+  separation $|t| \ge r$. The two operator orderings are the boundary values
+  from below and from above (one arrow of each is drawn; the same applies on
+  both cuts), and their mismatch across the cuts is the commutator
+  \eqref{eq:pauli-jordan}. The Euclidean correlator is the section along the
+  negative imaginary axis; continuing it back to real time along the dashed
+  path $t = e^{-i\theta}|t|$, $\theta\colon \frac\pi2 \to 0$, recovers the
+  Lorentzian boundary values, which is the inverse of the Wick rotation.}
 \label{fig:complex-time}
 \end{figure}
 
@@ -509,15 +638,14 @@ and analyticity in $\omega$ are Fourier duals of one another.}
 The two-point function fit in one complex plane; the general entry of the
 dictionary must be spelled out once, carefully, because every
 ``Wick rotate the correlator'' step in the rest of these notes silently
-invokes it. The statements stack up in four layers, each purchased by one
-physical input.\footnote{This subsection states what is proved in
-Streater--Wightman, chs.\ 2--3 (the tube theorems and the
-Bargmann--Hall--Wightman analysis) and surveyed in Dedushenko
-\arxiv{2203.08053}, \S2.1. Our job here is to make the \emph{structure}
-usable; the proofs are genuinely analytic and we cite them without
-embarrassment.}
+invokes it. The structure is conveniently organized in four steps, each
+resting on one physical input.\footnote{This subsection states what is
+proved in Streater--Wightman, \emph{PCT, Spin and Statistics, and All That},
+chs.\ 2--3 (the tube theorems and the Bargmann--Hall--Wightman analysis).
+The proofs are essentially exercises in several-variable complex analysis,
+and we cite them rather than reproduce them.}
 
-\emph{Layer 1 (positive energy): the tube.} Repeating the damping argument of
+\emph{Step 1 (positive energy): the tube.} Repeating the damping argument of
 \eqref{eq:spectral-sum} between each adjacent pair of operators, the
 $n$-point Wightman function $W_n(x_1, \dots, x_n)$ --- one fixed ordering ---
 extends holomorphically to complex times with \emph{ordered} imaginary parts,
@@ -527,7 +655,7 @@ invariance makes this a statement about the $n-1$ difference variables; with
 Lorentz invariance the domain widens in the spatial directions too --- the
 ``extended tube'' --- but the time story carries all the intuition.)
 
-\emph{Layer 2 (microcausality): the orderings agree where they can.} Distinct
+\emph{Step 2 (microcausality): the orderings agree where they can.} Distinct
 orderings of the same operators are boundary values of \emph{a priori}
 different analytic functions. But at spacelike separations the operators
 commute, so the functions agree on a real open set --- and holomorphic
@@ -540,7 +668,7 @@ assemble into a
 single object with many real-time faces --- the $n$-point upgrade of
 Figure~\ref{fig:complex-time}.
 
-\emph{Layer 3 (the theorem): Euclidean points are inside.} The classic result
+\emph{Step 3 (the theorem): Euclidean points are inside.} The classic result
 of the axiomatic era is that the purely Euclidean configurations $t_k =
 -i\tau_k$, at non-coincident points, lie in the interior of that common
 domain. The restriction there --- the Schwinger function $S_n$ --- is
@@ -549,7 +677,7 @@ real-analytic and, because the domain is permutation-glued,
 which is why a statistical-mechanics presentation, which never knew about
 order, can produce them.
 
-\emph{Layer 4 (the recipe): how to come back.} To recover any Lorentzian
+\emph{Step 4 (the recipe): returning to Lorentzian signature.} To recover any Lorentzian
 correlator from Euclidean data, give each operator a small positive Euclidean
 time offset encoding its place in the desired order and continue:
 \begin{equation}
@@ -564,7 +692,7 @@ correspond to choosing the $\epsilon$'s in the same order as the real times
 themselves --- equivalently, to the uniform rotation $t_k \to (1 -
 i\delta)\,t_k$ --- which for two points collapses to the single ``$x^2 +
 i\epsilon$'' of Example~\ref{ex:free-scalar-2pt}. This recipe
-is worth filing as a reflex --- it is how every Lorentzian statement in these
+is worth committing to memory: it is how every Lorentzian statement in these
 notes (commutators, response functions, the chaos correlators of Part XI)
 will be extracted from Euclidean computations.
 
@@ -589,23 +717,25 @@ critical Ising magnet do? Continue by the recipe: with $x^2_{\rm E} = r^2 +
 \end{equation}
 since for $t > r$ the argument $r^2 - (t-i\epsilon)^2$ crosses to the
 negative reals from the upper side, $(|X| e^{i\pi})^{-1/8} = |X|^{-1/8}
-e^{-i\pi/8}$. Three readings. \emph{(i)} At spacelike separation the
-correlator is real and order-independent: causality, visible. \emph{(ii)} At
+e^{-i\pi/8}$. Three comments. \emph{(i)} At spacelike separation the
+correlator is real and independent of the operator ordering, as causality
+requires. \emph{(ii)} At
 timelike separation it acquires the universal phase $e^{-i\pi \Delta_\sigma}$
---- the operator ordering matters now, the reversed order giving
-$e^{+i\pi\Delta_\sigma}$, and the imaginary part
+--- the operator ordering now matters, the reversed order giving
+$e^{+i\pi\Delta_\sigma}$ --- and the imaginary part
 \begin{equation}
 \bra{0}[\sigma(t,r), \sigma(0)]\ket{0}
 = -\,2i\,\sin\!\big(\tfrac{\pi}{8}\big)\,
 \frac{\mathrm{sgn}(t)}{(t^2 - r^2)^{1/8}}
 \end{equation}
-is a nonvanishing commutator filling the \emph{entire} forward lightcone ---
-compare the free massless field \eqref{eq:pauli-jordan}, whose commutator
-clung to the cone's surface. An interacting CFT signals at every timelike
-separation. \emph{(iii)} The branch-point structure at the lightcone $t = r$,
-with its exponent set by an anomalous dimension, is the germ of Lorentzian
-CFT technology --- lightcone limits, where the analytic bootstrap of Part
-III.3 lives.
+is a nonvanishing commutator filling the entire interior of the forward
+lightcone. Compare the free massless field \eqref{eq:pauli-jordan}, whose
+commutator was supported on the lightcone alone: in an interacting CFT, a
+local disturbance is felt at every timelike-separated point, not only on the
+wavefront. \emph{(iii)} The branch-point structure at the lightcone $t = r$,
+with its exponent set by an anomalous dimension, is the starting point of
+Lorentzian CFT technology --- lightcone limits, where the analytic bootstrap
+of Part III.3 operates.
 \end{eexample}
 
 \begin{exercise}[medium]
@@ -622,30 +752,71 @@ positivity computation is the $d=2$ case of Exercise~\ref{exr:cft-spectral}.}
 \subsubsection{The spectral representation, and theories without particles}
 \label{sec:kallen-lehmann}
 
-The two-point function earns one more pass, because in an interacting theory
-it carries a complete, presentation-independent record of the spectrum. Insert
-states organized by total momentum in \eqref{eq:spectral-sum}: Poincar\'e
-invariance forces the matrix elements to depend only on the invariant mass, and
-the two-point function of any Hermitian scalar operator collapses to a
-\emph{one-dimensional} integral over free propagators. In the Euclidean form,
-which is the cleanest,
+The two-point function earns one more pass, because in an interacting
+theory it carries a complete, presentation-independent record of the
+spectrum, in a form --- the \vocab{K\"all\'en--Lehmann representation} ---
+that we will use several times in this chapter. We derive it now.
+
+Return to the spectral sum \eqref{eq:spectral-sum} and organize the
+intermediate states by their total momentum. In a Poincar\'e-invariant theory
+the Hilbert space is spanned by states $\ket{\lambda, \mathbf p}$ of definite
+spatial momentum $\mathbf p$ and energy $E_\lambda(\mathbf p) = \sqrt{\mathbf
+p^2 + m_\lambda^2}$, where $\lambda$ runs over all remaining labels ---
+single- and multi-particle content, internal quantum numbers, relative
+momenta --- organized into Lorentz multiplets of invariant mass $m_\lambda$.
+With covariant normalization, completeness reads
+\begin{equation}
+\mathbf 1 \;=\; \ket{0}\bra{0} \;+\; \sum_\lambda \int
+\frac{d^{d-1}p}{(2\pi)^{d-1}\, 2E_\lambda(\mathbf p)}\,
+\ket{\lambda, \mathbf p}\bra{\lambda, \mathbf p}.
+\label{eq:completeness}
+\end{equation}
+Insert this between the two operators in $W(x) =
+\bra{0}\op(x)\,\op(0)\ket{0}$, taking $\langle \op \rangle = 0$ so that the
+vacuum term drops out, and use translation covariance to extract the position
+dependence, $\bra{0}\op(x)\ket{\lambda,\mathbf p} = e^{ip\cdot
+x}\,\bra{0}\op(0)\ket{\lambda, \mathbf p}$ with $p^0$ on shell:
+\begin{equation}
+W(x) \;=\; \sum_\lambda \int
+\frac{d^{d-1}p}{(2\pi)^{d-1}\,2E_\lambda(\mathbf p)}\;
+\big|\bra{0}\op(0)\ket{\lambda,\mathbf p}\big|^2 \, e^{ip\cdot x}.
+\label{eq:kl-step}
+\end{equation}
+Now use Lorentz invariance. For a scalar operator the matrix element
+$\bra{0}\op(0)\ket{\lambda,\mathbf p}$ is unchanged by boosts, so its modulus
+can depend on $\mathbf p$ only through the invariant mass $m_\lambda$; the
+momentum integral in \eqref{eq:kl-step} is then exactly the integral that
+produced the free-field Wightman function in
+Example~\ref{ex:free-scalar-2pt}, evaluated at mass $m_\lambda$. All
+dependence on the dynamics therefore collapses into a single nonnegative
+function of one variable, the \vocab{spectral density}
+\begin{equation}
+\rho(s) \;\equiv\; \sum_\lambda \big|\bra{0}\op(0)\ket{\lambda}\big|^2\,
+\delta\big(s - m_\lambda^2\big) \;\ge\; 0,
+\label{eq:spectral-density}
+\end{equation}
+and the two-point function becomes a weighted superposition of free
+two-point functions of every mass:
+\begin{equation}
+W(x) \;=\; \int_0^\infty ds\; \rho(s)\, W_{\rm free}(x; s).
+\label{eq:kl-lorentzian}
+\end{equation}
+This is the K\"all\'en--Lehmann representation. The derivation used only
+completeness, translation and Lorentz covariance, and unitarity ($\rho \ge
+0$, being a sum of squared amplitudes for $\op$ to create states from the
+vacuum); it therefore holds in any unitary Poincar\'e-invariant theory, with
+or without a Lagrangian. Since \eqref{eq:kl-lorentzian} holds throughout the
+common domain of analyticity, it continues directly to Euclidean points,
+where the free propagator of mass$^2 = s$ is $1/(p^2 + s)$ in momentum
+space:
 \begin{equation}
 \langle \op(x)\, \op(0) \rangle_{\rm E}
 = \int_0^\infty ds \; \rho(s)\, G_{\rm free}(x; s),
 \qquad
-\tilde G(p) = \int_0^\infty ds\; \frac{\rho(s)}{p^2 + s},
+\tilde G(p) = \int_0^\infty ds\; \frac{\rho(s)}{p^2 + s}.
 \label{eq:kallen-lehmann}
 \end{equation}
-where $G_{\rm free}(x;s)$ is the free Euclidean propagator of mass$^2$ $s$, and
-the \vocab{spectral density}
-\begin{equation}
-\rho(s) \;\propto\; \sum_n \big|\bra{0}\op(0)\ket{n}\big|^2\,
-\delta\big(s - m_n^2\big) \;\ge\; 0
-\label{eq:spectral-density}
-\end{equation}
-is manifestly nonnegative in a unitary theory: it is a sum of squared
-amplitudes for $\op$ to create states out of the vacuum. This is the
-\vocab{K\"all\'en--Lehmann representation}. Analytically, \eqref{eq:kallen-lehmann}
+Analytically, \eqref{eq:kallen-lehmann}
 says the momentum-space two-point function is a Stieltjes transform: holomorphic
 in the cut $p^2$ plane, with all its singularities on the negative real axis
 $p^2 = -s$ (the Lorentzian on-shell region, $p^2 = -m^2$ in mostly-plus), and
@@ -685,7 +856,9 @@ but integrable peak --- the right mental image for an almost-free fixed point
 like Banks--Zaks.}
 \end{itemize}
 
-And positivity of $\rho$ has teeth. The prefactor in \eqref{eq:cft-spectral}
+Positivity of $\rho$ now constrains which power laws can occur as two-point
+functions. The prefactor in
+\eqref{eq:cft-spectral}
 changes sign when $\Gamma(\Delta - \frac d2 + 1)$ does: for the power law
 $1/x^{2\Delta}$ to be the two-point function of \emph{any} operator in a
 unitary theory requires
@@ -723,7 +896,7 @@ positive for $\Delta > \frac d2 - 1$, and the limit (b) is the statement that
 the free massless particle is the boundary case of the conformal continuum.}
 \end{exercise}
 
-\begin{reemark}[Correlators are distributions; this matters less than you fear]
+\begin{reemark}[Correlators are distributions]
 \label{rem:distributions}
 At coincident points correlators blow up --- $1/x^{2\Delta}$ is not a function
 at $x = 0$ --- and the axiomatic tradition correspondingly treats fields as
@@ -747,19 +920,21 @@ Hilbert space, positive Hamiltonian, operators --- we produced Euclidean
 correlators and located them inside an analytic structure. But the working
 direction of modern physics is the reverse. A lattice model, a Euclidean path
 integral, a set of bootstrap data: each hands you Schwinger functions and
-nothing else. Nobody hands you a Hilbert space. So the honest question --- and
-it is the central question of this section --- is: \emph{which} sets of
-Euclidean correlation functions are the Euclidean section of a genuine quantum
-theory? Statistical averages are cheap; quantum mechanics, with its positive
-probabilities and unitary evolution, is not. Something about the Euclidean data
-must encode positivity, and whatever it is must be checkable without ever
-leaving Euclidean signature.
+nothing else. Nobody hands you a Hilbert space. So the central question of
+this section is: \emph{which} sets of
+Euclidean correlation functions are the Euclidean section of a quantum
+theory? A generic statistical ensemble has no reason to describe a quantum
+theory: unitary evolution and the positivity of probabilities are additional
+structure, and something in the Euclidean data must encode that structure ---
+in a form that can be checked without ever leaving Euclidean signature.
 
-The answer is a single condition with a mirror in it. To find it, run the
-quantum-mechanical construction of states backwards. In a Lorentzian theory we
-build states by acting on the vacuum; in the Euclidean section, acting on the
-vacuum at negative Euclidean time and evolving to $\tau = 0$ means: a state is
-\emph{a collection of operator insertions in the lower half-space} $\tau < 0$.
+The required condition is called reflection positivity, and it can be
+motivated by asking how a state of the theory is described in Euclidean
+language. In a Hamiltonian presentation one builds states by acting on the
+vacuum with operators in the past. Under the continuation of the previous
+section, ``the past'' becomes the lower half-space $\tau < 0$, so a state on
+the $\tau = 0$ slice is specified by
+\emph{a collection of operator insertions in the lower half-space}.
 Call such a collection $F$ --- finitely many operators at points $x_1, \dots,
 x_k$ with $\tau_i < 0$, or any linear combination of such. Its conjugate state,
 by the continuation rule \eqref{eq:boundary-value} read backwards, is the
@@ -841,8 +1016,7 @@ definite}. Its eigenvalues are $2\cosh J$ and $2\sinh J$: both positive for
 the ferromagnet $J > 0$. The Ising chain is reflection positive, and the proof
 is two lines once the transfer matrix exists.
 
-The example repays a second look, because each ingredient is a general lesson
-in miniature.
+Three features of this short computation illustrate general phenomena.
 \emph{(i)} What reflection positivity actually delivered is the statement that
 $T$ is a positive operator, $T = e^{-aH}$ for a Hermitian $H$ bounded below
 (here $H = -\frac1a \log T$, finite because both eigenvalues are positive). In
@@ -861,12 +1035,12 @@ lattice model (site- vs.\ bond-centered reflections are the germ of the
 chessboard estimates of rigorous statistical mechanics), and on the bipartite
 lattice the antiferromagnet is rescued by a sublattice flip --- a baby example
 of positivity holding only after a dressing.
-\emph{(iii)} Complex couplings break everything: for the chain in an imaginary
+\emph{(iii)} Complex couplings violate the hypotheses: for the chain in an imaginary
 magnetic field, $e^{h s_i}$ with $h$ imaginary, the weight is not positive,
 reflection positivity fails, and yet the model has a perfectly sharp critical
 point --- the Lee--Yang edge singularity, governed by a \emph{non-unitary}
 conformal field theory (Exercise~\ref{exr:lee-yang}). Reflection positivity is
-a genuine axiom, not a formality: nature's statistical-mechanics corner is
+a restrictive axiom, not a formality: nature's statistical-mechanics corner is
 populated by theories that violate it and are interesting for that very reason.
 \end{eexample}
 
@@ -889,7 +1063,7 @@ imaginary field, weight $\exp[\sum_i (J s_i s_{i+1} + i h_{\rm I} s_i)]$ with
 $h_{\rm I}$ real. (a) Show the transfer matrix is no longer Hermitian, find
 where its eigenvalues collide as $h_{\rm I}$ grows at fixed $J$, and conclude
 the free energy has a singularity at real $h_{\rm I}$ --- the Lee--Yang edge,
-which in $d \ge 2$ becomes a genuine critical point. (b) Exactly which step of
+which in $d \ge 2$ becomes a true critical point. (b) Exactly which step of
 Example~\ref{ex:lattice-rp} fails? (c) The corresponding CFT (Fisher; in 2d the
 minimal model $\mathcal{M}(2,5)$, cf.\ Part III.4) has an operator with
 $\Delta < 0$, flatly violating \eqref{eq:scalar-unitarity-bound}. Reconcile:
@@ -901,7 +1075,7 @@ continuation needed only $H$ bounded below in some sector; positivity of norms
 is what fails.}
 \end{exercise}
 
-\subsubsection{The reconstruction theorem, sketched honestly}
+\subsubsection{The reconstruction theorem}
 \label{sec:os-reconstruction}
 
 Reflection positivity is necessary for a quantum interpretation. The
@@ -937,20 +1111,34 @@ Reflection positivity says precisely that this form is positive semidefinite.
 
 \emph{Step 2: quotient and complete.} The null vectors $N = \{F : \langle F,
 F\rangle = 0\}$ form a subspace (Cauchy--Schwarz, which positive semidefinite
-forms obey), and on the quotient $V/N$ the form is a genuine inner product.
+forms obey), and on the quotient $V/N$ the form is an inner product.
 Complete it:
 \begin{equation}
 \mathcal{H} \;\equiv\; \overline{V / N}.
 \end{equation}
 This is \emph{the} Hilbert space of the theory --- not a Hilbert space
-postulated alongside the correlators, but one manufactured from them. The
+postulated alongside the correlators, but one constructed from them. The
 vacuum is the class of the empty insertion, $\ket{0} = [\,\mathbf{1}\,]$, with
-$\braket{0}{0} = S_0 = 1$. (The quotient is doing real physics: on the lattice,
-many different right-half configurations of insertions produce the same state
-on the mirror --- $V/N$ \emph{is} the boundary Hilbert space $\complex^2$ of
-the chain, as Exercise~\ref{exr:os-chain} makes explicit. Gauge theory will
-make the quotient earn its keep even more visibly, with Gauss-law violating
-configurations becoming null.)
+$\braket{0}{0} = S_0 = 1$.
+
+The quotient by null vectors requires explanation, because it is physics
+rather than hygiene. A \vocab{null configuration} is a linear combination $F$
+of insertions whose correlators with \emph{every} configuration in the upper
+half-space vanish: by Cauchy--Schwarz, $\langle F, F\rangle = 0$ implies
+$\langle G, F \rangle = 0$ for all $G$, so a null $F$ is indistinguishable
+from zero by any conceivable future measurement, and the quotient simply
+identifies it with zero. Two examples make this concrete. In the free
+massless scalar theory, the insertion of $\partial^2\phi(x)$ is null --- its
+correlators with everything vanish because $\partial^2$ annihilates the
+propagator at separated points --- so the quotient is how the equation of
+motion, an operator identity of Section~\ref{sec:what-is-operator}, is
+implemented in the reconstructed Hilbert space. On the Ising chain, any two
+right-half configurations with the same boundary function $v_F$ in
+\eqref{eq:rp-transfer} differ by a null configuration, and the quotient
+collapses the enormous space of insertion patterns to the two-dimensional
+boundary Hilbert space $\complex^2$, as Exercise~\ref{exr:os-chain} makes
+explicit. (In gauge theories, the same quotient enforces constraints such as
+Gauss's law; we will see this in Part V.)
 
 \emph{Step 3: the Hamiltonian.} Euclidean time translation acts on insertions:
 $(T_\sigma F)$ shifts every insertion by $\tau \to \tau - \sigma$, $\sigma > 0$,
@@ -963,7 +1151,7 @@ semigroup has a self-adjoint, nonnegative generator:
 T_\sigma = e^{-\sigma H}, \qquad H = H^\dagger \ge 0 .
 \label{eq:os-hamiltonian}
 \end{equation}
-Pause on what just happened. In Section~\ref{sec:analytic-structure},
+Note the direction of the logic here. In Section~\ref{sec:analytic-structure},
 positivity of the energy was the \emph{input} and Euclidean analyticity the
 output. Here the direction is reversed: reflection positivity of statistical
 averages \emph{produced} a positive Hamiltonian. The two positivities are the
@@ -986,9 +1174,10 @@ continuation of $n$-point functions, not just of the semigroup --- is where the
 real work and the growth condition live, and is what we cite rather than
 derive.\footnote{Osterwalder--Schrader, \emph{Axioms for Euclidean Green's
 functions} I, Comm.\ Math.\ Phys.\ \textbf{31} (1973) 83, and II, \textbf{42}
-(1975) 281. The survey of this and the neighboring axiom systems
-(Glimm--Jaffe's, Nelson's, with their respective reconstruction theorems) is
-Dedushenko \arxiv{2203.08053}, \S2.1, which this subsection compresses.}
+(1975) 281. Neighboring axiom systems with their own reconstruction theorems
+(Glimm--Jaffe's, built on the generating functional; Nelson's, built on the
+Markov property) are treated in Glimm--Jaffe, \emph{Quantum Physics},
+chs.\ 6 and 19.}
 
 \begin{ttheorem}[Osterwalder--Schrader reconstruction]
 \label{thm:os}
@@ -1002,18 +1191,18 @@ becomes uniqueness of the vacuum.
 \end{ttheorem}
 
 \begin{nnote}
-The growth condition is not decoration. Osterwalder and Schrader's first paper
-claimed reconstruction without it; the proof contained a gap, and the
-linear-growth hypothesis of their second paper (each $S_n$ bounded by
-factorially many derivatives in a controlled way) is what makes the
-continuation of all $n$-point functions converge. There exist sets of
-Schwinger functions satisfying every other axiom whose continuation fails ---
-positivity across planes alone does not see fast enough growth in $n$. For the
-theories in these notes the condition is verified wherever rigorous
-constructions exist ($d = 2, 3$ scalar theories, cf.\ chapter I.1's
-constructive inventory), and for CFTs the OPE of the next section supplies a
-far stronger handle on coincident-point growth. We flag it once, here, and
-trust it silently hereafter.
+The growth condition is a substantive hypothesis, not a technical formality.
+Osterwalder and Schrader's first paper claimed reconstruction without it; the
+proof contained a gap, and the linear-growth hypothesis of their second paper
+(each $S_n$ bounded by factorially many derivatives, in a controlled way) is
+what makes the continuation of all $n$-point functions converge. There exist
+sets of Schwinger functions satisfying every other axiom whose continuation
+fails: positivity across planes by itself does not control how fast the
+correlators grow with $n$. For the theories considered in these notes the
+condition is verified wherever rigorous constructions exist (the $d = 2, 3$
+scalar theories of chapter I.1's constructive inventory), and for CFTs the
+OPE of the next section provides much stronger control over coincident-point
+behavior. We will assume the condition from here on without further comment.
 \end{nnote}
 
 \begin{iidea}[Correlators are the theory]
@@ -1028,22 +1217,23 @@ mythical path integral --- has specified a complete quantum theory, whether or
 not any Lagrangian is anywhere in sight.
 \end{iidea}
 
-There is one loose thread, deliberately left hanging, and it deserves to be
-tied into a principle. Look back at what the construction actually used: not
-the plane as such, but a \emph{reflection}. The working parts were an
-involution $\theta$ exchanging two halves of Euclidean space, positivity of
-the correlators on mirror-symmetric configurations, and a family of
-translates of the mirror to evolve along; the plane $\tau = 0$ appeared only
-as the mirror's fixed locus. Stated invariantly: \emph{a quantization of
-Euclidean data is a choice of reflection-with-positivity together with a
-compatible foliation}. Parallel planes are one such choice --- and since
-Euclidean correlators have no preferred time, every hyperplane gives one, all
-unitarily equivalent. The productive question writes itself: are there
-reflections of a genuinely different shape, quantizing the \emph{same}
-correlators in different and useful coordinates? For conformal theories the
-answer is the single most consequential move in the subject, and it is
-Section~\ref{sec:ope}'s; but first, a short interlude on a question the
-reconstruction theorem begs.
+One aspect of the construction should be isolated as a principle, because
+we will reuse it. Examine what was actually used: not the plane as
+such, but a \emph{reflection}. The construction needed three ingredients ---
+an involution $\theta$ exchanging two halves of Euclidean space, positivity
+of the correlators on mirror-symmetric configurations, and a family of
+translates of the mirror along which to evolve --- and the plane $\tau = 0$
+entered only as the fixed locus of the mirror. Stated invariantly: \emph{a
+quantization of Euclidean data is a choice of reflection-with-positivity
+together with a compatible foliation}. Parallel planes are one such choice;
+and since Euclidean correlators have no preferred time direction, every
+hyperplane provides one, all of them unitarily equivalent. This raises a
+natural question: are there reflections of a different shape,
+which quantize the \emph{same} correlators in different and useful
+coordinates? For conformal theories the answer is yes, and it is the subject
+of Section~\ref{sec:ope}. Before that, we address a question raised by the
+reconstruction theorem itself: on which backgrounds should the Euclidean
+correlators be defined in the first place?
 
 \begin{exercise}[medium]
 \label{exr:contraction}
@@ -1089,7 +1279,7 @@ meaning: a generic curved spacetime has no preferred time coordinate to rotate,
 and a generic smooth manifold has no canonical complexification for $t$ to
 wander into. Since these notes will spend their lives on spheres, tori, and
 cylinders --- starting two sections from now, when a sphere becomes a Hilbert
-space --- it is worth knowing the modern answer, due to Kontsevich and Segal,
+space --- we will need the modern answer, due to Kontsevich and Segal,
 to the question: \emph{on which backgrounds should a QFT's Euclidean data be
 expected to exist at all?} Their move is characteristically simple: do not
 complexify time --- complexify the \emph{metric}.\footnote{Kontsevich--Segal
@@ -1097,44 +1287,79 @@ complexify time --- complexify the \emph{metric}.\footnote{Kontsevich--Segal
 The idea: the archetype of every path integral is the oscillatory Gaussian
 $\int e^{\frac i2 x^T A x}$, which one \emph{defines} as a boundary value from
 the domain of complex symmetric $A$ with positive-definite imaginary part,
-where the integral honestly converges. The space of complex metrics below is
+where the integral converges. The space of complex metrics below is
 the field-theory version of that domain; Lorentzian signature will sit on its
 boundary exactly as the real $A$'s sit on the boundary of the Siegel
 half-plane.}
 
-Allow, then, the metric at each point to be a complex-valued quadratic form
-$g = \sum_i \lambda_i\, dy_i^2$ (every complex symmetric form can be brought to
-this shape in a real basis; the $\lambda_i$ are nonzero complex numbers).
-Which $\lambda_i$ should be admitted? The criterion must be that the Euclidean
-weight \emph{damps}: every reasonable quadratic action should have positive
-real part, so that the path integral has a chance to converge. Run this
-requirement through the simplest matter content. For a free scalar on the
-(constant, diagonal) complex metric,
+The setup is the following. At each point of the manifold, allow the metric
+to be a \emph{complex-valued} symmetric bilinear form on the (real) tangent
+space. Any such form can be diagonalized in a real basis,
 \begin{equation}
-S[\phi] = \frac{1}{2}\int d^dy \;(\det g)^{1/2}
-\left[\, \sum_i \frac{1}{\lambda_i}\,(\partial_i \phi)^2 + m^2 \phi^2 \right],
-\qquad
-(\det g)^{1/2} = \prod_i \lambda_i^{1/2},
+g \;=\; \sum_{i=1}^{d} \lambda_i\, dy_i^2 ,
+\qquad \lambda_i \in \complex\setminus\{0\},
+\label{eq:complex-metric}
+\end{equation}
+so the question ``which complex metrics are allowed?'' becomes a question
+about the complex eigenvalues $\lambda_i$. The criterion for admitting a
+metric must be that the Euclidean weight $e^{-S}$ \emph{damps} rather than
+oscillates or grows: the real part of the action should be positive for
+every field configuration, since this is what makes the functional integral
+converge. We therefore compute the action of the simplest matter on the
+background \eqref{eq:complex-metric} and demand positivity of its real part.
+
+For a free scalar, the curved-space action $S = \frac12\int \sqrt{\det g}\,
+\big[\, g^{ij}\partial_i\phi\,\partial_j\phi + m^2\phi^2\big]$ involves the
+metric in two places: the volume element, which for the diagonal metric
+\eqref{eq:complex-metric} is $\sqrt{\det g} = \prod_i \lambda_i^{1/2}$
+(taking for each square root the branch with positive real part, the one
+continuously connected to the Euclidean case), and the inverse metric in the
+kinetic term, which contributes $1/\lambda_i$ for the gradient in the $i$-th
+direction. Explicitly, for a constant diagonal metric,
+\begin{equation}
+S[\phi] = \frac{1}{2}\int d^dy \;\Big(\prod_k \lambda_k^{1/2}\Big)
+\left[\, \sum_i \frac{1}{\lambda_i}\,(\partial_i \phi)^2 + m^2 \phi^2 \right].
 \label{eq:ks-scalar-action}
 \end{equation}
-with the square root taken with positive real part. Convergence of $\int
-\de\phi\, e^{-S}$ requires the coefficient of each quadratic term to have
-positive real part:
+The integrand is a sum of squares of real quantities ($\partial_i\phi$ and
+$\phi$) with complex coefficients, so $\mathrm{Re}\, S > 0$ for all
+configurations exactly when every coefficient has positive real part. The
+mass term requires $|\arg \prod_k \lambda_k^{1/2}| < \frac\pi2$, and the
+gradient terms require
 \begin{equation}
-\Big|\arg \frac{\prod_j \lambda_j^{1/2}}{\lambda_i}\Big| < \frac\pi2
+\Big|\arg \frac{\prod_k \lambda_k^{1/2}}{\lambda_i}\Big| < \frac\pi2
 \quad\text{for each } i,
 \qquad\text{i.e.}\qquad
-\Big|\, \tfrac12 \textstyle\sum_{j \ne i} \arg\lambda_j - \tfrac12
+\Big|\, \tfrac12 \textstyle\sum_{k \ne i} \arg\lambda_k - \tfrac12
 \arg\lambda_i \Big| < \frac\pi2 .
 \label{eq:ks-scalar-condition}
 \end{equation}
-A scalar is the $p = 0$ member of a family every QFT bookkeeper must admit:
-$p$-form gauge fields, with actions $\int F \wedge \star F$ whose quadratic
-forms carry coefficients $(\prod_j \lambda_j^{1/2}) / (\lambda_{i_1} \cdots
-\lambda_{i_{p+1}})$ for each index set. Demanding positive real part for
-\emph{all} $p$ and all index sets, the worst case is the index set that
-collects all the $\lambda$'s whose arguments share a sign, and the family of
-conditions collapses into a single clean inequality (Exercise~\ref{exr:ks-worst}):
+
+The scalar alone, however, does not determine the final answer; we should
+ask the same question for the other standard free fields, and it is here
+that the criterion takes its final form. The natural family to consider
+consists of the abelian gauge fields of all ranks: the Maxwell field $A_\mu$
+with field strength $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$
+and action $\frac12\int F \wedge \star F$, and its higher-rank
+generalizations, $p$-form gauge fields $A_{\mu_1\cdots\mu_p}$ with
+$(p+1)$-form field strengths.\footnote{Why this family? Free $p$-form fields
+exist as sensible quantum field theories in any dimension, so a criterion
+for ``backgrounds on which QFT makes sense'' must accommodate them; and they
+turn out to be exactly the family that sharpens the scalar condition into
+\eqref{eq:ks-criterion} below. Kontsevich--Segal also note an argument of
+Witten that the same conditions are natural from the standpoint of the
+energy-momentum tensor. The scalar is the $p = 0$ member of the family.}
+The pattern of metric factors generalizes directly: the kinetic term of a
+$(p+1)$-form field strength carries one inverse metric per index, so the
+quadratic form for the components of $F$ along the directions $I = \{i_1 <
+\cdots < i_{p+1}\}$ has coefficient $\big(\prod_k \lambda_k^{1/2}\big) /
+(\lambda_{i_1} \cdots \lambda_{i_{p+1}})$. Demanding positive real part for
+all ranks $p$ and all index sets $I$ gives a family of conditions of the
+form \eqref{eq:ks-scalar-condition}, with one $\arg\lambda$ subtracted for
+each index in $I$; the strongest of these conditions is the one in which $I$
+collects all the eigenvalues whose arguments share a sign, and imposing that
+worst case is equivalent to a single inequality
+(Exercise~\ref{exr:ks-worst} carries out the maximization):
 
 \begin{ttheorem}[Allowable complex metrics (Kontsevich--Segal)]
 \label{thm:ks}
@@ -1149,21 +1374,27 @@ holomorphically over the space of metrics satisfying \eqref{eq:ks-criterion}
 pointwise --- and no further.
 \end{ttheorem}
 
-\noin Now stand back and look at what the inequality says about
-\emph{signature}. For a \emph{real} metric every $\arg\lambda_i$ is $0$ or
-$\pi$. Euclidean metrics (all arguments $0$) sit comfortably inside the domain.
-A real metric with one negative eigenvalue --- Lorentzian signature ---
-saturates the bound, $\sum|\arg\lambda_i| = \pi$: it lies exactly \emph{on the
-boundary} of the allowed domain, reachable as a limit of allowable metrics but
-not itself allowable. And a real metric with two or more time directions
-overshoots, $\sum|\arg\lambda_i| \ge 2\pi$: it cannot be reached from the
-Euclidean domain at all. Among all real signatures, precisely the Riemannian
-and the Lorentzian ones touch the world where path integrals converge. The
-old question ``why is the time direction special?'' acquires a sharp,
-QFT-internal answer: \emph{Lorentzian spacetimes are the boundary points of the
-domain of convergent Euclidean field theory} --- the place where damping
-degenerates into pure oscillation, just as $e^{iHt}$ is the boundary behavior
-of $e^{-H\tau}$.\footnote{Kontsevich--Segal sharpen ``boundary'' to
+\noin Consider now what the inequality \eqref{eq:ks-criterion} says about
+\emph{signature}. For a real metric, each eigenvalue $\lambda_i$ is real, so
+each $\arg\lambda_i$ is $0$ (positive eigenvalue) or $\pi$ (negative
+eigenvalue, understood as a limit), and the sum in \eqref{eq:ks-criterion}
+is $\pi$ times the number of negative eigenvalues. Three cases result.
+Euclidean metrics, with no negative eigenvalues, satisfy the inequality
+strictly: they lie in the interior of the allowable domain, where path
+integrals converge. Lorentzian metrics, with exactly one negative
+eigenvalue, give $\sum_i|\arg\lambda_i| = \pi$: they saturate the
+inequality, and so lie on the \emph{boundary} of the domain --- not
+themselves allowable, but reachable as limits of allowable metrics. And
+real metrics with two or more time directions give $\sum_i |\arg\lambda_i|
+\ge 2\pi$: they are not even on the closure of the domain, and cannot be
+reached from Euclidean signature by any limit of allowable metrics. The
+old question of why the time direction is special --- nothing in the
+formalism of QFT appears to single out one eigenvalue of the metric ---
+thus receives a sharp answer internal to quantum field theory:
+\emph{Lorentzian spacetimes are precisely the boundary points of the domain
+of convergent Euclidean field theory}, the locus where damping degenerates
+into pure oscillation, in the same way that $e^{iHt}$ is the boundary
+behavior of $e^{-H\tau}$.\footnote{Kontsevich--Segal sharpen ``boundary'' to
 \emph{Shilov boundary} --- the minimal set controlling maxima of holomorphic
 functions, on which the time-oriented Lorentzian metrics sit --- and prove
 the criterion guarantees convergence not just of actions but of the
@@ -1226,22 +1457,23 @@ $|\arg\lambda| = |2\arg\beta| < \pi$: the KS criterion verbatim.}
 \subsection{The operator product expansion}
 \label{sec:ope}
 
-Now for the third debt: structure. The set of all $n$-point functions of all
-local operators is not data anyone could ever specify --- it is an infinite
-tower of functions of growing numbers of variables, tangled by consistency
-conditions. If ``the theory is its correlators'' is to be a usable definition
-rather than a shrug, the tower must be generated by something finite, or at
-least finitely describable. The generating structure exists, and it is the
-\vocab{operator product expansion}: the statement that the product of two
-nearby local operators is itself expandable in local operators,
+We come to the third of the opening's three questions: what organizes the
+set of correlators. The set of all $n$-point functions of all local
+operators is an infinite tower of functions of ever more variables, subject
+to consistency conditions; for the local data to serve as a definition of
+the theory, this tower must be generated by some finitely describable
+structure. The structure that accomplishes this is the \vocab{operator
+product expansion}: the statement that the product of two nearby local
+operators is itself expandable in local operators,
 \begin{equation}
-\op_1(x)\,\op_2(0) \;=\; \sum_{k} C_{12k}(x)\; \op_k(0),
+\op_i(x)\,\op_j(0) \;=\; \sum_{k} C_{ijk}(x)\; \op_k(0),
 \label{eq:ope-schematic}
 \end{equation}
-with c-number coefficient functions $C_{12k}$, valid as an operator equation
---- i.e.\ inside arbitrary correlators, as long as the other insertions keep
-their distance. Used iteratively, \eqref{eq:ope-schematic} grinds any
-$n$-point function down to a sum of lower-point ones: the tower of correlators
+with c-number coefficient functions $C_{ijk}$, valid as an operator equation
+--- that is, inside arbitrary correlation functions, provided all other
+operators in the correlator are sufficiently far away (the precise condition
+appears below). Used iteratively, \eqref{eq:ope-schematic} reduces any
+$n$-point function to a sum of lower-point ones: the tower of correlators
 collapses onto knowledge of the OPE coefficients and the two-point functions.
 Wilson proposed exactly this in 1969 --- under the name \emph{operator
 algebra}, and as a candidate \emph{definition} of a theory, an ambition the
@@ -1268,7 +1500,7 @@ argument for convergence.
 
 Here is the path-integral argument, which works in any presentation with a
 notion of locality and makes no mention of conformal symmetry. Consider a
-correlator with two nearby insertions $\op_1(x_1)\,\op_2(x_2)$ and arbitrary
+correlator with two nearby insertions $\op_i(x_1)\,\op_j(x_2)$ and arbitrary
 spectators far away. Draw a sphere $S$ of radius $R$ around the close pair,
 small enough to exclude every spectator, and compute the path integral in two
 stages: first over the field configurations \emph{inside} $S$ with boundary
@@ -1277,23 +1509,23 @@ the action is what permits the split --- the weight $e^{-S_{\rm E}}$
 factorizes across the sphere up to the shared boundary data. The inside
 integral,
 \begin{equation}
-\Psi_{12}\big[\phi_\partial\big] \;=\;
+\Psi_{ij}\big[\phi_\partial\big] \;=\;
 \int_{\phi|_S = \phi_\partial} \de\phi\;
-\op_1(x_1)\,\op_2(x_2)\; e^{-S_{\rm E}[\phi]_{\rm inside}},
+\op_i(x_1)\,\op_j(x_2)\; e^{-S_{\rm E}[\phi]_{\rm inside}},
 \label{eq:ball-functional}
 \end{equation}
 is a functional of the boundary data alone, and it is the \emph{only} place
-$x_1$ and $x_2$ appear: as far as the outside world is concerned, the pair of
-operators has been replaced by a blob --- a particular boundary functional on
-$S$. Now expand the blob in any complete set of boundary functionals, and
-choose for that set the functionals generated by \emph{single} insertions at
-the center: $\Psi_k[\phi_\partial] = \int \de\phi\;\op_k(0)\, e^{-S_{\rm E}}$.
-The expansion coefficients are c-numbers carrying all the $x_1, x_2$
-dependence,
+$x_1$ and $x_2$ appear: as far as the outside world is concerned, the pair
+of operators is equivalent to a single functional of the boundary data on
+$S$. Now expand this functional in any complete set of boundary functionals,
+and choose for that set the functionals generated by \emph{single}
+insertions at the center: $\Psi_k[\phi_\partial] = \int
+\de\phi\;\op_k(0)\, e^{-S_{\rm E}}$. The expansion coefficients are
+c-numbers carrying all the $x_1, x_2$ dependence,
 \begin{equation}
-\Psi_{12} = \sum_k C_{12k}(x_1, x_2)\, \Psi_k
+\Psi_{ij} = \sum_k C_{ijk}(x_1, x_2)\, \Psi_k
 \qquad\Longrightarrow\qquad
-\op_1(x_1)\,\op_2(x_2) \;=\; \sum_k C_{12k}(x_1, x_2)\;\op_k(0)
+\op_i(x_1)\,\op_j(x_2) \;=\; \sum_k C_{ijk}(x_1, x_2)\;\op_k(0)
 \label{eq:ball-ope}
 \end{equation}
 inside any correlator whose other insertions stay outside $S$. That is the
@@ -1304,17 +1536,17 @@ a multipole expansion: seen from outside, only the total ``moments'' survive,
 and the moments of a local theory are its local operators.
 
 What the argument does not deliver is control. ``Expand in a complete set
-of boundary functionals'' begs three questions --- complete by what
+of boundary functionals'' raises three questions --- complete by what
 criterion, in which topology, with what convergence --- and in a generic
 massive theory none has a useful answer: the expansion
 \eqref{eq:ball-ope} holds only \emph{asymptotically} in the limit $x_1 \to
-x_2$, with coefficient functions $C_{12k}$ that depend on all the scales
+x_2$, with coefficient functions $C_{ijk}$ that depend on all the scales
 and must themselves be computed. (This asymptotic version, with logarithms
 resummed by the renormalization group, is the OPE of the QCD textbooks: the
 organizing principle of deep inelastic scattering, where it earns its keep
 order by order without ever being summed.) The missing ingredient is a
 \emph{Hilbert space} statement: were the boundary functionals on $S$
-organized into a genuine orthogonal basis adapted to the geometry, the
+organized into an orthogonal basis adapted to the geometry, the
 expansion would be exact and convergent by the elementary theory of Hilbert
 spaces. Building exactly that structure is what reflection positivity, run
 on spheres, does for us in a CFT --- and it is the only ingredient of the
@@ -1401,22 +1633,55 @@ representation theory.\footnote{For the careful flat-space construction,
 including why no separate convergence assumption is needed, see
 Simmons-Duffin \arxiv{1602.07982}, \S6.2, or Polchinski's \emph{String
 Theory}, Vol.\ 1, ch.\ 2, where the 2d case is done with loving care.} What
-this chapter needs from it is one structural consequence. The conformal
-algebra sorts the $D$-eigenstates into ladders: acting with $P_\mu$ raises the
-radial energy by one ($[D, P_\mu] = P_\mu$), acting with $K_\mu$ lowers it. In
-a unitary theory dimensions are bounded below
-(\eqref{eq:scalar-unitarity-bound} was a first taste), so descending any
-ladder must terminate: every eigenstate sits in a tower built on a lowest
-rung, a \vocab{primary} state annihilated by all the $K_\mu$, with the rest of
-the tower --- the \vocab{descendants} --- obtained from the primary by
-applying momenta, i.e.\ derivatives:
+this chapter needs from it is one structural consequence, which organizes
+the entire operator content and which we now state as a definition. The
+conformal algebra sorts the $D$-eigenstates into ladders: acting with
+$P_\mu$ raises the radial energy by one unit (this is the commutator $[D,
+P_\mu] = P_\mu$), while acting with $K_\mu$ lowers it by one unit. In a
+unitary theory dimensions are bounded below
+(\eqref{eq:scalar-unitarity-bound} was a first instance of this), so
+descending any ladder must terminate: every eigenstate belongs to a tower
+built on a lowest rung.
+
+\begin{ddefinition}[Primary and descendant operators]
+\label{def:primary}
+A \vocab{primary} operator of a CFT is a local operator annihilated by all
+the special conformal generators at the origin,
+\begin{equation}
+[K_\mu,\, \op(0)] = 0
+\qquad\Longleftrightarrow\qquad
+K_\mu \ket{\op} = 0 :
+\label{eq:primary-def}
+\end{equation}
+the bottom of a ladder. Its \vocab{descendants} are the operators obtained
+by applying momenta, that is, derivatives,
 \begin{equation}
 \ket{\op}, \quad P_\mu \ket{\op} = \ket{\partial_\mu \op}, \quad
-P_\mu P_\nu \ket{\op}, \;\dots
-\qquad (\text{a conformal multiplet}).
+P_\mu P_\nu \ket{\op} = \ket{\partial_\mu \partial_\nu \op}, \;\dots,
 \end{equation}
-The operator content of a CFT is a list of primaries $\{\op_i\}$ with
-dimensions $\{\Delta_i\}$ (and spins); everything else is derivatives.
+with dimensions $\Delta, \Delta + 1, \Delta + 2, \dots$; a primary together
+with its descendants is a \vocab{conformal multiplet}. The operator content
+of a CFT is a list of primaries with their dimensions and spins; every
+other local operator is a derivative of these.
+\end{ddefinition}
+
+\noin The reader who learned conformal field theory from a textbook may know
+a different-looking definition: a primary is an operator that transforms
+covariantly under finite conformal transformations $x \to x'$,
+\begin{equation}
+\op(x) \;\longrightarrow\; b(x)^{-\Delta}\, R[M(x)]\; \op(x'),
+\label{eq:primary-transformation}
+\end{equation}
+where $b(x)$ is the local scale factor of the map and $R[M(x)]$ the rotation
+matrix acting on the operator's spin indices, with \emph{no} inhomogeneous
+terms --- whereas a descendant such as $\partial_\mu \op$ picks up extra
+terms involving derivatives of $b(x)$. The two definitions are equivalent:
+$K_\mu$ generates the special conformal transformations, which are exactly
+the conformal maps whose scale factor varies to first order at the origin,
+so \eqref{eq:primary-def} is the infinitesimal statement of
+\eqref{eq:primary-transformation} at the point where the operator sits.
+(Chapter III.1 develops the transformation-law side systematically; in this
+chapter the algebraic form \eqref{eq:primary-def} is the useful one.)
 
 \begin{iintuition}[Radial quantization is reconstruction, pointed at a point]
 \label{int:radial}
@@ -1434,20 +1699,21 @@ theory radial evolution is still defined but $D$ is not a symmetry, and the
 spheres' Hilbert spaces, while they exist, admit no useful energy basis.
 \end{iintuition}
 
-\subsubsection{The OPE, derived and domesticated}
+\subsubsection{Derivation of the OPE}
 \label{sec:ope-derivation}
 
-Now let two scalar primaries collide. Insert $\op_1$ at $x$ and $\op_2$ at the
-origin, both inside the unit sphere, and read the configuration as a state:
+Now let two scalar primaries approach each other. Insert $\op_i$ at $x$ and
+$\op_j$ at the origin, both inside the unit sphere, and read the
+configuration as a state:
 \begin{equation}
-\ket{\Psi} \;=\; \op_1(x)\,\op_2(0)\ket{0} \;\in\; \mathcal{H}_{S^{d-1}}.
+\ket{\Psi} \;=\; \op_i(x)\,\op_j(0)\ket{0} \;\in\; \mathcal{H}_{S^{d-1}}.
 \end{equation}
 Expand $\ket{\Psi}$ in the energy eigenbasis. By the state--operator
 correspondence that basis is exhaustively labeled by primaries and their
 descendants, so the expansion collects into conformal multiplets:
 \begin{equation}
-\op_1(x)\, \op_2(0)\ket{0}
-\;=\; \sum_{\op \;\rm primary} \lambda_{12\op}\;
+\op_i(x)\, \op_j(0)\ket{0}
+\;=\; \sum_{\op \;\rm primary} \lambda_{ij\op}\;
 C_{\op}(x, \partial_y)\, \op(y)\big|_{y=0}\ket{0},
 \label{eq:ope-radial}
 \end{equation}
@@ -1463,14 +1729,14 @@ by pure symmetry:
 both sides of \eqref{eq:ope-radial} and matching eigenvalues term by term
 forces the leading coefficient of each multiplet to scale as
 \begin{equation}
-C_\op(x, \partial_y) \;=\; \frac{1}{|x|^{\Delta_1 + \Delta_2 - \Delta_\op}}
+C_\op(x, \partial_y) \;=\; \frac{1}{|x|^{\Delta_i + \Delta_j - \Delta_\op}}
 \Big( 1 + \#\, x\cdot\partial_y + \cdots \Big),
 \label{eq:ope-power}
 \end{equation}
 (Exercise~\ref{exr:ope-power}): operators of low dimension dominate at short
 distance, and the identity operator --- present in the $\op\times\op$ OPE of
 any operator with itself --- carries the leading singularity
-$|x|^{-\Delta_1-\Delta_2}$, which is nothing but the two-point function
+$|x|^{-\Delta_i-\Delta_j}$, which is nothing but the two-point function
 factoring out.
 
 \emph{(ii) Each multiplet costs one number.} The descendant terms hidden in
@@ -1478,10 +1744,10 @@ the ellipsis of \eqref{eq:ope-power} are fixed recursively by acting with
 $K_\mu$ on both sides --- conformal symmetry relates the coefficient of
 $\partial^n \op$ to that of $\op$ (Exercise~\ref{exr:ope-descendants} computes
 the first two). What symmetry cannot fix is one overall constant
-$\lambda_{12\op}$ per primary: the \vocab{OPE coefficients}, the genuinely
+$\lambda_{ij\op}$ per primary: the \vocab{OPE coefficients}, the
 dynamical content. The same constants govern the three-point functions,
-$\langle \op_1 \op_2 \op \rangle \propto \lambda_{12\op}$, whose coordinate
-dependence is again completely fixed by conformal symmetry.
+$\langle \op_i\, \op_j\, \op \rangle \propto \lambda_{ij\op}$, whose
+coordinate dependence is again completely fixed by conformal symmetry.
 
 \emph{(iii) Correlators reduce recursively.} Using \eqref{eq:ope-radial}
 inside an $n$-point function strips it to $(n-1)$-point functions, then
@@ -1499,8 +1765,8 @@ demanded, and the precise content of ``abstract CFT data'' as a
 consistency condition this data must satisfy --- the same correlator reduced
 in two different pairings must agree, \vocab{crossing symmetry} --- is the
 single equation from which Part III will extract the 3d Ising critical
-exponents. We register the definition and move to the question that gives it
-teeth.
+exponents. We record the definition in its final form, and then turn to the
+question of convergence.
 
 \begin{ddefinition}[Operator product expansion]
 \label{def:ope}
@@ -1508,12 +1774,12 @@ In any local QFT, the product of two local operators admits an asymptotic
 short-distance expansion \eqref{eq:ope-schematic} (Wilson). In a CFT, the
 expansion organizes into conformal multiplets,
 \begin{equation}
-\op_1(x)\,\op_2(0) \;=\; \sum_{\op\ \rm primary}
-\frac{\lambda_{12\op}}{|x|^{\Delta_1+\Delta_2-\Delta_\op}}\,
+\op_i(x)\,\op_j(0) \;=\; \sum_{\op\ \rm primary}
+\frac{\lambda_{ij\op}}{|x|^{\Delta_i+\Delta_j-\Delta_\op}}\,
 \big(1 + \cdots\big)\,\op(0),
 \end{equation}
 with all descendant terms ($\cdots$) fixed by conformal symmetry and one
-constant $\lambda_{12\op}$ per primary; and it is an \emph{exact, convergent}
+constant $\lambda_{ij\op}$ per primary; and it is an \emph{exact, convergent}
 operator equation, valid inside any correlator whose remaining insertions all
 lie outside a sphere separating $x$ and $0$ from them.
 \end{ddefinition}
@@ -1558,15 +1824,16 @@ $\{0, x_2\}$ from $\{x_3, \infty\}$.
 
 The proof needs no information about the spectrum or the size of the OPE
 coefficients --- only unitarity, through the fact that \eqref{eq:4pt-radial}
-is a genuine inner product of two Hilbert-space vectors:
+is an inner product of two Hilbert-space vectors:
 \begin{equation}
 \ket{\Phi} = \phi(x_2)\ket{\phi}, \qquad
 \bra{\Psi} = \bra{\phi}\phi(x_3) .
 \end{equation}
 Both have finite norm: $\|\Phi\|^2$ is the same four-point function evaluated
-at an inversion-symmetric configuration (insertions at $r_2$ and $1/r_2$ ---
-this is reflection positivity in its inversion costume, doing real work), and
-likewise $\|\Psi\|^2$. Now recall the elementary Hilbert-space fact: the
+at an inversion-symmetric configuration, with insertions at radii $r_2$ and
+$1/r_2$ --- this is where reflection positivity, in its inversion form,
+enters the proof --- and likewise $\|\Psi\|^2$. Now recall the elementary
+Hilbert-space fact: the
 scalar product of two finite-norm vectors, expanded in any orthogonal
 eigenbasis, converges \emph{absolutely}. Concretely, the tail of the series
 \eqref{eq:ope-laplace} above energy $E_*$ is controlled by Cauchy--Schwarz,
@@ -1580,9 +1847,11 @@ eigenbasis, converges \emph{absolutely}. Concretely, the tail of the series
 \end{equation}
 because each factor is the tail of a convergent sum of positive terms (the
 norms). That is the whole proof. Its hypotheses are worth reading back: a
-Hilbert space built on spheres (reconstruction), an energy basis labeled by
-local operators (state--operator), finite norms (reflection positivity). Every
-section of this chapter so far is a load-bearing wall.\footnote{The argument
+Hilbert space built on spheres came from the reconstruction theorem, the
+energy basis labeled by local operators from the state--operator
+correspondence, and the finiteness of the norms from reflection positivity
+--- each of the preceding sections supplied exactly one
+hypothesis.\footnote{The argument
 is Pappadopulo--Rychkov--Espin--Rattazzi \arxiv{1208.6449}, \S\S2 and 4.1,
 following the radial-quantization logic of Polchinski's book; the rigorous
 statement within the Wightman framework --- including the recursive use of
@@ -1633,11 +1902,11 @@ OPE at dimension $E_*$ costs an error $e^{-E_*\beta}$ times a power: the
 expansion converges \emph{exponentially} in the dimension of the discarded
 operators, at a rate $\beta$ that is literally a geometric quantity --- the
 logarithm of the ratio of radii, the cylinder-time gap between the colliding
-pair and the spectator pair. The bootstrap's numerical engine room runs on
-this estimate: truncations of the OPE are controlled approximations with
-known error bars, not acts of faith.\footnote{Rates and prefactor:
+pair and the spectator pair. Numerical bootstrap computations depend on this
+estimate: it is what makes truncations of the OPE controlled approximations
+with quantifiable errors.\footnote{Rates and prefactor:
 \arxiv{1208.6449}, \S\S4.2--4.4, whose elegant two-line alternative derivation
-deserves transcription: for any $0 < \beta' < \beta$, $L(\beta; E_*) \le
+we reproduce: for any $0 < \beta' < \beta$, $L(\beta; E_*) \le
 e^{-E_*(\beta - \beta')} L(\beta')\le \text{const}\;
 (\beta')^{-2\Delta_\phi}\, e^{-E_*(\beta-\beta')}$; optimizing $\beta' =
 2\Delta_\phi/E_*$ gives \eqref{eq:ope-rate} up to the same constant. The
@@ -1647,11 +1916,11 @@ cross-ratios), the form Part III uses.}
 
 \begin{ttheorem}[OPE convergence]
 \label{thm:ope-convergence}
-In a unitary CFT, the operator product expansion of $\op_1(x_1)\op_2(x_2)$,
+In a unitary CFT, the operator product expansion of $\op_i(x_1)\op_j(x_2)$,
 applied inside any correlation function, converges absolutely whenever some
 sphere encloses $x_1$ and $x_2$ while excluding all other insertion points.
 The error from truncating the expansion at dimension $\Delta_*$ falls off
-exponentially, $\sim \Delta_*^{\,\Delta_1+\Delta_2}\,e^{-\Delta_* \beta}$,
+exponentially, $\sim \Delta_*^{\,\Delta_i+\Delta_j}\,e^{-\Delta_* \beta}$,
 where $e^{-\beta}$ measures the separation of scales (the ratio of inner to
 outer radii in the frame where the sphere is centered at the origin). [Mack
 1977; Pappadopulo--Rychkov--Espin--Rattazzi \arxiv{1208.6449}.]
@@ -1665,7 +1934,7 @@ simplest possible arena.
 \label{ex:2pt-radial}
 Forget for a moment that conformal kinematics fixes the scalar two-point
 function, and \emph{compute} $\langle \op(y)\,\op(x)\rangle$, $|x| < |y|$, by
-the radial rules, as a test that the Hilbert-space picture reproduces honest
+the radial rules, as a test that the Hilbert-space picture reproduces
 correlators with the advertised convergence.
 
 The ket is $\op(x)\ket{0} = e^{x\cdot P}\,\op(0)\,e^{-x\cdot P}\ket{0} =
@@ -1732,8 +2001,8 @@ $e^{-N_* \beta}$ with $\beta = \log 2$, the promised cylinder-time gap.
 \end{eexample}
 
 One practical refinement is worth recording here, because every modern
-bootstrap computation uses it and because it answers an objection the alert
-reader should be forming. The convergence rate $\beta$ depends on the choice
+bootstrap computation uses it and because it answers a natural objection.
+The convergence rate $\beta$ depends on the choice
 of radial frame --- where we put the origin and infinity --- while the
 four-point function itself depends only on conformal invariants. So one
 should \emph{optimize}: for fixed physical configuration, choose the frame
@@ -1767,10 +2036,10 @@ correlator, where the answer is exactly known and the bound can be graded.}
 \begin{exercise}[easy]
 \label{exr:ope-power}
 Derive the power in \eqref{eq:ope-power}: act with $D$ on both sides of
-$\op_1(x)\op_2(0)\ket{0} \supset |x|^{-k}\,(\op(0) + \cdots)\ket{0}$, using
+$\op_i(x)\op_j(0)\ket{0} \supset |x|^{-k}\,(\op(0) + \cdots)\ket{0}$, using
 $[D, \op(x)] = (\Delta + x\cdot\partial)\op(x)$ on the left and
-$D\ket{\op} = \Delta_\op\ket{\op}$ on the right, and match: $k = \Delta_1 +
-\Delta_2 - \Delta_\op$. Conclude that in the $\phi\times\phi$ OPE the unit
+$D\ket{\op} = \Delta_\op\ket{\op}$ on the right, and match: $k = \Delta_i +
+\Delta_j - \Delta_\op$. Conclude that in the $\phi\times\phi$ OPE the unit
 operator reproduces the two-point function, and that ``which operators have
 low dimension'' is the same question as ``which OPE terms dominate at short
 distance.''
@@ -1778,13 +2047,13 @@ distance.''
 
 \begin{exercise}[medium]
 \label{exr:ope-descendants}
-Fix the first descendants. For $\Delta_1 = \Delta_2 = \delta$ and a scalar
+Fix the first descendants. For $\Delta_i = \Delta_j = \delta$ and a scalar
 primary $\Phi$ of dimension $\Delta$ exchanged, write $C_\Phi(x, \partial_y) =
 |x|^{\Delta - 2\delta}\big(1 + a\, x\cdot\partial_y + \alpha\, x^\mu x^\nu
 \partial_\mu \partial_\nu + \beta\, x^2 \partial^2 + \cdots\big)$ and
 determine $a$, $\alpha$, $\beta$ by matching the exact three-point function
-$\langle\op_1(x)\op_2(0)\Phi(z)\rangle$ (fixed by conformal symmetry) against
-$\lambda_{12\Phi}\, C_\Phi(x,\partial_y)\langle \Phi(y)\Phi(z)\rangle|_{y=0}$,
+$\langle\op_i(x)\op_j(0)\Phi(z)\rangle$ (fixed by conformal symmetry) against
+$\lambda_{ij\Phi}\, C_\Phi(x,\partial_y)\langle \Phi(y)\Phi(z)\rangle|_{y=0}$,
 expanding in $x$.
 \answ{$a = \tfrac12$, $\alpha = \frac{\Delta + 2}{8(\Delta+1)}$, $\beta =
 -\frac{\Delta}{16\,(\Delta - \frac d2 + 1)(\Delta + 1)}$ (Rychkov
@@ -1810,6 +2079,28 @@ generating polynomials, and the expansion coefficients are the squared norms
 of the spin-$j$ projections of $(x\cdot P)^N\ket{\op}$.}
 \end{exercise}
 
+\begin{exercise}[medium]
+\label{exr:null-operators}
+(Null operators.) Using the radial-quantization algebra, show that in the
+free massless scalar theory the state $P^2\ket{\phi} =
+\partial^2\phi(0)\ket{0}$ has zero norm, so that $\partial^2\phi = 0$ holds
+as an operator equation: the classical equation of motion survives in the
+quantum theory as a statement about the operator content. Then explain why
+at the interacting Wilson--Fisher fixed point, where $\Delta_\phi \neq
+\frac{d-2}{2}$, the same state has positive norm, so that $\partial^2\phi$
+is a nonzero operator there --- related by the dynamics to $\phi^3$, with
+the consequence that the interacting theory has \emph{fewer} primaries than
+free-field counting suggests (the multiplets of $\phi$ and $\phi^3$
+recombine into one). Null states and multiplet shortening return as the
+engine of the unitarity bounds in Part III.1.
+\hint{Evaluate $\|P^2\ket{\phi}\|^2 = \bra{\phi}K^2 P^2\ket{\phi}$ with the
+commutators of Section~\ref{sec:radial-quantization}, as in
+Example~\ref{ex:2pt-radial}; the result is proportional to $\Delta_\phi -
+\frac{d-2}{2}$ times a positive factor. Compare
+Exercise~\ref{exr:ope-descendants}, where the same factor appeared as a
+pole.}
+\end{exercise}
+
 \begin{exercise}[easy]
 \label{exr:free-ope}
 (Wick's theorem is an OPE.) For the free massless scalar in $d$ dimensions,
@@ -1828,8 +2119,9 @@ condition is the geometric series'.}
 
 \begin{exercise}[thinker]
 \label{exr:ope-massive}
-Why exactly does all this die in a massive theory? Take the 2d Ising chain off
-criticality (gap $m$), or any massive free field. Radial foliation, sphere
+Why exactly does all this fail in a massive theory? Take a free scalar field
+of mass $m$, or the 2d Ising model slightly off its critical temperature
+(where the gap is $m \sim 1/\xi$). Radial foliation, sphere
 Hilbert spaces, and the OS construction all survive. Identify every step of
 Sections~\ref{sec:radial-quantization}--\ref{sec:ope-convergence} that breaks:
 which operator generates radial evolution when $D$ is not a symmetry? what
@@ -1847,17 +2139,19 @@ onto fixed-point operators with corrections analytic in the relevant coupling.
 OPE convergence is a property of the fixed point, not of the flow.}
 \end{exercise}
 
-\subsubsection{Associativity: the one equation}
+\subsubsection{Associativity}
 \label{sec:crossing}
 
-Convergence converts the OPE from a mnemonic into an algebra, and algebras
-have laws. Here is the law, and it is the only one. Take the four-point
-function $\langle\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\rangle$ and reduce it
-two different ways: collapse the pair $(12)$ --- legal whenever a sphere
-separates $x_1, x_2$ from $x_3, x_4$ --- or collapse the pair $(14)$ ---
-legal whenever a sphere separates $x_1, x_4$ from $x_2, x_3$
-(Figure~\ref{fig:crossing}). Generic configurations admit both spheres at
-once, and there both expansions converge to the same correlator:
+Because the OPE is convergent, it can be applied inside a correlator in more
+than one way, and the results must agree; this consistency condition is the
+only one the CFT data has to satisfy, and it is the equation on which Part
+III runs. Take the four-point function
+$\langle\phi(x_1)\phi(x_2)\phi(x_3)\phi(x_4)\rangle$ and reduce it in two
+different ways: apply the OPE to the pair $(12)$, which is legitimate
+whenever a sphere separates $x_1, x_2$ from $x_3, x_4$, or to the pair
+$(14)$, which is legitimate whenever a sphere separates $x_1, x_4$ from
+$x_2, x_3$ (Figure~\ref{fig:crossing}). A generic configuration admits both
+spheres at once, and there both expansions converge to the same correlator:
 \begin{equation}
 \sum_{\op}\; \lambda_{\phi\phi\op}^2 \;
 g_{\op}^{(12)(34)}(x_i)
@@ -1872,59 +2166,55 @@ of the two cross-ratios, computable from kinematics alone; chapter III.1
 constructs them). Equation \eqref{eq:crossing} is \vocab{crossing symmetry},
 or OPE \vocab{associativity}: the same words multiplied in a different order.
 
-Two facts elevate this from bookkeeping to a discovery engine. First, it is
-\emph{the complete list} of consistency conditions: imposing associativity on
+Two facts give this condition its power. First, it is \emph{the complete
+list} of consistency conditions: imposing associativity on
 all four-point functions guarantees that every higher-point reduction is
 pairing-independent as well, so CFT data $\{\Delta_i, \lambda_{ijk}\}$
-satisfying \eqref{eq:crossing} (plus unitarity) defines a consistent set of
+satisfying \eqref{eq:crossing}, together with unitarity, defines a
+consistent set of
 local correlators outright.\footnote{Rychkov \arxiv{1601.05000}, \S4.3, for
 the five-point argument that four-point associativity suffices; the careful
-statement is again Mack's. Note the resonance with
+statement is again Mack's. Note the connection with
 Idea~\ref{idea:correlators-are-theory}: consistent correlators \emph{are} a
 theory, so \eqref{eq:crossing} plus unitarity is as close as the subject
-currently comes to a usable finite \emph{definition} of ``CFT'' --- modulo
-the locality caveat that Example~\ref{ex:gff} is about to drive home.}
-Second, it is savagely restrictive --- though one needs the convergence
+currently comes to a usable finite \emph{definition} of ``CFT'' --- up to
+the locality caveat that Example~\ref{ex:gff} will make precise.}
+Second, it is highly restrictive, though one needs the convergence
 theorem to see why. Each side of \eqref{eq:crossing} is an exponentially
-convergent sum dominated by a handful of low-dimension operators; demanding
+convergent sum dominated by a small number of low-dimension operators;
+demanding
 that two such sums, organized around \emph{different} corners of
-configuration space, agree everywhere is a strong-coupling condition on the
-few numbers that dominate both. Add unitarity ($\lambda^2 \ge 0$ --- norms
-again) and the demand can be run on a computer as an exclusion problem:
-that is the conformal bootstrap, the subject of Part III, and the machine
-that produced the Ising dimensions of chapter I.1's crack 3. This chapter
-stops at the door; it has done its job by establishing that the equation it
-hands to Part III is exact.
+configuration space, agree everywhere is a strong condition on the
+few numbers that dominate both. Combined with unitarity ($\lambda^2 \ge 0$
+--- positivity of norms once again), the condition can be implemented on a
+computer as an exclusion problem. That is the conformal bootstrap, the
+subject of Part III, and the method that produced the Ising dimensions of
+chapter I.1's crack 3. Establishing that the equation handed to Part III is
+exact, rather than asymptotic, was this chapter's task.
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[scale=1.05, >=stealth]
-  % left: (12)(34) channel
-  \begin{scope}
-    \filldraw (0.0,0.35) circle (1.5pt) node[above left=0.5pt] {\footnotesize $x_1$};
-    \filldraw (0.55,-0.3) circle (1.5pt) node[below left=0.5pt] {\footnotesize $x_2$};
-    \filldraw (2.6,0.75) circle (1.5pt) node[above right=0.5pt] {\footnotesize $x_3$};
-    \filldraw (2.9,-0.5) circle (1.5pt) node[below right=0.5pt] {\footnotesize $x_4$};
-    \draw[dashed, thick, blue!60!black] (0.3,0.0) circle (1.05);
-    \node[blue!60!black] at (0.3,-1.4) {\footnotesize $(12)$ collapsed};
-  \end{scope}
-  % equals sign
-  \node at (4.35,0.05) {\large $=$};
-  % right: (14)(23) channel
-  \begin{scope}[xshift=5.8cm]
-    \filldraw (0.0,0.35) circle (1.5pt) node[above left=0.5pt] {\footnotesize $x_1$};
-    \filldraw (0.55,-1.0) circle (1.5pt) node[below left=0.5pt] {\footnotesize $x_4$};
-    \filldraw (2.6,0.75) circle (1.5pt) node[above right=0.5pt] {\footnotesize $x_3$};
-    \filldraw (2.45,-0.55) circle (1.5pt) node[right=2pt] {\footnotesize $x_2$};
-    \draw[dashed, thick, red!60!black] (0.25,-0.35) circle (1.1);
-    \node[red!60!black] at (0.25,-1.85) {\footnotesize $(14)$ collapsed};
-  \end{scope}
+\begin{tikzpicture}[scale=1.15, >=stealth]
+  % one configuration of four points, two separating spheres
+  \filldraw (0,0) circle (1.5pt) node[above left=1pt] {\footnotesize $x_1$};
+  \filldraw (1.2,0.1) circle (1.5pt) node[above right=1pt] {\footnotesize $x_2$};
+  \filldraw (3.0,1.3) circle (1.5pt) node[above right=0.5pt] {\footnotesize $x_3$};
+  \filldraw (-0.1,-1.7) circle (1.5pt) node[below right=1pt] {\footnotesize $x_4$};
+  % sphere around (1 2)
+  \draw[dashed, thick, blue!60!black] (0.6,0.05) circle (0.95);
+  \node[blue!60!black, anchor=west] at (1.62,0.75)
+    {\footnotesize sphere for the $(12)$ expansion};
+  % sphere around (1 4)
+  \draw[dashed, thick, red!60!black] (-0.05,-0.85) circle (1.05);
+  \node[red!60!black, anchor=west] at (0.7,-1.75)
+    {\footnotesize sphere for the $(14)$ expansion};
 \end{tikzpicture}
-\caption{Crossing symmetry as two radial quantizations of one correlator:
-  expand within the sphere that encloses $(x_1, x_2)$, or within the sphere
-  that encloses $(x_1, x_4)$. Where both separating spheres exist, both OPE
-  expansions converge --- to the same function. Equation \eqref{eq:crossing}
-  is the statement that the bookkeeping cannot depend on the choice.}
+\caption{One four-point configuration, two ways to expand it. The blue
+  sphere separates $x_1, x_2$ from $x_3, x_4$, so the OPE may be applied to
+  the pair $(12)$; the red sphere separates $x_1, x_4$ from $x_2, x_3$, so
+  the OPE may equally be applied to $(14)$. Both expansions converge, by
+  Theorem~\ref{thm:ope-convergence}, and both compute the same correlator;
+  their equality is the crossing equation \eqref{eq:crossing}.}
 \label{fig:crossing}
 \end{figure}
 
@@ -1960,14 +2250,50 @@ T_{\mu\nu}(x) \;\equiv\; \frac{2}{\sqrt{g}}\,
 \label{eq:stress-def}
 \end{equation}
 the source conjugate to the metric, exactly as a current is the source
-conjugate to a background gauge field. The definition looks
-presentation-bound --- it mentions an action --- but the structure it
-produces is not, and the modern attitude is to take the \emph{output} as the
-definition: a local QFT is one possessing a symmetric tensor operator
-$T_{\mu\nu}$, of dimension exactly $d$ at a fixed point, satisfying the Ward
-identities we now derive.
+conjugate to a background gauge field.
 
-Insert operators $\op_1(x_1)\cdots\op_n(x_n)$ into the flat-space path
+This definition should be compared with the one most textbooks give first.
+In flat space, translation invariance of a Lagrangian $L(\phi,
+\partial\phi)$ yields, by Noether's procedure, the \vocab{canonical} stress
+tensor
+\begin{equation}
+T^{\rm can}_{\mu\nu} \;=\;
+\frac{\partial L}{\partial(\partial^\mu \phi)}\,\partial_\nu \phi
+\;-\; \delta_{\mu\nu}\, L ,
+\label{eq:canonical-def}
+\end{equation}
+conserved on the equations of motion. For fields with spin the canonical
+tensor is generally not symmetric, and even for scalars it is generally not
+traceless; the metric definition \eqref{eq:stress-def}, by contrast, is
+symmetric by construction. The two definitions agree up to identically
+conserved \emph{improvement terms} (for spinning fields this is the
+Belinfante construction), and in particular they generate the same charges
+$P^\mu$; we will meet the improvement freedom concretely in
+Example~\ref{ex:scalar-stress} below. The metric definition is the one we
+take as primary, for a reason that goes beyond convenience: it
+characterizes $T_{\mu\nu}$ by what it \emph{does} --- it measures the
+response of the theory to a change of geometry --- rather than by a formula
+in a particular presentation.
+
+Both definitions, however, still mention an action. The structure that
+survives in any presentation is the set of \vocab{Ward identities} obeyed by
+correlators with a $T_{\mu\nu}$ insertion, and the modern attitude is to
+take that structure as the definition: a local QFT is a theory possessing a
+symmetric tensor operator $T_{\mu\nu}$, of dimension exactly $d$ at a fixed
+point, satisfying the identities derived below. Before deriving them, we
+should say why these identities are the right objects to want. They are the form that symmetry
+takes at the level of correlation functions --- the only level shared by all
+presentations --- and they accomplish three things at once: they make
+``this theory has energy-momentum density'' a sharp, checkable property of
+the correlators (a property the generalized free field below will fail);
+they constrain correlators quantitatively (fixing, for example, $\Delta_T =
+d$, and relating coefficients that would otherwise be independent); and they
+construct the charges that implement translations, rotations, and conformal
+transformations on the Hilbert space --- including, as we will verify, the
+generators that radial quantization borrowed in
+Section~\ref{sec:radial-quantization}.
+
+To derive them, insert operators $\op_1(x_1)\cdots\op_n(x_n)$ into the flat-space path
 integral and perform an infinitesimal diffeomorphism $x \to x' = x +
 \epsilon(x)$, with $\epsilon$ vanishing at infinity, treated as a mere change
 of integration variables --- which changes the value of the integral not at
@@ -2005,20 +2331,34 @@ gives the local identity
 \end{equation}
 (Operators with spin contribute an extra rotation piece, $\propto
 \partial_\mu[\delta^d(x - x_i)\, \Sigma^{\mu\nu}]$, which the reader may
-restore when needed.) Read \eqref{eq:t-ward} twice; the two readings have
-different morals.
+restore when needed.) The identity \eqref{eq:t-ward} contains two distinct
+statements, which we separate.
 
 \emph{Away from insertions, $T^{\mu\nu}$ is conserved as an operator
 equation.} The right-hand side is a sum of contact terms, so at separated
 points $\partial_\mu T^{\mu\nu} = 0$ inside any correlator. This is Noether's
 theorem in correlator form, with no Lagrangian on stage.
 
-\emph{At insertions, the contact terms make charges act.} Integrate
-\eqref{eq:t-ward} against a vector field $\xi^\nu$ over a region $R$ bounded
-by a closed surface $\Sigma$. If $\xi$ generates a symmetry of flat space
-(translations; or rotations, dilatations, special conformal transformations
-when $T$ is symmetric and traceless), the bulk integral collapses to a surface
-integral, and one finds
+\emph{At insertions, the contact terms make charges act.} Recall the
+relevant geometric vocabulary. A \vocab{Killing vector} of flat space is a
+vector field $\xi$ generating an isometry --- a map that preserves the
+metric --- which infinitesimally means $\partial_\mu \xi_\nu + \partial_\nu
+\xi_\mu = 0$; the solutions are the constant vectors (translations) and
+$\xi_\mu = \omega_{\mu\nu} x^\nu$ with $\omega$ antisymmetric (rotations). A
+\vocab{conformal Killing vector} preserves the metric up to a local
+rescaling,
+\begin{equation}
+\partial_\mu \xi_\nu + \partial_\nu \xi_\mu
+= \frac{2}{d}\,(\partial\cdot\xi)\,\delta_{\mu\nu},
+\label{eq:ckv}
+\end{equation}
+which admits in addition the dilatation $\xi^\mu = x^\mu$ and the special
+conformal vector fields $\xi^\mu = 2(b\cdot x)\,x^\mu - x^2 b^\mu$. Now
+integrate \eqref{eq:t-ward} against such a vector field $\xi^\nu$ over a
+region $R$ bounded by a closed surface $\Sigma$. When $\xi$ is Killing ---
+or conformal Killing, provided $T$ is symmetric and traceless --- the bulk
+term $\propto \int_R T^{\mu\nu}\partial_\mu \xi_\nu$ vanishes, the integral
+collapses to the boundary, and one finds
 \begin{equation}
 \oint_{\Sigma} dS_\mu \; \xi_\nu\, \big\langle T^{\mu\nu}(x)\,
 \op_1(x_1)\cdots \big\rangle
@@ -2039,7 +2379,7 @@ difference of two surface integrals is a bulk integral of
 charges of a local theory are \vocab{topological surface operators}: their
 value depends only on which operators they enclose, not on the surface's
 shape, size, or location. Crossing an insertion changes the correlator by
-exactly the enclosed operator's transformation. These are the first genuinely
+exactly the enclosed operator's transformation. These are the first
 topological objects of these notes, and they are the thin end of the wedge
 that Part II drives through the whole subject --- there, the logic is
 \emph{reversed}, and a symmetry is \emph{defined} as a topological operator,
@@ -2095,7 +2435,8 @@ T_{\mu\nu} \;=\; \partial_\mu \phi\, \partial_\nu \phi
 - \frac{1}{2}\,\delta_{\mu\nu}\, (\partial\phi)^2 ,
 \label{eq:canonical-T}
 \end{equation}
-which coincides here with the Noether current of translations: symmetric,
+which for this Lagrangian coincides with the canonical tensor
+\eqref{eq:canonical-def}: symmetric,
 conserved on-shell ($\partial^\mu T_{\mu\nu} = (\partial_\nu \phi)\,
 \partial^2\phi$), and --- a problem --- not traceless:
 \begin{equation}
@@ -2128,7 +2469,8 @@ T^{\mu}_{\ \mu}\Big|_{\rm improved}
 \end{equation}
 the \vocab{conformal coupling} ($\xi_c = \frac16$ in $d = 4$; $\xi_c = 0$ in
 $d=2$, where \eqref{eq:canonical-T} was traceless on-shell all along ---
-another early hint that $d=2$ is special). Three durable lessons. \emph{(i)}
+another early hint that $d=2$ is special). Three general lessons follow.
+\emph{(i)}
 ``The'' stress tensor is an equivalence class: improvements
 \eqref{eq:improvement} change the operator without changing the charges
 $P^\mu$ or the physics, and statements about $T$ should be improvement-aware.
@@ -2154,7 +2496,7 @@ T^{\mu}_{\ \mu} \;=\; \sum_i \beta^i(g)\; \op_i
 \end{equation}
 identifies the trace with the beta functions --- the precise statement, with
 its subtleties (operator mixing, ``virial current'' ambiguities), is part of
-chapter I.6's honest construction of the RG, and the question of when
+chapter I.6's careful construction of the RG, and the question of when
 $T^\mu_{\ \mu} = 0$ exactly (scale versus conformal invariance) was flagged
 already in chapter I.1's theory-space section. Here we need only the fixed-point
 moral: at a fixed point a traceless stress tensor exists in all known unitary
@@ -2198,9 +2540,11 @@ volume).}
 
 \subsubsection{A consistent set of correlators with no theory underneath}
 
-Now the promised counterexample, which converts ``the stress tensor is what
-makes it a field theory'' from slogan to theorem-adjacent fact. The
-construction is almost insultingly simple, and that is its point.
+We now construct the promised counterexample: a complete and consistent set
+of conformal correlators with no stress tensor, and hence no local theory
+underneath. The construction is very simple, and the simplicity is itself
+part of the lesson --- nothing exotic is required to produce ``correlators
+without a theory.''
 
 \begin{eexample}[The generalized free field]
 \label{ex:gff}
@@ -2220,8 +2564,8 @@ products of two-point functions, exactly as for a Gaussian field:
 \label{eq:gff-4pt}
 \end{equation}
 This is the \vocab{generalized free field} (GFF; ``mean field theory'' in
-bootstrap dialect). Run the chapter's checklist against it, and watch every
-single axiom pass:
+the bootstrap literature). We now check it against every axiom introduced in
+this chapter, and every axiom will pass:
 
 \emph{Euclidean covariance, permutation symmetry, clustering:} immediate from
 the form of \eqref{eq:gff-4pt}. In fact the correlators are covariant under
@@ -2287,11 +2631,11 @@ Idea~\ref{idea:locality}, this is not a quantum field theory. It is the
 quantum mechanics of a conformally organized continuum of oscillators.
 \end{eexample}
 
-Two reflections on the example, one structural, one physical. Structurally,
-notice \emph{where} the failure lives: not in any correlator you could
+Two comments on this example, one structural and one physical. Structurally,
+notice \emph{where} the failure lives: not in any correlator one could
 falsify locally, but in the \emph{absence} of an operator --- a hole in the
 spectrum at spin 2, dimension $d$. No finite list of correlator measurements
-detects it; you must know the whole operator content to know the theory is
+detects it; one must know the whole operator content to know the theory is
 nonlocal. This sharpens chapter I.1's Idea~\ref{idea:observables}: ``the
 theory is its observables'' means the \emph{complete} assignment, including
 which operators exist, not any finite sample of correlators --- and it
@@ -2327,7 +2671,8 @@ dimensions produces these correlators --- the would-be kinetic operator is a
 fractional power of the Laplacian, meaningful only as an integral
 kernel. The GFF is the cleanest standing illustration that the
 space of consistent ``correlator systems'' is strictly larger than the space
-of local QFTs, with the stress tensor as the membership card.
+of local QFTs, with the existence of a stress tensor as the criterion that
+separates the two.
 \end{nnote}
 
 \begin{exercise}[classic]
@@ -2396,8 +2741,9 @@ operator equation at separated points, and charges
 Q[\Sigma] = \oint_\Sigma dS_\mu \, J^\mu
 \label{eq:current-charge}
 \end{equation}
-that are \emph{topological surface operators} --- deformable freely until they
-cross a charged insertion, at which moment the correlator jumps by $q_k$.
+that are \emph{topological surface operators} --- deformable freely until
+they cross a charged insertion, at which point the correlator jumps by
+$q_k$.
 Conservation also rigidly fixes kinematics at a fixed point: a conserved
 vector primary must have dimension exactly $\Delta_J = d - 1$ (and conversely,
 a vector primary at the unitarity-bound dimension $d-1$ is automatically
@@ -2411,13 +2757,14 @@ I_{\mu\nu}(x) = \delta_{\mu\nu} - \frac{2 x_\mu x_\nu}{x^2},
 \label{eq:jj-2pt}
 \end{equation}
 
-So far this is the stress-tensor story with one index fewer, and we could
-leave it there. The reason for a separate section --- and for this chapter to
-end on it --- is that the \emph{products} of currents carry structure that no
-single current sees, and that structure turns out to be among the most rigid,
-most quantized, most RG-stable data in all of quantum field theory. The
-slogan to hold: \emph{a current is kinematics; current algebra is dynamics}.
-Three exhibits, in ascending order of consequence.
+Up to this point the discussion parallels that of the stress tensor, with
+one index fewer. The reason conserved currents nevertheless merit a separate
+section --- and the reason the chapter ends on them --- is that the
+\emph{products} of currents carry structure that no single current sees, and
+that structure turns out to be among the most rigid and RG-stable data in
+quantum field theory: a single current is fixed by kinematics, but the
+algebra of currents is dynamics. Three properties of current products will
+recur throughout these notes.
 
 \emph{The $JJ$ OPE knows about locality.} In a local theory the product
 $J_\mu(x) J_\nu(0)$ expands, by Theorem~\ref{thm:ope-convergence}, in the
@@ -2449,7 +2796,7 @@ algebra) that Part II will industrialize.
 
 \begin{eexample}[The Schwinger term]
 \label{ex:schwinger-term}
-The claim, first the shock value: in any unitary theory with a nontrivial
+The claim is the following: in any unitary theory with a nontrivial
 $U(1)$ symmetry, the equal-time commutator of charge density with current
 density \emph{cannot vanish},
 \begin{equation}
@@ -2529,7 +2876,7 @@ particle on a circle at $\theta = \pi$ (chapter I.1) showed a symmetry
 realized projectively on a two-state system; here is the field-theory
 version, a projective phase per mode, quantified by one integer.
 
-\emph{Why $d=2$ is the sweet spot: the sum rule.} The spectral representation
+\emph{The role of the spacetime dimension: a sum rule.} The spectral representation
 of Section~\ref{sec:kallen-lehmann}, run for the conserved current, makes the
 dimension-dependence of all this quantitative. Conservation forces the
 current's two-point function into a transverse form with a single spectral
@@ -2555,16 +2902,18 @@ cutoff-dominated, the famously ``regularization-dependent'' object of the
 $d = 2$, and only there, the density of a conserved current is an integrable
 $\rho_J(s) = k\,\delta(s)$ and the sum rule converges: the Schwinger term is
 a \emph{pure number}, $k$ --- universal, quantized (for a compact symmetry
---- Part III.4 derives the integrality), and the first member of the new
-canon of exact coefficients these notes collect. The reader has, in fact, just computed three things at once: the
-central extension of the $U(1)$ current algebra (the Kac--Moody level, the
-backbone of 2d CFT in Part III.4); the 't Hooft anomaly of the $U(1)$
-symmetry in $d=2$ (couple $j$ to a background field and
-\eqref{eq:schwinger-2d} obstructs gauge invariance --- the two-dimensional
-sibling of the ABJ triangle, here one line of algebra); and the engine of
-the Schwinger model, where this commutator is what generates the photon mass
-$e/\sqrt\pi$ (Part V.4 solves it). One calculation, three previews ---
-current \emph{products} are where the exact structure of QFT concentrates.
+--- Part III.4 derives the integrality), and the first of the exactly known
+coefficients that these notes set out to collect. The reader has, in fact,
+just computed three things at once: the central extension of the $U(1)$
+current algebra, which is the Kac--Moody level on which two-dimensional CFT
+is built (Part III.4); the 't~Hooft anomaly of the $U(1)$ symmetry in $d =
+2$ --- coupling $j$ to a background gauge field, the central term in
+\eqref{eq:schwinger-2d} is what obstructs gauge invariance, making this the
+two-dimensional sibling of the ABJ triangle; and the mechanism that
+generates the photon mass $e/\sqrt\pi$ in the Schwinger model, which Part
+V.4 solves using exactly this commutator. All three subjects are
+developments of the single computation above, which is why products of
+currents deserve the attention this section has given them.
 \end{eexample}
 
 \begin{ppreview}[From currents to Part II]
@@ -2644,9 +2993,9 @@ content of a quantum field theory determines its Hilbert space, its
 Hamiltonian, its symmetries down to their finest quantized coefficients, and
 its response to the geometry it lives on --- and in a conformal theory, where
 there is no S-matrix, correlators of local operators are not merely
-observables but the only observables there are. The three debts of the
-opening are paid; it is worth restating by what mechanism, because each
-clause of the verdict was a section.
+observables but the only observables there are. The three questions of the
+opening are answered, and it is worth restating by what mechanism, since
+each part of this claim was established in a different section.
 
 A correlator is one analytic object viewed from several real slices: the
 statistical averages of a Euclidean presentation and the ordered amplitudes
@@ -2706,18 +3055,22 @@ Check the $\beta\to\infty$ limit.}
 
 \begin{exercise}[medium]
 \label{exr:cylinder-spectrum}
-(The OPE convergence rate is a spectral gap.) For the 2d Ising CFT, the three
-lowest primaries are $\mathbf 1$, $\sigma$ ($\Delta = 1/8$), and $\epsilon$
-($\Delta = 1$). Using Theorem~\ref{thm:ope-convergence}, estimate how many
-multiplets of the $\sigma\times\sigma$ OPE are needed to compute the
-four-point function $\langle\sigma\sigma\sigma\sigma\rangle$ to $1\%$
-accuracy at the fully symmetric configuration (cross-ratio $z = \bar z =
-1/2$, where $e^{-\beta} = 3 - 2\sqrt 2 \approx 0.17$ in the optimal
-``$\rho$-coordinate'' frame). Compare with the exactly known answer
-(this correlator is solvable; Part III.4): how sharp is the bound?
+(The OPE convergence rate is a spectral gap.) Consider the 2d Ising CFT ---
+the critical point of the two-dimensional Ising model, already met in
+Section~\ref{sec:what-is-operator} and Example~\ref{ex:ising-lorentzian} ---
+whose three lowest primaries are $\mathbf 1$, the spin field $\sigma$
+($\Delta = 1/8$), and the energy field $\epsilon$ ($\Delta = 1$); take these
+data as given (Part III.4 derives them). Using
+Theorem~\ref{thm:ope-convergence}, estimate how many multiplets of the
+$\sigma\times\sigma$ OPE are needed to compute the four-point function
+$\langle\sigma\sigma\sigma\sigma\rangle$ to $1\%$ accuracy at the fully
+symmetric configuration (cross-ratio $z = \bar z = 1/2$, where $e^{-\beta} =
+3 - 2\sqrt 2 \approx 0.17$ in the optimal ``$\rho$-coordinate'' frame).
+Compare with the exactly known answer (this correlator is solvable; Part
+III.4): how sharp is the bound?
 \hint{Tail $\sim \Delta_*^{4\Delta_\sigma} e^{-\Delta_* \beta}/
 \Gamma(4\Delta_\sigma + 1)$ with $\beta = -\log(3 - 2\sqrt2) \approx 1.76$;
-the answer is ``embarrassingly few.'' The $\rho$-coordinate refinement is
+very few multiplets are needed. The $\rho$-coordinate refinement is
 \arxiv{1208.6449}, \S5.}
 \end{exercise}
 
@@ -2738,21 +3091,28 @@ queried by the planar reconstruction.}
 
 \begin{exercise}[classic]
 \label{exr:current-block}
-(The current's place in the operator algebra.) In the 2d free Dirac CFT,
-verify by Wick contraction that the $j \times j$ OPE is
+(The current's place in the operator algebra.) Work in the theory of a
+single free massless Dirac fermion in $d = 2$ --- the continuum limit of the
+critical Ising-like chains of Part VIII, and the simplest 2d CFT with a
+$U(1)$ symmetry $\psi \to e^{i\alpha}\psi$. In Euclidean complex
+coordinates the chiral component has propagator $\langle \psi(z)\,
+\psi^\dagger(0)\rangle = \frac{1}{2\pi z}$, and the chiral current is the
+normal-ordered bilinear $j \sim\, :\!\psi^\dagger\psi\!:$ (point-split as in
+\eqref{eq:point-splitting}). Verify by Wick contraction that the $j \times
+j$ OPE is
 \begin{equation*}
 j(z)\, j(0) \;=\; \frac{k}{4\pi^2 z^2}
 \;+\; \big(\text{stress-tensor term}\big) + \cdots,
 \qquad k = 1,
 \end{equation*}
-(any self-consistent normalization accepted --- state yours), confirming on
-this example the general claim that $T$ appears in the $JJ$ OPE of a local
+in any self-consistent normalization (state yours), confirming on this
+example the general claim that $T$ appears in the $JJ$ OPE of a local
 theory with strength tied to $C_J$. Then check the Schwinger-term
 computation \eqref{eq:schwinger-2d} directly from fermionic Wick contractions
-at equal time, watching the central term arise from the \emph{normal-ordering
-subtraction} --- the canonical computation's discarded piece, recovered.
-\hint{$j \sim\; :\!\psi^\dagger \psi\!:$ with $\langle \psi(z)
-\psi^\dagger(0)\rangle = \frac{1}{2\pi z}$; the double contraction gives the
+at equal time, and observe that the central term arises from the
+normal-ordering subtraction --- the very piece the naive canonical
+computation discards.
+\hint{The double contraction gives the
 $z^{-2}$ central term, the single contractions the operator terms.}
 \end{exercise}
 
@@ -2796,11 +3156,10 @@ pages; read it whole.
 \item[Kontsevich--Segal, \arxiv{2105.10161}, \S2.] The domain of allowable
 complex metrics: Definition 2.1, Theorem 2.2 (our Theorem~\ref{thm:ks}), and
 the Lorentzian-on-the-boundary picture. \S\S3 and 5 belong to chapter I.4.
-\item[Dedushenko, \arxiv{2203.08053}, \S2.1.] The Wightman and
-Osterwalder--Schrader axiom systems with full references --- the rigorous
-spine under Sections~\ref{sec:analytic-structure}
-and~\ref{sec:reflection-positivity}, including the growth-condition history
-this chapter only flagged.
+\item[Dedushenko, \arxiv{2203.08053}, \S2.1.] A compact survey of the
+Wightman and Osterwalder--Schrader axiom systems, useful chiefly as a guide
+to the original literature (including the growth-condition history this
+chapter only flagged).
 \item[Wilson (1969); Schwinger (1959).] The primary sources for the
 chapter's two named structures: the operator algebra as a definition of
 dynamics (Phys.\ Rev.\ \textbf{179}, 1499), and the commutator term that
