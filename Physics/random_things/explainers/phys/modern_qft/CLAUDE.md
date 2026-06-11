@@ -7,10 +7,11 @@ the session ends.
 ## What this project is
 
 Lecture notes on the modern point of view on QFT (Seiberg / Shao / Witten /
-Rychkov / Komargodski school). `modern_qft.tex` currently contains the roadmap:
-an annotated TOC of 12 parts / 55 chapters ("the QFT textbook of 2046") plus a
-library of 46 papers in `assets/` (indexed in `assets/README.md`). Chapters get
-written incrementally, one per session.
+Rychkov / Komargodski school). The document opens with the roadmap: an annotated
+TOC of 12 parts / 58 chapters ("the QFT textbook of 2046") plus a library of 61
+papers in `assets/` (indexed in `assets/README.md`). Chapters get written
+incrementally, one per session, into `parts/` (see Repo mechanics for the file
+layout).
 
 **Writing order (Will's decision):** Part I first, chapter by chapter (I.1 → I.6).
 Reassess order after Part I.
@@ -39,7 +40,9 @@ and annoying — default to expansive.
    explicitly asked for review-and-improve-your-own-draft before.)
 5. Will marks altitude errors (too terse / too encyclopedic). Encode the feedback here.
 6. Compile (`pdflatex`, twice for refs), fix warnings and overfull boxes, delete
-   aux files (`.aux .log .out .toc`). Update the status table below.
+   aux files (`.aux .log .out .toc .fls .fdb_latexmk .synctex.gz`, plus any stray
+   `texput.log`; a `.gitignore` in this directory covers them). Update the status
+   table below.
 
 ## Prose quality (the most important section)
 
@@ -61,11 +64,52 @@ and explains why. Concretely:
 - Transitions must do intellectual work (*why* are we moving here?), not just
   signpost.
 - Kill LLM tells: formulaic section openers ("In this section, we will..."),
-  relentless parallel sentence structure, bullet lists where a paragraph
-  belongs, empty summary paragraphs that re-say what was just said, hedging.
+  relentless parallel sentence structure (especially runs of paragraphs that
+  all close on the same beat — "strength, then caveat"), bullet lists where a
+  paragraph belongs, empty summary paragraphs that re-say what was just said,
+  hedging.
+
+### Anti-LLM-speak: lexical tics to ration (Will's directive, 2026-06-11)
+
+These are the words and rhythms an LLM reaches for far more often than a human
+writer does. Each is fine in isolation; the tell is *frequency* — a reader
+starts noticing by the third or fourth occurrence on a page. The I.1/I.2 drafts
+ran ~9 "deserves" and ~19 "honest(ly)" before a thinning pass; that is the
+failure mode to pre-empt, not repeat.
+
+- **Filler verbs that announce "here comes the next point":** *deserves /
+  earns / merits / is worth* (a hard look, its own paragraph, recording,
+  spelling out, advance billing). Usually the sentence is stronger with the
+  scaffolding deleted — just make the point. If you need a few, vary them.
+- **All-purpose intensifiers used to mean "I really mean it":** *honest /
+  honestly / genuine / genuinely / actually / really / truly / proper(ly)*.
+  Cut most; they almost never add information. ("a genuine inner product" =
+  "an inner product".)
+- **Throat-clearing paragraph openers:** *It is worth noting/emphasizing that*,
+  *It pays to*, *Note that*, *Notice that*, *It is worth pausing on*. Start with
+  the content instead.
+- **Reversal-for-emphasis as a verbal habit:** *not a trick but an equivalent
+  formulation*; *not X; it is Y*; *X is not A — it is B*. Genuinely good once or
+  twice per chapter; mechanical when every third paragraph runs the pattern.
+- **Em-dash overuse.** These notes lean hard on `---`. Often a comma, a colon,
+  or a full stop is cleaner; reserve the dash for real interruptions.
+- **"the X is the Y" equation-of-grandeur** ("locality is the subject", "the
+  trace is the operator that knows about scale") — punchy once, a tic in bulk.
+- **Self-audit before handing off.** Grep your own draft for your favourites
+  (`grep -oc 'deserve\|honest\|genuine\|it is worth' chXX.tex`) and vary or cut
+  the clusters. The target is variety, not a banned-word list — prose that does
+  not read like it was generated.
 
 ## Voice and altitude
 
+- **The chapter's thesis is its roadmap annotation, not its centerpiece
+  calculation.** (Will's feedback on the I.2 draft, 2026-06-10.) Each chapter's
+  roadmap paragraph states the actual claim ("the local operator content as
+  primary data"); the opening must assert that claim in the first paragraph and
+  the closing must deliver the verdict on it. Failure mode: letting the agreed
+  centerpiece calculation organize the framing, so a reader would name the
+  proof (e.g. "OPE convergence via Cauchy–Schwarz") rather than the thesis as
+  the chapter's point. The centerpiece is the crown jewel, not the thesis.
 - **Motivation first.** Every chapter opens with the question it answers and why
   the reader should care — before any formalism. Same rule for major sections.
 - **Exposition is welcome, but it must have a point.** Introductory and
@@ -137,7 +181,7 @@ Syntax: `\begin{eexample}[Optional Title] ... \end{eexample}`; numbered within s
 | `reemark` | Remark (purple sidebar) | asides, history, cross-references |
 | `qquestion` | Question (green sidebar) | driving questions opening a section |
 | `ppreview` | Preview (pink) | forward pointers to later parts |
-| `iintuition`/`ttechnique` | Technique (red) | reusable methods |
+| `ttechnique` | Technique (red) | reusable methods |
 
 The `ps*` tcolorbox family (`psidea`, `pstheorem`, ...) exists in william.sty but
 is not house style for explainers — don't use it.
@@ -157,6 +201,8 @@ Other useful macros: `\vocab{term}` for first use of every technical term;
   explicitly and double-check. Srednicki and Weinberg are mostly-plus references
   to crib conventions from. Much of the symmetry/CFT literature is Euclidean,
   where this is moot — but pin the Wick-rotation convention in the appendix.
+- Use boldface for spatial vectors and momenta: write `\mathbf{x}`,
+  `\mathbf{p}`, etc. Do not use `\vec`.
 - Pin a conventions appendix as soon as the first calculation needs one
   (normalization of p-form gauge fields and their fluxes,
   orientation/η conventions, Dirac matrices). The generalized-symmetry literature is
@@ -166,24 +212,46 @@ Other useful macros: `\vocab{term}` for first use of every technical term;
   plain `\texttt{...}` IDs = not downloaded. Maintain this convention.
 - New papers needed for a chapter: verify ID + title via the arXiv API
   (`https://export.arxiv.org/api/query?id_list=...`) before citing, download to
-  `assets/` with the `ID_authors_short-title.pdf` naming pattern, update
-  `assets/README.md`.
+  `assets/` with the `ID_authors_short-title.pdf` naming pattern, then update
+  **three** places: `assets/README.md` (incl. the paper count in its header),
+  the roadmap's "The library" section in `frontmatter/roadmap.tex`, and the
+  chapter's `\chreading`/`\chfurther` line. (The I.2 session updated only the
+  README and the library desynced — caught and fixed 2026-06-10.) The paper
+  count also appears in this file's "What this project is".
 
 ## Repo mechanics
 
 - Everything for these notes lives in this directory; do not write elsewhere.
 - william.sty is installed at `~/Library/texmf/...` — compilation just works.
-- When chapters start accumulating, propose splitting into `parts/partI/chXX.tex`
-  with `\input`; until then keep things simple.
+- **File structure (since 2026-06-10):** `modern_qft.tex` is the master file
+  (preamble, title page, `\part` declarations, `\input`s). The annotated TOC
+  lives in `frontmatter/roadmap.tex`, with headings via `\roadpart`/`\roadchapter`
+  so they consume no section counters; the conventions appendix is
+  `frontmatter/conventions.tex`; chapters are `parts/partI/chXX.tex`. Chapters
+  are `\section`s numbered `I.1, I.2, ...` (section counter resets per part);
+  equations and boxes number within section. Exercises use the `exercise`
+  theorem env with the grade as the optional argument (`\begin{exercise}[medium]`),
+  plus `\hint{...}` and `\answ{...}`.
+- **Cross-references are hand-written numbers** (`Part II.7`, `chapter I.4`),
+  not `\ref`s — `\label`s exist only for equations/figures/exercises within a
+  chapter. Part/chapter numbers are therefore load-bearing prose: any
+  renumbering of the TOC requires a grep sweep over `parts/`,
+  `frontmatter/roadmap.tex`, `assets/README.md`, and this file. The chapter
+  count ("twelve parts, fifty-eight chapters") is hardcoded in three places:
+  the title page (`modern_qft.tex`), the roadmap premise, and this file.
+- **Gotcha:** william.sty redefines `\v` (bold vectors), which silently breaks
+  the háček accent (`\v{c}` in names like Mazáč) with a "\mathbf allowed only in
+  math mode" error. The master preamble saves the original as `\latexcaron`
+  *before* loading william.sty — use `\latexcaron{c}` for carons.
 - Don't commit unless asked. `assets/` is ~93 MB — flag this if a commit is requested.
 
 ## Status
 
 | Chapter | Title | Status |
 |---|---|---|
-| TOC | Annotated table of contents (12 parts, 55 ch.) | done 2026-06-09 |
-| I.1 | What is a quantum field theory? | not started |
-| I.2 | Observables I: local operators | not started |
+| TOC | Annotated table of contents (12 parts, 58 ch.) | done 2026-06-09; reorganized 2026-06-10 (duality↔SUSY and scattering↔QI part swaps; new chapters II.2 TQFT, IV.5 resurgence, IV.6 hydrodynamics) |
+| I.1 | What is a quantum field theory? | merged and compiled 2026-06-10 |
+| I.2 | Observables I: local operators | drafted, revised after Will's thesis-framing feedback, compiled clean 2026-06-10 (39 pp.) |
 | I.3 | Observables II: defects and extended operators | not started |
 | I.4 | States, geometry, and cutting-and-gluing | not started |
 | I.5 | Presentations, not definitions | not started |

@@ -25,4 +25,14 @@ i \,\frac{\theta}{2\pi} \int dt\, \dot q \;\longrightarrow\; i\, \frac{\theta}{2
 \end{equation}
 and the Euclidean weight is $e^{-S_{\rm E} + i\theta w}$. Forgetting this $i$ (i.e.\ writing $e^{-\theta w}$) is a classic error; the same rule governs $\theta F\tilde F$ in 4d and Chern--Simons terms in 3d.
 
+\paragraph{Euclidean operators and conjugation (from chapter I.2).} Euclidean Heisenberg evolution is $\op(\tau, \mathbf{x}) = e^{H\tau}\,\op(0,\mathbf{x})\,e^{-H\tau}$, so a Lorentzian-Hermitian scalar satisfies $\op(\tau,\mathbf{x})^\dagger = \op(-\tau, \mathbf{x})$: Euclidean conjugation reflects through the quantization surface. Operators with spin additionally pick up a factor $-i$ per Lorentzian time index under Wick rotation ($\op_{\rm E}^{0\cdots} = -i\,\op_{\rm L}^{0\cdots}$, etc.), so that Euclidean correlators are $SO(d)$-covariant; conjugation then carries a time-reflection matrix per index. See Simmons-Duffin \arxiv{1602.07982}, \S7.1.
+
+\paragraph{Radial quantization conventions (from chapter I.2).} Following Simmons-Duffin \arxiv{1602.07982}: Euclidean signature; the dilatation generator $D$ is Hermitian with $[D, \op(0)] = \Delta\,\op(0)$, $[P_\mu, \op(x)] = \partial_\mu \op(x)$, and $[K_\mu, \op(0)] = 0$ for a primary; algebra $[D, P_\mu] = P_\mu$, $[D, K_\mu] = -K_\mu$, $[K_\mu, P_\nu] = 2\delta_{\mu\nu}D - 2M_{\mu\nu}$. Conjugation in radial quantization is inversion: $\op(x)^{\dagger} = x^{-2\Delta}\,\op(x^\mu/x^2)$ for a Hermitian scalar, whence $P_\mu^\dagger = K_\mu$, $D^\dagger = D$.
+
+\paragraph{Stress tensor (from chapter I.2).} Euclidean: $T_{\mu\nu} = \frac{2}{\sqrt g}\frac{\delta S_{\rm E}}{\delta g^{\mu\nu}}$; Lorentzian (mostly-plus): $T_{\mu\nu} = -\frac{2}{\sqrt{-g}}\frac{\delta S}{\delta g^{\mu\nu}}$, giving $T_{00} \ge 0$ for the standard scalar. Ward identity with our signs:
+\begin{equation}
+\partial_\mu \langle T^{\mu\nu}(x)\,\op_1(x_1)\cdots\rangle = -\sum_i \delta^d(x - x_i)\,\partial^\nu_{x_i}\langle \op_1(x_1)\cdots\rangle .
+\end{equation}
+Improvements $T_{\mu\nu} \to T_{\mu\nu} + \xi(\delta_{\mu\nu}\partial^2 - \partial_\mu\partial_\nu)\op$ are identically conserved and change no charges; ``traceless'' always means ``for the improved representative.''
+
 \paragraph{Symmetry and CFT conventions.} When the chapters reach the symmetry material (Part II) we follow the conventions of Shao's TASI lectures \arxiv{2308.00747}; for CFT material (Part III), Simmons-Duffin \arxiv{1602.07982}. Conventions for $p$-form gauge fields, flux normalization, and Dirac matrices will be pinned here when first needed.
