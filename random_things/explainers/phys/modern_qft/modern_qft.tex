@@ -44,6 +44,28 @@
 \newcommand{\hint}[1]{\par\smallskip\noindent{\footnotesize\emph{Hint:} #1}}
 \newcommand{\answ}[1]{\par\smallskip\noindent{\footnotesize\emph{Answer:} #1}}
 
+% The william.sty box environments and the exercise counter all reset per
+% section, but their hyperref destinations default to <counter>.<n> and so
+% collide across sections (Definition I.1.1 and I.2.1 both map to ddefinition.1),
+% which makes every cross-reference link jump to the wrong target. Qualify each
+% \theH by the section, exactly as is done above for sections and equations.
+\makeatletter
+\def\mqft@uniqueH#1{\expandafter\def\csname theH#1\endcsname{\theHsection.#1.\arabic{#1}}}
+\mqft@uniqueH{exercise}
+\mqft@uniqueH{ddefinition}
+\mqft@uniqueH{pproposition}
+\mqft@uniqueH{ttheorem}
+\mqft@uniqueH{iidea}
+\mqft@uniqueH{iintuition}
+\mqft@uniqueH{ttechnique}
+\mqft@uniqueH{eexample}
+\mqft@uniqueH{eequation}
+\mqft@uniqueH{qquestion}
+\mqft@uniqueH{nnote}
+\mqft@uniqueH{reemark}
+\mqft@uniqueH{ppreview}
+\makeatother
+
 % --- local macros for the annotated TOC (the roadmap) ---
 \newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\texttt{#1}}}
 \newcommand{\chsections}[1]{\par\smallskip\noindent{\small\emph{Sections:} #1}}

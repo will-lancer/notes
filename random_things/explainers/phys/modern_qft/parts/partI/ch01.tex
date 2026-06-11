@@ -61,7 +61,10 @@ consistent with the symmetries, keeping terms up to some power-counting
 criterion (``renormalizability'').
 \item Quantize: canonically, or via the path integral
 \begin{equation}
-Z = \int \de\phi \; e^{iS[\phi]}, \qquad S = \int d^dx \, \el ,
+\begin{aligned}
+Z &= \int \de\phi\, e^{iS[\phi]},\\
+S &= \int d^dx\, \el ,
+\end{aligned}
 \label{eq:formal-pi}
 \end{equation}
 defined in practice by expanding around the Gaussian (free) theory.
@@ -73,7 +76,7 @@ order by order.
 functions, and through the LSZ reduction formula, for scattering
 amplitudes. The procedure's triumphs are not in dispute. Its flagship
 number is the magnetic moment of the electron: the measured value $g/2 =
-1.001\,159\,652\,180\,59\,(13)$ agrees with the Standard Model prediction
+1.00115965218059(13)$ agrees with the Standard Model prediction
 at the level of one part in $10^{12}$ --- the comparison is now limited by
 independent measurements of $\alpha$, not by QFT itself.\footnote{Fan,
 Myers, Sukra, Gabrielse, \texttt{2209.13084}, currently the most precisely
@@ -97,7 +100,7 @@ Take spacetime to be a point. A ``field'' is then one real number $\phi$, the
 ``path integral'' is an ordinary integral, and the Euclidean $\phi^4$ partition
 function is
 \begin{equation}
-Z(\lambda) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} d\phi \;
+Z(\lambda) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} d\phi\,
   e^{-\frac{1}{2}\phi^2 - \frac{\lambda}{4!}\phi^4},
 \label{eq:zerod-Z}
 \end{equation}
@@ -109,13 +112,13 @@ Now run the textbook procedure: expand around the free theory. Exchanging the
 sum with the integral,
 \begin{equation}
 Z_{\rm pert}(\lambda) = \sum_{n=0}^{\infty} \frac{1}{n!}
-  \left(-\frac{\lambda}{4!}\right)^{\!n} \frac{1}{\sqrt{2\pi}}\int d\phi\;
+  \left(-\frac{\lambda}{4!}\right)^{n} \frac{1}{\sqrt{2\pi}}\int d\phi\,
   \phi^{4n} e^{-\frac{1}{2}\phi^2}
   = \sum_{n=0}^{\infty} a_n \lambda^n ,
 \end{equation}
-where the Gaussian moments are $(4n-1)!! = (4n)!/\big(2^{2n}(2n)!\big)$, so that
+where the Gaussian moments are $(4n-1)!! = (4n)!/\left(2^{2n}(2n)!\right)$, so that
 \begin{equation}
-a_n = \frac{(-1)^n}{(4!)^n\, n!} \cdot \frac{(4n)!}{2^{2n}\,(2n)!}.
+a_n = \frac{(-1)^n}{(4!)^n n!} \cdot \frac{(4n)!}{2^{2n}(2n)!}.
 \label{eq:an}
 \end{equation}
 The first few terms, $Z_{\rm pert} = 1 - \frac{\lambda}{8} +
@@ -124,8 +127,8 @@ diagrams with the usual symmetry factors. Up to this point, everything
 matches the textbook treatment. But apply
 Stirling's formula to \eqref{eq:an}:
 \begin{equation}
-|a_n| \;\sim\; \frac{1}{\pi n \sqrt{2}} \; n! \left(\frac{2}{3}\right)^{\!n}
-\qquad (n \to \infty).
+|a_n| \sim \frac{1}{\pi n \sqrt{2}} n! \left(\frac{2}{3}\right)^{n}
+\text{ as } n \to \infty.
 \label{eq:an-asymptotic}
 \end{equation}
 The coefficients grow \emph{factorially}: the ratio $|a_{n+1}/a_n| \approx
@@ -145,11 +148,11 @@ one-line proof.}
 
 The series is not useless --- it is \vocab{asymptotic}. Truncating at order $N$,
 the error is controlled by the first omitted term, $|a_N \lambda^N| \sim
-N!\,(2\lambda/3)^N$, which \emph{decreases} with $N$ until $N_\ast \approx
+N!(2\lambda/3)^N$, which \emph{decreases} with $N$ until $N_\ast \approx
 3/2\lambda$ and grows explosively afterwards. Truncating at the optimal order
 leaves an irreducible error
 \begin{equation}
-\Delta Z \;\sim\; e^{-N_\ast} = e^{-3/2\lambda} ,
+\Delta Z \sim e^{-N_\ast} = e^{-3/2\lambda} ,
 \label{eq:optimal-truncation}
 \end{equation}
 invisible at every finite order in $\lambda$. This is not a random number: the
@@ -225,7 +228,7 @@ quoted ratio is accurate to a few percent already at $n=10$.}
 \frac{1}{2}p^2 + \frac{1}{2}x^2 + \lambda x^4$. Adapt Dyson's argument to show
 that the Rayleigh--Schr\"odinger series for the ground-state energy
 $E_0(\lambda)$ must have zero radius of convergence. (Bender and Wu computed its
-coefficients to high order in 1969 and found $|c_n| \sim n!\,3^n$, confirming
+coefficients to high order in 1969 and found $|c_n| \sim n!3^n$, confirming
 this.)
 \hint{What happens to the spectrum of $H$ for $\lambda < 0$, no matter how
 small? Think about tunneling out of the origin: the decay rate is $\sim
@@ -238,7 +241,7 @@ e^{-c/|\lambda|}$, which is non-analytic at $\lambda = 0$.}
 \eqref{eq:an}. Show that the series for $B$ converges for $|t| < 3/2$, and that
 for $\lambda > 0$
 \begin{equation*}
-\int_0^\infty dt \, e^{-t}\, B(\lambda t) = Z(\lambda).
+\int_0^\infty dt\, e^{-t} B(\lambda t) = Z(\lambda).
 \end{equation*}
 \hint{Insert $1 = \frac{1}{n!}\int_0^\infty dt\, e^{-t} t^n$ into the
 (divergent) series for $Z$ and exchange sums and integrals where legal.
@@ -310,7 +313,7 @@ global symmetry that counts particles on one side realized as the symmetry that
 counts magnetic flux on the other,
 \begin{equation}
 |\partial_\mu \phi|^2 - |\phi|^4
-\qquad \longleftrightarrow \qquad
+\longleftrightarrow
 |D_b \hat\phi|^2 - |\hat\phi|^4 + (\text{Maxwell for } b),
 \label{eq:particle-vortex}
 \end{equation}
@@ -336,7 +339,10 @@ Ising model, the universality class of the liquid--vapor critical point and of
 uniaxial magnets. The \vocab{conformal bootstrap} determines its low-lying
 spectrum to stunning precision,
 \begin{equation}
-\Delta_\sigma = 0.5181489(10), \qquad \Delta_\epsilon = 1.412625(10).
+\begin{aligned}
+\Delta_\sigma &= 0.5181489(10),\\
+\Delta_\epsilon &= 1.412625(10).
+\end{aligned}
 \label{eq:ising-dims}
 \end{equation}
 These are the scaling dimensions that fix the classic critical exponents $\eta$
@@ -526,14 +532,14 @@ parameter space.}
 \emph{The Hamiltonian presentation.} The momentum conjugate to $q$ is $\Pi =
 \dot q + \frac{\theta}{2\pi}$, and the Hamiltonian is
 \begin{equation}
-H = \frac{1}{2}\Big(\Pi - \frac{\theta}{2\pi}\Big)^2 .
+H = \frac{1}{2}\left(\Pi - \frac{\theta}{2\pi}\right)^2 .
 \end{equation}
 The inventory begins to fill in. \emph{States} (item 3): space is a point, and
 the Hilbert space assigned to it is $\mathcal{H} = L^2(S^1)$, spanned by
 $\braket{q}{n} = e^{inq}/\sqrt{2\pi}$ with $n \in \ints$ --- single-valuedness
 of the wavefunction quantizes $\Pi$ to integers. The spectrum is
 \begin{equation}
-E_n = \frac{1}{2}\Big(n - \frac{\theta}{2\pi}\Big)^2 .
+E_n = \frac{1}{2}\left(n - \frac{\theta}{2\pi}\right)^2 .
 \label{eq:circle-spectrum}
 \end{equation}
 \emph{Local operators} (item 2): the well-defined operators are built from
@@ -546,7 +552,7 @@ $\beta$,
 \begin{equation}
 Z(\beta, \theta) = \tr e^{-\beta H}
   = \sum_{n \in \ints}
-    \exp\left[-\frac{\beta}{2}\Big(n - \frac{\theta}{2\pi}\Big)^2\right].
+    \exp\left[-\frac{\beta}{2}\left(n - \frac{\theta}{2\pi}\right)^2\right].
 \label{eq:Z-hamiltonian}
 \end{equation}
 
@@ -632,7 +638,7 @@ prefactor and the sign of the phase.
 Fourier series; integrate $f$ against both expressions. For the
 application: complete the square in \eqref{eq:Z-hamiltonian} first.}
 \answ{With $f(x) = e^{-\frac{\beta}{2}(x - \frac{\theta}{2\pi})^2}$ one finds
-$\hat f(2\pi w) = \sqrt{2\pi/\beta}\; e^{-2\pi^2 w^2/\beta}\, e^{-i\theta
+$\hat f(2\pi w) = \sqrt{2\pi/\beta} e^{-2\pi^2 w^2/\beta} e^{-i\theta
 w}$; relabeling $w \to -w$ gives \eqref{eq:Z-winding}.}
 \end{exercise}
 
@@ -661,8 +667,10 @@ and at first sight no quantum mechanics at all.
 Put classical spins $s_i = \pm 1$ on $N$ sites of a periodic chain, with energy
 favoring alignment, and define
 \begin{equation}
-Z_N = \sum_{\{s_i = \pm 1\}} \, \prod_{i=1}^{N} e^{J s_i s_{i+1}} ,
-  \qquad s_{N+1} \equiv s_1 ,
+\begin{aligned}
+Z_N &= \sum_{\{s_i = \pm 1\}} \prod_{i=1}^{N} e^{J s_i s_{i+1}},\\
+s_{N+1} &\equiv s_1 ,
+\end{aligned}
 \label{eq:ising-Z}
 \end{equation}
 where $J > 0$ absorbs the temperature. This is a Euclidean QFT presentation in
@@ -672,13 +680,15 @@ which spacetime itself is discrete: the chain is a one-dimensional
 The structure of the inventory emerges from a single move. Define the $2\times
 2$ \vocab{transfer matrix} with entries $T_{s s'} = e^{J s s'}$,
 \begin{equation}
-T = \begin{pmatrix} e^{J} & e^{-J} \\ e^{-J} & e^{J} \end{pmatrix}
-= e^{J}\,I + e^{-J} \sigma_x ,
-\qquad \text{eigenvalues} \quad \lambda_\pm = 2\cosh J,\; 2 \sinh J .
+\begin{aligned}
+T &= \begin{pmatrix} e^{J} & e^{-J} \\ e^{-J} & e^{J} \end{pmatrix}\\
+&= e^{J}I + e^{-J} \sigma_x,\\
+\lambda_\pm &= 2\cosh J, 2\sinh J .
+\end{aligned}
 \end{equation}
 Multiplying along the chain and summing over spins,
 \begin{equation}
-Z_N = \tr \, T^N = \lambda_+^N + \lambda_-^N .
+Z_N = \tr T^N = \lambda_+^N + \lambda_-^N .
 \label{eq:ising-trace}
 \end{equation}
 Compare item by item with the previous example. The \emph{Hilbert space}
@@ -690,8 +700,8 @@ was. And the \emph{correlators}: inserting $\sigma_z$ at sites $0$ and $r$,
 \begin{equation}
 \langle s_0 s_r \rangle = \frac{\tr \left( \sigma_z T^{r} \sigma_z T^{N-r}
 \right)}{\tr T^N}
-\;\xrightarrow{\;N \to \infty\;}\;
-\left(\frac{\lambda_-}{\lambda_+}\right)^{\!r} = (\tanh J)^r = e^{-r/\xi},
+\xrightarrow{N \to \infty}
+\left(\frac{\lambda_-}{\lambda_+}\right)^{r} = (\tanh J)^r = e^{-r/\xi},
 \label{eq:ising-correlator}
 \end{equation}
 with \vocab{correlation length} $\xi = 1/\ln \coth J$
@@ -707,17 +717,19 @@ Now take the \emph{continuum limit}, the move that will occupy all of Part VIII;
 here it can be done exactly. Give the lattice a physical spacing $a$ and send $a
 \to 0$, $N \to \infty$. For the limit to retain any physics, the correlation
 length \emph{in lattice units} must diverge, so $J \to \infty$ too; the
-combination to hold fixed is the physical gap. Writing $T = e^J\big(I +
-e^{-2J}\sigma_x + \cdots\big)$ and matching to $T \simeq e^{-aH +
+combination to hold fixed is the physical gap. Writing $T = e^J\left(I +
+e^{-2J}\sigma_x + \cdots\right)$ and matching to $T \simeq e^{-aH +
 \text{const}}$,
 \begin{equation}
-H = -\Gamma \sigma_x , \qquad \Gamma = \frac{e^{-2J}}{a} \;\; \text{held fixed
-as } a \to 0 .
+\begin{aligned}
+H &= -\Gamma \sigma_x,\\
+\Gamma &= \frac{e^{-2J}}{a} \text{ held fixed as } a \to 0 .
+\end{aligned}
 \label{eq:ising-continuum}
 \end{equation}
 The continuum limit of the classical Ising chain is the quantum mechanics of a
 single spin in a transverse field --- Hilbert space $\complex^2$, gap $2\Gamma$,
-physical correlation length $\xi_{\rm phys} = a\,\xi \to 1/2\Gamma$. Every
+physical correlation length $\xi_{\rm phys} = a\xi \to 1/2\Gamma$. Every
 microscopic detail (the lattice, the specific nearest-neighbor form, corrections
 to the exponentiation) has washed out into one parameter. This is
 \vocab{universality} in its simplest instance, and it is the mechanism that makes
@@ -767,8 +779,11 @@ evaluate in the eigenbasis of $T$, and keep track of the finite-$N$ corrections.
 Verify cluster decomposition and extract $\xi$.
 \hint{$\sigma_z$ is off-diagonal in the eigenbasis $\ket{\pm} = (\ket{\uparrow}
 \pm \ket{\downarrow})/\sqrt 2$: $\sigma_z \ket{\pm} = \ket{\mp}$. The
-exact answer is $\big(\lambda_+^{N-r}\lambda_-^{r} +
-\lambda_-^{N-r}\lambda_+^{r}\big)/\big(\lambda_+^N + \lambda_-^N\big)$.}
+exact answer is
+\begin{equation*}
+\frac{\lambda_+^{N-r}\lambda_-^{r} + \lambda_-^{N-r}\lambda_+^{r}}
+{\lambda_+^N + \lambda_-^N}.
+\end{equation*}}
 \end{exercise}
 
 \begin{exercise}[medium]
@@ -826,7 +841,7 @@ chapter I.2.
 \item \emph{In Lorentzian signature}: measurements at spacelike separation are
 independent,
 \begin{equation*}
-[\op_1(x), \op_2(y)] = 0 \qquad \text{for } (x-y)^2 > 0,
+[\op_1(x), \op_2(y)] = 0 \text{ for } (x-y)^2 > 0,
 \end{equation*}
 the statement of \vocab{microcausality} (Exercise~\ref{exr:microcausality}).
 \item \emph{In Euclidean correlators}: \vocab{cluster decomposition}, already
@@ -908,10 +923,10 @@ of theories, in Section~\ref{sec:theory-space}.}
 \label{exr:microcausality}
 (Microcausality for the free scalar.) In the free massive scalar theory in $d=4$
 with mostly-plus signature, the commutator of fields is a c-number, $[\phi(x),
-\phi(y)] = \Delta(x-y)\,I$. Compute $\Delta$ from the mode expansion
+\phi(y)] = \Delta(x-y)I$. Compute $\Delta$ from the mode expansion
 and prove it vanishes whenever $x - y$ is spacelike.
-\hint{$\Delta(x-y) = \int \frac{d^3p}{(2\pi)^3 2E_p} \big( e^{ip\cdot(x-y)} -
-e^{-ip\cdot(x-y)} \big)$ with $p \cdot x = -E t + \mathbf{p} \cdot \mathbf{x}$ in
+\hint{$\Delta(x-y) = \int \frac{d^3p}{(2\pi)^3 2E_p}\, \left( e^{ip\cdot(x-y)} -
+e^{-ip\cdot(x-y)} \right)$ with $p \cdot x = -E t + \mathbf{p} \cdot \mathbf{x}$ in
 mostly-plus. For spacelike separation there is a Lorentz frame with $x^0 =
 y^0$; show the integrand is then odd under $\mathbf{p} \to -\mathbf{p}$. Why does
 this argument fail (as it must) for timelike separation?}
@@ -938,7 +953,7 @@ arena. Its geography is given by the \vocab{renormalization group}: inspecting a
 theory at successively longer distances --- integrating out, coarse-graining,
 ``zooming out'' --- produces a one-parameter motion through theory space,
 \begin{equation}
-\frac{d}{d\ln(\text{scale})}\,(\text{theory}) = \beta(\text{theory}),
+\frac{d}{d\ln(\text{scale})}(\text{theory}) = \beta(\text{theory}),
 \end{equation}
 a flow, of which chapter I.6 gives the honest construction. Here we need only
 its fixed-point structure, and the picture in Figure~\ref{fig:theory-space}.
@@ -1012,11 +1027,11 @@ point's operators. At the free (Gaussian) fixed point of a single scalar,
 demanding that the kinetic action $\int d^dx\, (\partial\phi)^2$ be
 dimensionless fixes
 \begin{equation}
-[\phi] = \frac{d-2}{2},
-\qquad\text{so that}\qquad
-\Big[\textstyle\int d^dx\; g_n\, \phi^n\Big] = 0
-\;\;\Longrightarrow\;\;
-[g_n] = d - n\,\frac{d-2}{2} .
+\begin{aligned}
+[\phi] &= \frac{d-2}{2},\\
+\left[\textstyle\int d^dx\, g_n \phi^n\right] &= 0,\\
+[g_n] &= d - n\frac{d-2}{2} .
+\end{aligned}
 \label{eq:power-counting}
 \end{equation}
 The perturbation $g_n \phi^n$ is relevant when $[g_n] > 0$, i.e.\ $n <
@@ -1109,7 +1124,7 @@ demanded a UV completion.}
 \label{exr:free-scalar-dim}
 Check \eqref{eq:power-counting} against an explicit correlator: compute the
 Euclidean two-point function of a free massless scalar, $\langle \phi(x) \phi(0)
-\rangle = \frac{C_d}{|x|^{d-2}}$, from $\int d^dp \, \frac{e^{ip\cdot x}}{p^2}$,
+\rangle = \frac{C_d}{|x|^{d-2}}$, from $\int d^dp\, \frac{e^{ip\cdot x}}{p^2}$,
 and confirm that the power of $|x|$ matches $2[\phi]$ with $[\phi] = (d-2)/2$.
 What replaces the power law in $d = 2$, and how does this connect to the ``every
 potential is relevant'' verdict above?
@@ -1222,14 +1237,14 @@ scale to conformal invariance --- the dependence is stated where it occurs.
 \begin{exercise}[classic]
 \label{exr:field-redef}
 (Two Lagrangians, one theory, in $d=0$.) In the integral \eqref{eq:zerod-Z},
-change variables $\phi = \psi + c\,\psi^3$ for small constant $c$. Show that the
+change variables $\phi = \psi + c\psi^3$ for small constant $c$. Show that the
 resulting ``theory of $\psi$'' has a different-looking action --- new
 interaction vertices $\psi^4, \psi^6, \dots$ with $c$-dependent couplings, plus
 a vertex from the Jacobian --- yet \emph{identical} partition function, and
 (after matching sources) identical correlators of the original operator.
 Conclude that coupling constants of presentations are not, in general,
 observables. Which combinations of the new couplings are invariant?
-\hint{The Jacobian $d\phi = (1 + 3c\psi^2)\,d\psi$ exponentiates into the action
+\hint{The Jacobian $d\phi = (1 + 3c\psi^2)d\psi$ exponentiates into the action
 as $-\ln(1+3c\psi^2)$. This freedom of field redefinition is the $d=0$
 shadow of the equivalence theorem; ``the theory'' is the equivalence
 class.}
@@ -1243,12 +1258,12 @@ Example~\ref{ex:zero-d} as $a_n = \oint \frac{d\lambda}{2\pi i}\,
 point: the contour is pushed onto the negative-$\lambda$ cut, where the
 discontinuity of $Z$ is computed by the instanton saddle $\phi_\ast^2 =
 -6/\lambda$ with action $-3/2\lambda$. Recover the growth $|a_n| \sim
-n!\,(2/3)^n$ of \eqref{eq:an-asymptotic}, including the power of $n$ in the
+n!(2/3)^n$ of \eqref{eq:an-asymptotic}, including the power of $n$ in the
 prefactor if you are feeling thorough.
-\hint{$\mathrm{Disc}\, Z(-|\lambda|) \propto e^{-3/2|\lambda|}/\sqrt{|\lambda|}$
+\hint{$\mathrm{Disc} Z(-|\lambda|) \propto e^{-3/2|\lambda|}/\sqrt{|\lambda|}$
 from the Gaussian integral over the unstable direction at the saddle. Then
 $a_n \approx \frac{1}{\pi}\int_0^\infty
-\frac{d|\lambda|}{|\lambda|^{n+1}}\,\mathrm{Im}\,Z(-|\lambda|)$ is
+\frac{d|\lambda|}{|\lambda|^{n+1}}\,\mathrm{Im}Z(-|\lambda|)$ is
 dominated by $|\lambda| \sim 3/2n$. This dispersive route from instantons
 to large orders is the $d=0$ version of the Lipatov/Bender--Wu analysis.}
 \end{exercise}
@@ -1256,7 +1271,7 @@ to large orders is the $d=0$ version of the Lipatov/Bender--Wu analysis.}
 \begin{exercise}[medium]
 \label{exr:circle-correlator}
 (A correlator on the circle.) For the particle on a circle at general $\theta$,
-compute the Euclidean two-point function $\langle e^{iq(\tau)}\, e^{-iq(0)}
+compute the Euclidean two-point function $\langle e^{iq(\tau)} e^{-iq(0)}
 \rangle_\beta$ by inserting energy eigenstates, and examine its $\beta \to
 \infty$ limit. Show that the answer decays exponentially in $\tau$ with rate set
 by the gap, in parallel with \eqref{eq:ising-correlator} --- except at $\theta =

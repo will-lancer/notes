@@ -72,7 +72,7 @@ The inventory of chapter I.1 refers to ``labels $\op_i$ drawn from a set of
 local operators,'' and we should begin by asking what this set actually
 contains. In a Lagrangian presentation the natural guess is: the elementary
 field $\phi$, its derivatives, and local polynomials built from them ---
-$\phi^2$, $\phi^4$, $\phi\,\partial^2\phi$, and so on. This guess fails in
+$\phi^2$, $\phi^4$, $\phi\partial^2\phi$, and so on. This guess fails in
 two instructive ways, once in the continuum and once on the lattice, and
 examining the two failures will lead us to the correct definition.
 
@@ -86,12 +86,12 @@ familiar from canonical quantization, is \vocab{normal ordering}: split the
 free field into its annihilation and creation parts, $\phi = \phi^+ +
 \phi^-$ with $\phi^+\ket{0} = 0$, and define
 \begin{equation}
-:\!\phi^2\!:(x) \;\equiv\; \phi^-\phi^-(x) \;+\; 2\,\phi^-\phi^+(x)
-\;+\; \phi^+\phi^+(x),
+{:}\phi^2{:}(x) \equiv \phi^-\phi^-(x) + 2\phi^-\phi^+(x)
++ \phi^+\phi^+(x),
 \label{eq:normal-ordering}
 \end{equation}
 so that every annihilation operator stands to the right of every creation
-operator and $\langle\,:\!\phi^2\!:\,\rangle = 0$. This prescription works,
+operator and $\langle{:}\phi^2{:}\rangle = 0$. This prescription works,
 but as stated it is tied to the mode expansion of a free field, and mode
 expansions are scaffolding: nothing like $\phi^\pm$ exists on a lattice or at
 an interacting fixed point. To extract the presentation-independent content
@@ -100,9 +100,9 @@ commutator $[\phi^+(x), \phi^-(y)] = \langle\phi(x)\phi(y)\rangle$ is a
 c-number, reordering the modes in a product of two fields produces exactly
 one contraction,
 \begin{equation}
-\phi(x + \varepsilon)\,\phi(x) \;=\;
-\,:\!\phi(x+\varepsilon)\,\phi(x)\!:\; +\;
-\big\langle \phi(x+\varepsilon)\,\phi(x)\big\rangle ,
+\phi(x + \varepsilon)\phi(x) =
+{:}\phi(x+\varepsilon)\phi(x){:} +
+\left\langle \phi(x+\varepsilon)\phi(x)\right\rangle ,
 \label{eq:wick-split}
 \end{equation}
 which is Wick's theorem for two fields. The normal-ordered product on the
@@ -110,9 +110,9 @@ right-hand side is regular as $\varepsilon \to 0$ --- the singularity of the
 product lives entirely in the c-number term --- so \eqref{eq:wick-split} can
 be solved for it and the limit taken:
 \begin{equation}
-:\!\phi^2\!:(x) \;=\; \lim_{\varepsilon \to 0}\,
-\Big[\, \phi(x + \varepsilon)\,\phi(x) \;-\;
-\big\langle \phi(x+\varepsilon)\,\phi(x)\big\rangle \,\Big].
+{:}\phi^2{:}(x) = \lim_{\varepsilon \to 0}
+\left[ \phi(x + \varepsilon)\phi(x) -
+\left\langle \phi(x+\varepsilon)\phi(x)\right\rangle \right].
 \label{eq:point-splitting}
 \end{equation}
 This \vocab{point-splitting} form of normal ordering defines the same
@@ -124,7 +124,7 @@ singular part of the product of two local operators was itself proportional
 to a local operator --- here the identity, with coefficient
 $\langle\phi\phi\rangle$ --- and subtracting it left a finite local operator.
 In an interacting theory the same procedure requires more terms. The product
-$\phi(x+\varepsilon)\,\phi(x)$ then contains, besides the identity, singular
+$\phi(x+\varepsilon)\phi(x)$ then contains, besides the identity, singular
 multiples of other local operators, all of which must be subtracted; and the
 finite operators that survive mix among themselves as the splitting scale
 $\varepsilon$ is varied, which is one way anomalous dimensions enter. The
@@ -144,7 +144,7 @@ two-dimensional Ising model at its critical temperature --- the spins of
 chapter I.1's Example~\ref{ex:ising-chain}, now placed on a square lattice of
 spacing $a$, where (unlike in $d = 1$) the model has a critical
 point. The candidate local operators are functions of the spins in a bounded
-neighborhood of a point: the spin $s_x$ itself, the product $s_x\, s_{x +
+neighborhood of a point: the spin $s_x$ itself, the product $s_x s_{x +
 \hat e}$ of two adjacent spins, three-spin clusters, and so on. The problem
 with these candidates is that none of them, taken individually, has a good
 continuum limit: their correlation functions are homogeneous under rescaling
@@ -164,8 +164,10 @@ supported near $x$ on the coarser lattice, and the map $R$ is linear, because
 expectation values are linear in the inserted operator. A linear map can be
 diagonalized. Its eigenvectors are called \vocab{scaling operators},
 \begin{equation}
-R\big[\op_k\big] \;=\; b^{-\Delta_k}\, \op_k ,
-\qquad b = 3 \;\;\text{(the blocking factor)},
+\begin{aligned}
+R\left[\op_k\right] &= b^{-\Delta_k} \op_k,\\
+b &= 3 \text{ (the blocking factor)} ,
+\end{aligned}
 \label{eq:rg-eigenvector}
 \end{equation}
 and the eigenvalue defines the \vocab{scaling dimension} $\Delta_k$. The
@@ -174,11 +176,12 @@ homogeneous correlation functions. Applying the blocking $n$ times inside a
 two-point function multiplies each insertion by $b^{-n\Delta_k}$ and reduces
 the separation, measured in lattice units, by $b^n$:
 \begin{equation}
-\big\langle \op_k(0)\,\op_k(r) \big\rangle
-\;=\; b^{-2n\Delta_k}\,\big\langle \op_k(0)\,\op_k(r/b^n) \big\rangle
-\qquad\Longrightarrow\qquad
-\big\langle \op_k(0)\,\op_k(r) \big\rangle \;\propto\;
-\frac{1}{r^{2\Delta_k}}\,,
+\begin{aligned}
+\left\langle \op_k(0)\op_k(r) \right\rangle
+&= b^{-2n\Delta_k}\left\langle \op_k(0)\op_k(r/b^n) \right\rangle,\\
+\left\langle \op_k(0)\op_k(r) \right\rangle
+&\propto \frac{1}{r^{2\Delta_k}},
+\end{aligned}
 \label{eq:rg-power-law}
 \end{equation}
 where the implication follows by choosing $b^n \sim r$: a pure power law,
@@ -189,8 +192,8 @@ eigenvectors, and the expansion is the working dictionary between the lattice
 and the continuum. The spin $s_x$ is odd under the global flip $s \to -s$, so
 only $\mathbb{Z}_2$-odd scaling operators can appear in its expansion:
 \begin{equation}
-s_x \;=\; c_\sigma\, a^{\Delta_\sigma}\, \sigma(x)
-\;+\; c_{\sigma'}\, a^{\Delta_{\sigma'}}\, \sigma'(x) \;+\; \cdots ,
+s_x = c_\sigma a^{\Delta_\sigma} \sigma(x)
++ c_{\sigma'} a^{\Delta_{\sigma'}} \sigma'(x) + \cdots ,
 \label{eq:operator-matching}
 \end{equation}
 where $\sigma$ is the lowest-dimension odd operator ($\Delta_\sigma =
@@ -204,9 +207,9 @@ model --- but the operators and their dimensions are properties of the fixed
 point alone. Taking the expectation value of two copies of
 \eqref{eq:operator-matching} makes the dictionary quantitative:
 \begin{equation}
-\langle s_0\, s_r\rangle \;=\;
+\langle s_0 s_r\rangle =
 c_\sigma^2 \left(\frac{a}{r}\right)^{2\Delta_\sigma}
-\Big[\, 1 \,+\, O\big((a/r)^{\Delta_{\sigma'} - \Delta_\sigma}\big) \Big],
+\left[ 1 + O\left((a/r)^{\Delta_{\sigma'} - \Delta_\sigma}\right) \right],
 \label{eq:corrections-to-scaling}
 \end{equation}
 a power law with subleading \vocab{corrections to scaling} controlled by the
@@ -243,10 +246,10 @@ $\Delta$ is an object $\op(x)$, labeled by a point of space(time), whose
 correlation functions with other such operators are defined at non-coincident
 points and transform homogeneously under dilatations,
 \begin{equation}
-\big\langle \op_1(\lambda x_1)\, \op_2(\lambda x_2) \cdots
-\op_n(\lambda x_n)\big\rangle
-\;=\; \lambda^{-(\Delta_1 + \Delta_2 + \cdots + \Delta_n)}\,
-\big\langle \op_1(x_1)\, \op_2(x_2)\cdots \op_n(x_n)\big\rangle ,
+\left\langle \op_1(\lambda x_1) \op_2(\lambda x_2) \cdots
+\op_n(\lambda x_n)\right\rangle
+= \lambda^{-(\Delta_1 + \Delta_2 + \cdots + \Delta_n)}
+\left\langle \op_1(x_1) \op_2(x_2)\cdots \op_n(x_n)\right\rangle ,
 \label{eq:scaling-operator-def}
 \end{equation}
 and covariantly under rotations, according to the operator's spin.
@@ -294,14 +297,14 @@ $\langle\phi(x)\phi(0)\rangle = \frac{1}{4\pi^2 x^2}$: (a) verify that
 \eqref{eq:point-splitting} defines an operator with finite correlators by
 computing, via Wick's theorem,
 \begin{equation*}
-\big\langle :\!\phi^2\!:(x)\;\, :\!\phi^2\!:(0) \big\rangle
-= \frac{2}{(4\pi^2)^2\, x^4},
+\left\langle {:}\phi^2{:}(x) {:}\phi^2{:}(0) \right\rangle
+= \frac{2}{(4\pi^2)^2 x^4},
 \end{equation*}
 and conclude $\Delta_{:\phi^2:} = 2 = 2\Delta_\phi$: free-field composites
 have additive dimensions. (b) Verify that the mode definition
 \eqref{eq:normal-ordering} and the point-split definition
 \eqref{eq:point-splitting} give the same operator, by checking that their
-correlators with $\phi(y_1)\,\phi(y_2)$ agree. (c) At the interacting 3d
+correlators with $\phi(y_1)\phi(y_2)$ agree. (c) At the interacting 3d
 Wilson--Fisher fixed point, the operator occupying this slot is $\epsilon$,
 with $\Delta_\epsilon = 1.412625(10)$, while $2\Delta_\phi \simeq 1.036$:
 the operator survives the interaction, but additivity of dimensions does
@@ -329,7 +332,7 @@ as in the Ising chain of Example~\ref{ex:ising-chain}; in a Euclidean path
 integral,
 \begin{equation}
 \langle \op_1(x_1) \cdots \op_n(x_n) \rangle
-= \frac{1}{Z}\int \de\phi \; \op_1(x_1) \cdots \op_n(x_n)\, e^{-S_{\rm E}[\phi]},
+= \frac{1}{Z}\int \de\phi\, \op_1(x_1) \cdots \op_n(x_n) e^{-S_{\rm E}[\phi]},
 \label{eq:euclidean-correlator}
 \end{equation}
 the insertions are ordinary commuting functionals and the correlator is a
@@ -341,11 +344,11 @@ $\epsilon$-expansion's Euclidean diagrams, the bootstrap's crossing equations
 --- actually computes.
 
 In a Lorentzian, Hamiltonian presentation, a correlator is a transition
-amplitude. Operators act on a Hilbert space, $\op(t,\mathbf{x}) = e^{iHt}\,
-\op(0,\mathbf{x})\, e^{-iHt}$, and the basic objects are the vacuum expectation
+amplitude. Operators act on a Hilbert space, $\op(t,\mathbf{x}) = e^{iHt}
+\op(0,\mathbf{x}) e^{-iHt}$, and the basic objects are the vacuum expectation
 values of \emph{ordered} products,
 \begin{equation}
-W(x_1, \dots, x_n) = \bra{0} \op_1(x_1)\, \op_2(x_2) \cdots \op_n(x_n) \ket{0},
+W(x_1, \dots, x_n) = \bra{0} \op_1(x_1) \op_2(x_2) \cdots \op_n(x_n) \ket{0},
 \label{eq:wightman-def}
 \end{equation}
 the \vocab{Wightman functions}. The ordering is physical: $\op_1$ acts last.
@@ -354,7 +357,7 @@ different functions. For two operators, the difference of the two orderings
 is the expectation value of a commutator,
 \begin{equation}
 W(x_1, x_2) - W(x_2, x_1)
-= \bra{0}\,[\op_1(x_1),\, \op_2(x_2)]\,\ket{0},
+= \bra{0}[\op_1(x_1), \op_2(x_2)]\ket{0},
 \label{eq:ordering-difference}
 \end{equation}
 which microcausality requires to vanish at spacelike separation but not
@@ -362,8 +365,8 @@ elsewhere. The time-ordered correlators of perturbation theory are yet
 another object, assembled from the Wightman functions by step functions in
 the times:
 \begin{equation}
-\bra{0}\, T\{\op_1(x_1)\,\op_2(x_2)\}\,\ket{0}
-= \theta(t_1 - t_2)\, W(x_1, x_2) + \theta(t_2 - t_1)\, W(x_2, x_1),
+\bra{0} T\{\op_1(x_1)\op_2(x_2)\}\ket{0}
+= \theta(t_1 - t_2) W(x_1, x_2) + \theta(t_2 - t_1) W(x_2, x_1),
 \label{eq:time-ordering}
 \end{equation}
 with $n!$ such terms for $n$ points. The Wightman functions are thus the
@@ -389,8 +392,8 @@ Take the two-point Wightman function of a Hermitian scalar operator in any
 Poincar\'e-invariant theory with $H \ge 0$, and insert a complete set of energy
 eigenstates:
 \begin{equation}
-W(t, \mathbf{x}) = \bra{0}\op(t, \mathbf{x})\, \op(0)\ket{0}
-= \sum_n \big|\bra{0}\op(0)\ket{n}\big|^2 \, e^{-iE_n t + i \mathbf{p}_n \cdot \mathbf{x}}.
+W(t, \mathbf{x}) = \bra{0}\op(t, \mathbf{x}) \op(0)\ket{0}
+= \sum_n \left|\bra{0}\op(0)\ket{n}\right|^2 e^{-iE_n t + i \mathbf{p}_n \cdot \mathbf{x}}.
 \label{eq:spectral-sum}
 \end{equation}
 Each term oscillates in $t$; the sum, a priori, is a distribution and nothing
@@ -416,9 +419,9 @@ The Euclidean correlator can now be located inside this structure. Put $t =
 $\tau > 0$: this is a point deep inside the lower half-plane, where the sum
 \eqref{eq:spectral-sum} converges absolutely,
 \begin{equation}
-W(-i\tau, \mathbf{x}) = \sum_n \big|\bra{0}\op\ket{n}\big|^2\,
+W(-i\tau, \mathbf{x}) = \sum_n \left|\bra{0}\op\ket{n}\right|^2
    e^{-E_n \tau + i \mathbf{p}_n\cdot\mathbf{x}}
-= \bra{0}\op(0,\mathbf{x})\, e^{-H\tau}\, \op(0)\ket{0},
+= \bra{0}\op(0,\mathbf{x}) e^{-H\tau} \op(0)\ket{0},
 \end{equation}
 which is precisely the quantity a Euclidean path integral computes with two
 insertions separated by Euclidean time $\tau$. The Schwinger function is
@@ -499,16 +502,16 @@ Take a free massless scalar in $d = 4$, mostly-plus signature. The mode
 expansion gives, for the Wightman function at separation $x = (t, \mathbf{x})$,
 $r = |\mathbf{x}|$,
 \begin{equation}
-W(t, \mathbf{x}) = \int \frac{d^3p}{(2\pi)^3\, 2|\mathbf{p}|}\;
+W(t, \mathbf{x}) = \int \frac{d^3p}{(2\pi)^3 2|\mathbf{p}|}\,
   e^{-i|\mathbf{p}| t + i \mathbf{p} \cdot \mathbf{x}}
-= \frac{1}{4\pi^2 r} \int_0^\infty dp\; \sin(pr)\, e^{-ipt} .
+= \frac{1}{4\pi^2 r} \int_0^\infty dp\, \sin(pr) e^{-ipt} .
 \end{equation}
 As it stands the last integral does not converge --- the spectral sum on the
 real-time axis never does --- but for $t \to t - i\sigma$, $\sigma > 0$, it
 converges absolutely, exactly as the general argument promised, and gives
 \begin{equation}
-W(t, \mathbf{x}) = \frac{1}{4\pi^2}\,
-\frac{1}{r^2 - (t - i\sigma)^2}\bigg|_{\sigma \to 0^+}.
+W(t, \mathbf{x}) = \frac{1}{4\pi^2}
+\left. \frac{1}{r^2 - (t - i\sigma)^2}\right|_{\sigma \to 0^+}.
 \label{eq:free-wightman}
 \end{equation}
 We now examine the analytic structure of this function and verify each
@@ -537,7 +540,7 @@ differ by the jump across the cut:
 \bra{0}[\op(x), \op(0)]\ket{0}
 &= \frac{1}{4\pi^2}\left[\frac{1}{r^2 - (t-i\sigma)^2}
  - \frac{1}{r^2 - (t+i\sigma)^2}\right]_{\sigma\to 0^+} \nonumber\\
-&= -\frac{i}{2\pi}\,\mathrm{sgn}(t)\;\delta(r^2 - t^2),
+&= -\frac{i}{2\pi}\mathrm{sgn}(t)\delta(r^2 - t^2),
 \label{eq:pauli-jordan}
 \end{align}
 by the Sokhotski formula applied to $X = r^2 - t^2$. The commutator of the
@@ -549,8 +552,8 @@ a $d=4$ massless peculiarity (Huygens' principle) that interactions destroy.
 function used in perturbation theory is $\theta(t)W(t) + \theta(-t)W(-t)$,
 which the same algebra assembles into
 \begin{equation}
-\bra{0} T\{\op(x)\op(0)\}\ket{0} = \frac{1}{4\pi^2}\,
-\frac{1}{r^2 - t^2 + i\epsilon} = \frac{1}{4\pi^2}\,\frac{1}{x^2 + i\epsilon},
+\bra{0} T\{\op(x)\op(0)\}\ket{0} = \frac{1}{4\pi^2}
+\frac{1}{r^2 - t^2 + i\epsilon} = \frac{1}{4\pi^2}\frac{1}{x^2 + i\epsilon},
 \end{equation}
 the Feynman propagator in mostly-plus signature: a \emph{single} $i\epsilon$
 attached to the invariant $x^2$, approaching the cut from one fixed side
@@ -564,8 +567,8 @@ from which the real axis is approached.
 \centering
 \begin{tikzpicture}[scale=1.0, >=stealth]
   % axes
-  \draw[->, gray!70] (-4.6,0) -- (4.8,0) node[below right, black!70] {\footnotesize $\mathrm{Re}\,t$};
-  \draw[->, gray!70] (0,-2.7) -- (0,1.9) node[right, black!70] {\footnotesize $\mathrm{Im}\,t$};
+  \draw[->, gray!70] (-4.6,0) -- (4.8,0) node[below right, black!70] {\footnotesize $\mathrm{Re}t$};
+  \draw[->, gray!70] (0,-2.7) -- (0,1.9) node[right, black!70] {\footnotesize $\mathrm{Im}t$};
   % cuts
   \draw[line width=1.6pt, decorate, decoration={zigzag, segment length=5pt, amplitude=1pt}]
     (1.5,0) -- (4.5,0);
@@ -579,7 +582,7 @@ from which the real axis is approached.
   % Euclidean axis
   \draw[->, very thick, blue!60!black] (0,0) -- (0,-2.3);
   \node[blue!60!black, anchor=east] at (-0.12,-2.0)
-    {\footnotesize Euclidean: $t = -i\tau$,\ \ $\tau > 0$};
+    {\footnotesize Euclidean: $t = -i\tau$, $\tau > 0$};
   % Wick rotation path (from Euclidean axis up to Lorentzian boundary)
   \draw[->, thick, dashed] (0,-1.3) arc (-90:-10:1.3);
   \node[anchor=west] at (1.32,-0.95) {\footnotesize $t = e^{-i\theta}|t|$};
@@ -619,12 +622,12 @@ envelope, saddle-point the mode integral.}
 
 \begin{exercise}[medium]
 \label{exr:retarded}
-Define the retarded function $G_R(x) = -i\,\theta(t)\bra{0}[\op(x),
+Define the retarded function $G_R(x) = -i\theta(t)\bra{0}[\op(x),
 \op(0)]\ket{0}$. Show from the representation \eqref{eq:boundary-value} and its
 conjugate that $G_R$ is the boundary value of a function holomorphic when both
-$\mathrm{Im}\,t$ \emph{and} the energy variable of its Fourier transform are
+$\mathrm{Im}t$ \emph{and} the energy variable of its Fourier transform are
 continued appropriately: in momentum space, $\tilde G_R(\omega, \mathbf{p})$ is
-holomorphic for $\mathrm{Im}\,\omega > 0$. This upper-half-plane analyticity is
+holomorphic for $\mathrm{Im}\omega > 0$. This upper-half-plane analyticity is
 the QFT ancestor of the Kramers--Kronig dispersion relations, and the germ of
 the dispersive bootstrap methods of Part IX.
 \hint{$\theta(t) = \frac{1}{2\pi i}\int d\omega'\, \frac{e^{i\omega'
@@ -650,7 +653,7 @@ and we cite them rather than reproduce them.}
 $n$-point Wightman function $W_n(x_1, \dots, x_n)$ --- one fixed ordering ---
 extends holomorphically to complex times with \emph{ordered} imaginary parts,
 $\mathrm{Im}(t_{k+1} - t_k) < 0$: each successive factor $e^{-iH(t_{k+1} -
-t_k)}$ becomes a damping $e^{-H\,|\mathrm{Im}\,\Delta t|}$. (Translation
+t_k)}$ becomes a damping $e^{-H|\mathrm{Im}\Delta t|}$. (Translation
 invariance makes this a statement about the $n-1$ difference variables; with
 Lorentz invariance the domain widens in the spatial directions too --- the
 ``extended tube'' --- but the time story carries all the intuition.)
@@ -681,16 +684,16 @@ order, can produce them.
 correlator from Euclidean data, give each operator a small positive Euclidean
 time offset encoding its place in the desired order and continue:
 \begin{equation}
-\bra{0}\op_1(t_1)\,\op_2(t_2)\cdots\op_n(t_n)\ket{0}
-\;=\;
+\bra{0}\op_1(t_1)\op_2(t_2)\cdots\op_n(t_n)\ket{0}
+=
 \lim_{\epsilon_1 > \epsilon_2 > \cdots > \epsilon_n \to 0^+}
-S_n\big(\tau_k = \epsilon_k + i t_k\big):
+S_n\left(\tau_k = \epsilon_k + i t_k\right):
 \label{eq:continuation-recipe}
 \end{equation}
 \emph{operator order = order of the $\epsilon$'s}. Time-ordered correlators
 correspond to choosing the $\epsilon$'s in the same order as the real times
 themselves --- equivalently, to the uniform rotation $t_k \to (1 -
-i\delta)\,t_k$ --- which for two points collapses to the single ``$x^2 +
+i\delta)t_k$ --- which for two points collapses to the single ``$x^2 +
 i\epsilon$'' of Example~\ref{ex:free-scalar-2pt}. This recipe
 is worth committing to memory: it is how every Lorentzian statement in these
 notes (commutators, response functions, the chaos correlators of Part XI)
@@ -701,17 +704,17 @@ pays to see it act on an interacting correlator at least once.
 
 \begin{eexample}[A Lorentzian correlator of the 2d Ising CFT]
 \label{ex:ising-lorentzian}
-The critical 2d Ising model has $\langle\sigma(x)\,\sigma(0)\rangle_{\rm E} =
+The critical 2d Ising model has $\langle\sigma(x)\sigma(0)\rangle_{\rm E} =
 |x|^{-1/4}$ (with $\Delta_\sigma = \tfrac18$ --- a lattice-derivable fact we
 import; Part III.4 computes it three ways). What does the \emph{Lorentzian}
 critical Ising magnet do? Continue by the recipe: with $x^2_{\rm E} = r^2 +
 \tau^2 \to r^2 - (t - i\epsilon)^2$,
 \begin{equation}
-\bra{0}\sigma(t, r)\,\sigma(0)\ket{0}
-= \frac{1}{\big[r^2 - (t - i\epsilon)^2\big]^{1/8}}
+\bra{0}\sigma(t, r)\sigma(0)\ket{0}
+= \frac{1}{\left[r^2 - (t - i\epsilon)^2\right]^{1/8}}
 = \begin{cases}
-\ \big(r^2 - t^2\big)^{-1/8} & \text{spacelike}, \\[4pt]
-\ \big(t^2 - r^2\big)^{-1/8}\; e^{-i\pi/8} & \text{timelike, } t > 0,
+\left(r^2 - t^2\right)^{-1/8} & \text{spacelike}, \\[4pt]
+\left(t^2 - r^2\right)^{-1/8} e^{-i\pi/8} & \text{timelike, } t > 0,
 \end{cases}
 \label{eq:ising-wightman}
 \end{equation}
@@ -725,7 +728,7 @@ timelike separation it acquires the universal phase $e^{-i\pi \Delta_\sigma}$
 $e^{+i\pi\Delta_\sigma}$ --- and the imaginary part
 \begin{equation}
 \bra{0}[\sigma(t,r), \sigma(0)]\ket{0}
-= -\,2i\,\sin\!\big(\tfrac{\pi}{8}\big)\,
+= -2i\sin\left(\tfrac{\pi}{8}\right)
 \frac{\mathrm{sgn}(t)}{(t^2 - r^2)^{1/8}}
 \end{equation}
 is a nonvanishing commutator filling the entire interior of the forward
@@ -766,20 +769,20 @@ single- and multi-particle content, internal quantum numbers, relative
 momenta --- organized into Lorentz multiplets of invariant mass $m_\lambda$.
 With covariant normalization, completeness reads
 \begin{equation}
-\mathbf 1 \;=\; \ket{0}\bra{0} \;+\; \sum_\lambda \int
-\frac{d^{d-1}p}{(2\pi)^{d-1}\, 2E_\lambda(\mathbf p)}\,
+\mathbf 1 = \ket{0}\bra{0} + \sum_\lambda \int
+\frac{d^{d-1}p}{(2\pi)^{d-1} 2E_\lambda(\mathbf p)}\,
 \ket{\lambda, \mathbf p}\bra{\lambda, \mathbf p}.
 \label{eq:completeness}
 \end{equation}
 Insert this between the two operators in $W(x) =
-\bra{0}\op(x)\,\op(0)\ket{0}$, taking $\langle \op \rangle = 0$ so that the
+\bra{0}\op(x)\op(0)\ket{0}$, taking $\langle \op \rangle = 0$ so that the
 vacuum term drops out, and use translation covariance to extract the position
 dependence, $\bra{0}\op(x)\ket{\lambda,\mathbf p} = e^{ip\cdot
-x}\,\bra{0}\op(0)\ket{\lambda, \mathbf p}$ with $p^0$ on shell:
+x}\bra{0}\op(0)\ket{\lambda, \mathbf p}$ with $p^0$ on shell:
 \begin{equation}
-W(x) \;=\; \sum_\lambda \int
-\frac{d^{d-1}p}{(2\pi)^{d-1}\,2E_\lambda(\mathbf p)}\;
-\big|\bra{0}\op(0)\ket{\lambda,\mathbf p}\big|^2 \, e^{ip\cdot x}.
+W(x) = \sum_\lambda \int
+\frac{d^{d-1}p}{(2\pi)^{d-1}2E_\lambda(\mathbf p)}\,
+\left|\bra{0}\op(0)\ket{\lambda,\mathbf p}\right|^2 e^{ip\cdot x}.
 \label{eq:kl-step}
 \end{equation}
 Now use Lorentz invariance. For a scalar operator the matrix element
@@ -791,14 +794,14 @@ Example~\ref{ex:free-scalar-2pt}, evaluated at mass $m_\lambda$. All
 dependence on the dynamics therefore collapses into a single nonnegative
 function of one variable, the \vocab{spectral density}
 \begin{equation}
-\rho(s) \;\equiv\; \sum_\lambda \big|\bra{0}\op(0)\ket{\lambda}\big|^2\,
-\delta\big(s - m_\lambda^2\big) \;\ge\; 0,
+\rho(s) \equiv \sum_\lambda \left|\bra{0}\op(0)\ket{\lambda}\right|^2
+\delta\left(s - m_\lambda^2\right) \ge 0,
 \label{eq:spectral-density}
 \end{equation}
 and the two-point function becomes a weighted superposition of free
 two-point functions of every mass:
 \begin{equation}
-W(x) \;=\; \int_0^\infty ds\; \rho(s)\, W_{\rm free}(x; s).
+W(x) = \int_0^\infty ds\, \rho(s) W_{\rm free}(x; s).
 \label{eq:kl-lorentzian}
 \end{equation}
 This is the K\"all\'en--Lehmann representation. The derivation used only
@@ -810,10 +813,11 @@ common domain of analyticity, it continues directly to Euclidean points,
 where the free propagator of mass$^2 = s$ is $1/(p^2 + s)$ in momentum
 space:
 \begin{equation}
-\langle \op(x)\, \op(0) \rangle_{\rm E}
-= \int_0^\infty ds \; \rho(s)\, G_{\rm free}(x; s),
-\qquad
-\tilde G(p) = \int_0^\infty ds\; \frac{\rho(s)}{p^2 + s}.
+\begin{aligned}
+\langle \op(x) \op(0) \rangle_{\rm E}
+&= \int_0^\infty ds\, \rho(s) G_{\rm free}(x; s),\\
+\tilde G(p) &= \int_0^\infty ds\, \frac{\rho(s)}{p^2 + s}.
+\end{aligned}
 \label{eq:kallen-lehmann}
 \end{equation}
 Analytically, \eqref{eq:kallen-lehmann}
@@ -829,7 +833,7 @@ questions about the \emph{shape} of $\rho$, answerable by inspecting
 correlators alone:
 
 \begin{itemize}
-\item \emph{A gapped theory with a stable particle}: $\rho(s) = Z\,\delta(s -
+\item \emph{A gapped theory with a stable particle}: $\rho(s) = Z\delta(s -
 m^2) + (\text{continuum starting at } s \ge (2m)^2)$. The isolated
 $\delta$-function is the particle; the gap between it and the multiparticle
 continuum is what makes asymptotic states, and hence an S-matrix, exist.
@@ -839,8 +843,8 @@ particle and nothing else.
 density. For $\langle\op\op\rangle_{\rm E} = 1/x^{2\Delta}$ in $d$ dimensions,
 Fourier transformation gives $\tilde G(p) \propto (p^2)^{\Delta - d/2}$ and
 \begin{equation}
-\rho(s) \;=\; \frac{\pi^{d/2}\, 2^{\,d - 2\Delta}}{\Gamma(\Delta)\,
-\Gamma\!\big(\Delta - \tfrac{d}{2} + 1\big)} \; s^{\,\Delta - d/2},
+\rho(s) = \frac{\pi^{d/2} 2^{d - 2\Delta}}{\Gamma(\Delta)
+\Gamma\left(\Delta - \tfrac{d}{2} + 1\right)} s^{\Delta - d/2},
 \label{eq:cft-spectral}
 \end{equation}
 a featureless continuum from $s = 0$ to infinity: no $\delta$-function, no gap,
@@ -863,7 +867,7 @@ changes sign when $\Gamma(\Delta - \frac d2 + 1)$ does: for the power law
 $1/x^{2\Delta}$ to be the two-point function of \emph{any} operator in a
 unitary theory requires
 \begin{equation}
-\Delta \;\ge\; \frac{d-2}{2},
+\Delta \ge \frac{d-2}{2},
 \label{eq:scalar-unitarity-bound}
 \end{equation}
 with equality forcing $\rho \to \delta(s)$ --- the free field. This is the
@@ -877,11 +881,11 @@ field in Example~\ref{ex:gff}.
 \begin{exercise}[classic]
 \label{exr:cft-spectral}
 Derive \eqref{eq:cft-spectral}. First establish the Fourier transform
-$\int d^dx \, e^{-ip\cdot x} (x^2)^{-\Delta} = \pi^{d/2}\, 2^{d - 2\Delta}\,
-\frac{\Gamma(d/2 - \Delta)}{\Gamma(\Delta)}\, (p^2)^{\Delta - d/2}$ (valid by
+$\int d^dx\, e^{-ip\cdot x} (x^2)^{-\Delta} = \pi^{d/2} 2^{d - 2\Delta}
+\frac{\Gamma(d/2 - \Delta)}{\Gamma(\Delta)} (p^2)^{\Delta - d/2}$ (valid by
 analytic continuation in $\Delta$), then extract the spectral density as the
 discontinuity of the Stieltjes transform \eqref{eq:kallen-lehmann}, $\rho(s) =
-\frac{1}{\pi}\,\mathrm{Im}\,\tilde G(p^2 = -s - i0)$, and use the reflection
+\frac{1}{\pi}\mathrm{Im}\tilde G(p^2 = -s - i0)$, and use the reflection
 formula $\Gamma(z)\Gamma(1-z) = \pi/\sin \pi z$ to reach the quoted form.
 Verify: (a) $\rho \ge 0$ iff $\Delta \ge \frac{d-2}{2}$ (for $\Delta$ below the
 free value the would-be density oscillates in sign); (b) as $\Delta \to
@@ -942,16 +946,16 @@ by the continuation rule \eqref{eq:boundary-value} read backwards, is the
 upper half-space: Euclidean time reflection $\theta(\tau, \mathbf{x}) = (-\tau,
 \mathbf{x})$ is what Hermitian conjugation looks like after Wick
 rotation.\footnote{One line of algebra: Euclidean Heisenberg evolution
-$\op(\tau, \mathbf{x}) = e^{H\tau}\op(0,\mathbf{x})\,e^{-H\tau}$ is \emph{not}
+$\op(\tau, \mathbf{x}) = e^{H\tau}\op(0,\mathbf{x})e^{-H\tau}$ is \emph{not}
 unitary, so for a scalar Hermitian at $\tau = 0$,
-$\op(\tau, \mathbf{x})^\dagger = e^{-H\tau}\op(0,\mathbf{x})\,e^{H\tau} =
+$\op(\tau, \mathbf{x})^\dagger = e^{-H\tau}\op(0,\mathbf{x})e^{H\tau} =
 \op(-\tau, \mathbf{x})$: the conjugate lives at the mirror point. Operators with
 spin pick up a reflection acting on their indices; see Simmons-Duffin
 \arxiv{1602.07982}, \S7.1, whose treatment we follow, and
 Appendix~\ref{app:conventions}.} The norm of the state is then a correlator with
 mirror-symmetric insertions,
 \begin{equation}
-\big\| \,F\, \big\|^2 \;=\; \big\langle\, (\Theta F)\; F \,\big\rangle ,
+\left\| F \right\|^2 = \left\langle (\Theta F) F \right\rangle ,
 \label{eq:rp-norm}
 \end{equation}
 and quantum mechanics demands it be nonnegative. That is the condition.
@@ -960,12 +964,12 @@ and quantum mechanics demands it be nonnegative. That is the condition.
 \label{def:reflection-positivity}
 A collection of Schwinger functions is \vocab{reflection positive} with respect
 to a hyperplane (say $\tau = 0$) if for every finite linear combination $F =
-\sum_\alpha c_\alpha\, \op_{1}(x^\alpha_1)\cdots\op_{k_\alpha}(x^\alpha_{k_\alpha})$
+\sum_\alpha c_\alpha \op_{1}(x^\alpha_1)\cdots\op_{k_\alpha}(x^\alpha_{k_\alpha})$
 of insertions supported at $\tau < 0$,
 \begin{equation}
-\sum_{\alpha,\beta} \bar c_\alpha\, c_\beta \,
-\big\langle\, \theta\big[\op_{1}(x^\alpha_1)\cdots\big]^{*} \;
-\op_{1}(x^\beta_1)\cdots \,\big\rangle \;\ge\; 0,
+\sum_{\alpha,\beta} \bar c_\alpha c_\beta
+\left\langle \theta\left[\op_{1}(x^\alpha_1)\cdots\right]^{*}
+\op_{1}(x^\beta_1)\cdots \right\rangle \ge 0,
 \label{eq:rp-def}
 \end{equation}
 where $\theta$ reflects all insertion points through the hyperplane and
@@ -991,23 +995,24 @@ with free ends --- the boundary will not matter). Reflect through the
 \emph{bond} between sites $0$ and $1$: $\theta(i) = 1 - i$ maps the right half
 $\{i \ge 1\}$ onto the left half $\{i \le 0\}$. Let $F$ be any real function of
 the spins on the right half. Reflection positivity asks for $\langle
-(\theta F)\, F\rangle \ge 0$.
+(\theta F) F\rangle \ge 0$.
 
 Sum first over the spins strictly inside each half, holding the boundary spins
 fixed. All the dependence collapses into a single function of one spin,
 \begin{equation}
-v_F(s_1) \;=\; \sum_{\{s_i\}_{i \ge 2}} F(s_1, s_2, \dots)
+v_F(s_1) = \sum_{\{s_i\}_{i \ge 2}} F(s_1, s_2, \dots)
 \prod_{i \ge 1} e^{J s_i s_{i+1}},
 \end{equation}
 and, by the mirror symmetry of the construction, the left half produces the
 \emph{same} function of $s_0$. The full average is then a $2\times2$ quadratic
 form threaded by the one bond that crosses the mirror:
 \begin{equation}
-\langle (\theta F)\, F \rangle \;\propto\; \sum_{s_0, s_1}
-v_F(s_0) \, e^{J s_0 s_1} \, v_F(s_1)
-\;=\; v_F^{\,T}\, T \, v_F ,
-\qquad
-T = \begin{pmatrix} e^J & e^{-J} \\ e^{-J} & e^{J}\end{pmatrix}.
+\begin{aligned}
+\langle (\theta F) F \rangle
+&\propto \sum_{s_0, s_1} v_F(s_0) e^{J s_0 s_1} v_F(s_1)\\
+&= v_F^{T} T v_F,\\
+T &= \begin{pmatrix} e^J & e^{-J} \\ e^{-J} & e^{J}\end{pmatrix}.
+\end{aligned}
 \label{eq:rp-transfer}
 \end{equation}
 This is nonnegative for every $F$ if and only if the bond matrix $T$ ---
@@ -1049,7 +1054,7 @@ populated by theories that violate it and are interesting for that very reason.
 Extend the bond-reflection argument to the two-dimensional Ising model on a
 rectangular lattice (reflect through a line of bonds; the boundary data is now
 a whole column of spins $\mathbf{a} = (s_{1,j})_j$). Show $\langle (\theta F) F
-\rangle = \sum_{\mathbf{a}, \mathbf{b}} v_F(\mathbf{a})\, K(\mathbf{a}, \mathbf{b})\, v_F(\mathbf{b})$
+\rangle = \sum_{\mathbf{a}, \mathbf{b}} v_F(\mathbf{a}) K(\mathbf{a}, \mathbf{b}) v_F(\mathbf{b})$
 with $K(\mathbf{a}, \mathbf{b}) = \prod_j e^{J a_j b_j}$, and prove $K$ is a positive
 matrix.
 \hint{$e^{J a b} = \cosh J + ab \sinh J$ for $a, b = \pm 1$, so $K$ is a tensor
@@ -1098,13 +1103,13 @@ matters). Construct:
 
 \emph{Step 1: the pre-Hilbert space.} Let $V$ be the complex vector space of
 formal finite linear combinations of insertion-collections in the lower half
-space, $F = \sum_\alpha c_\alpha\, \op(x_1^\alpha)\cdots\op(x^\alpha_{k_\alpha})$,
+space, $F = \sum_\alpha c_\alpha \op(x_1^\alpha)\cdots\op(x^\alpha_{k_\alpha})$,
 all $\tau$'s negative. Define a sesquilinear form on $V$ using only the given
 correlators:
 \begin{equation}
-\langle F, G\rangle \;\equiv\; \big\langle (\Theta F)\, G \big\rangle
-\;=\; \sum_{\alpha\beta} \bar c_\alpha c_\beta\,
-S_{k_\alpha + k_\beta}\big(\theta x^\alpha_1, \dots;\; x^\beta_1, \dots\big).
+\langle F, G\rangle \equiv \left\langle (\Theta F) G \right\rangle
+= \sum_{\alpha\beta} \bar c_\alpha c_\beta
+S_{k_\alpha + k_\beta}\left(\theta x^\alpha_1, \dots; x^\beta_1, \dots\right).
 \label{eq:os-inner-product}
 \end{equation}
 Reflection positivity says precisely that this form is positive semidefinite.
@@ -1114,11 +1119,11 @@ F\rangle = 0\}$ form a subspace (Cauchy--Schwarz, which positive semidefinite
 forms obey), and on the quotient $V/N$ the form is an inner product.
 Complete it:
 \begin{equation}
-\mathcal{H} \;\equiv\; \overline{V / N}.
+\mathcal{H} \equiv \overline{V / N}.
 \end{equation}
 This is \emph{the} Hilbert space of the theory --- not a Hilbert space
 postulated alongside the correlators, but one constructed from them. The
-vacuum is the class of the empty insertion, $\ket{0} = [\,\mathbf{1}\,]$, with
+vacuum is the class of the empty insertion, $\ket{0} = [\mathbf{1}]$, with
 $\braket{0}{0} = S_0 = 1$.
 
 The quotient by null vectors requires explanation, because it is physics
@@ -1148,7 +1153,10 @@ two-line Cauchy--Schwarz induction (Exercise~\ref{exr:contraction}) shows it is
 a \emph{contraction}: $\|T_\sigma F\| \le \|F\|$. A symmetric contraction
 semigroup has a self-adjoint, nonnegative generator:
 \begin{equation}
-T_\sigma = e^{-\sigma H}, \qquad H = H^\dagger \ge 0 .
+\begin{aligned}
+T_\sigma &= e^{-\sigma H},\\
+H &= H^\dagger \ge 0 .
+\end{aligned}
 \label{eq:os-hamiltonian}
 \end{equation}
 Note the direction of the logic here. In Section~\ref{sec:analytic-structure},
@@ -1238,12 +1246,20 @@ correlators be defined in the first place?
 \begin{exercise}[medium]
 \label{exr:contraction}
 Prove the contraction property in Step 3: for any $F$ in the lower half-space
-and $T_\sigma$ the shift, show $\|T_\sigma F\|^2 = \langle F, T_{2\sigma}
-F\rangle \le \|F\| \, \|T_{2\sigma}F\|$, iterate to $\|T_\sigma F\| \le \|F\|^{1 - 2^{-n}}
-\|T_{2^n \sigma}F\|^{2^{-n}}$, and use the temperedness of correlators (no
-blow-up of $\|T_\sigma F\|$ as $\sigma \to \infty$, by clustering) to conclude
-$\|T_\sigma F\| \le \|F\|$. Where did reflection symmetry of the inner product
-enter?
+and $T_\sigma$ the shift, show
+\begin{equation*}
+\|T_\sigma F\|^2
+= \langle F, T_{2\sigma}F\rangle
+\le \|F\| \|T_{2\sigma}F\|,
+\end{equation*}
+iterate to
+\begin{equation*}
+\|T_\sigma F\|
+\le \|F\|^{1 - 2^{-n}}\|T_{2^n \sigma}F\|^{2^{-n}},
+\end{equation*}
+and use the temperedness of correlators (no blow-up of $\|T_\sigma F\|$ as
+$\sigma \to \infty$, by clustering) to conclude $\|T_\sigma F\| \le \|F\|$.
+Where did reflection symmetry of the inner product enter?
 \hint{$\langle T_\sigma F, T_\sigma F\rangle = \langle F, T_{2\sigma}F\rangle$
 uses $\Theta T_\sigma = T_{-\sigma} \Theta$: shifting both halves away from the
 mirror by $\sigma$ is one shift by $2\sigma$ across it.}
@@ -1296,8 +1312,10 @@ The setup is the following. At each point of the manifold, allow the metric
 to be a \emph{complex-valued} symmetric bilinear form on the (real) tangent
 space. Any such form can be diagonalized in a real basis,
 \begin{equation}
-g \;=\; \sum_{i=1}^{d} \lambda_i\, dy_i^2 ,
-\qquad \lambda_i \in \complex\setminus\{0\},
+\begin{aligned}
+g &= \sum_{i=1}^{d} \lambda_i dy_i^2,\\
+\lambda_i &\in \complex\setminus\{0\},
+\end{aligned}
 \label{eq:complex-metric}
 \end{equation}
 so the question ``which complex metrics are allowed?'' becomes a question
@@ -1308,8 +1326,8 @@ every field configuration, since this is what makes the functional integral
 converge. We therefore compute the action of the simplest matter on the
 background \eqref{eq:complex-metric} and demand positivity of its real part.
 
-For a free scalar, the curved-space action $S = \frac12\int \sqrt{\det g}\,
-\big[\, g^{ij}\partial_i\phi\,\partial_j\phi + m^2\phi^2\big]$ involves the
+For a free scalar, the curved-space action $S = \frac12\int \sqrt{\det g}
+\left[ g^{ij}\partial_i\phi\partial_j\phi + m^2\phi^2\right]$ involves the
 metric in two places: the volume element, which for the diagonal metric
 \eqref{eq:complex-metric} is $\sqrt{\det g} = \prod_i \lambda_i^{1/2}$
 (taking for each square root the branch with positive real part, the one
@@ -1317,21 +1335,23 @@ continuously connected to the Euclidean case), and the inverse metric in the
 kinetic term, which contributes $1/\lambda_i$ for the gradient in the $i$-th
 direction. Explicitly, for a constant diagonal metric,
 \begin{equation}
-S[\phi] = \frac{1}{2}\int d^dy \;\Big(\prod_k \lambda_k^{1/2}\Big)
-\left[\, \sum_i \frac{1}{\lambda_i}\,(\partial_i \phi)^2 + m^2 \phi^2 \right].
+S[\phi] = \frac{1}{2}\int d^dy\, \left(\prod_k \lambda_k^{1/2}\right)
+\left[ \sum_i \frac{1}{\lambda_i}(\partial_i \phi)^2 + m^2 \phi^2 \right].
 \label{eq:ks-scalar-action}
 \end{equation}
 The integrand is a sum of squares of real quantities ($\partial_i\phi$ and
-$\phi$) with complex coefficients, so $\mathrm{Re}\, S > 0$ for all
+$\phi$) with complex coefficients, so $\mathrm{Re} S > 0$ for all
 configurations exactly when every coefficient has positive real part. The
 mass term requires $|\arg \prod_k \lambda_k^{1/2}| < \frac\pi2$, and the
 gradient terms require
 \begin{equation}
-\Big|\arg \frac{\prod_k \lambda_k^{1/2}}{\lambda_i}\Big| < \frac\pi2
-\quad\text{for each } i,
-\qquad\text{i.e.}\qquad
-\Big|\, \tfrac12 \textstyle\sum_{k \ne i} \arg\lambda_k - \tfrac12
-\arg\lambda_i \Big| < \frac\pi2 .
+\begin{aligned}
+\left|\arg \frac{\prod_k \lambda_k^{1/2}}{\lambda_i}\right|
+&< \frac\pi2 \text{ for each } i,\\
+\left| \tfrac12 \textstyle\sum_{k \ne i} \arg\lambda_k
+- \tfrac12 \arg\lambda_i \right|
+&< \frac\pi2 .
+\end{aligned}
 \label{eq:ks-scalar-condition}
 \end{equation}
 
@@ -1352,7 +1372,7 @@ energy-momentum tensor. The scalar is the $p = 0$ member of the family.}
 The pattern of metric factors generalizes directly: the kinetic term of a
 $(p+1)$-form field strength carries one inverse metric per index, so the
 quadratic form for the components of $F$ along the directions $I = \{i_1 <
-\cdots < i_{p+1}\}$ has coefficient $\big(\prod_k \lambda_k^{1/2}\big) /
+\cdots < i_{p+1}\}$ has coefficient $\left(\prod_k \lambda_k^{1/2}\right) /
 (\lambda_{i_1} \cdots \lambda_{i_{p+1}})$. Demanding positive real part for
 all ranks $p$ and all index sets $I$ gives a family of conditions of the
 form \eqref{eq:ks-scalar-condition}, with one $\arg\lambda$ subtracted for
@@ -1366,7 +1386,7 @@ worst case is equivalent to a single inequality
 A complex metric $g = \sum_i \lambda_i dy_i^2$ admits convergent quadratic
 actions for $p$-form fields of every degree if and only if
 \begin{equation}
-\sum_{i=1}^{d} \big|\arg \lambda_i \big| \;<\; \pi .
+\sum_{i=1}^{d} \left|\arg \lambda_i \right| < \pi .
 \label{eq:ks-criterion}
 \end{equation}
 A QFT's partition functions and correlators are expected to extend
@@ -1403,7 +1423,7 @@ the application to curved backgrounds, and the Segal-style gluing axioms it
 serves, in chapter I.4.}
 
 Our flat-space Wick rotation now embeds as the simplest possible path through
-the domain. Rotate the time coordinate by phase, $t = e^{-i\theta}\,\tau$: the
+the domain. Rotate the time coordinate by phase, $t = e^{-i\theta}\tau$: the
 metric component along it is $\lambda_t = e^{-2i\theta}$, all other
 $\lambda$'s real positive, so $\sum_i|\arg\lambda_i| = 2\theta$, which sweeps
 from $0$ (Euclidean) to $\pi$ (Lorentzian) as $\theta\colon 0 \to \pi/2$ ---
@@ -1443,13 +1463,13 @@ extremes over subsets are $\pm\frac12 \sum_j |\arg\lambda_j|$.}
 \label{exr:complex-beta}
 (Allowability in $d=1$ is something you already know.) The partition function
 of the particle on a circle, Example~\ref{ex:particle-circle}, was $Z(\beta) =
-\tr\, e^{-\beta H}$. For which complex $\beta$ does the trace converge?
+\tr e^{-\beta H}$. For which complex $\beta$ does the trace converge?
 Interpret the answer via Theorem~\ref{thm:ks} for the metric $g = \beta^2
 dt^2$ on the circle of unit coordinate length, and identify the boundary
-points $\beta = \pm i T$ as the Lorentzian return amplitudes $\tr\,
+points $\beta = \pm i T$ as the Lorentzian return amplitudes $\tr
 e^{\mp iHT}$ --- the $d=1$ shadow of ``Lorentzian signature lives on the
 boundary of the allowable domain.''
-\answ{$\mathrm{Re}\,\beta > 0$, i.e.\ $|\arg \beta| < \pi/2$, i.e.\
+\answ{$\mathrm{Re}\beta > 0$, i.e.\ $|\arg \beta| < \pi/2$, i.e.\
 $|\arg\lambda| = |2\arg\beta| < \pi$: the KS criterion verbatim.}
 \end{exercise}
 
@@ -1466,7 +1486,7 @@ structure. The structure that accomplishes this is the \vocab{operator
 product expansion}: the statement that the product of two nearby local
 operators is itself expandable in local operators,
 \begin{equation}
-\op_i(x)\,\op_j(0) \;=\; \sum_{k} C_{ijk}(x)\; \op_k(0),
+\op_i(x)\op_j(0) = \sum_{k} C_{ijk}(x) \op_k(0),
 \label{eq:ope-schematic}
 \end{equation}
 with c-number coefficient functions $C_{ijk}$, valid as an operator equation
@@ -1500,7 +1520,7 @@ argument for convergence.
 
 Here is the path-integral argument, which works in any presentation with a
 notion of locality and makes no mention of conformal symmetry. Consider a
-correlator with two nearby insertions $\op_i(x_1)\,\op_j(x_2)$ and arbitrary
+correlator with two nearby insertions $\op_i(x_1)\op_j(x_2)$ and arbitrary
 spectators far away. Draw a sphere $S$ of radius $R$ around the close pair,
 small enough to exclude every spectator, and compute the path integral in two
 stages: first over the field configurations \emph{inside} $S$ with boundary
@@ -1509,9 +1529,9 @@ the action is what permits the split --- the weight $e^{-S_{\rm E}}$
 factorizes across the sphere up to the shared boundary data. The inside
 integral,
 \begin{equation}
-\Psi_{ij}\big[\phi_\partial\big] \;=\;
-\int_{\phi|_S = \phi_\partial} \de\phi\;
-\op_i(x_1)\,\op_j(x_2)\; e^{-S_{\rm E}[\phi]_{\rm inside}},
+\Psi_{ij}\left[\phi_\partial\right] =
+\int_{\phi|_S = \phi_\partial} \de\phi\,
+\op_i(x_1)\op_j(x_2) e^{-S_{\rm E}[\phi]_{\rm inside}},
 \label{eq:ball-functional}
 \end{equation}
 is a functional of the boundary data alone, and it is the \emph{only} place
@@ -1520,12 +1540,13 @@ of operators is equivalent to a single functional of the boundary data on
 $S$. Now expand this functional in any complete set of boundary functionals,
 and choose for that set the functionals generated by \emph{single}
 insertions at the center: $\Psi_k[\phi_\partial] = \int
-\de\phi\;\op_k(0)\, e^{-S_{\rm E}}$. The expansion coefficients are
+\de\phi\,\op_k(0) e^{-S_{\rm E}}$. The expansion coefficients are
 c-numbers carrying all the $x_1, x_2$ dependence,
 \begin{equation}
-\Psi_{ij} = \sum_k C_{ijk}(x_1, x_2)\, \Psi_k
-\qquad\Longrightarrow\qquad
-\op_i(x_1)\,\op_j(x_2) \;=\; \sum_k C_{ijk}(x_1, x_2)\;\op_k(0)
+\begin{aligned}
+\Psi_{ij} &= \sum_k C_{ijk}(x_1, x_2) \Psi_k,\\
+\op_i(x_1)\op_j(x_2) &= \sum_k C_{ijk}(x_1, x_2)\op_k(0)
+\end{aligned}
 \label{eq:ball-ope}
 \end{equation}
 inside any correlator whose other insertions stay outside $S$. That is the
@@ -1594,7 +1615,7 @@ $\reals^d$ by spheres through two fixed points, is conjugate to $D$ inside the
 conformal group, and the corresponding ``N--S quantization'' interpolates
 between planar and radial pictures --- see Rychkov \arxiv{1601.05000},
 \S3.1.5, and the original treatment of L\"uscher--Mack. Conjugation in radial
-quantization is $\op(x)^\dagger = x^{-2\Delta}\,\op(x^\mu/x^2)$ for a
+quantization is $\op(x)^\dagger = x^{-2\Delta}\op(x^\mu/x^2)$ for a
 Hermitian scalar, whence $P_\mu^\dagger = K_\mu$ and $D^\dagger = D$.}
 
 What makes the spherical cut \emph{better} than the planar one for local
@@ -1608,7 +1629,10 @@ $\to 0$ wraps a single point, and therefore:
 $\ket{0}$ --- which is consequently $D$-invariant, with radial energy zero.
 \item Inserting one operator $\op(0)$ \emph{at} the origin prepares a state
 \begin{equation}
-\ket{\op} \;\equiv\; \op(0)\ket{0}, \qquad D\ket{\op} = \Delta\,\ket{\op}:
+\begin{aligned}
+\ket{\op} &\equiv \op(0)\ket{0},\\
+D\ket{\op} &= \Delta\ket{\op}.
+\end{aligned}
 \label{eq:state-operator}
 \end{equation}
 an \emph{eigenstate} of the radial Hamiltonian, with eigenvalue the scaling
@@ -1648,16 +1672,19 @@ built on a lowest rung.
 A \vocab{primary} operator of a CFT is a local operator annihilated by all
 the special conformal generators at the origin,
 \begin{equation}
-[K_\mu,\, \op(0)] = 0
-\qquad\Longleftrightarrow\qquad
-K_\mu \ket{\op} = 0 :
+[K_\mu, \op(0)] = 0
+\Longleftrightarrow
+K_\mu \ket{\op} = 0.
 \label{eq:primary-def}
 \end{equation}
 the bottom of a ladder. Its \vocab{descendants} are the operators obtained
 by applying momenta, that is, derivatives,
 \begin{equation}
-\ket{\op}, \quad P_\mu \ket{\op} = \ket{\partial_\mu \op}, \quad
-P_\mu P_\nu \ket{\op} = \ket{\partial_\mu \partial_\nu \op}, \;\dots,
+\begin{aligned}
+&\ket{\op},\\
+P_\mu \ket{\op} &= \ket{\partial_\mu \op},\\
+P_\mu P_\nu \ket{\op} &= \ket{\partial_\mu \partial_\nu \op}, \dots
+\end{aligned}
 \end{equation}
 with dimensions $\Delta, \Delta + 1, \Delta + 2, \dots$; a primary together
 with its descendants is a \vocab{conformal multiplet}. The operator content
@@ -1669,7 +1696,7 @@ other local operator is a derivative of these.
 a different-looking definition: a primary is an operator that transforms
 covariantly under finite conformal transformations $x \to x'$,
 \begin{equation}
-\op(x) \;\longrightarrow\; b(x)^{-\Delta}\, R[M(x)]\; \op(x'),
+\op(x) \longrightarrow b(x)^{-\Delta} R[M(x)] \op(x'),
 \label{eq:primary-transformation}
 \end{equation}
 where $b(x)$ is the local scale factor of the map and $R[M(x)]$ the rotation
@@ -1706,15 +1733,15 @@ Now let two scalar primaries approach each other. Insert $\op_i$ at $x$ and
 $\op_j$ at the origin, both inside the unit sphere, and read the
 configuration as a state:
 \begin{equation}
-\ket{\Psi} \;=\; \op_i(x)\,\op_j(0)\ket{0} \;\in\; \mathcal{H}_{S^{d-1}}.
+\ket{\Psi} = \op_i(x)\op_j(0)\ket{0} \in \mathcal{H}_{S^{d-1}}.
 \end{equation}
 Expand $\ket{\Psi}$ in the energy eigenbasis. By the state--operator
 correspondence that basis is exhaustively labeled by primaries and their
 descendants, so the expansion collects into conformal multiplets:
 \begin{equation}
-\op_i(x)\, \op_j(0)\ket{0}
-\;=\; \sum_{\op \;\rm primary} \lambda_{ij\op}\;
-C_{\op}(x, \partial_y)\, \op(y)\big|_{y=0}\ket{0},
+\op_i(x) \op_j(0)\ket{0}
+= \sum_{\op \rm primary} \lambda_{ij\op}
+C_{\op}(x, \partial_y) \op(y)|_{y=0}\ket{0},
 \label{eq:ope-radial}
 \end{equation}
 where $C_\op(x,\partial_y)$ is a power series in $\partial_y$ packaging the
@@ -1729,8 +1756,8 @@ by pure symmetry:
 both sides of \eqref{eq:ope-radial} and matching eigenvalues term by term
 forces the leading coefficient of each multiplet to scale as
 \begin{equation}
-C_\op(x, \partial_y) \;=\; \frac{1}{|x|^{\Delta_i + \Delta_j - \Delta_\op}}
-\Big( 1 + \#\, x\cdot\partial_y + \cdots \Big),
+C_\op(x, \partial_y) = \frac{1}{|x|^{\Delta_i + \Delta_j - \Delta_\op}}
+\left( 1 + \# x\cdot\partial_y + \cdots \right),
 \label{eq:ope-power}
 \end{equation}
 (Exercise~\ref{exr:ope-power}): operators of low dimension dominate at short
@@ -1746,7 +1773,7 @@ $\partial^n \op$ to that of $\op$ (Exercise~\ref{exr:ope-descendants} computes
 the first two). What symmetry cannot fix is one overall constant
 $\lambda_{ij\op}$ per primary: the \vocab{OPE coefficients}, the
 dynamical content. The same constants govern the three-point functions,
-$\langle \op_i\, \op_j\, \op \rangle \propto \lambda_{ij\op}$, whose
+$\langle \op_i \op_j \op \rangle \propto \lambda_{ij\op}$, whose
 coordinate dependence is again completely fixed by conformal symmetry.
 
 \emph{(iii) Correlators reduce recursively.} Using \eqref{eq:ope-radial}
@@ -1755,8 +1782,8 @@ $(n-2)$, down to the two-point functions that normalize the operators. A
 conformal field theory is therefore completely specified by its
 \vocab{CFT data}:
 \begin{equation}
-\big\{\, \Delta_i \; (\text{and spins}) \,;\; \lambda_{ijk} \,\big\}
-\quad\Longrightarrow\quad \text{every correlator of local operators}.
+\left\{ \Delta_i (\text{and spins}) ; \lambda_{ijk} \right\}
+\Longrightarrow \text{every correlator of local operators}.
 \label{eq:cft-data}
 \end{equation}
 This is the finitely-describable generating structure the chapter opening
@@ -1774,9 +1801,9 @@ In any local QFT, the product of two local operators admits an asymptotic
 short-distance expansion \eqref{eq:ope-schematic} (Wilson). In a CFT, the
 expansion organizes into conformal multiplets,
 \begin{equation}
-\op_i(x)\,\op_j(0) \;=\; \sum_{\op\ \rm primary}
-\frac{\lambda_{ij\op}}{|x|^{\Delta_i+\Delta_j-\Delta_\op}}\,
-\big(1 + \cdots\big)\,\op(0),
+\op_i(x)\op_j(0) = \sum_{\op\text{ primary}}
+\frac{\lambda_{ij\op}}{|x|^{\Delta_i+\Delta_j-\Delta_\op}}
+\left(1 + \cdots\right)\op(0),
 \end{equation}
 with all descendant terms ($\cdots$) fixed by conformal symmetry and one
 constant $\lambda_{ij\op}$ per primary; and it is an \emph{exact, convergent}
@@ -1796,7 +1823,7 @@ one at $\infty$ (i.e.\ consider $\lim_{x_4\to\infty} x_4^{2\Delta_\phi}
 \langle \phi(x_4)\cdots\rangle$, which is the radial-quantization out-state
 $\bra{\phi}$), and the remaining two at radii $r_2 < r_3$:
 \begin{equation}
-\bra{\phi}\,\phi(x_3)\,\phi(x_2)\,\ket{\phi}.
+\bra{\phi}\phi(x_3)\phi(x_2)\ket{\phi}.
 \label{eq:4pt-radial}
 \end{equation}
 The OPE in the $(x_2, 0)$ pairing is the expansion of the ket $\phi(x_2)
@@ -1805,15 +1832,15 @@ $\bra{\phi}\phi(x_3)$ expands in the dual basis. The four-point function
 becomes a sum over the exchanged eigenstates,
 \begin{equation}
 \bra{\phi}\phi(x_3)\phi(x_2)\ket{\phi}
-\;=\; \sum_{E} \;\bra{\phi}\phi(x_3)\ket{E}\bra{E}\phi(x_2)\ket{\phi}
-\;=\; \sum_{E} \rho_E \; e^{-E \beta},
+= \sum_{E} \bra{\phi}\phi(x_3)\ket{E}\bra{E}\phi(x_2)\ket{\phi}
+= \sum_{E} \rho_E e^{-E \beta},
 \label{eq:ope-laplace}
 \end{equation}
 where $E = \Delta_\op + n$ runs over all primaries and descendants in the
 $\phi\times\phi$ OPE, the angular dependence is absorbed into the
 coefficients, and
 \begin{equation}
-e^{-\beta} \;=\; \frac{r_2}{r_3}
+e^{-\beta} = \frac{r_2}{r_3}
 \end{equation}
 identifies the expansion parameter as the \emph{radial time} separating the
 two insertions: the OPE is a Laplace series in cylinder time, a thermal-looking
@@ -1826,8 +1853,10 @@ The proof needs no information about the spectrum or the size of the OPE
 coefficients --- only unitarity, through the fact that \eqref{eq:4pt-radial}
 is an inner product of two Hilbert-space vectors:
 \begin{equation}
-\ket{\Phi} = \phi(x_2)\ket{\phi}, \qquad
-\bra{\Psi} = \bra{\phi}\phi(x_3) .
+\begin{aligned}
+\ket{\Phi} &= \phi(x_2)\ket{\phi},\\
+\bra{\Psi} &= \bra{\phi}\phi(x_3) .
+\end{aligned}
 \end{equation}
 Both have finite norm: $\|\Phi\|^2$ is the same four-point function evaluated
 at an inversion-symmetric configuration, with insertions at radii $r_2$ and
@@ -1838,11 +1867,11 @@ scalar product of two finite-norm vectors, expanded in any orthogonal
 eigenbasis, converges \emph{absolutely}. Concretely, the tail of the series
 \eqref{eq:ope-laplace} above energy $E_*$ is controlled by Cauchy--Schwarz,
 \begin{equation}
-\Big| \sum_{E > E_*} \bra{\Psi}E\rangle\langle E\ket{\Phi} \Big|
-\;\le\;
-\Big(\sum_{E > E_*} |\langle E\ket{\Psi}\rangle|^2\Big)^{1/2}
-\Big(\sum_{E > E_*} |\langle E\ket{\Phi}\rangle|^2\Big)^{1/2}
-\;\xrightarrow[E_* \to \infty]{}\; 0,
+\left| \sum_{E > E_*} \bra{\Psi}E\rangle\langle E\ket{\Phi} \right|
+\le
+\left(\sum_{E > E_*} |\langle E\ket{\Psi}\rangle|^2\right)^{1/2}
+\left(\sum_{E > E_*} |\langle E\ket{\Phi}\rangle|^2\right)^{1/2}
+\xrightarrow[E_* \to \infty]{} 0,
 \label{eq:cauchy-schwarz-tail}
 \end{equation}
 because each factor is the tail of a convergent sum of positive terms (the
@@ -1863,15 +1892,15 @@ version of everything in this subsection.}
 How fast does it converge? Here the same physical reading --- the OPE as a
 thermal sum --- gives the rate almost for free, and the answer is the second
 half of the centerpiece. Define the weighted spectral density of the exchanged
-states, $f(E) = \sum_k \rho_k\, \delta(E - E_k)$ with all $\rho_k \ge 0$ at the
+states, $f(E) = \sum_k \rho_k \delta(E - E_k)$ with all $\rho_k \ge 0$ at the
 reflection-symmetric configuration, so that the four-point function is its
-Laplace transform $L(\beta) = \int_0^\infty dE\, f(E)\, e^{-E\beta}$. Two
+Laplace transform $L(\beta) = \int_0^\infty dE\, f(E) e^{-E\beta}$. Two
 observations pin down everything:
 
 \emph{First: the $\beta \to 0$ behavior of $L$ is known exactly.} Colliding
 $x_2 \to x_3$ is governed by the leading term of the OPE in the
 \emph{crossed} pairing $(x_2, x_3)$ --- the identity operator --- which gives
-the free-field-like singularity $L(\beta) \sim (\text{const})\,
+the free-field-like singularity $L(\beta) \sim (\text{const})
 \beta^{-2\Delta_\phi}$ as $\beta \to 0$. The high-energy tail of $f$ is thus
 tied, through a Laplace transform, to a short-distance singularity fixed by
 dimensional analysis. This crossed-channel trick --- the UV of one expansion
@@ -1879,9 +1908,11 @@ is the leading term of another --- is the embryonic form of the crossing
 equations of Part III, and it already computes things: by the Hardy--Littlewood
 Tauberian theorem, the \emph{integrated} density must grow as a pure power,
 \begin{equation}
-F(E) \equiv \int_0^E dE'\, f(E') \;\sim\;
-\frac{E^{2\Delta_\phi}}{\Gamma(2\Delta_\phi + 1)}
-\qquad (E \to \infty):
+\begin{aligned}
+F(E) &\equiv \int_0^E dE'\, f(E')
+\sim \frac{E^{2\Delta_\phi}}{\Gamma(2\Delta_\phi + 1)},\\
+&\text{as } E \to \infty:
+\end{aligned}
 \label{eq:hardy-littlewood}
 \end{equation}
 no assumption on the spectrum --- the growth of the OPE data is universal,
@@ -1891,10 +1922,12 @@ fixed by the dimension of the colliding operators.
 With \eqref{eq:hardy-littlewood} in hand, the part of the four-point function
 carried by states above $E_*$ is
 \begin{equation}
-L(\beta; E_*) \;=\; \int_{E_*}^\infty dE\, f(E)\, e^{-E\beta}
-\;\lesssim\;
-\frac{E_*^{\,2\Delta_\phi}}{\Gamma(2\Delta_\phi+1)}\; e^{-E_* \beta}
-\qquad (E_* \gg \Delta_\phi/\beta),
+\begin{aligned}
+L(\beta; E_*) &= \int_{E_*}^\infty dE\, f(E) e^{-E\beta}\\
+&\lesssim
+\frac{E_*^{2\Delta_\phi}}{\Gamma(2\Delta_\phi+1)} e^{-E_* \beta},\\
+&\text{for } E_* \gg \Delta_\phi/\beta,
+\end{aligned}
 \label{eq:ope-rate}
 \end{equation}
 by integrating by parts against \eqref{eq:hardy-littlewood}. Truncating the
@@ -1907,8 +1940,8 @@ estimate: it is what makes truncations of the OPE controlled approximations
 with quantifiable errors.\footnote{Rates and prefactor:
 \arxiv{1208.6449}, \S\S4.2--4.4, whose elegant two-line alternative derivation
 we reproduce: for any $0 < \beta' < \beta$, $L(\beta; E_*) \le
-e^{-E_*(\beta - \beta')} L(\beta')\le \text{const}\;
-(\beta')^{-2\Delta_\phi}\, e^{-E_*(\beta-\beta')}$; optimizing $\beta' =
+e^{-E_*(\beta - \beta')} L(\beta')\le \text{const}
+(\beta')^{-2\Delta_\phi} e^{-E_*(\beta-\beta')}$; optimizing $\beta' =
 2\Delta_\phi/E_*$ gives \eqref{eq:ope-rate} up to the same constant. The
 paper also extends convergence from the OPE sum over \emph{states} to the
 sum over conformal \emph{blocks} (multiplets repackaged into functions of
@@ -1920,7 +1953,7 @@ In a unitary CFT, the operator product expansion of $\op_i(x_1)\op_j(x_2)$,
 applied inside any correlation function, converges absolutely whenever some
 sphere encloses $x_1$ and $x_2$ while excluding all other insertion points.
 The error from truncating the expansion at dimension $\Delta_*$ falls off
-exponentially, $\sim \Delta_*^{\,\Delta_i+\Delta_j}\,e^{-\Delta_* \beta}$,
+exponentially, $\sim \Delta_*^{\Delta_i+\Delta_j}e^{-\Delta_* \beta}$,
 where $e^{-\beta}$ measures the separation of scales (the ratio of inner to
 outer radii in the frame where the sphere is centered at the origin). [Mack
 1977; Pappadopulo--Rychkov--Espin--Rattazzi \arxiv{1208.6449}.]
@@ -1933,21 +1966,21 @@ simplest possible arena.
 \begin{eexample}[The two-point function, computed by radial quantization]
 \label{ex:2pt-radial}
 Forget for a moment that conformal kinematics fixes the scalar two-point
-function, and \emph{compute} $\langle \op(y)\,\op(x)\rangle$, $|x| < |y|$, by
+function, and \emph{compute} $\langle \op(y)\op(x)\rangle$, $|x| < |y|$, by
 the radial rules, as a test that the Hilbert-space picture reproduces
 correlators with the advertised convergence.
 
-The ket is $\op(x)\ket{0} = e^{x\cdot P}\,\op(0)\,e^{-x\cdot P}\ket{0} =
+The ket is $\op(x)\ket{0} = e^{x\cdot P}\op(0)e^{-x\cdot P}\ket{0} =
 e^{x\cdot P}\ket{\op}$: a coherent superposition of descendants, with the
 level-$N$ term carrying $|x|^N$. The bra is the inversion conjugate,
-$\bra{0}\op(y) = y^{-2\Delta}\,\bra{\op}\, e^{\tilde y \cdot K}$ with $\tilde
+$\bra{0}\op(y) = y^{-2\Delta}\bra{\op} e^{\tilde y \cdot K}$ with $\tilde
 y = y^\mu/y^2$. Therefore
 \begin{equation}
-\langle \op(y)\, \op(x)\rangle
-= \frac{1}{y^{2\Delta}}\,
-\bra{\op}\, e^{\tilde y\cdot K}\, e^{x \cdot P}\,\ket{\op}
+\langle \op(y) \op(x)\rangle
+= \frac{1}{y^{2\Delta}}
+\bra{\op} e^{\tilde y\cdot K} e^{x \cdot P}\ket{\op}
 = \frac{1}{y^{2\Delta}}\sum_{N=0}^{\infty}
-\frac{1}{(N!)^2}\,\bra{\op}(\tilde y\cdot K)^N (x\cdot P)^N\ket{\op},
+\frac{1}{(N!)^2}\bra{\op}(\tilde y\cdot K)^N (x\cdot P)^N\ket{\op},
 \label{eq:2pt-matrix-elements}
 \end{equation}
 the cross terms vanishing because states of different radial energy are
@@ -1955,9 +1988,9 @@ orthogonal. Each matrix element is pure algebra: commute the $K$'s rightward
 until they annihilate $\ket{\op}$. At level one,
 \begin{equation}
 \tilde y^\mu x^\nu \bra{\op} K_\mu P_\nu \ket{\op}
-= \tilde y^\mu x^\nu \bra{\op}\big(2\delta_{\mu\nu} D - 2M_{\mu\nu}\big)\ket{\op}
-= 2\Delta\, (\tilde y \cdot x)
-= 2\Delta\, t\, c,
+= \tilde y^\mu x^\nu \bra{\op}\left(2\delta_{\mu\nu} D - 2M_{\mu\nu}\right)\ket{\op}
+= 2\Delta (\tilde y \cdot x)
+= 2\Delta t c,
 \end{equation}
 where $t \equiv |x|/|y|$ and $c \equiv \hat x \cdot \hat y$, and we used
 $D\ket{\op} = \Delta\ket{\op}$, $M_{\mu\nu}\ket{\op} = 0$ for a scalar. The
@@ -1966,8 +1999,8 @@ level-$N$ elements work the same way, each a polynomial in $c$ times $t^N$.
 Now compare with the exact answer, organized as a power series in $t$:
 \begin{equation}
 \frac{1}{|x - y|^{2\Delta}}
-= \frac{1}{y^{2\Delta}}\,\frac{1}{\big(1 - 2tc + t^2\big)^{\Delta}}
-= \frac{1}{y^{2\Delta}} \sum_{N=0}^{\infty} C^{(\Delta)}_N(c)\; t^N ,
+= \frac{1}{y^{2\Delta}}\frac{1}{\left(1 - 2tc + t^2\right)^{\Delta}}
+= \frac{1}{y^{2\Delta}} \sum_{N=0}^{\infty} C^{(\Delta)}_N(c) t^N ,
 \label{eq:gegenbauer}
 \end{equation}
 the generating function of the Gegenbauer polynomials. The series data
@@ -1994,7 +2027,7 @@ the unitarity bound, reconnecting with \eqref{eq:scalar-unitarity-bound}.
 
 \emph{Exponential rate, numerically.} At, say, $t = 1/2$, $c = 1$, the tail
 beyond level $N_*$ of $\sum_N \binom{N+2\Delta-1}{N} 2^{-N}$ falls like
-$N_*^{2\Delta - 1}\, 2^{-N_*}$: truncating the ``OPE'' of this two-point
+$N_*^{2\Delta - 1} 2^{-N_*}$: truncating the ``OPE'' of this two-point
 function at level $10$ for $\Delta = 1$ already reproduces the exact answer
 to better than a part in $10^2$, at level $30$ to a part in $10^8$ ---
 $e^{-N_* \beta}$ with $\beta = \log 2$, the promised cylinder-time gap.
@@ -2012,9 +2045,10 @@ $z$, $1$, $\infty$); the optimal frame instead places the colliding pair
 symmetrically about the origin, at $\pm\rho$, and the spectator pair at
 $\pm 1$, with
 \begin{equation}
-\rho \;=\; \frac{z}{\big(1 + \sqrt{1 - z}\,\big)^2}\,,
-\qquad
-e^{-\beta_{\rm opt}} = |\rho| .
+\begin{aligned}
+\rho &= \frac{z}{\left(1 + \sqrt{1 - z}\right)^2},\\
+e^{-\beta_{\rm opt}} &= |\rho| .
+\end{aligned}
 \label{eq:rho-coordinate}
 \end{equation}
 The expansion in $\rho$ converges for $|\rho| < 1$ --- which covers
@@ -2036,7 +2070,7 @@ correlator, where the answer is exactly known and the bound can be graded.}
 \begin{exercise}[easy]
 \label{exr:ope-power}
 Derive the power in \eqref{eq:ope-power}: act with $D$ on both sides of
-$\op_i(x)\op_j(0)\ket{0} \supset |x|^{-k}\,(\op(0) + \cdots)\ket{0}$, using
+$\op_i(x)\op_j(0)\ket{0} \supset |x|^{-k}(\op(0) + \cdots)\ket{0}$, using
 $[D, \op(x)] = (\Delta + x\cdot\partial)\op(x)$ on the left and
 $D\ket{\op} = \Delta_\op\ket{\op}$ on the right, and match: $k = \Delta_i +
 \Delta_j - \Delta_\op$. Conclude that in the $\phi\times\phi$ OPE the unit
@@ -2049,14 +2083,14 @@ distance.''
 \label{exr:ope-descendants}
 Fix the first descendants. For $\Delta_i = \Delta_j = \delta$ and a scalar
 primary $\Phi$ of dimension $\Delta$ exchanged, write $C_\Phi(x, \partial_y) =
-|x|^{\Delta - 2\delta}\big(1 + a\, x\cdot\partial_y + \alpha\, x^\mu x^\nu
-\partial_\mu \partial_\nu + \beta\, x^2 \partial^2 + \cdots\big)$ and
+|x|^{\Delta - 2\delta}\left(1 + a x\cdot\partial_y + \alpha x^\mu x^\nu
+\partial_\mu \partial_\nu + \beta x^2 \partial^2 + \cdots\right)$ and
 determine $a$, $\alpha$, $\beta$ by matching the exact three-point function
 $\langle\op_i(x)\op_j(0)\Phi(z)\rangle$ (fixed by conformal symmetry) against
-$\lambda_{ij\Phi}\, C_\Phi(x,\partial_y)\langle \Phi(y)\Phi(z)\rangle|_{y=0}$,
+$\lambda_{ij\Phi} C_\Phi(x,\partial_y)\langle \Phi(y)\Phi(z)\rangle|_{y=0}$,
 expanding in $x$.
 \answ{$a = \tfrac12$, $\alpha = \frac{\Delta + 2}{8(\Delta+1)}$, $\beta =
--\frac{\Delta}{16\,(\Delta - \frac d2 + 1)(\Delta + 1)}$ (Rychkov
+-\frac{\Delta}{16(\Delta - \frac d2 + 1)(\Delta + 1)}$ (Rychkov
 \arxiv{1601.05000}, \S3.3). Note $\beta$'s pole at $\Delta = \frac d2 - 1$:
 the free-field dimension, where the multiplet shortens because $\partial^2\Phi
 = 0$ --- the same boundary case as in \eqref{eq:cft-spectral} and
@@ -2106,8 +2140,8 @@ pole.}
 (Wick's theorem is an OPE.) For the free massless scalar in $d$ dimensions,
 show directly from Wick contractions that
 \begin{equation*}
-\phi(x)\,\phi(0) \;=\; \frac{C_d}{x^{d-2}}\cdot \mathbf{1}
-\;+\; :\!\phi^2\!:(0) \;+\; x^\mu :\!\phi\,\partial_\mu \phi\!:(0) + \cdots,
+\phi(x)\phi(0) = \frac{C_d}{x^{d-2}}\cdot \mathbf{1}
++ {:}\phi^2{:}(0) + x^\mu {:}\phi\partial_\mu \phi{:}(0) + \cdots,
 \end{equation*}
 identify the primaries among the first few terms, and explain why the
 expansion of any free-field correlator in this form converges with exactly
@@ -2153,11 +2187,11 @@ $(14)$, which is legitimate whenever a sphere separates $x_1, x_4$ from
 $x_2, x_3$ (Figure~\ref{fig:crossing}). A generic configuration admits both
 spheres at once, and there both expansions converge to the same correlator:
 \begin{equation}
-\sum_{\op}\; \lambda_{\phi\phi\op}^2 \;
+\sum_{\op} \lambda_{\phi\phi\op}^2
 g_{\op}^{(12)(34)}(x_i)
-\;=\;
-\sum_{\op}\; \lambda_{\phi\phi\op}^2\;
-g_{\op}^{(14)(23)}(x_i)\,,
+=
+\sum_{\op} \lambda_{\phi\phi\op}^2
+g_{\op}^{(14)(23)}(x_i),
 \label{eq:crossing}
 \end{equation}
 where $g_\op$ --- a \vocab{conformal block} --- packages the contribution of
@@ -2245,7 +2279,7 @@ In any presentation with an action on a background metric, the definition is a
 functional derivative (we work in Euclidean signature; Lorentzian signs and
 the index dictionary are pinned in Appendix~\ref{app:conventions}):
 \begin{equation}
-T_{\mu\nu}(x) \;\equiv\; \frac{2}{\sqrt{g}}\,
+T_{\mu\nu}(x) \equiv \frac{2}{\sqrt{g}}
 \frac{\delta S_{\rm E}}{\delta g^{\mu\nu}(x)} ,
 \label{eq:stress-def}
 \end{equation}
@@ -2257,9 +2291,9 @@ In flat space, translation invariance of a Lagrangian $L(\phi,
 \partial\phi)$ yields, by Noether's procedure, the \vocab{canonical} stress
 tensor
 \begin{equation}
-T^{\rm can}_{\mu\nu} \;=\;
-\frac{\partial L}{\partial(\partial^\mu \phi)}\,\partial_\nu \phi
-\;-\; \delta_{\mu\nu}\, L ,
+T^{\rm can}_{\mu\nu} =
+\frac{\partial L}{\partial(\partial^\mu \phi)}\partial_\nu \phi
+- \delta_{\mu\nu} L ,
 \label{eq:canonical-def}
 \end{equation}
 conserved on the equations of motion. For fields with spin the canonical
@@ -2306,31 +2340,31 @@ the induced metric deformation $\delta g_{\mu\nu} = \partial_\mu
 \epsilon_\nu + \partial_\nu \epsilon_\mu$:
 \begin{equation}
 \delta S_{\rm E}
-= \frac12 \int d^dx \; T^{\mu\nu}\, \delta g_{\mu\nu}
-= \int d^dx \; T^{\mu\nu}\, \partial_\mu \epsilon_\nu
-= -\int d^dx \; \epsilon_\nu \,\partial_\mu T^{\mu\nu} ,
+= \frac12 \int d^dx\, T^{\mu\nu} \delta g_{\mu\nu}
+= \int d^dx\, T^{\mu\nu} \partial_\mu \epsilon_\nu
+= -\int d^dx\, \epsilon_\nu \partial_\mu T^{\mu\nu} ,
 \end{equation}
 using the symmetry of $T$ and integrating by parts. And the insertions
 transport: a scalar shifts by $\delta_\epsilon \op(x_i) =
-\epsilon^\nu(x_i)\, \partial_\nu \op(x_i)$. Since the relabeled integral
+\epsilon^\nu(x_i) \partial_\nu \op(x_i)$. Since the relabeled integral
 equals the original,
 \begin{equation}
-0 \;=\; -\big\langle\, \delta S_{\rm E}\; \op_1 \cdots \op_n\big\rangle
-\;+\; \sum_i \big\langle \op_1 \cdots \delta_\epsilon \op_i \cdots
-\op_n\big\rangle ,
+0 = -\left\langle \delta S_{\rm E} \op_1 \cdots \op_n\right\rangle
++ \sum_i \left\langle \op_1 \cdots \delta_\epsilon \op_i \cdots
+\op_n\right\rangle ,
 \end{equation}
 and stripping the arbitrary function $\epsilon^\nu(x)$
 gives the local identity
 \begin{equation}
-\partial_\mu \big\langle T^{\mu\nu}(x)\, \op_1(x_1)\cdots\op_n(x_n)
-\big\rangle
-\;=\; -\sum_{i=1}^n \delta^d(x - x_i)\;
-\frac{\partial}{\partial x_i^{\,\nu}}
-\big\langle \op_1(x_1) \cdots \op_n(x_n)\big\rangle .
+\partial_\mu \left\langle T^{\mu\nu}(x) \op_1(x_1)\cdots\op_n(x_n)
+\right\rangle
+= -\sum_{i=1}^n \delta^d(x - x_i)
+\frac{\partial}{\partial x_i^{\nu}}
+\left\langle \op_1(x_1) \cdots \op_n(x_n)\right\rangle .
 \label{eq:t-ward}
 \end{equation}
 (Operators with spin contribute an extra rotation piece, $\propto
-\partial_\mu[\delta^d(x - x_i)\, \Sigma^{\mu\nu}]$, which the reader may
+\partial_\mu[\delta^d(x - x_i) \Sigma^{\mu\nu}]$, which the reader may
 restore when needed.) The identity \eqref{eq:t-ward} contains two distinct
 statements, which we separate.
 
@@ -2349,26 +2383,26 @@ $\xi_\mu = \omega_{\mu\nu} x^\nu$ with $\omega$ antisymmetric (rotations). A
 rescaling,
 \begin{equation}
 \partial_\mu \xi_\nu + \partial_\nu \xi_\mu
-= \frac{2}{d}\,(\partial\cdot\xi)\,\delta_{\mu\nu},
+= \frac{2}{d}(\partial\cdot\xi)\delta_{\mu\nu},
 \label{eq:ckv}
 \end{equation}
 which admits in addition the dilatation $\xi^\mu = x^\mu$ and the special
-conformal vector fields $\xi^\mu = 2(b\cdot x)\,x^\mu - x^2 b^\mu$. Now
+conformal vector fields $\xi^\mu = 2(b\cdot x)x^\mu - x^2 b^\mu$. Now
 integrate \eqref{eq:t-ward} against such a vector field $\xi^\nu$ over a
 region $R$ bounded by a closed surface $\Sigma$. When $\xi$ is Killing ---
 or conformal Killing, provided $T$ is symmetric and traceless --- the bulk
 term $\propto \int_R T^{\mu\nu}\partial_\mu \xi_\nu$ vanishes, the integral
 collapses to the boundary, and one finds
 \begin{equation}
-\oint_{\Sigma} dS_\mu \; \xi_\nu\, \big\langle T^{\mu\nu}(x)\,
-\op_1(x_1)\cdots \big\rangle
-\;=\; -\sum_{x_i \in R}
-\big\langle \cdots\, \delta_\xi \op_i(x_i)\, \cdots \big\rangle ,
+\oint_{\Sigma} dS_\mu\, \xi_\nu \left\langle T^{\mu\nu}(x)
+\op_1(x_1)\cdots \right\rangle
+= -\sum_{x_i \in R}
+\left\langle \cdots \delta_\xi \op_i(x_i) \cdots \right\rangle ,
 \label{eq:charge-ward}
 \end{equation}
 where $\delta_\xi \op$ is the operator's transformation. The object
 \begin{equation}
-Q_\xi[\Sigma] \;=\; \oint_\Sigma dS_\mu\, \xi_\nu \, T^{\mu\nu}
+Q_\xi[\Sigma] = \oint_\Sigma dS_\mu\, \xi_\nu T^{\mu\nu}
 \label{eq:topological-charge}
 \end{equation}
 is the conserved charge, and \eqref{eq:charge-ward} says something stronger
@@ -2393,28 +2427,28 @@ Killing vector of flat space, evaluate \eqref{eq:topological-charge} on a
 sphere:
 \begin{equation}
 \begin{aligned}
-P_\mu &= \oint dS_\rho\, T^{\rho}_{\ \mu}\,, &
-M_{\mu\nu} &= \oint dS_\rho \big(x_\mu T^{\rho}_{\ \nu} - x_\nu
-T^{\rho}_{\ \mu}\big), \\
-D &= \oint dS_\rho\; x^\nu\, T^{\rho}_{\ \nu}\,, &
-K_\mu &= \oint dS_\rho \big(2 x_\mu x^\nu - \delta_\mu^{\ \nu}
-x^2\big)\, T^{\rho}_{\ \nu}\,,
+P_\mu &= \oint dS_\rho\, T^{\rho}{}_{\mu}, &
+M_{\mu\nu} &= \oint dS_\rho\, \left(x_\mu T^{\rho}{}_{\nu} - x_\nu
+T^{\rho}{}_{\mu}\right), \\
+D &= \oint dS_\rho\, x^\nu T^{\rho}{}_{\nu}, &
+K_\mu &= \oint dS_\rho\, \left(2 x_\mu x^\nu - \delta_\mu{}^{\nu}
+x^2\right) T^{\rho}{}_{\nu},
 \end{aligned}
 \label{eq:conformal-charges}
 \end{equation}
 the last two conserved surface-independently only because $T$ is traceless
-($\xi_\nu T^{\mu\nu}$ has divergence $\tfrac1d (\partial\cdot\xi)\,
-T^\mu_{\ \mu}$ for a conformal Killing vector $\xi$). Shrinking the surface
+($\xi_\nu T^{\mu\nu}$ has divergence $\tfrac1d (\partial\cdot\xi)
+T^\mu{}_\mu$ for a conformal Killing vector $\xi$). Shrinking the surface
 onto an insertion converts \eqref{eq:charge-ward} into the commutator
 statement: in radial ordering, $Q_\xi$ just inside minus $Q_\xi$ just
 outside an insertion is
 \begin{equation}
-\big[\, Q_\xi\,,\, \op(x)\,\big] \;=\; \delta_\xi\, \op(x)\,,
+\left[ Q_\xi, \op(x)\right] = \delta_\xi \op(x),
 \label{eq:charge-commutator}
 \end{equation}
 which for the choices \eqref{eq:conformal-charges} reproduces exactly the
 algebra postulated in Section~\ref{sec:radial-quantization}: $[D, \op(0)] =
-\Delta\,\op(0)$, $[P_\mu, \op(x)] = \partial_\mu\op(x)$, and the rest. The
+\Delta\op(0)$, $[P_\mu, \op(x)] = \partial_\mu\op(x)$, and the rest. The
 bookkeeping device of radial quantization is thus generated, operator by
 operator, by the stress tensor --- which is the precise sense in which
 conformal symmetry is a property \emph{of a local theory} rather than of a
@@ -2428,42 +2462,42 @@ it.)
 \begin{eexample}[The stress tensor of the free scalar, canonical and improved]
 \label{ex:scalar-stress}
 For the free massless scalar, the definition \eqref{eq:stress-def} applied to
-$S_{\rm E} = \frac12\int \sqrt g\, g^{\mu\nu}\partial_\mu\phi\,\partial_\nu\phi$
+$S_{\rm E} = \frac12\int \sqrt g g^{\mu\nu}\partial_\mu\phi\partial_\nu\phi$
 gives, in flat space,
 \begin{equation}
-T_{\mu\nu} \;=\; \partial_\mu \phi\, \partial_\nu \phi
-- \frac{1}{2}\,\delta_{\mu\nu}\, (\partial\phi)^2 ,
+T_{\mu\nu} = \partial_\mu \phi \partial_\nu \phi
+- \frac{1}{2}\delta_{\mu\nu} (\partial\phi)^2 ,
 \label{eq:canonical-T}
 \end{equation}
 which for this Lagrangian coincides with the canonical tensor
 \eqref{eq:canonical-def}: symmetric,
-conserved on-shell ($\partial^\mu T_{\mu\nu} = (\partial_\nu \phi)\,
+conserved on-shell ($\partial^\mu T_{\mu\nu} = (\partial_\nu \phi)
 \partial^2\phi$), and --- a problem --- not traceless:
 \begin{equation}
-T^{\mu}_{\ \mu} = \Big(1 - \frac d2\Big)(\partial\phi)^2 \;\ne\; 0
-\quad (d > 2).
+T^{\mu}{}_{\mu} = \left(1 - \frac d2\right)(\partial\phi)^2 \ne 0
+\text{ for } d > 2.
 \end{equation}
 A nonzero trace would, by the argument below, obstruct using
 \eqref{eq:topological-charge} to build the dilatation and special conformal
 charges --- yet the free massless scalar \emph{is} conformal. The resolution
 is that \eqref{eq:stress-def} has a hidden ambiguity: actions that agree in
 flat space can disagree about the metric response. Add the non-minimal
-coupling $\frac{\xi}{2} \int \sqrt g \, \mathcal{R}\, \phi^2$ ($\mathcal{R}$
+coupling $\frac{\xi}{2} \int \sqrt g \mathcal{R} \phi^2$ ($\mathcal{R}$
 the Ricci scalar): it vanishes in flat space, changes no flat-space
 correlator, but shifts the stress tensor by an identically conserved
 \vocab{improvement term},
 \begin{equation}
-T_{\mu\nu} \;\longrightarrow\; T_{\mu\nu}
-+ \xi \,\big(\delta_{\mu\nu}\,\partial^2 - \partial_\mu \partial_\nu\big)\phi^2 .
+T_{\mu\nu} \longrightarrow T_{\mu\nu}
++ \xi \left(\delta_{\mu\nu}\partial^2 - \partial_\mu \partial_\nu\right)\phi^2 .
 \label{eq:improvement}
 \end{equation}
-The trace of the added piece is $\xi(d-1)\,\partial^2\phi^2 =
-2\xi(d-1)\big[(\partial\phi)^2 + \phi\,\partial^2\phi\big]$, so on-shell
+The trace of the added piece is $\xi(d-1)\partial^2\phi^2 =
+2\xi(d-1)\left[(\partial\phi)^2 + \phi\partial^2\phi\right]$, so on-shell
 \begin{equation}
-T^{\mu}_{\ \mu}\Big|_{\rm improved}
-= \Big[\Big(1 - \frac d2\Big) + 2\xi(d-1)\Big](\partial\phi)^2
-\;=\; 0
-\quad\text{for}\quad
+T^{\mu}{}_{\mu}|_{\rm improved}
+= \left[\left(1 - \frac d2\right) + 2\xi(d-1)\right](\partial\phi)^2
+= 0
+\text{ for }
 \xi_c = \frac{d-2}{4(d-1)} ,
 \label{eq:conformal-coupling}
 \end{equation}
@@ -2487,17 +2521,17 @@ Exercise~\ref{exr:free-ope}: the level-$(0,2)$ composite in $\phi \times
 
 The trace earns its own paragraph, because it is the operator that knows
 about scale. Repeating the derivation of \eqref{eq:t-ward} for a \emph{Weyl}
-variation $\delta g_{\mu\nu} = 2\omega(x)\, g_{\mu\nu}$ instead of a
-diffeomorphism shows that $T^\mu_{\ \mu}(x)$ measures the response to local
+variation $\delta g_{\mu\nu} = 2\omega(x) g_{\mu\nu}$ instead of a
+diffeomorphism shows that $T^\mu{}_\mu(x)$ measures the response to local
 rescalings; in a flowing theory the schematic operator equation
 \begin{equation}
-T^{\mu}_{\ \mu} \;=\; \sum_i \beta^i(g)\; \op_i
+T^{\mu}{}_{\mu} = \sum_i \beta^i(g) \op_i
 \label{eq:trace-beta}
 \end{equation}
 identifies the trace with the beta functions --- the precise statement, with
 its subtleties (operator mixing, ``virial current'' ambiguities), is part of
 chapter I.6's careful construction of the RG, and the question of when
-$T^\mu_{\ \mu} = 0$ exactly (scale versus conformal invariance) was flagged
+$T^\mu{}_\mu = 0$ exactly (scale versus conformal invariance) was flagged
 already in chapter I.1's theory-space section. Here we need only the fixed-point
 moral: at a fixed point a traceless stress tensor exists in all known unitary
 local examples, and these notes assume it wherever ``CFT'' is written.
@@ -2506,7 +2540,7 @@ local examples, and these notes assume it wherever ``CFT'' is written.
 \label{exr:t-ward-check}
 Test the Ward identity \eqref{eq:t-ward} on the free scalar. Using Wick's
 theorem with \eqref{eq:canonical-T} improved at $\xi_c$, compute $\langle
-T_{\mu\nu}(x)\, \phi(x_1)\,\phi(x_2)\rangle$ in $d=4$ and verify: (a) it is
+T_{\mu\nu}(x) \phi(x_1)\phi(x_2)\rangle$ in $d=4$ and verify: (a) it is
 conserved away from $x_1, x_2$; (b) integrating the $\nu = 0$ component
 of \eqref{eq:t-ward} over a ball around $x_1$ reproduces $\partial_{x_1}$
 acting on $\langle\phi\phi\rangle$; (c) the same correlator with the
@@ -2521,7 +2555,7 @@ repeatedly.}
 \begin{exercise}[medium]
 \label{exr:tt-positivity}
 The two-point function of stress tensors in a CFT takes the form $\langle
-T_{\mu\nu}(x) T_{\rho\sigma}(0)\rangle = C_T \,\frac{\mathcal{I}_{\mu\nu,
+T_{\mu\nu}(x) T_{\rho\sigma}(0)\rangle = C_T \frac{\mathcal{I}_{\mu\nu,
 \rho\sigma}(x)}{x^{2d}}$ with $\mathcal{I}$ a fixed tensor structure built
 from inversions, and $C_T > 0$ in a unitary theory --- by now you can see why
 (it is a norm in radial quantization). Compute $C_T$ for the free conformal
@@ -2551,7 +2585,7 @@ without a theory.''
 Pick a number $\Delta \ge \frac{d-2}{2}$ and \emph{declare} a scalar operator
 $\op$ with two-point function
 \begin{equation}
-\langle \op(x)\,\op(0)\rangle = \frac{1}{x^{2\Delta}},
+\langle \op(x)\op(0)\rangle = \frac{1}{x^{2\Delta}},
 \end{equation}
 and all higher correlators given by Wick's theorem --- sums over pairings of
 products of two-point functions, exactly as for a Gaussian field:
@@ -2559,8 +2593,7 @@ products of two-point functions, exactly as for a Gaussian field:
 \langle \op(x_1)\op(x_2)\op(x_3)\op(x_4)\rangle
 = \frac{1}{x_{12}^{2\Delta}x_{34}^{2\Delta}}
 + \frac{1}{x_{13}^{2\Delta}x_{24}^{2\Delta}}
-+ \frac{1}{x_{14}^{2\Delta}x_{23}^{2\Delta}},
-\qquad \text{etc.}
++ \frac{1}{x_{14}^{2\Delta}x_{23}^{2\Delta}}, \text{ etc.}
 \label{eq:gff-4pt}
 \end{equation}
 This is the \vocab{generalized free field} (GFF; ``mean field theory'' in
@@ -2583,17 +2616,18 @@ Hamiltonian, a unitary conformal group, the lot.
 
 \emph{OPE and its convergence:} by Wick algebra,
 \begin{equation}
-\op(x)\,\op(0) = \frac{1}{x^{2\Delta}}\cdot\mathbf 1
-+ :\!\op^2\!:(0) + \cdots,
+\op(x)\op(0) = \frac{1}{x^{2\Delta}}\cdot\mathbf 1
++ {:}\op^2{:}(0) + \cdots,
 \end{equation}
 and the full single-$\op$-pair spectrum consists of the \vocab{double-twist}
 composites
 \begin{equation}
-[\op\op]_{n,\ell} \;\sim\;\,
-:\!\op\;\partial^{2n}\partial_{\mu_1}\!\cdots\partial_{\mu_\ell}\,\op\!: \,,
-\qquad
-\Delta_{n, \ell} = 2\Delta + 2n + \ell ,
-\qquad \ell \text{ even},
+\begin{aligned}
+[\op\op]_{n,\ell}
+&\sim {:}\op\partial^{2n}\partial_{\mu_1}\cdots\partial_{\mu_\ell}\op{:},\\
+\Delta_{n, \ell} &= 2\Delta + 2n + \ell,\\
+&\text{with } \ell \text{ even},
+\end{aligned}
 \label{eq:double-twist}
 \end{equation}
 an integer-spaced tower starting at $2\Delta$. The four-point function
@@ -2611,15 +2645,15 @@ available have dimensions $2\Delta + 2n + 2$ and up: for generic $\Delta$,
 \emph{no operator of dimension $d$ exists at all}, and the lone exception
 \begin{equation}
 2\Delta + 2 = d
-\quad\Longleftrightarrow\quad
+\Longleftrightarrow
 \Delta = \frac{d-2}{2}
 \end{equation}
 is the free scalar, where $[\op\op]_{0,2}$ is precisely the improved tensor
 of Example~\ref{ex:scalar-stress}. The same counting kills conserved
 currents: a spin-1 double-twist would need $2\Delta + 1 = d - 1$, free field
 again. (For a single real $\op$ the odd-spin double-twists are absent as
-primaries --- $[\op\op]_{0,1} \sim\, :\!\op\,\partial\op\!: =
-\tfrac12\partial\,{:}\op^2{:}$ is a descendant --- so strictly this is the
+primaries --- $[\op\op]_{0,1} \sim {:}\op\partial\op{:} =
+\tfrac12\partial{:}\op^2{:}$ is a descendant --- so strictly this is the
 \emph{complex} GFF's verdict, where the $\op^\dagger\op$ tower supplies the
 spin-1 candidate; either way no current of dimension $d-1$ survives off the
 free point.) The moment $\Delta$ moves off the free value, the theory keeps every
@@ -2680,7 +2714,7 @@ separates the two.
 Decompose the GFF four-point function. With $u, v$ the standard cross-ratios,
 show from \eqref{eq:gff-4pt} that the $(12)(34)$-channel expansion contains
 the identity plus double-twist towers, and compute the squared OPE coefficient
-of the leading scalar $[\op\op]_{0,0} = \tfrac{1}{\sqrt 2}:\!\op^2\!:$
+of the leading scalar $[\op\op]_{0,0} = \tfrac{1}{\sqrt 2}{:}\op^2{:}$
 (answer: $\lambda^2 = 2$ in unit-normalized conventions). Verify positivity
 of the first few coefficients, and check that the spin-2, $n=0$ coefficient
 stays finite and nonzero as $\Delta \to \frac{d-2}{2}$ --- the stress tensor
@@ -2719,26 +2753,26 @@ $J^\mu$, the source conjugate to a background gauge field as $T_{\mu\nu}$ is
 conjugate to the metric. The change-of-variables argument that produced
 \eqref{eq:t-ward} transcribes line for line --- with an $x$-dependent
 symmetry rotation in place of the diffeomorphism. Let the symmetry act on
-charged operators as $\op_k \to e^{iq_k\alpha}\,\op_k$ with constant
+charged operators as $\op_k \to e^{iq_k\alpha}\op_k$ with constant
 $\alpha$; promote $\alpha \to \alpha(x)$ and relabel the path integral. The
 action is not invariant under the local version, and its leading variation
 \emph{defines} the current,
 \begin{equation}
-\delta S_{\rm E} \;=\; -i\int d^dx \;J^\mu(x)\, \partial_\mu \alpha(x)\,,
+\delta S_{\rm E} = -i\int d^dx\, J^\mu(x) \partial_\mu \alpha(x),
 \end{equation}
-while each insertion rotates by its charge, $\delta\op_k = i q_k\,
-\alpha(x_k)\,\op_k$. Equating the two and stripping $\alpha(x)$ yields the
+while each insertion rotates by its charge, $\delta\op_k = i q_k
+\alpha(x_k)\op_k$. Equating the two and stripping $\alpha(x)$ yields the
 current's Ward identity,
 \begin{equation}
-\partial_\mu \big\langle J^{\mu}(x)\,\op_1(x_1)\cdots\op_n(x_n)\big\rangle
-\;=\; \sum_{k} q_k\; \delta^d(x - x_k)\,
-\big\langle \op_1(x_1)\cdots\op_n(x_n)\big\rangle ,
+\partial_\mu \left\langle J^{\mu}(x)\op_1(x_1)\cdots\op_n(x_n)\right\rangle
+= \sum_{k} q_k \delta^d(x - x_k)
+\left\langle \op_1(x_1)\cdots\op_n(x_n)\right\rangle ,
 \label{eq:j-ward}
 \end{equation}
 with the same two morals as before: conservation as an
 operator equation at separated points, and charges
 \begin{equation}
-Q[\Sigma] = \oint_\Sigma dS_\mu \, J^\mu
+Q[\Sigma] = \oint_\Sigma dS_\mu\, J^\mu
 \label{eq:current-charge}
 \end{equation}
 that are \emph{topological surface operators} --- deformable freely until
@@ -2749,11 +2783,12 @@ vector primary must have dimension exactly $\Delta_J = d - 1$ (and conversely,
 a vector primary at the unitarity-bound dimension $d-1$ is automatically
 conserved --- Exercise~\ref{exr:current-dimension}), with two-point function
 \begin{equation}
-\langle J_\mu(x)\, J_\nu(0)\rangle
-= C_J\, \frac{I_{\mu\nu}(x)}{x^{2(d-1)}},
-\qquad
-I_{\mu\nu}(x) = \delta_{\mu\nu} - \frac{2 x_\mu x_\nu}{x^2},
-\qquad C_J > 0.
+\begin{aligned}
+\langle J_\mu(x) J_\nu(0)\rangle
+&= C_J \frac{I_{\mu\nu}(x)}{x^{2(d-1)}},\\
+I_{\mu\nu}(x) &= \delta_{\mu\nu} - \frac{2 x_\mu x_\nu}{x^2},\\
+C_J &> 0.
+\end{aligned}
 \label{eq:jj-2pt}
 \end{equation}
 
@@ -2800,7 +2835,7 @@ The claim is the following: in any unitary theory with a nontrivial
 $U(1)$ symmetry, the equal-time commutator of charge density with current
 density \emph{cannot vanish},
 \begin{equation}
-\big[\, J^0(\mathbf{x})\,,\, J^i(\mathbf{y})\,\big]_{\rm equal\ time} \;\ne\; 0,
+\left[ J^0(\mathbf{x}), J^i(\mathbf{y})\right]_{\text{equal time}} \ne 0,
 \end{equation}
 even though the naive canonical computation, in essentially every
 presentation, gives zero. Worse for the naive computation: in $d = 2$ the
@@ -2808,17 +2843,17 @@ nonvanishing piece is a c-number with a \emph{quantized} coefficient.
 
 \emph{The no-go (Schwinger's positivity argument, any $d$).} Suppose the
 commutator vanished. Smear the charge density against a real profile $f$,
-$J^0(f) = \int d^{d-1}x\, f(\mathbf{x})\, J^0(0,\mathbf{x})$, and consider
+$J^0(f) = \int d^{d-1}x\, f(\mathbf{x}) J^0(0,\mathbf{x})$, and consider
 \begin{equation}
-\mathcal{C}_f \;\equiv\;
-\bra{0}\big[\, J^0(f)\,,\, [\, H\,,\, J^0(f)\,]\big]\ket{0}
-\;=\; 2\sum_n E_n\, \big|\bra{n} J^0(f)\ket{0}\big|^2 \;\ge\; 0,
+\mathcal{C}_f \equiv
+\bra{0}\left[ J^0(f), [ H, J^0(f)]\right]\ket{0}
+= 2\sum_n E_n \left|\bra{n} J^0(f)\ket{0}\right|^2 \ge 0,
 \label{eq:schwinger-positivity}
 \end{equation}
 by inserting a complete set of states --- positivity of the energy and of
 norms, doing the work one more time. But current conservation trades the
-inner commutator for the spatial current, $[H, J^0] = -i\,\partial_t J^0 =
-+i\,\partial_i J^i$, so $\mathcal{C}_f$ is built entirely from the equal-time
+inner commutator for the spatial current, $[H, J^0] = -i\partial_t J^0 =
++i\partial_i J^i$, so $\mathcal{C}_f$ is built entirely from the equal-time
 $[J^0, J^i]$ --- which we assumed to vanish. Then \emph{every} state created
 from the vacuum by the charge density has zero amplitude, $J^0(f)\ket{0} = 0$
 for all $f$; and a local operator that annihilates the vacuum annihilates
@@ -2838,32 +2873,32 @@ massless Dirac fermion at level $k = 1$. Conservation plus tracelessness
 split the current into chiral halves; take the right-mover $j(x^-)$, $x^\pm =
 x \pm t$, with Wightman two-point function normalized by the level,
 \begin{equation}
-\bra{0} j(x)\, j(0) \ket{0}
-\;=\; \frac{k}{4\pi^2}\,\frac{1}{(x^- - i\epsilon)^2}\,,
+\bra{0} j(x) j(0) \ket{0}
+= \frac{k}{4\pi^2}\frac{1}{(x^- - i\epsilon)^2},
 \label{eq:jj-2d}
 \end{equation}
 the $i\epsilon$ encoding, as always, the boundary value from the
 positive-energy domain. The equal-time commutator is the jump between the two
 boundary values --- the tool of Example~\ref{ex:free-scalar-2pt}, reused
 verbatim. With the Sokhotski formula $\frac{1}{(x \mp i\epsilon)^2} = -
-\frac{d}{dx}\big(\mathrm{P}\frac1x \pm i\pi\,\delta(x)\big)$,
+\frac{d}{dx}\left(\mathrm{P}\frac1x \pm i\pi\delta(x)\right)$,
 \begin{equation}
-\bra{0}\big[\,j(x)\,,\,j(0)\,\big]\ket{0}\Big|_{t=0}
+\bra{0}\left[j(x),j(0)\right]\ket{0}|_{t=0}
 = \frac{k}{4\pi^2}\left[\frac{1}{(x-i\epsilon)^2} -
 \frac{1}{(x+i\epsilon)^2}\right]
-= -\,\frac{i k}{2\pi}\;\delta'(x).
+= -\frac{i k}{2\pi}\delta'(x).
 \label{eq:schwinger-2d}
 \end{equation}
 For an abelian current algebra the commutator is a pure c-number, so
-\eqref{eq:schwinger-2d} is the full operator statement: $[\,j(x), j(y)\,] =
--\frac{ik}{2\pi}\,\delta'(x-y)$. Assembling $J^0 = j_+ + j_-$, $J^1 = j_+ -
+\eqref{eq:schwinger-2d} is the full operator statement: $[j(x), j(y)] =
+-\frac{ik}{2\pi}\delta'(x-y)$. Assembling $J^0 = j_+ + j_-$, $J^1 = j_+ -
 j_-$ from the two chiralities (the left-mover's central term carries the
-opposite sign) gives the advertised $[J^0(x), J^1(y)] = -\frac{ik}{\pi}\,
+opposite sign) gives the advertised $[J^0(x), J^1(y)] = -\frac{ik}{\pi}
 \delta'(x - y)$, while the charge-density commutator $[J^0, J^0]$ cancels
 between chiralities, as consistency demands. Smear the chiral current into
-charges, $Q_f \equiv \int dx\, f(x)\, j(x)$, and the result reads as algebra:
+charges, $Q_f \equiv \int dx\, f(x) j(x)$, and the result reads as algebra:
 \begin{equation}
-\big[\, Q_f \,,\, Q_g \,\big] \;=\; \frac{ik}{2\pi} \int dx\; f'(x)\, g(x)\,,
+\left[ Q_f , Q_g \right] = \frac{ik}{2\pi} \int dx\, f'(x) g(x),
 \label{eq:central-extension}
 \end{equation}
 antisymmetric under $f \leftrightarrow g$ (integrate by parts) and immune to
@@ -2885,22 +2920,23 @@ produced \eqref{eq:schwinger-2d} --- now mass level by mass level --- one
 finds that the Schwinger term is the \emph{total spectral weight}
 (Schwinger's original form of the result):
 \begin{equation}
-\big[\,J^0(\mathbf{x})\,,\,J^i(\mathbf{y})\,\big]_{\rm equal\ time}
-\;=\; -\,i\,c\;\partial_i\,\delta^{d-1}(\mathbf{x} - \mathbf{y})\,,
-\qquad
-c \;\propto\; \int_0^\infty ds\;\rho_J(s) \;>\;0\,.
+\begin{aligned}
+\left[J^0(\mathbf{x}),J^i(\mathbf{y})\right]_{\text{equal time}}
+&= -ic\partial_i\delta^{d-1}(\mathbf{x} - \mathbf{y}),\\
+c &\propto \int_0^\infty ds\,\rho_J(s) >0.
+\end{aligned}
 \label{eq:schwinger-sum-rule}
 \end{equation}
 Positivity of $\rho_J$ re-derives the no-go at a glance --- a sum of positive
 terms cannot vanish unless every term does, i.e.\ unless the current creates
 nothing from the vacuum. And the integral diagnoses the dimensions:
 dimensional analysis gives the coefficient $c$ mass dimension $d-2$, and
-indeed in a CFT $\rho_J(s) \sim C_J\, s^{(d-4)/2}$, whose integral diverges
+indeed in a CFT $\rho_J(s) \sim C_J s^{(d-4)/2}$, whose integral diverges
 at large $s$ for every $d > 2$ --- there the Schwinger term is
 cutoff-dominated, the famously ``regularization-dependent'' object of the
 1960s literature, physical in origin but not a number you can quote. In
 $d = 2$, and only there, the density of a conserved current is an integrable
-$\rho_J(s) = k\,\delta(s)$ and the sum rule converges: the Schwinger term is
+$\rho_J(s) = k\delta(s)$ and the sum rule converges: the Schwinger term is
 a \emph{pure number}, $k$ --- universal, quantized (for a compact symmetry
 --- Part III.4 derives the integrality), and the first of the exactly known
 coefficients that these notes set out to collect. The reader has, in fact,
@@ -2940,17 +2976,17 @@ restatement of ``the current does not renormalize'': conservation is not a
 property protected by perturbative miracles but a representation-theoretic
 fact about the fixed point --- short multiplets stay short. (The same
 argument with one more index pins $\Delta_T = d$.)
-\hint{For (b), brute force: $\partial^\mu [I_{\mu\nu}(x)\, x^{-2\Delta}] =
-2(\Delta - d + 1)\, x_\nu\, x^{-2\Delta - 2}\cdot(\dots)$.}
+\hint{For (b), brute force: $\partial^\mu [I_{\mu\nu}(x) x^{-2\Delta}] =
+2(\Delta - d + 1) x_\nu x^{-2\Delta - 2}\cdot(\dots)$.}
 \end{exercise}
 
 \begin{exercise}[medium]
 \label{exr:sum-rule}
 (The sum rule, checked where it converges.) (a) In $d = 2$, show that
 conservation and Lorentz invariance force $\langle J_\mu(p) J_\nu(-p)\rangle
-= \big(\delta_{\mu\nu} - \frac{p_\mu p_\nu}{p^2}\big)\,\Pi(p^2)$ with $\Pi$
+= \left(\delta_{\mu\nu} - \frac{p_\mu p_\nu}{p^2}\right)\Pi(p^2)$ with $\Pi$
 \emph{constant} for a CFT current, and that the corresponding spectral
-density is $\rho_J(s) \propto k\,\delta(s)$: the conserved current of a 2d
+density is $\rho_J(s) \propto k\delta(s)$: the conserved current of a 2d
 CFT creates exactly one massless mode. (b) Insert this density into the
 sum rule \eqref{eq:schwinger-sum-rule} and recover the coefficient of
 \eqref{eq:schwinger-2d}, fixing the proportionality constants in your
@@ -3044,11 +3080,11 @@ over the thermal circle. Show: (a) the Euclidean correlator is periodic in
 $\tau$ with period $\beta$; (b) upon continuation to real time, periodicity
 becomes the KMS relation $\langle \op(t)\op(0)\rangle_\beta = \langle
 \op(0)\op(t - i\beta)\rangle_\beta$ --- the thermal replacement for the
-spectral condition, with the strip $-\beta < \mathrm{Im}\, t < 0$ replacing
+spectral condition, with the strip $-\beta < \mathrm{Im} t < 0$ replacing
 the half-plane of Figure~\ref{fig:complex-time}. (Thermal states and KMS
 return in chapter I.4; the algebraic reformulation is a pillar of Part X.)
 \hint{$\sum_{n\in\ints} \frac{1}{r^2 + (\tau + n\beta)^2}$ is summable in
-closed form: $\frac{\pi}{r\beta}\,
+closed form: $\frac{\pi}{r\beta}
 \frac{\sinh(2\pi r/\beta)}{\cosh(2\pi r/\beta) - \cos(2\pi \tau/\beta)}$.
 Check the $\beta\to\infty$ limit.}
 \end{exercise}
@@ -3095,15 +3131,18 @@ queried by the planar reconstruction.}
 single free massless Dirac fermion in $d = 2$ --- the continuum limit of the
 critical Ising-like chains of Part VIII, and the simplest 2d CFT with a
 $U(1)$ symmetry $\psi \to e^{i\alpha}\psi$. In Euclidean complex
-coordinates the chiral component has propagator $\langle \psi(z)\,
+coordinates the chiral component has propagator $\langle \psi(z)
 \psi^\dagger(0)\rangle = \frac{1}{2\pi z}$, and the chiral current is the
-normal-ordered bilinear $j \sim\, :\!\psi^\dagger\psi\!:$ (point-split as in
+normal-ordered bilinear $j \sim {:}\psi^\dagger\psi{:}$ (point-split as in
 \eqref{eq:point-splitting}). Verify by Wick contraction that the $j \times
 j$ OPE is
 \begin{equation*}
-j(z)\, j(0) \;=\; \frac{k}{4\pi^2 z^2}
-\;+\; \big(\text{stress-tensor term}\big) + \cdots,
-\qquad k = 1,
+\begin{aligned}
+j(z) j(0)
+&= \frac{k}{4\pi^2 z^2}
++ \left(\text{stress-tensor term}\right) + \cdots,\\
+k &= 1,
+\end{aligned}
 \end{equation*}
 in any self-consistent normalization (state yours), confirming on this
 example the general claim that $T$ appears in the $JJ$ OPE of a local

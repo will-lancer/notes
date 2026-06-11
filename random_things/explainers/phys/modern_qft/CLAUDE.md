@@ -268,6 +268,31 @@ Other useful macros: `\vocab{term}` for first use of every technical term;
 `\tr`, `\lie{g}`, `\reals/\ints/\complex`; `\incgr{scale}{file}` /
 `\wincgr{frac}{file}` for figures.
 
+## LaTeX source style
+
+Model the math source on Will's paper style in
+`/Users/wlancer/Desktop/Research/Zohar/papers/myPaper/paper.tex`: plain,
+human-written LaTeX, not decorative LLM TeX.
+
+- Prefer `align`/`aligned` when a display has several lines or several
+  related equations. Put `&` on relation signs (`=`, `\leq`, `\coloneqq`) or
+  between grouped equations, as in the reference paper. A single short formula
+  may remain in `equation`.
+- Do not polish formulas with manual spacing commands. Avoid `\;`, `\,`,
+  `\!`, `\quad`, and `\qquad` as visual decoration around equals signs,
+  products, commutators, bras/kets, colons, or punctuation. Let TeX space
+  ordinary math. Use explicit spacing only when it carries a standard semantic
+  convention, such as a thin space before a differential in an integral.
+- Do not use `\big`, `\Big`, `\bigg`, or `\Bigg` for delimiter sizing. Use
+  plain delimiters when they are readable; use paired `\left...\right` when
+  the delimiter must grow.
+- Normal-ordering colons should be written without negative-spacing tricks:
+  use `{:}\phi^2{:}` rather than `:\!\phi^2\!:`.
+- Keep displays visually simple in the source: avoid bracket padding like
+  `\Big[\, ... \,\Big]`, decorative spaces before punctuation, and
+  alignment-by-spacing. If a formula needs visual structure, use line breaks
+  and alignment tabs instead.
+
 ## Conventions
 
 - **Metric signature: mostly-plus, (−,+,+,+). NON-NEGOTIABLE.** Training data
