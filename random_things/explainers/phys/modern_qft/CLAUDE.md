@@ -8,7 +8,7 @@ the session ends.
 
 Lecture notes on the modern point of view on QFT (Seiberg / Shao / Witten /
 Rychkov / Komargodski school). The document opens with the roadmap: an annotated
-TOC of 12 parts / 58 chapters ("the QFT textbook of 2046") plus a library of 61
+TOC of 12 parts / 62 chapters ("the QFT textbook of 2046") plus a library of 61
 papers in `assets/` (indexed in `assets/README.md`). Chapters get written
 incrementally, one per session, into `parts/` (see Repo mechanics for the file
 layout).
@@ -339,7 +339,7 @@ human-written LaTeX, not decorative LLM TeX.
   chapter. Part/chapter numbers are therefore load-bearing prose: any
   renumbering of the TOC requires a grep sweep over `parts/`,
   `frontmatter/roadmap.tex`, `assets/README.md`, and this file. The chapter
-  count ("twelve parts, fifty-eight chapters") is hardcoded in three places:
+  count ("twelve parts, sixty-two chapters") is hardcoded in three places:
   the title page (`modern_qft.tex`), the roadmap premise, and this file.
 - **Gotcha:** william.sty redefines `\v` (bold vectors), which silently breaks
   the háček accent (`\v{c}` in names like Mazáč) with a "\mathbf allowed only in
@@ -351,10 +351,10 @@ human-written LaTeX, not decorative LLM TeX.
 
 | Chapter | Title | Status |
 |---|---|---|
-| TOC | Annotated table of contents (12 parts, 58 ch.) | done 2026-06-09; reorganized 2026-06-10 (duality↔SUSY and scattering↔QI part swaps; new chapters II.2 TQFT, IV.5 resurgence, IV.6 hydrodynamics) |
+| TOC | Annotated table of contents (12 parts, 62 ch.) | done 2026-06-09; reorganized 2026-06-10 (duality↔SUSY and scattering↔QI part swaps; new chapters II.2 TQFT, IV.6 resurgence, IV.7 hydrodynamics after later renumbering); expanded 2026-06-11 (IV.3 broken-symmetry EFT, VI.4 duality polarizations, VIII.4 finite density, IX.1 amplitudes; chapter-number hints refreshed) |
 | I.1 | What is a quantum field theory? | merged and compiled 2026-06-10 |
 | I.2 | Observables I: local operators | rewritten per Will's style notes (Witten register, derivations, definitions, figures) 2026-06-11; I.1 swept for same issues; compiled clean (~44 pp.) |
-| I.3 | Observables II: defects and extended operators | not started |
+| I.3 | Observables II: defects and extended operators | drafted 2026-06-11 (centerpiece: KW disorder line built on the lattice, duality + phases + Kadanoff–Ceva fermion; AST su(2) line lattices; defect-CFT kinematics incl. displacement; defect Hilbert spaces); compiled clean, ~29 pp. (pp. 91–119); awaiting Will's altitude pass. Cited-not-downloaded (plain `\texttt`): 2112.10634, 1610.05780, hep-th/0612073, cond-mat/9505127, hep-th/0501015 — all IDs verified via arXiv API |
 | I.4 | States, geometry, and cutting-and-gluing | not started |
 | I.5 | Presentations, not definitions | not started |
 | I.6 | Theory space and the renormalization group | not started |

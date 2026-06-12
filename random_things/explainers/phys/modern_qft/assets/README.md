@@ -3,7 +3,8 @@
 61 papers backing the TOC in `../modern_qft.tex`. Filenames start with the arXiv
 number (PoS for the one non-arXiv item). ● = lecture notes / review, ○ = foundational
 research paper. Part numbers refer to the parts of the TOC (renumbered 2026-06-10:
-duality is now Part VI, SUSY Part VII, scattering Part IX, quantum info Part X).
+duality is now Part VI, SUSY Part VII, scattering Part IX, quantum info Part X;
+chapter-number hints refreshed 2026-06-11).
 
 ## Framing & history (Premise, Part I, Part XII)
 | File | What it is |
@@ -52,9 +53,9 @@ duality is now Part VI, SUSY Part VII, scattering Part IX, quantum info Part X).
 | `1107.3987` Komargodski–Schwimmer | ○ The a-theorem via the dilaton effective action |
 | `2201.13310` Casini–Huerta | ● Lectures on entanglement in QFT (entropic c/F-theorems) |
 | `1904.13376` Jiang | ● Pedagogical review of TT̄ / solvable irrelevant deformations |
-| `1805.09331` Glorioso–Liu | ● Non-equilibrium EFTs & fluctuating hydrodynamics (ch. IV.6) |
-| `1608.05499` Smirnov–Zamolodchikov | ○ On space of integrable QFTs — the TT̄ deformation (IV.4) |
-| `1511.03646` Crossley–Glorioso–Liu | ○ EFT of dissipative fluids — the Schwinger–Keldysh hydro construction (IV.6) |
+| `1805.09331` Glorioso–Liu | ● Non-equilibrium EFTs & fluctuating hydrodynamics (ch. IV.7) |
+| `1608.05499` Smirnov–Zamolodchikov | ○ On space of integrable QFTs — the TT̄ deformation (IV.5) |
+| `1511.03646` Crossley–Glorioso–Liu | ○ EFT of dissipative fluids — the Schwinger–Keldysh hydro construction (IV.7) |
 
 ## Gauge dynamics & duality (Parts V, VI)
 | File | What it is |
@@ -83,9 +84,9 @@ duality is now Part VI, SUSY Part VII, scattering Part IX, quantum info Part X).
 ## Scattering & UV (Part IX)
 | File | What it is |
 |---|---|
-| `2203.02421` Kruczenski–Penedones–van Rees | ● Snowmass: S-matrix bootstrap |
+| `2203.02421` Kruczenski–Penedones–van Rees | ● Snowmass: S-matrix bootstrap (IX.2) |
 | `hep-th-0602178` Adams et al. | ○ Causality/analyticity IR obstruction (positivity bounds) |
-| `1703.05448` Strominger | ● IR structure of gravity & gauge theory — soft theorems, celestial (IX.3) |
+| `1703.05448` Strominger | ● IR structure of gravity & gauge theory — soft theorems, celestial (IX.4) |
 
 ## Quantum information (Part X)
 | File | What it is |
@@ -101,9 +102,9 @@ duality is now Part VI, SUSY Part VII, scattering Part IX, quantum info Part X).
 | `1608.04948` Penedones | ● TASI lectures on AdS/CFT |
 | `0907.0151` Heemskerk–Penedones–Polchinski–Sully | ○ Holography from CFT |
 | `hep-th-9711200` Maldacena | ○ The large-N limit / AdS/CFT — the founding paper (XI.1–3) |
-| `1503.01409` Maldacena–Shenker–Stanford | ○ A bound on chaos (XI.3, IV.6) |
+| `1503.01409` Maldacena–Shenker–Stanford | ○ A bound on chaos (XI.3, IV.7) |
 
-## Methods (Parts III.6, IV.5)
+## Methods (Parts III.6, IV.6)
 | File | What it is |
 |---|---|
 | `2008.03308` Álvarez-Gaumé–Orlando–Reffert | ● The large quantum number expansion |

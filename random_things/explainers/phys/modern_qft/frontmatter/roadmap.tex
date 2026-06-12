@@ -11,7 +11,7 @@
 
 Every generation's textbook teaches quantum field theory as that generation understood it. The canon of the 1990s--2000s (Peskin--Schroeder, Weinberg) presents QFT as a procedure: start from a classical Lagrangian, quantize, renormalize, expand around free fields. This is how one \emph{computes} in a QFT that happens to be weakly coupled somewhere --- but twenty years of work have made it untenable as a statement of what a QFT \emph{is}. There are interacting theories with no known Lagrangian (the $(2,0)$ theory, most of class $\mathcal{S}$); single theories with several inequivalent Lagrangians (the 2+1d duality web); symmetries invisible in any Lagrangian (non-invertible defects); and lattice models whose continuum limits violate the lore the Lagrangian paradigm is built on (fractons). Meanwhile the most precise determination of the 3d Ising exponents comes not from any Lagrangian manipulation but from unitarity and crossing alone.
 
-\noin The premise of these notes: imagine the standard graduate text of c.~2046, written after this reorganization is complete. What follows is its table of contents --- twelve parts, fifty-eight chapters --- with annotations explaining what each chapter contains, why it sits where it sits, and where to learn the material \emph{today}. It is, deliberately, a reading map of the 2012--2026 formal-QFT literature disguised as front matter. For the prehistory and spirit of this point of view, see Seiberg's essay \href{https://www.ias.edu/sites/default/files/sns/files/QFT.pdf}{\emph{Thoughts About Quantum Field Theory}} and Rychkov's recent history of the bootstrap, \arxiv{2509.02779}.
+\noin The premise of these notes: imagine the standard graduate text of c.~2046, written after this reorganization is complete. What follows is its table of contents --- twelve parts, sixty-two chapters --- with annotations explaining what each chapter contains, why it sits where it sits, and where to learn the material \emph{today}. It is, deliberately, a reading map of the 2012--2026 formal-QFT literature disguised as front matter. For the prehistory and spirit of this point of view, see Seiberg's essay \href{https://www.ias.edu/sites/default/files/sns/files/QFT.pdf}{\emph{Thoughts About Quantum Field Theory}} and Rychkov's recent history of the bootstrap, \arxiv{2509.02779}.
 
 \noin A note on references: hyperlinked arXiv numbers like \arxiv{2308.00747} refer to papers downloaded into \texttt{assets/}; plain typewriter numbers like \texttt{2307.07547} are further reading left on the arXiv.
 
@@ -71,8 +71,8 @@ One theory, many descriptions. The same point in theory space presented as: a La
 \chreading{Poland--Rychkov--Vichi \arxiv{1805.04405} (\S1, the data-centric view); Zhu et al.\ \arxiv{2210.13482} (the same CFT from a Landau level).}
 
 \roadchapter{I.6}{Theory space and the renormalization group}
-Wilson's picture promoted to the book's geography. RG flow on the space of theories; fixed points, relevant/irrelevant/marginal directions as the tangent space; universality as the statement that flows converge; effective field theory as local coordinates; conformal manifolds; lines of fixed points; the questions the rest of the book answers (what is exactly transported along flows? --- Part II; what are the fixed points? --- Part III; which flows are allowed? --- Part IV).
-\chsections{Wilsonian RG without a cutoff fetish; scheme-independence and what is physical; EFT; universality classes; conformal manifolds and exactly marginal deformations.}
+Wilson's picture promoted to the book's geography. RG flow on the space of theories; fixed points, relevant/irrelevant/marginal directions as the tangent space; beta functions, Callan--Symanzik equations, and operator mixing as coordinate expressions of that geometry; universality as the statement that flows converge; effective field theory as local coordinates; conformal manifolds; lines of fixed points; the questions the rest of the book answers (what is exactly transported along flows? --- Part II; what are the fixed points? --- Part III; which flows are allowed? --- Part IV).
+\chsections{Wilsonian RG without a cutoff fetish; scheme-independence and what is physical; beta functions and Callan--Symanzik; local RG and operator mixing; EFT; universality classes; conformal manifolds and exactly marginal deformations.}
 \chreading{Rychkov \arxiv{1601.05000} (ch.\ 1); Casini--Huerta \arxiv{2201.13310} (\S1 for the entropic restatement, used in Part X).}
 
 % =====================================================================
@@ -86,16 +86,16 @@ Noether's theorem, run backwards: a symmetry \emph{is} a topological codimension
 \chreading{Gaiotto et al.\ \arxiv{1412.5148} (\S1--2); Shao \arxiv{2308.00747} (ch.\ 1); Iqbal \arxiv{2407.20815} (gentlest entry).}
 
 \roadchapter{II.2}{Topological field theory: the minimal examples}
-The auxiliary device the modern subject runs on, built honestly before it is everywhere assumed: theories with no local degrees of freedom, whose observables depend only on topology. Finite-group gauge theory (Dijkgraaf--Witten) done completely on a lattice --- finite-dimensional Hilbert spaces, partition functions that count; $\mathbb{Z}_N$ BF theory as its continuum presentation; abelian Chern--Simons and ground-state degeneracy on the torus; invertible theories, the carriers of anomaly (II.3) and SPT order. The point is not topology for its own sake: TQFTs are the bookkeeping for anomaly inflow, for the SymTFT (II.6), and for gapped phases (II.8), and the reader who can compute in $\mathbb{Z}_N$ gauge theory owns most of the toolkit.
-\chsections{what ``topological'' means and buys; finite-group gauge theory on the lattice; $\mathbb{Z}_N$ BF theory; abelian Chern--Simons; ground-state degeneracy as an observable; invertible theories and SPT phases.}
+The auxiliary device the modern subject runs on, built honestly before it is everywhere assumed: theories with no local degrees of freedom, whose observables depend only on topology. Finite-group gauge theory (Dijkgraaf--Witten) done completely on a lattice --- finite-dimensional Hilbert spaces, partition functions that count; $\mathbb{Z}_N$ BF theory as its continuum presentation; abelian Chern--Simons and ground-state degeneracy on the torus; spin TQFTs and invertible theories, the carriers of anomaly (II.3) and SPT order. The point is not topology for its own sake: TQFTs are the bookkeeping for anomaly inflow, for the SymTFT (II.6), and for gapped phases (II.8), and the reader who can compute in $\mathbb{Z}_N$ gauge theory owns most of the toolkit.
+\chsections{what ``topological'' means and buys; finite-group gauge theory on the lattice; $\mathbb{Z}_N$ BF theory; abelian Chern--Simons; spin TQFTs; ground-state degeneracy as an observable; invertible theories and SPT phases.}
 \chreading{Dunne \arxiv{hep-th/9902115} (Chern--Simons, thorough); Shao \arxiv{2308.00747} ($\mathbb{Z}_N$ gauge theory worked in detail).}
 \chfurther{Dijkgraaf--Witten, \emph{Commun.\ Math.\ Phys.}\ \textbf{129} (1990) 393; Moore--Segal (\texttt{hep-th/0609042}) for 2d TQFT; Freed (\texttt{1406.7278}) for invertible theories.}
 
 \roadchapter{II.3}{Gauging and 't Hooft anomalies}
-Gauging as summing over backgrounds; 't~Hooft anomalies as the obstructions to doing so, and anomaly \emph{matching} as the resulting exact RG invariant --- the sharpest nonperturbative tool in the subject. Anomaly inflow: anomalies of a $d$-dimensional theory are classified by the invertible/SPT phases of chapter II.2 in $d+1$ dimensions. Perturbative (chiral) and global (parity, time-reversal, discrete) anomalies in one framework.
-\chsections{gauging finite and continuous symmetries; 't Hooft's argument; inflow and the bulk-boundary picture; SPT phases and the cobordism classification (sketch); discrete anomalies; examples from QCD to the honeycomb lattice.}
+Gauging as summing over backgrounds; 't~Hooft anomalies as the obstructions to doing so, and anomaly \emph{matching} as the resulting exact RG invariant --- the sharpest nonperturbative tool in the subject. Anomaly inflow: anomalies of a $d$-dimensional theory are classified by the invertible/SPT phases of chapter II.2 in $d+1$ dimensions. Perturbative chiral anomalies, global anomalies, parity and time-reversal anomalies, mixed gauge-gravitational anomalies, and the spin/Pin structures needed to state fermionic theories all appear in one framework.
+\chsections{gauging finite and continuous symmetries; 't Hooft's argument; inflow and the bulk-boundary picture; fermion parity and spin/Pin backgrounds; SPT phases and the cobordism classification (sketch); discrete, global, and mixed gravitational anomalies; examples from QCD to the honeycomb lattice.}
 \chreading{Shao \arxiv{2308.00747}; Sch\"afer-Nameki \arxiv{2305.18296}; C\'ordova et al.\ \arxiv{2205.09545} (panorama with full bibliography).}
-\chfurther{Witten--Yonekura (\texttt{1909.08775}) for $\eta$-invariants and the deepest version of inflow.}
+\chfurther{Witten--Yonekura (\texttt{1909.08775}) for $\eta$-invariants and the deepest version of inflow; Delmastro--Gaiotto--Gomis (\texttt{2101.02218}) for global anomalies on Hilbert spaces and spin TQFT data.}
 
 \roadchapter{II.4}{Higher-form symmetries and the global structure of gauge theories}
 Symmetries whose charged objects are extended: one-form symmetries acting on lines, etc. Maxwell theory's electric and magnetic one-form symmetries; the center symmetry of Yang--Mills, with confinement reborn as unbroken one-form symmetry (the Landau paradigm regained for gauge theories); $SU(N)$ vs.\ $SU(N)/\mathbb{Z}_N$ and discrete $\theta$-parameters --- the global structure that correlators of local operators cannot see; two-groups and symmetry fusion across dimensions.
@@ -180,23 +180,28 @@ The modern toolkit applied to the question ``what happens at long distances?'': 
 \chreading{Gaiotto--Kapustin--Komargodski--Seiberg \arxiv{1703.00501}; C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545} (\S applications).}
 \chfurther{Komargodski--Ohmori--Roumpedakis--Seifnashri (\texttt{2008.07567}) for adjoint QCD$_2$ done with full modern machinery.}
 
-\roadchapter{IV.3}{The edge of criticality}
+\roadchapter{IV.3}{Effective field theory of broken symmetries}
+The most useful IR coordinates are often not fields in the UV Lagrangian but Goldstone modes and background responses. Goldstone's theorem and the coset construction; nonlinear sigma models; Wess--Zumino and WZW terms as anomaly matching written in an action; chiral perturbation theory and pions; phonons, superfluids, and spacetime-symmetry breaking; SMEFT as the symmetry-compatible deformation of the Standard Model. This is the bridge between the exact constraints of IV.2 and the practical EFTs used in Parts V and IX.
+\chsections{Goldstone theorem; cosets and inverse Higgs; sigma models; WZ/WZW terms and anomalies; chiral perturbation theory; spacetime symmetry breaking; SMEFT.}
+\chreading{Naegels (\texttt{2110.14504}) for Goldstone bosons and cosets; Weinberg, \emph{The Quantum Theory of Fields II}, for the durable EFT viewpoint.}
+
+\roadchapter{IV.4}{The edge of criticality}
 Fixed points are born, collide, and annihilate: merger of fixed points and the loss of conformality; complex CFTs and walking behavior; weakly first-order transitions masquerading as second-order; conformal windows of gauge theories. The RG as a dynamical system, with theory space's bifurcations as physics.
 \chsections{fixed-point annihilation; complex CFTs; walking; conformal windows; dangerously irrelevant operators; diagnostics in practice.}
 \chreading{Rychkov--Su \arxiv{2311.15844} (\S on conformal windows); Gorbenko--Rychkov--Zan (\texttt{1807.11512}, \texttt{1808.04380}).}
 
-\roadchapter{IV.4}{Solvable deformations and the integrable corner}
+\roadchapter{IV.5}{Solvable deformations and the integrable corner}
 Flows we can follow exactly. Integrable deformations of 2d theories; the $T\bar{T}$ deformation: irrelevant yet solvable, with a universal energy-level flow and a UV that is not a fixed point --- the cleanest known counterexample to ``irrelevant means uncontrollable,'' and a glimpse of physics beyond Wilsonian QFT (resumed in Part XII).
 \chsections{integrable flows; $T\bar T$: definition, Burgers equation for spectra, interpretations; what replaces the UV fixed point; cousins ($J\bar T$ etc.).}
 \chreading{Smirnov--Zamolodchikov \arxiv{1608.05499}; Jiang \arxiv{1904.13376} (pedagogical).}
 
-\roadchapter{IV.5}{What perturbation theory means}
+\roadchapter{IV.6}{What perturbation theory means}
 The expansion everyone computes with, finally given a status report. Dyson's argument and the factorial divergence of perturbation series; Borel summation and its ambiguities; instantons --- and, in genuine QFTs, renormalons --- as the singularities in the Borel plane; the resurgent trans-series as the conjectured true expansion, in which the series around each saddle encodes, through the structure of its divergence, the contributions of all the others; Lefschetz thimbles as the geometry beneath. Sets the expectations for every ``weak-coupling'' statement in the book: a divergent series is the beginning of a theory, not the end of one.
 \chsections{Dyson's argument; large-order growth; Borel summation and its ambiguities; instantons and renormalons; trans-series and resurgence; Lefschetz thimbles; what is proven, and where.}
 \chreading{Aniceto--Ba\c{s}ar--Schiappa \arxiv{1802.10441} (the primer).}
 \chfurther{Dunne--\"Unsal (\texttt{1511.05977}); Mari\~no, \emph{Instantons and Large $N$} (book-length).}
 
-\roadchapter{IV.6}{Hydrodynamics: the effective theory of thermal states}
+\roadchapter{IV.7}{Hydrodynamics: the effective theory of thermal states}
 Effective field theory applied to a state instead of a vacuum: the universal long-distance description of any QFT at finite temperature is hydrodynamics, and the 2010s finally made that an honest EFT. Thermal states and KMS (from I.4) as input; the gradient expansion of conserved-current dynamics; the Schwinger--Keldysh doubling and effective actions for dissipation; fluctuations and long-time tails as the loop corrections; magnetohydrodynamics rebuilt as the hydrodynamics of a one-form symmetry --- Part II paying off at finite temperature; bounds on transport and a first look at chaos (taken up in Part XI).
 \chsections{KMS and thermal correlators; the gradient expansion; Schwinger--Keldysh EFT and dissipation from an action; long-time tails; one-form-symmetry hydrodynamics (MHD); bounds on transport.}
 \chreading{Glorioso--Liu \arxiv{1805.09331}; Iqbal \arxiv{2407.20815} (\S on MHD).}
@@ -228,8 +233,8 @@ Where strong coupling is tame enough to dissect: the Schwinger model as the exac
 \chreading{Komargodski--Ohmori--Roumpedakis--Seifnashri (\texttt{2008.07567}); Seiberg--Senthil--Wang--Witten \arxiv{1606.01989} (3d).}
 
 \roadchapter{V.5}{The Standard Model through modern eyes}
-The SM as a case study in everything above: the global form of its gauge group and the line operators that distinguish the candidates; its higher-form and non-invertible symmetries ($B-L$, the axial $U(1)$); anomaly-based exact statements relevant to phenomenology; naturalness questions restated symmetry-first.
-\chsections{which SM? (global structures); magnetic lines and completeness; non-invertible symmetries of the SM; pions from anomaly matching; what is and is not explained.}
+The SM as a case study in everything above: anomaly cancellation and what would fail without it; the global form of its gauge group and the line operators that distinguish the candidates; its accidental, higher-form, and non-invertible symmetries ($B-L$, the axial $U(1)$); pions and WZW terms from anomaly matching; neutrino masses, SMEFT, and naturalness questions restated symmetry-first.
+\chsections{which SM? (global structures); anomaly cancellation and mixed gravitational anomalies; magnetic lines and completeness; accidental and non-invertible symmetries of the SM; pions and WZW terms from anomaly matching; neutrino masses, SMEFT, and what is not explained.}
 \chreading{C\'ordova--Dumitrescu--Intriligator--Shao \arxiv{2205.09545} (\S SM); Choi et al.\ (\texttt{2205.05086}); C\'ordova--Ohmori (\texttt{2205.06243}).}
 
 % =====================================================================
@@ -251,6 +256,11 @@ Bosonization in three dimensions: particle--vortex duality old and new, fermion-
 The mechanism beneath the webs: dualities generated by gauging discrete symmetries (orbifolding), with Kramers--Wannier as the original example; self-duality producing non-invertible symmetry (Part II.5 closed into a loop); the SymTFT of II.6 as the bookkeeping that makes whole duality webs one picture.
 \chsections{gauging $\mathbb{Z}_2$ in 2d done three ways; orbifolds; self-duality $\Rightarrow$ duality defects; webs from the SymTFT sandwich.}
 \chreading{Kapustin--Seiberg \arxiv{1401.0740}; Choi--C\'ordova--Hsin--Lam--Shao \arxiv{2111.01139}; Shao \arxiv{2308.00747} (\S KW).}
+
+\roadchapter{VI.4}{Duality as change of polarization}
+Electric--magnetic duality, T-duality, mirror symmetry, and S-duality as changes in which variables, charges, and defects are treated as elementary. Charge lattices, Dirac pairings, line operators, and boundary conditions are the invariant data; compactification turns one duality into another; duality groups act on backgrounds as well as dynamical fields. This chapter ties the 2+1d web to Seiberg--Witten theory, class $\mathcal{S}$, and the holographic dictionaries of Part XI.
+\chsections{electric--magnetic duality and charge lattices; T-duality and compactification; mirror symmetry; S-duality and line operators; boundary conditions as polarizations; duality groups acting on backgrounds.}
+\chreading{Tachikawa \arxiv{1312.2684}; Gaiotto \arxiv{0904.2715}; Kapustin--Seiberg \arxiv{1401.0740}.}
 
 % =====================================================================
 \roadpart{VII}{Exactly Solvable Corners: Supersymmetry and Friends}
@@ -302,12 +312,17 @@ LSM-type theorems --- lattice systems forbidden from having trivially gapped gro
 \chsections{LSM classically; the anomaly interpretation; filling constraints and Luttinger; non-invertible LSM; applications to spin chains and beyond.}
 \chreading{Cheng--Seiberg \arxiv{2211.12543}; Seiberg--Seifnashri--Shao \arxiv{2401.12281}.}
 
-\roadchapter{VIII.4}{Exotica: fractons and UV/IR mixing}
+\roadchapter{VIII.4}{Finite density and Fermi surfaces}
+Most gapless quantum matter is not a CFT. The Fermi liquid as a fixed point with a codimension-one manifold of gapless modes; patch EFT and the RG around a Fermi surface; Luttinger's theorem as anomaly matching; emergent symmetries acting separately on each patch; non-Fermi liquids from Fermi surfaces coupled to gauge fields; Lifshitz and other nonrelativistic scalings as local QFTs outside the relativistic axiom templates.
+\chsections{finite density as a deformation; Fermi liquid fixed points; patch RG; Fermi-surface anomalies and Luttinger; non-Fermi liquids and gauge fields; Lifshitz/nonrelativistic scaling.}
+\chreading{Shankar, \emph{Rev.\ Mod.\ Phys.}\ \textbf{66} (1994) 129; Ma--Wang (\texttt{2110.09492}); Wang--Hickey--Ying--Burkov (\texttt{2110.10692}).}
+
+\roadchapter{VIII.5}{Exotica: fractons and UV/IR mixing}
 The systems that break the continuum lore: fracton models with subsystem symmetries, restricted mobility, and ground-state degeneracies that depend on the lattice size --- continuum limits in which discontinuous field configurations dominate and rotation invariance never returns. What, exactly, must be relaxed in the axioms; the modified Villain construction as the bridge.
 \chsections{the X-cube and friends; subsystem symmetry; UV/IR mixing; continuum descriptions with discontinuous fields; modified Villain lattices; what fractons teach about ``QFT''.}
 \chreading{Seiberg--Shao (\texttt{2003.10466}); Gorantla--Lam--Seiberg--Shao (\texttt{2103.01257}); both summarized in C\'ordova et al.\ \arxiv{2205.09545}.}
 
-\roadchapter{VIII.5}{Rigor: constructive QFT and triviality}
+\roadchapter{VIII.6}{Rigor: constructive QFT and triviality}
 What mathematics actually knows: constructive successes in $d=2,3$; the Aizenman--Duminil-Copin theorem that $\phi^4_4$ and 4d Ising have (marginally) trivial scaling limits --- a rigorous statement about the Standard Model's scalar sector; Yang--Mills existence as a Millennium problem; chiral fermions on the lattice as the deepest unsolved regulator problem.
 \chsections{what has been constructed; triviality in $d=4$ and its meaning; the YM problem stated honestly; Nielsen--Ninomiya and chiral lattice fermions; rigorous bootstrap bounds as a new kind of rigor.}
 \chreading{Aizenman--Duminil-Copin \arxiv{1912.07973}; Dedushenko \arxiv{2203.08053}.}
@@ -315,21 +330,26 @@ What mathematics actually knows: constructive successes in $d=2,3$; the Aizenman
 % =====================================================================
 \roadpart{IX}{Scattering, the UV, and the Space of Consistent Theories}
 
-\noin \emph{The S-matrix program, reborn as a bootstrap: carve out the space of consistent theories from unitarity, analyticity, and crossing --- in flat space this time.}
+\noin \emph{The on-shell program and the S-matrix bootstrap: carve out the space of consistent theories from locality, unitarity, analyticity, and crossing --- in flat space this time.}
 
-\roadchapter{IX.1}{The S-matrix bootstrap}
-The 1960s program with 2020s technology: nonperturbative two-to-two amplitudes constrained by unitarity + analyticity + crossing, explored numerically (primal and dual); pion physics as a target; QFT in AdS as the regulator connecting the S-matrix bootstrap to the conformal bootstrap of Part III.
-\chsections{axioms for amplitudes; numerical primal/dual methods; the pion bootstrap; QFT in AdS; relation to the conformal bootstrap.}
+\roadchapter{IX.1}{Modern amplitudes}
+The computational revolution that replaced Feynman diagrams as the native language of scattering: spinor-helicity variables, on-shell recursion, generalized unitarity, color--kinematics duality and the double copy, positive geometry where it exists. The moral is the same as elsewhere in the book: locality and unitarity leave sharper fingerprints on observables than on Lagrangians.
+\chsections{spinor-helicity and little group; BCFW recursion; generalized unitarity; color--kinematics and double copy; amplitudes in EFT; positive geometries and their limits.}
+\chreading{Elvang--Huang, \emph{Scattering Amplitudes in Gauge Theory and Gravity}; Bern et al.\ (\texttt{2203.13013}) for color--kinematics and double copy.}
+
+\roadchapter{IX.2}{The S-matrix bootstrap}
+The 1960s program with 2020s technology: first, when a flat-space S-matrix is an observable at all (mass gap, asymptotic states, massless IR sectors and inclusive observables); then nonperturbative two-to-two amplitudes constrained by unitarity + analyticity + crossing, explored numerically (primal and dual); pion physics as a target; QFT in AdS as the regulator connecting the S-matrix bootstrap to the conformal bootstrap of Part III.
+\chsections{when the S-matrix exists; massless IR and inclusive observables; axioms for amplitudes; numerical primal/dual methods; the pion bootstrap; QFT in AdS; relation to the conformal bootstrap.}
 \chreading{Kruczenski--Penedones--van~Rees \arxiv{2203.02421}; Paulos et al.\ (\texttt{1607.06109}).}
 
-\roadchapter{IX.2}{Positivity and the UV--IR connection}
+\roadchapter{IX.3}{Positivity and the UV--IR connection}
 Which low-energy EFTs admit any UV completion at all: dispersion relations, positivity of forward amplitudes, the classic IR obstruction (Adams et al.), and the modern sharpening into two-sided bounds and the EFT-hedron geometry of Wilson coefficients --- the ``swampland program'' of pure QFT, with experimental teeth.
 \chsections{dispersion relations; forward positivity; two-sided bounds; the EFT-hedron; causality constraints; applications from gravity to particle physics.}
 \chreading{Adams et al.\ \arxiv{hep-th/0602178}; de Rham et al.\ (\texttt{2203.06805}); Arkani-Hamed--Huang--Huang (\texttt{2012.15849}).}
 
-\roadchapter{IX.3}{Toward flat-space holography}
-The frontier chapter: soft theorems reorganized as symmetries of the S-matrix; celestial and Carrollian proposals for a holographic description of flat space; what is established, what is aspirational, and what the S-matrix bootstrap says either way.
-\chsections{soft theorems as Ward identities; celestial sphere kinematics; status report, written skeptically.}
+\roadchapter{IX.4}{Toward flat-space holography}
+The frontier chapter: soft theorems reorganized as symmetries of the S-matrix; memory effects and the IR triangle; celestial and Carrollian proposals for a holographic description of flat space; what is established, what is aspirational, and what the S-matrix bootstrap says either way.
+\chsections{soft theorems as Ward identities; memory and asymptotic symmetries; celestial sphere kinematics; Carrollian proposals; status report, written skeptically.}
 \chreading{Kruczenski--Penedones--van~Rees \arxiv{2203.02421} (\S outlook); Strominger \arxiv{1703.05448}, the lectures.}
 
 % =====================================================================
@@ -343,8 +363,8 @@ Entanglement entropy of regions: UV divergences and what is universal; replica t
 \chreading{Casini--Huerta \arxiv{2201.13310}; Witten \arxiv{1803.04993}.}
 
 \roadchapter{X.2}{The algebraic viewpoint}
-Why regions of a QFT have no density matrices: local algebras, Type III, and the failure of factorization --- stated as physics, not pathology; Tomita--Takesaki modular theory and what modular flow means (Bisognano--Wichmann: it is a boost); the type classification as a physical classification of how systems entangle.
-\chsections{algebras instead of tensor factors; Types I/II/III with physical fingerprints; modular flow; Bisognano--Wichmann; half-sided modular inclusions (a glimpse).}
+Why regions of a QFT have no density matrices: local algebras, Type III, and the failure of factorization --- stated as physics, not pathology; the split property as the controlled approximation to tensor factorization; Tomita--Takesaki modular theory and what modular flow means (Bisognano--Wichmann: it is a boost); the type classification as a physical classification of how systems entangle.
+\chsections{algebras instead of tensor factors; Types I/II/III with physical fingerprints; the split property; modular flow; Bisognano--Wichmann; half-sided modular inclusions (a glimpse).}
 \chreading{Witten \arxiv{1803.04993}; Sorce \arxiv{2302.01958}; Liu \arxiv{2510.07017} (lectures, with the gravity payoff).}
 
 \roadchapter{X.3}{Information-theoretic theorems}
@@ -511,7 +531,7 @@ A concrete list, stated so that progress is checkable: (1)~Yang--Mills existence
 \item[$\circ$] Maldacena--Shenker--Stanford, \emph{A Bound on Chaos}, \arxiv{1503.01409}
 \end{itemize}
 
-\subsection*{Methods (Parts III.6, IV.5)}
+\subsection*{Methods (Parts III.6, IV.6)}
 \begin{itemize}
 \item[$\bullet$] \'Alvarez-Gaum\'e--Orlando--Reffert, \emph{The Large Quantum Number Expansion}, \arxiv{2008.03308}
 \item[$\bullet$] Aniceto--Ba\c{s}ar--Schiappa, \emph{A Primer on Resurgent Transseries}, \arxiv{1802.10441}
